@@ -1,0 +1,10 @@
+- @file_diffs.each do |file_diff|
+  %h2= file_diff.file_path
+  %pre
+    %code.diff
+      = file_diff.text
+
+= stylesheet_link_tag 'hljs/github.css'
+= javascript_include_tag 'hljs/highlight.js'
+:javascript
+  hljs.initHighlightingOnLoad();

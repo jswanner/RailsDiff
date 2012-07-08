@@ -1,0 +1,8 @@
+development: &defaults
+  adapter: postgresql
+  database: rails_diff_development
+  min_messages: WARNING
+
+test:
+  <<: *defaults
+  database: rails_diff_test
