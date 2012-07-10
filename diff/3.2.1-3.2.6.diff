@@ -1,0 +1,91 @@
+diff --git a/Gemfile b/Gemfile
+index 293cb17..0ace91f 100644
+--- a/Gemfile
++++ b/Gemfile
+@@ -1,6 +1,6 @@
+ source 'https://rubygems.org'
+ 
+-gem 'rails', '3.2.1'
++gem 'rails', '3.2.6'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails', :git => 'git://github.com/rails/rails.git'
+@@ -15,7 +15,7 @@ group :assets do
+   gem 'coffee-rails', '~> 3.2.1'
+ 
+   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+-  # gem 'therubyracer'
++  # gem 'therubyracer', :platforms => :ruby
+ 
+   gem 'uglifier', '>= 1.0.3'
+ end
+@@ -28,11 +28,11 @@ gem 'jquery-rails'
+ # To use Jbuilder templates for JSON
+ # gem 'jbuilder'
+ 
+-# Use unicorn as the web server
++# Use unicorn as the app server
+ # gem 'unicorn'
+ 
+ # Deploy with Capistrano
+ # gem 'capistrano'
+ 
+ # To use debugger
+-# gem 'ruby-debug19', :require => 'ruby-debug'
++# gem 'debugger'
+diff --git a/app/assets/stylesheets/application.css b/app/assets/stylesheets/application.css
+index 3b5cc66..3192ec8 100644
+--- a/app/assets/stylesheets/application.css
++++ b/app/assets/stylesheets/application.css
+@@ -10,4 +10,4 @@
+  *
+  *= require_self
+  *= require_tree .
+-*/
++ */
+diff --git a/config/application.rb b/config/application.rb
+index 8c0ebed..a4238d1 100644
+--- a/config/application.rb
++++ b/config/application.rb
+@@ -39,6 +39,9 @@ module App
+     # Configure sensitive parameters which will be filtered from the log file.
+     config.filter_parameters += [:password]
+ 
++    # Enable escaping HTML in JSON.
++    config.active_support.escape_html_entities_in_json = true
++
+     # Use SQL instead of Active Record's schema dumper when creating the database.
+     # This is necessary if your schema can't be completely dumped by the schema dumper,
+     # like if you have constraints or database-specific column types
+@@ -48,7 +51,7 @@ module App
+     # This will create an empty whitelist of attributes available for mass-assignment for all models
+     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
+     # parameters by using an attr_accessible or attr_protected declaration.
+-    # config.active_record.whitelist_attributes = true
++    config.active_record.whitelist_attributes = true
+ 
+     # Enable the asset pipeline
+     config.assets.enabled = true
+diff --git a/config/environments/production.rb b/config/environments/production.rb
+index d0f33dc..626e80d 100644
+--- a/config/environments/production.rb
++++ b/config/environments/production.rb
+@@ -20,7 +20,7 @@ App::Application.configure do
+   # Generate digests for assets URLs
+   config.assets.digest = true
+ 
+-  # Defaults to Rails.root.join("public/assets")
++  # Defaults to nil and saved in location specified by config.assets.prefix
+   # config.assets.manifest = YOUR_PATH
+ 
+   # Specifies the header that your server uses for sending files
+diff --git a/config/initializers/secret_token.rb b/config/initializers/secret_token.rb
+index 297dd0e..b7a63f3 100644
+--- a/config/initializers/secret_token.rb
++++ b/config/initializers/secret_token.rb
+@@ -4,4 +4,4 @@
+ # If you change this key, all old signed cookies will become invalid!
+ # Make sure the secret is at least 30 characters and all random,
+ # no regular words or you'll be exposed to dictionary attacks.
+-App::Application.config.secret_token = 'cf69097bceca60c9403661804bc4a0fc3ede63c54a76a6bd32a1dfceeb1dccaa61e4bf76d3f2844a843f02df91709943755da369bc820b6b5501de8e99724e18'
++App::Application.config.secret_token = '62aae892746c9ad86c9dacd7da144aa33d6da2e596693b3eacd446335ae50bdeba3c7a8d529c090da70ae789cec7baa81b8ae577f00a9fbe6576953102ccfae1'

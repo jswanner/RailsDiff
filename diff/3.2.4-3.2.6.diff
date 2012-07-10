@@ -1,0 +1,31 @@
+diff --git a/Gemfile b/Gemfile
+index 267f7bb..0ace91f 100644
+--- a/Gemfile
++++ b/Gemfile
+@@ -1,6 +1,6 @@
+ source 'https://rubygems.org'
+ 
+-gem 'rails', '3.2.4'
++gem 'rails', '3.2.6'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails', :git => 'git://github.com/rails/rails.git'
+@@ -15,7 +15,7 @@ group :assets do
+   gem 'coffee-rails', '~> 3.2.1'
+ 
+   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+-  # gem 'therubyracer', :platform => :ruby
++  # gem 'therubyracer', :platforms => :ruby
+ 
+   gem 'uglifier', '>= 1.0.3'
+ end
+diff --git a/config/initializers/secret_token.rb b/config/initializers/secret_token.rb
+index 6fa3705..b7a63f3 100644
+--- a/config/initializers/secret_token.rb
++++ b/config/initializers/secret_token.rb
+@@ -4,4 +4,4 @@
+ # If you change this key, all old signed cookies will become invalid!
+ # Make sure the secret is at least 30 characters and all random,
+ # no regular words or you'll be exposed to dictionary attacks.
+-App::Application.config.secret_token = '89b48ef4e01b273feb5f4431d47793f6e96dc63d65b9bd87d8d0098982490f42cb1e66c5dc0253ce3ca6fd25d9fb0b2f76e65fe5947c80af235cfdc1ad966aea'
++App::Application.config.secret_token = '62aae892746c9ad86c9dacd7da144aa33d6da2e596693b3eacd446335ae50bdeba3c7a8d529c090da70ae789cec7baa81b8ae577f00a9fbe6576953102ccfae1'

@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require 'rails_diff/diff_splitter'
+require 'diff_splitter'
 
 describe RailsDiff::DiffSplitter do
   let(:diff_splitter) { described_class.new diff }
