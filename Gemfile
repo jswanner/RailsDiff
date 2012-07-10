@@ -6,6 +6,7 @@ gem 'haml-rails'
 gem 'pg'
 
 group :development, :test do
+  gem 'debugger'
   gem 'rspec-rails'
 end
 
@@ -16,5 +17,3 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-gem 'debugger'
