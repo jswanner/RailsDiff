@@ -1,6 +1,6 @@
 class DiffsController < ApplicationController
   def show
-    diff = Diff.where(source: params[:source], target: params[:target]).first
+    diff = Diff.where(source: params[:source], target: params[:target]).first!
     @file_diffs = diff.file_diffs.order(:file_path)
   end
 
