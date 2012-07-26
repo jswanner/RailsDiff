@@ -5,7 +5,7 @@ require 'diff_splitter'
 describe RailsDiff::DiffSplitter do
   let(:diff_splitter) { described_class.new diff }
   let(:diff) { <<-END
-diff --git a/Gemfile b/Gemfile
+diff -ur tmp/generated/v3.1.1/railsdiff/Gemfile tmp/generated/v3.2.6/railsdiff/Gemfile
 index 0a5b233..0ace91f 100644
 --- a/Gemfile
 +++ b/Gemfile
@@ -19,7 +19,7 @@ index 0a5b233..0ace91f 100644
 -  gem 'coffee-rails', '~> 3.1.1'
 +  gem 'sass-rails',   '~> 3.2.3'
 +  gem 'coffee-rails', '~> 3.2.1'
-diff --git a/config/routes.rb b/config/routes.rb
+diff -ur tmp/generated/v3.1.1/railsdiff/config/routes.rb tmp/generated/v3.2.6/railsdiff/config/routes.rb
 index 2c8e7db..f01137d 100644
 --- a/config/routes.rb
 +++ b/config/routes.rb

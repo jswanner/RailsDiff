@@ -10,8 +10,8 @@ module RailsDiff
     def split
       file_path = nil
       lines.inject({}) do |diffs, line|
-        if line =~ /^diff/ and match = line.match(/b\/(?<file_path>.+)$/)
-          file_path = match[:file_path]
+        if line =~ /^diff/ and match = line.match(/railsdiff\/(?<path>[^ ]+)$/)
+          file_path = match[:path].strip
           diffs[file_path] = ''
         elsif !diffs[file_path].empty? || line =~ /^@/
           diffs[file_path] << line
