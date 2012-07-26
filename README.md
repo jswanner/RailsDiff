@@ -1,8 +1,23 @@
 # RailsDiff
 
-## Seed data
-To load diffs into local environment, run the following command:
+## TODO:
+
+1. Have rake tasks to generate diffs.
+2. Style landing page.
+
+## To run the application locally
 
 ```sh
-rake diff:seed
+jekyll
 ```
+
+Open browser to `http://localhost:8080/`.
+
+### To generate diff files and html
+
+```sh
+rake gen_diffs
+```
+
+This will only generate files that are missing, if you want to
+regenerate a file, `rm` it first.

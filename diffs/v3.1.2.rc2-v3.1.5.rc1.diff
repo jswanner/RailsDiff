@@ -1,0 +1,25 @@
+diff -ur tmp/generated/v3.1.2.rc2/railsdiff/Gemfile tmp/generated/v3.1.5.rc1/railsdiff/Gemfile
+--- tmp/generated/v3.1.2.rc2/railsdiff/Gemfile	2012-07-26 10:43:30.000000000 -0400
++++ tmp/generated/v3.1.5.rc1/railsdiff/Gemfile	2012-07-26 10:43:42.000000000 -0400
+@@ -1,6 +1,6 @@
+ source 'http://rubygems.org'
+ 
+-gem 'rails', '3.1.2.rc2'
++gem 'rails', '3.1.5.rc1'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails',     :git => 'git://github.com/rails/rails.git'
+@@ -11,8 +11,12 @@
+ # Gems used only for assets and not required
+ # in production environments by default.
+ group :assets do
+-  gem 'sass-rails',   '~> 3.1.5.rc.2'
++  gem 'sass-rails',   '~> 3.1.5'
+   gem 'coffee-rails', '~> 3.1.1'
++
++  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
++  # gem 'therubyracer'
++
+   gem 'uglifier', '>= 1.0.3'
+ end
+ 
