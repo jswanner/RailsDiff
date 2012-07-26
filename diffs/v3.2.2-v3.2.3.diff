@@ -1,0 +1,32 @@
+diff -ur tmp/generated/v3.2.2/railsdiff/Gemfile tmp/generated/v3.2.3/railsdiff/Gemfile
+--- tmp/generated/v3.2.2/railsdiff/Gemfile	2012-07-26 10:43:56.000000000 -0400
++++ tmp/generated/v3.2.3/railsdiff/Gemfile	2012-07-26 10:43:59.000000000 -0400
+@@ -1,6 +1,6 @@
+ source 'https://rubygems.org'
+ 
+-gem 'rails', '3.2.2'
++gem 'rails', '3.2.3'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails', :git => 'git://github.com/rails/rails.git'
+@@ -15,7 +15,7 @@
+   gem 'coffee-rails', '~> 3.2.1'
+ 
+   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+-  # gem 'therubyracer'
++  # gem 'therubyracer', :platform => :ruby
+ 
+   gem 'uglifier', '>= 1.0.3'
+ end
+diff -ur tmp/generated/v3.2.2/railsdiff/config/application.rb tmp/generated/v3.2.3/railsdiff/config/application.rb
+--- tmp/generated/v3.2.2/railsdiff/config/application.rb	2012-07-26 10:43:56.000000000 -0400
++++ tmp/generated/v3.2.3/railsdiff/config/application.rb	2012-07-26 10:43:59.000000000 -0400
+@@ -48,7 +48,7 @@
+     # This will create an empty whitelist of attributes available for mass-assignment for all models
+     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
+     # parameters by using an attr_accessible or attr_protected declaration.
+-    # config.active_record.whitelist_attributes = true
++    config.active_record.whitelist_attributes = true
+ 
+     # Enable the asset pipeline
+     config.assets.enabled = true
