@@ -1,6 +1,0 @@
-= form_tag redirect_path, method: :get do
-  = label_tag :source, 'Source'
-  = select_tag :source, options_from_collection_for_select(@versions, :version, :version)
-  = label_tag :target, 'Target'
-  = select_tag :target, options_from_collection_for_select(@versions.reverse, :version, :version)
-  = submit_tag 'Get Diff'

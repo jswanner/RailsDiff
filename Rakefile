@@ -1,7 +1,16 @@
-#!/usr/bin/env rake
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+# encoding: utf-8
 
-require File.expand_path('../config/application', __FILE__)
+# Turn diff into HTML
+rule '.html' => ['.diff'] do |t|
+  $:.unshift 'lib/rails_diff'
+  require 'diff_splitter'
+  diff = File.read t.source
+  diffs = RailsDiff::DiffSplitter.new(diff).split
 
-RailsDiff::Application.load_tasks
+  File.open(t.name, 'w') do |file|
+    file.puts ['---', 'layout: diff', '---']
+    file.puts diffs.map { |name, text|
+      ["<h2>#{name}</h2>", '{% highlight diff %}', text, '{% endhighlight %}']
+    }
+  end
+end
