@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/jswanner/RailsDiff.png)](http://travis-ci.org/jswanner/RailsDiff)
+
 # RailsDiff
 
 ## TODO:
