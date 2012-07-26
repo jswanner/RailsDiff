@@ -20,6 +20,7 @@ GEM
     maruku (0.6.0)
       syntax (>= 1.0.0)
     posix-spawn (0.3.6)
+    rake (0.9.2.2)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -35,4 +36,5 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll
+  rake
   rspec
