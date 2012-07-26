@@ -13,9 +13,11 @@ jekyll
 
 Open browser to `http://localhost:8080/`.
 
-### To transform a .diff into .html
+### To generate diff files and html
 
 ```sh
-rake diffs/3.2.5-3.2.6.html
+rake gen_diffs
 ```
-assuming diffs/3.2.5-3.2.6.diff exists.
+
+This will only generate files that are missing, if you want to
+regenerate a file, `rm` it first.
