@@ -1,0 +1,18 @@
+{
+"diffs": [
+{
+"filepath": "Gemfile",
+"diff": "@@ -1,6 +1,6 @@\n source 'https://rubygems.org'\n \n-gem 'rails', '3.2.0.rc1'\n+gem 'rails', '3.2.1'\n \n # Bundle edge Rails instead:\n # gem 'rails', :git => 'git://github.com/rails/rails.git'\n@@ -11,8 +11,11 @@\n # Gems used only for assets and not required\n # in production environments by default.\n group :assets do\n-  gem 'sass-rails',   '~> 3.2.0'\n-  gem 'coffee-rails', '~> 3.2.0'\n+  gem 'sass-rails',   '~> 3.2.3'\n+  gem 'coffee-rails', '~> 3.2.1'\n+\n+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes\n+  # gem 'therubyracer'\n \n   gem 'uglifier', '>= 1.0.3'\n end\n"
+}
+,
+{
+"filepath": "config/environments/development.rb",
+"diff": "@@ -22,7 +22,7 @@\n   # Only use best-standards-support built into browsers\n   config.action_dispatch.best_standards_support = :builtin\n \n-  # Raise exception on mass assignment protection for ActiveRecord models\n+  # Raise exception on mass assignment protection for Active Record models\n   config.active_record.mass_assignment_sanitizer = :strict\n \n   # Log the query plan for queries taking more than this (works\n"
+}
+,
+{
+"filepath": "config/environments/test.rb",
+"diff": "@@ -29,7 +29,7 @@\n   # ActionMailer::Base.deliveries array.\n   config.action_mailer.delivery_method = :test\n \n-  # Raise exception on mass assignment protection for ActiveRecord models\n+  # Raise exception on mass assignment protection for Active Record models\n   config.active_record.mass_assignment_sanitizer = :strict\n \n   # Print deprecation notices to the stderr\n"
+}
+]
+}

@@ -5,11 +5,13 @@ task :gen_diffs => 'tmp/rails/rails' do |t|
   cd 'tmp/rails/rails' do
     all_tags = %x{git tag -l "v3*"}.split
   end
+  all_tags.sort! { |a, b| version(a) <=> version(b) }
   tail = all_tags.pop
   while all_tags.any?
     all_tags.each do |tag|
       next unless version(tag) >= min_version
       Rake::Task["diffs/#{tag}-#{tail}.html"].invoke
+      Rake::Task["diffs/#{tag}-#{tail}.json"].invoke
     end
     tail = all_tags.pop
   end
@@ -22,7 +24,7 @@ rescue
 end
 
 def min_version
-  @min_version ||= version 'v3.1.1'
+  @min_version ||= version 'v3.1.1.rc1'
 end
 
 directory 'tmp/rails'
@@ -77,5 +79,21 @@ rule '.html' => ['.diff'] do |t|
     file.puts diffs.map { |name, text|
       ["<h2>#{name}</h2>", '{% highlight diff %}', text, '{% endhighlight %}']
     }
+  end
+end
+
+# Turn diff into JSON
+rule '.json' => ['.diff'] do |t|
+  $:.unshift 'lib/rails_diff'
+  require 'diff_splitter'
+  diff = File.read t.source
+  diffs = RailsDiff::DiffSplitter.new(diff).split
+
+  File.open(t.name, 'w') do |file|
+    file.puts ['{', '"diffs": [']
+    file.puts diffs.map { |name, text|
+      ['{', %Q|"filepath": #{name.inspect},|, %Q|"diff": #{text.inspect}|, '}', ',']
+    }.flatten[0...-1]
+    file.puts [']', '}']
   end
 end

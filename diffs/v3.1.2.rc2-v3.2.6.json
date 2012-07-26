@@ -1,0 +1,63 @@
+{
+"diffs": [
+{
+"filepath": "Gemfile",
+"diff": "@@ -1,9 +1,9 @@\n-source 'http://rubygems.org'\n+source 'https://rubygems.org'\n \n-gem 'rails', '3.1.2.rc2'\n+gem 'rails', '3.2.6'\n \n # Bundle edge Rails instead:\n-# gem 'rails',     :git => 'git://github.com/rails/rails.git'\n+# gem 'rails', :git => 'git://github.com/rails/rails.git'\n \n gem 'sqlite3'\n \n@@ -11,8 +11,12 @@\n # Gems used only for assets and not required\n # in production environments by default.\n group :assets do\n-  gem 'sass-rails',   '~> 3.1.5.rc.2'\n-  gem 'coffee-rails', '~> 3.1.1'\n+  gem 'sass-rails',   '~> 3.2.3'\n+  gem 'coffee-rails', '~> 3.2.1'\n+\n+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes\n+  # gem 'therubyracer', :platforms => :ruby\n+\n   gem 'uglifier', '>= 1.0.3'\n end\n \n@@ -21,16 +25,14 @@\n # To use ActiveModel has_secure_password\n # gem 'bcrypt-ruby', '~> 3.0.0'\n \n-# Use unicorn as the web server\n+# To use Jbuilder templates for JSON\n+# gem 'jbuilder'\n+\n+# Use unicorn as the app server\n # gem 'unicorn'\n \n # Deploy with Capistrano\n # gem 'capistrano'\n \n # To use debugger\n-# gem 'ruby-debug19', :require => 'ruby-debug'\n-\n-group :test do\n-  # Pretty printed test output\n-  gem 'turn', '~> 0.8.3', :require => false\n-end\n+# gem 'debugger'\nOnly in tmp/generated/v3.1.2.rc2/railsdiff: README\nOnly in tmp/generated/v3.2.6/railsdiff: README.rdoc\n"
+}
+,
+{
+"filepath": "app/assets/javascripts/application.js",
+"diff": "@@ -1,9 +1,15 @@\n-// This is a manifest file that'll be compiled into including all the files listed below.\n-// Add new JavaScript/Coffee code in separate files in this directory and they'll automatically\n-// be included in the compiled file accessible from http://example.com/assets/application.js\n+// This is a manifest file that'll be compiled into application.js, which will include all the files\n+// listed below.\n+//\n+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,\n+// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.\n+//\n // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the\n // the compiled file.\n //\n+// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD\n+// GO AFTER THE REQUIRES BELOW.\n+//\n //= require jquery\n //= require jquery_ujs\n //= require_tree .\n"
+}
+,
+{
+"filepath": "app/assets/stylesheets/application.css",
+"diff": "@@ -1,7 +1,13 @@\n /*\n- * This is a manifest file that'll automatically include all the stylesheets available in this directory\n- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at\n- * the top of the compiled file, but it's generally better to create a new file per style scope.\n+ * This is a manifest file that'll be compiled into application.css, which will include all the files\n+ * listed below.\n+ *\n+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,\n+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.\n+ *\n+ * You're free to add application-wide styles to this file and they'll appear at the top of the\n+ * compiled file, but it's generally better to create a new file per style scope.\n+ *\n  *= require_self\n- *= require_tree . \n-*/\n\\ No newline at end of file\n+ *= require_tree .\n+ */\n"
+}
+,
+{
+"filepath": "app/views/layouts/application.html.erb",
+"diff": "@@ -2,7 +2,7 @@\n <html>\n <head>\n   <title>Railsdiff</title>\n-  <%= stylesheet_link_tag    \"application\" %>\n+  <%= stylesheet_link_tag    \"application\", :media => \"all\" %>\n   <%= javascript_include_tag \"application\" %>\n   <%= csrf_meta_tags %>\n </head>\n"
+}
+,
+{
+"filepath": "config/application.rb",
+"diff": "@@ -39,6 +39,20 @@\n     # Configure sensitive parameters which will be filtered from the log file.\n     config.filter_parameters += [:password]\n \n+    # Enable escaping HTML in JSON.\n+    config.active_support.escape_html_entities_in_json = true\n+\n+    # Use SQL instead of Active Record's schema dumper when creating the database.\n+    # This is necessary if your schema can't be completely dumped by the schema dumper,\n+    # like if you have constraints or database-specific column types\n+    # config.active_record.schema_format = :sql\n+\n+    # Enforce whitelist mode for mass assignment.\n+    # This will create an empty whitelist of attributes available for mass-assignment for all models\n+    # in your app. As such, your models will need to explicitly whitelist or blacklist accessible\n+    # parameters by using an attr_accessible or attr_protected declaration.\n+    config.active_record.whitelist_attributes = true\n+\n     # Enable the asset pipeline\n     config.assets.enabled = true\n \n"
+}
+,
+{
+"filepath": "config/environments/development.rb",
+"diff": "@@ -2,7 +2,7 @@\n   # Settings specified here will take precedence over those in config/application.rb\n \n   # In the development environment your application's code is reloaded on\n-  # every request.  This slows down response time but is perfect for development\n+  # every request. This slows down response time but is perfect for development\n   # since you don't have to restart the web server when you make code changes.\n   config.cache_classes = false\n \n@@ -22,6 +22,13 @@\n   # Only use best-standards-support built into browsers\n   config.action_dispatch.best_standards_support = :builtin\n \n+  # Raise exception on mass assignment protection for Active Record models\n+  config.active_record.mass_assignment_sanitizer = :strict\n+\n+  # Log the query plan for queries taking more than this (works\n+  # with SQLite, MySQL, and PostgreSQL)\n+  config.active_record.auto_explain_threshold_in_seconds = 0.5\n+\n   # Do not compress assets\n   config.assets.compress = false\n \n"
+}
+,
+{
+"filepath": "config/environments/production.rb",
+"diff": "@@ -20,7 +20,7 @@\n   # Generate digests for assets URLs\n   config.assets.digest = true\n \n-  # Defaults to Rails.root.join(\"public/assets\")\n+  # Defaults to nil and saved in location specified by config.assets.prefix\n   # config.assets.manifest = YOUR_PATH\n \n   # Specifies the header that your server uses for sending files\n@@ -33,8 +33,11 @@\n   # See everything in the log (default is :info)\n   # config.log_level = :debug\n \n+  # Prepend all log lines with the following tags\n+  # config.log_tags = [ :subdomain, :uuid ]\n+\n   # Use a different logger for distributed setups\n-  # config.logger = SyslogLogger.new\n+  # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)\n \n   # Use a different cache store in production\n   # config.cache_store = :mem_cache_store\n@@ -57,4 +60,8 @@\n \n   # Send deprecation notices to registered listeners\n   config.active_support.deprecation = :notify\n+\n+  # Log the query plan for queries taking more than this (works\n+  # with SQLite, MySQL, and PostgreSQL)\n+  # config.active_record.auto_explain_threshold_in_seconds = 0.5\n end\n"
+}
+,
+{
+"filepath": "config/environments/test.rb",
+"diff": "@@ -2,9 +2,9 @@\n   # Settings specified here will take precedence over those in config/application.rb\n \n   # The test environment is used exclusively to run your application's\n-  # test suite.  You never need to work with it otherwise.  Remember that\n+  # test suite. You never need to work with it otherwise. Remember that\n   # your test database is \"scratch space\" for the test suite and is wiped\n-  # and recreated between test runs.  Don't rely on the data there!\n+  # and recreated between test runs. Don't rely on the data there!\n   config.cache_classes = true\n \n   # Configure static asset server for tests with Cache-Control for performance\n@@ -29,10 +29,8 @@\n   # ActionMailer::Base.deliveries array.\n   config.action_mailer.delivery_method = :test\n \n-  # Use SQL instead of Active Record's schema dumper when creating the test database.\n-  # This is necessary if your schema can't be completely dumped by the schema dumper,\n-  # like if you have constraints or database-specific column types\n-  # config.active_record.schema_format = :sql\n+  # Raise exception on mass assignment protection for Active Record models\n+  config.active_record.mass_assignment_sanitizer = :strict\n \n   # Print deprecation notices to the stderr\n   config.active_support.deprecation = :stderr\n"
+}
+,
+{
+"filepath": "config/initializers/inflections.rb",
+"diff": "@@ -8,3 +8,8 @@\n #   inflect.irregular 'person', 'people'\n #   inflect.uncountable %w( fish sheep )\n # end\n+#\n+# These inflection rules are supported but not enabled by default:\n+# ActiveSupport::Inflector.inflections do |inflect|\n+#   inflect.acronym 'RESTful'\n+# end\n"
+}
+,
+{
+"filepath": "config/routes.rb",
+"diff": "@@ -54,5 +54,5 @@\n \n   # This is a legacy wild controller route that's not recommended for RESTful applications.\n   # Note: This route will make all actions in every controller accessible via GET requests.\n-  # match ':controller(/:action(/:id(.:format)))'\n+  # match ':controller(/:action(/:id))(.:format)'\n end\n"
+}
+,
+{
+"filepath": "public/500.html",
+"diff": "@@ -20,7 +20,6 @@\n   <!-- This file lives in public/500.html -->\n   <div class=\"dialog\">\n     <h1>We're sorry, but something went wrong.</h1>\n-    <p>We've been notified about this issue and we'll take a look at it shortly.</p>\n   </div>\n </body>\n </html>\n"
+}
+,
+{
+"filepath": "public/index.html",
+"diff": "@@ -59,7 +59,7 @@\n \n \n       #header {\n-        background-image: url(\"/assets/rails.png\");\n+        background-image: url(\"assets/rails.png\");\n         background-repeat: no-repeat;\n         background-position: top left;\n         height: 64px;\nOnly in tmp/generated/v3.2.6/railsdiff/vendor/assets: javascripts\n"
+}
+]
+}

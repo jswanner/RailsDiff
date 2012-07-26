@@ -1,6 +1,6 @@
 diff -ur tmp/generated/v3.2.1/railsdiff/Gemfile tmp/generated/v3.2.3/railsdiff/Gemfile
---- tmp/generated/v3.2.1/railsdiff/Gemfile	2012-07-26 10:43:54.000000000 -0400
-+++ tmp/generated/v3.2.3/railsdiff/Gemfile	2012-07-26 10:43:59.000000000 -0400
+--- tmp/generated/v3.2.1/railsdiff/Gemfile	2012-07-26 16:13:02.000000000 -0400
++++ tmp/generated/v3.2.3/railsdiff/Gemfile	2012-07-26 16:03:12.000000000 -0400
 @@ -1,6 +1,6 @@
  source 'https://rubygems.org'
  
@@ -28,8 +28,8 @@ diff -ur tmp/generated/v3.2.1/railsdiff/Gemfile tmp/generated/v3.2.3/railsdiff/G
  
  # Deploy with Capistrano
 diff -ur tmp/generated/v3.2.1/railsdiff/config/application.rb tmp/generated/v3.2.3/railsdiff/config/application.rb
---- tmp/generated/v3.2.1/railsdiff/config/application.rb	2012-07-26 10:43:54.000000000 -0400
-+++ tmp/generated/v3.2.3/railsdiff/config/application.rb	2012-07-26 10:43:59.000000000 -0400
+--- tmp/generated/v3.2.1/railsdiff/config/application.rb	2012-07-26 16:13:02.000000000 -0400
++++ tmp/generated/v3.2.3/railsdiff/config/application.rb	2012-07-26 16:03:12.000000000 -0400
 @@ -48,7 +48,7 @@
      # This will create an empty whitelist of attributes available for mass-assignment for all models
      # in your app. As such, your models will need to explicitly whitelist or blacklist accessible

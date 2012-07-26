@@ -1,6 +1,6 @@
 diff -ur tmp/generated/v3.2.3.rc1/railsdiff/Gemfile tmp/generated/v3.2.4.rc1/railsdiff/Gemfile
---- tmp/generated/v3.2.3.rc1/railsdiff/Gemfile	2012-07-26 10:44:02.000000000 -0400
-+++ tmp/generated/v3.2.4.rc1/railsdiff/Gemfile	2012-07-26 10:42:38.000000000 -0400
+--- tmp/generated/v3.2.3.rc1/railsdiff/Gemfile	2012-07-26 16:03:10.000000000 -0400
++++ tmp/generated/v3.2.4.rc1/railsdiff/Gemfile	2012-07-26 16:03:06.000000000 -0400
 @@ -1,6 +1,6 @@
  source 'https://rubygems.org'
  
@@ -16,8 +16,8 @@ diff -ur tmp/generated/v3.2.3.rc1/railsdiff/Gemfile tmp/generated/v3.2.4.rc1/rai
 -# gem 'ruby-debug19', :require => 'ruby-debug'
 +# gem 'debugger'
 diff -ur tmp/generated/v3.2.3.rc1/railsdiff/app/assets/stylesheets/application.css tmp/generated/v3.2.4.rc1/railsdiff/app/assets/stylesheets/application.css
---- tmp/generated/v3.2.3.rc1/railsdiff/app/assets/stylesheets/application.css	2012-07-26 10:44:02.000000000 -0400
-+++ tmp/generated/v3.2.4.rc1/railsdiff/app/assets/stylesheets/application.css	2012-07-26 10:42:38.000000000 -0400
+--- tmp/generated/v3.2.3.rc1/railsdiff/app/assets/stylesheets/application.css	2012-07-26 16:03:10.000000000 -0400
++++ tmp/generated/v3.2.4.rc1/railsdiff/app/assets/stylesheets/application.css	2012-07-26 16:03:06.000000000 -0400
 @@ -10,4 +10,4 @@
   *
   *= require_self
@@ -25,8 +25,8 @@ diff -ur tmp/generated/v3.2.3.rc1/railsdiff/app/assets/stylesheets/application.c
 -*/
 + */
 diff -ur tmp/generated/v3.2.3.rc1/railsdiff/config/application.rb tmp/generated/v3.2.4.rc1/railsdiff/config/application.rb
---- tmp/generated/v3.2.3.rc1/railsdiff/config/application.rb	2012-07-26 10:44:02.000000000 -0400
-+++ tmp/generated/v3.2.4.rc1/railsdiff/config/application.rb	2012-07-26 10:42:38.000000000 -0400
+--- tmp/generated/v3.2.3.rc1/railsdiff/config/application.rb	2012-07-26 16:03:10.000000000 -0400
++++ tmp/generated/v3.2.4.rc1/railsdiff/config/application.rb	2012-07-26 16:03:06.000000000 -0400
 @@ -39,6 +39,9 @@
      # Configure sensitive parameters which will be filtered from the log file.
      config.filter_parameters += [:password]
@@ -38,8 +38,8 @@ diff -ur tmp/generated/v3.2.3.rc1/railsdiff/config/application.rb tmp/generated/
      # This is necessary if your schema can't be completely dumped by the schema dumper,
      # like if you have constraints or database-specific column types
 diff -ur tmp/generated/v3.2.3.rc1/railsdiff/config/environments/production.rb tmp/generated/v3.2.4.rc1/railsdiff/config/environments/production.rb
---- tmp/generated/v3.2.3.rc1/railsdiff/config/environments/production.rb	2012-07-26 10:44:02.000000000 -0400
-+++ tmp/generated/v3.2.4.rc1/railsdiff/config/environments/production.rb	2012-07-26 10:42:38.000000000 -0400
+--- tmp/generated/v3.2.3.rc1/railsdiff/config/environments/production.rb	2012-07-26 16:03:10.000000000 -0400
++++ tmp/generated/v3.2.4.rc1/railsdiff/config/environments/production.rb	2012-07-26 16:03:06.000000000 -0400
 @@ -20,7 +20,7 @@
    # Generate digests for assets URLs
    config.assets.digest = true

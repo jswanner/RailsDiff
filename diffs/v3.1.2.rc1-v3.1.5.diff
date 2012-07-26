@@ -1,6 +1,6 @@
 diff -ur tmp/generated/v3.1.2.rc1/railsdiff/Gemfile tmp/generated/v3.1.5/railsdiff/Gemfile
---- tmp/generated/v3.1.2.rc1/railsdiff/Gemfile	2012-07-26 10:43:28.000000000 -0400
-+++ tmp/generated/v3.1.5/railsdiff/Gemfile	2012-07-26 10:43:40.000000000 -0400
+--- tmp/generated/v3.1.2.rc1/railsdiff/Gemfile	2012-07-26 16:03:38.000000000 -0400
++++ tmp/generated/v3.1.5/railsdiff/Gemfile	2012-07-26 16:03:31.000000000 -0400
 @@ -1,6 +1,6 @@
  source 'http://rubygems.org'
  

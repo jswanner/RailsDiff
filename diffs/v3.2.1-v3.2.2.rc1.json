@@ -1,0 +1,8 @@
+{
+"diffs": [
+{
+"filepath": "Gemfile",
+"diff": "@@ -1,6 +1,6 @@\n source 'https://rubygems.org'\n \n-gem 'rails', '3.2.1'\n+gem 'rails', '3.2.2.rc1'\n \n # Bundle edge Rails instead:\n # gem 'rails', :git => 'git://github.com/rails/rails.git'\n@@ -28,7 +28,7 @@\n # To use Jbuilder templates for JSON\n # gem 'jbuilder'\n \n-# Use unicorn as the web server\n+# Use unicorn as the app server\n # gem 'unicorn'\n \n # Deploy with Capistrano\n"
+}
+]
+}
