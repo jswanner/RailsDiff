@@ -1,6 +1,6 @@
-diff -ur tmp/generated/v3.2.2.rc1/railsdiff/Gemfile tmp/generated/v3.2.3/railsdiff/Gemfile
---- tmp/generated/v3.2.2.rc1/railsdiff/Gemfile	2012-07-26 16:03:17.000000000 -0400
-+++ tmp/generated/v3.2.3/railsdiff/Gemfile	2012-07-26 16:03:12.000000000 -0400
+diff -Nru v3.2.2.rc1/Gemfile v3.2.3/Gemfile
+--- v3.2.2.rc1/Gemfile	2012-07-26 23:33:08.000000000 -0400
++++ v3.2.3/Gemfile	2012-07-26 23:33:17.000000000 -0400
 @@ -1,6 +1,6 @@
  source 'https://rubygems.org'
  
@@ -18,9 +18,9 @@ diff -ur tmp/generated/v3.2.2.rc1/railsdiff/Gemfile tmp/generated/v3.2.3/railsdi
  
    gem 'uglifier', '>= 1.0.3'
  end
-diff -ur tmp/generated/v3.2.2.rc1/railsdiff/config/application.rb tmp/generated/v3.2.3/railsdiff/config/application.rb
---- tmp/generated/v3.2.2.rc1/railsdiff/config/application.rb	2012-07-26 16:03:17.000000000 -0400
-+++ tmp/generated/v3.2.3/railsdiff/config/application.rb	2012-07-26 16:03:12.000000000 -0400
+diff -Nru v3.2.2.rc1/config/application.rb v3.2.3/config/application.rb
+--- v3.2.2.rc1/config/application.rb	2012-07-26 23:33:08.000000000 -0400
++++ v3.2.3/config/application.rb	2012-07-26 23:33:17.000000000 -0400
 @@ -48,7 +48,7 @@
      # This will create an empty whitelist of attributes available for mass-assignment for all models
      # in your app. As such, your models will need to explicitly whitelist or blacklist accessible

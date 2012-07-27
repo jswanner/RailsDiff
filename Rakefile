@@ -49,6 +49,8 @@ rule(/tmp\/generated\/.*/ => ['tmp/generated']) do |t|
   rails_dir = "tmp/rails/#{tag}"
   %x{#{rails_binary rails_dir} new #{t.name}/railsdiff --skip-bundle}
   rm "#{t.name}/railsdiff/config/initializers/secret_token.rb"
+  %x{mv #{t.name}/railsdiff/* #{t.name}/.}
+  %x{mv #{t.name}/railsdiff/.??* #{t.name}/.}
 end
 
 def rails_binary dir
@@ -60,11 +62,13 @@ end
 directory 'diffs'
 rule(/diffs\/.*\.diff/ => ['diffs']) do |t|
   match = t.name.match(/diffs\/(?<s>[^-]+)-(?<t>.*?).diff/)
-  source = "tmp/generated/#{match['s']}"
-  target = "tmp/generated/#{match['t']}"
-  Rake::Task[source].invoke
-  Rake::Task[target].invoke
-  %x{diff -ur #{source}/railsdiff #{target}/railsdiff > #{t.name}}
+  source = match['s']
+  target = match['t']
+  Rake::Task["tmp/generated/#{source}"].invoke
+  Rake::Task["tmp/generated/#{target}"].invoke
+  cd "tmp/generated" do
+    %x{diff -Nru #{source} #{target} > ../../#{t.name}}
+  end
 end
 
 # Turn diff into HTML

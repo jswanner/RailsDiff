@@ -1,6 +1,6 @@
-diff -ur tmp/generated/v3.1.1.rc3/railsdiff/.gitignore tmp/generated/v3.1.4/railsdiff/.gitignore
---- tmp/generated/v3.1.1.rc3/railsdiff/.gitignore	2012-07-26 16:12:54.000000000 -0400
-+++ tmp/generated/v3.1.4/railsdiff/.gitignore	2012-07-26 16:03:36.000000000 -0400
+diff -Nru v3.1.1.rc3/.gitignore v3.1.4/.gitignore
+--- v3.1.1.rc3/.gitignore	2012-07-26 23:32:33.000000000 -0400
++++ v3.1.4/.gitignore	2012-07-26 23:32:49.000000000 -0400
 @@ -1,5 +1,15 @@
 -.bundle
 -db/*.sqlite3
@@ -22,9 +22,9 @@ diff -ur tmp/generated/v3.1.1.rc3/railsdiff/.gitignore tmp/generated/v3.1.4/rail
 +# Ignore all logfiles and tempfiles.
 +/log/*.log
 +/tmp
-diff -ur tmp/generated/v3.1.1.rc3/railsdiff/Gemfile tmp/generated/v3.1.4/railsdiff/Gemfile
---- tmp/generated/v3.1.1.rc3/railsdiff/Gemfile	2012-07-26 16:12:54.000000000 -0400
-+++ tmp/generated/v3.1.4/railsdiff/Gemfile	2012-07-26 16:03:36.000000000 -0400
+diff -Nru v3.1.1.rc3/Gemfile v3.1.4/Gemfile
+--- v3.1.1.rc3/Gemfile	2012-07-26 23:32:33.000000000 -0400
++++ v3.1.4/Gemfile	2012-07-26 23:32:49.000000000 -0400
 @@ -1,6 +1,6 @@
  source 'http://rubygems.org'
  
