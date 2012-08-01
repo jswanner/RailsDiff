@@ -1,0 +1,92 @@
+---
+layout: diff
+---
+<h2>.gitignore</h2>
+{% highlight diff %}
+@@ -1,4 +1,4 @@
+ .bundle
+ db/*.sqlite3
+ log/*.log
+-tmp/**/*
++tmp/
+{% endhighlight %}
+<h2>Gemfile</h2>
+{% highlight diff %}
+@@ -1,11 +1,11 @@
+ source 'http://rubygems.org'
+ 
+-gem 'rails', '3.0.2'
++gem 'rails', '3.0.8.rc4'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails', :git => 'git://github.com/rails/rails.git'
+ 
+-gem 'sqlite3-ruby', :require => 'sqlite3'
++gem 'sqlite3'
+ 
+ # Use unicorn as the web server
+ # gem 'unicorn'
+@@ -15,7 +15,7 @@
+ 
+ # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
+ # gem 'ruby-debug'
+-# gem 'ruby-debug19'
++# gem 'ruby-debug19', :require => 'ruby-debug'
+ 
+ # Bundle the extra gems:
+ # gem 'bj'
+{% endhighlight %}
+<h2>config/boot.rb</h2>
+{% highlight diff %}
+@@ -1,13 +1,6 @@
+ require 'rubygems'
+ 
+ # Set up gems listed in the Gemfile.
+-gemfile = File.expand_path('../../Gemfile', __FILE__)
+-begin
+-  ENV['BUNDLE_GEMFILE'] = gemfile
+-  require 'bundler'
+-  Bundler.setup
+-rescue Bundler::GemNotFound => e
+-  STDERR.puts e.message
+-  STDERR.puts "Try running `bundle install`."
+-  exit!
+-end if File.exist?(gemfile)
++ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
++
++require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
+{% endhighlight %}
+<h2>config/database.yml</h2>
+{% highlight diff %}
+@@ -1,5 +1,5 @@
+ # SQLite version 3.x
+-#   gem install sqlite3-ruby (not necessary on OS X Leopard)
++#   gem install sqlite3
+ development:
+   adapter: sqlite3
+   database: db/development.sqlite3
+{% endhighlight %}
+<h2>public/javascripts/rails.js</h2>
+{% highlight diff %}
+@@ -172,4 +172,20 @@
+       input.disabled = false;
+     });
+   });
++
++  Ajax.Responders.register({
++    onCreate: function(request) {
++      var csrf_meta_tag = $$('meta[name=csrf-token]')[0];
++
++      if (csrf_meta_tag) {
++        var header = 'X-CSRF-Token',
++            token = csrf_meta_tag.readAttribute('content');
++
++        if (!request.options.requestHeaders) {
++          request.options.requestHeaders = {};
++        }
++        request.options.requestHeaders[header] = token;
++      }
++    }
++  });
+ })();
+{% endhighlight %}

@@ -1,0 +1,39 @@
+---
+layout: diff
+---
+<h2>Gemfile</h2>
+{% highlight diff %}
+@@ -1,6 +1,6 @@
+ source 'http://rubygems.org'
+ 
+-gem 'rails', '3.1.0.rc6'
++gem 'rails', '3.1.0.rc8'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails',     :git => 'git://github.com/rails/rails.git'
+{% endhighlight %}
+<h2>config/environments/development.rb</h2>
+{% highlight diff %}
+@@ -24,4 +24,10 @@
+ 
+   # Do not compress assets
+   config.assets.compress = false
++
++  # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
++  config.assets.allow_debugging = true
++
++  # Expands the lines which load the assets
++  config.assets.debug = true
+ end
+{% endhighlight %}
+<h2>config/environments/test.rb</h2>
+{% highlight diff %}
+@@ -36,4 +36,7 @@
+ 
+   # Print deprecation notices to the stderr
+   config.active_support.deprecation = :stderr
++
++  # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
++  config.assets.allow_debugging = true
+ end
+{% endhighlight %}

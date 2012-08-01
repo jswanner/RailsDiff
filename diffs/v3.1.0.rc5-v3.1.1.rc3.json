@@ -1,0 +1,28 @@
+{
+"diffs": [
+{
+"filepath": "Gemfile",
+"diff": "@@ -1,6 +1,6 @@\n source 'http://rubygems.org'\n \n-gem 'rails', '3.1.0.rc5'\n+gem 'rails', '3.1.1.rc3'\n \n # Bundle edge Rails instead:\n # gem 'rails',     :git => 'git://github.com/rails/rails.git'\n@@ -11,13 +11,16 @@\n # Gems used only for assets and not required\n # in production environments by default.\n group :assets do\n-  gem 'sass-rails', \"~> 3.1.0.rc\"\n-  gem 'coffee-rails', \"~> 3.1.0.rc\"\n-  gem 'uglifier'\n+  gem 'sass-rails',   '~> 3.1.4'\n+  gem 'coffee-rails', '~> 3.1.1'\n+  gem 'uglifier', '>= 1.0.3'\n end\n \n gem 'jquery-rails'\n \n+# To use ActiveModel has_secure_password\n+# gem 'bcrypt-ruby', '~> 3.0.0'\n+\n # Use unicorn as the web server\n # gem 'unicorn'\n \n"
+}
+,
+{
+"filepath": "config/application.rb",
+"diff": "@@ -2,10 +2,12 @@\n \n require 'rails/all'\n \n-# If you have a Gemfile, require the default gems, the ones in the\n-# current environment and also include :assets gems if in development\n-# or test environments.\n-Bundler.require *Rails.groups(:assets) if defined?(Bundler)\n+if defined?(Bundler)\n+  # If you precompile assets before deploying to production, use this line\n+  Bundler.require(*Rails.groups(:assets => %w(development test)))\n+  # If you want your assets lazily compiled in production, use this line\n+  # Bundler.require(:default, :assets, Rails.env)\n+end\n \n module Railsdiff\n   class Application < Rails::Application\n@@ -39,5 +41,8 @@\n \n     # Enable the asset pipeline\n     config.assets.enabled = true\n+\n+    # Version of your assets, change this if you want to expire all your assets\n+    config.assets.version = '1.0'\n   end\n end\n"
+}
+,
+{
+"filepath": "config/environments/development.rb",
+"diff": "@@ -24,4 +24,7 @@\n \n   # Do not compress assets\n   config.assets.compress = false\n+\n+  # Expands the lines which load the assets\n+  config.assets.debug = true\n end\n"
+}
+,
+{
+"filepath": "config/environments/production.rb",
+"diff": "@@ -14,9 +14,18 @@\n   # Compress JavaScripts and CSS\n   config.assets.compress = true\n \n+  # Don't fallback to assets pipeline if a precompiled asset is missed\n+  config.assets.compile = false\n+\n+  # Generate digests for assets URLs\n+  config.assets.digest = true\n+\n+  # Defaults to Rails.root.join(\"public/assets\")\n+  # config.assets.manifest = YOUR_PATH\n+\n   # Specifies the header that your server uses for sending files\n-  # (comment out if your front-end server doesn't support this)\n-  config.action_dispatch.x_sendfile_header = \"X-Sendfile\" # Use 'X-Accel-Redirect' for nginx\n+  # config.action_dispatch.x_sendfile_header = \"X-Sendfile\" # for apache\n+  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx\n \n   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.\n   # config.force_ssl = true\n"
+}
+,
+{
+"filepath": "config/initializers/wrap_parameters.rb",
+"diff": "@@ -4,9 +4,11 @@\n # is enabled by default.\n \n # Enable parameter wrapping for JSON. You can disable this by setting :format to an empty array.\n-ActionController::Base.wrap_parameters format: [:json]\n+ActiveSupport.on_load(:action_controller) do\n+  wrap_parameters format: [:json]\n+end\n \n # Disable root element in JSON by default.\n-if defined?(ActiveRecord)\n-  ActiveRecord::Base.include_root_in_json = false\n+ActiveSupport.on_load(:active_record) do\n+  self.include_root_in_json = false\n end\n"
+}
+]
+}

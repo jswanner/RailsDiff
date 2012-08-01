@@ -1,0 +1,89 @@
+diff -Nru v3.0.2/.gitignore v3.0.6.rc2/.gitignore
+--- v3.0.2/.gitignore	2012-08-01 09:40:41.000000000 -0400
++++ v3.0.6.rc2/.gitignore	2012-08-01 09:40:58.000000000 -0400
+@@ -1,4 +1,4 @@
+ .bundle
+ db/*.sqlite3
+ log/*.log
+-tmp/**/*
++tmp/
+diff -Nru v3.0.2/Gemfile v3.0.6.rc2/Gemfile
+--- v3.0.2/Gemfile	2012-08-01 09:40:41.000000000 -0400
++++ v3.0.6.rc2/Gemfile	2012-08-01 09:40:58.000000000 -0400
+@@ -1,11 +1,11 @@
+ source 'http://rubygems.org'
+ 
+-gem 'rails', '3.0.2'
++gem 'rails', '3.0.6.rc2'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails', :git => 'git://github.com/rails/rails.git'
+ 
+-gem 'sqlite3-ruby', :require => 'sqlite3'
++gem 'sqlite3'
+ 
+ # Use unicorn as the web server
+ # gem 'unicorn'
+@@ -15,7 +15,7 @@
+ 
+ # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
+ # gem 'ruby-debug'
+-# gem 'ruby-debug19'
++# gem 'ruby-debug19', :require => 'ruby-debug'
+ 
+ # Bundle the extra gems:
+ # gem 'bj'
+diff -Nru v3.0.2/config/boot.rb v3.0.6.rc2/config/boot.rb
+--- v3.0.2/config/boot.rb	2012-08-01 09:40:41.000000000 -0400
++++ v3.0.6.rc2/config/boot.rb	2012-08-01 09:40:58.000000000 -0400
+@@ -1,13 +1,6 @@
+ require 'rubygems'
+ 
+ # Set up gems listed in the Gemfile.
+-gemfile = File.expand_path('../../Gemfile', __FILE__)
+-begin
+-  ENV['BUNDLE_GEMFILE'] = gemfile
+-  require 'bundler'
+-  Bundler.setup
+-rescue Bundler::GemNotFound => e
+-  STDERR.puts e.message
+-  STDERR.puts "Try running `bundle install`."
+-  exit!
+-end if File.exist?(gemfile)
++ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
++
++require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
+diff -Nru v3.0.2/config/database.yml v3.0.6.rc2/config/database.yml
+--- v3.0.2/config/database.yml	2012-08-01 09:40:41.000000000 -0400
++++ v3.0.6.rc2/config/database.yml	2012-08-01 09:40:58.000000000 -0400
+@@ -1,5 +1,5 @@
+ # SQLite version 3.x
+-#   gem install sqlite3-ruby (not necessary on OS X Leopard)
++#   gem install sqlite3
+ development:
+   adapter: sqlite3
+   database: db/development.sqlite3
+diff -Nru v3.0.2/public/javascripts/rails.js v3.0.6.rc2/public/javascripts/rails.js
+--- v3.0.2/public/javascripts/rails.js	2012-08-01 09:40:41.000000000 -0400
++++ v3.0.6.rc2/public/javascripts/rails.js	2012-08-01 09:40:58.000000000 -0400
+@@ -172,4 +172,20 @@
+       input.disabled = false;
+     });
+   });
++
++  Ajax.Responders.register({
++    onCreate: function(request) {
++      var csrf_meta_tag = $$('meta[name=csrf-token]')[0];
++
++      if (csrf_meta_tag) {
++        var header = 'X-CSRF-Token',
++            token = csrf_meta_tag.readAttribute('content');
++
++        if (!request.options.requestHeaders) {
++          request.options.requestHeaders = {};
++        }
++        request.options.requestHeaders[header] = token;
++      }
++    }
++  });
+ })();

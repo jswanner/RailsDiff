@@ -1,0 +1,66 @@
+diff -Nru v3.1.0.rc8/Gemfile v3.1.0/Gemfile
+--- v3.1.0.rc8/Gemfile	2012-08-01 09:42:15.000000000 -0400
++++ v3.1.0/Gemfile	2012-08-01 09:42:18.000000000 -0400
+@@ -1,6 +1,6 @@
+ source 'http://rubygems.org'
+ 
+-gem 'rails', '3.1.0.rc8'
++gem 'rails', '3.1.0'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails',     :git => 'git://github.com/rails/rails.git'
+@@ -11,8 +11,8 @@
+ # Gems used only for assets and not required
+ # in production environments by default.
+ group :assets do
+-  gem 'sass-rails', "  ~> 3.1.0.rc"
+-  gem 'coffee-rails', "~> 3.1.0.rc"
++  gem 'sass-rails', "  ~> 3.1.0"
++  gem 'coffee-rails', "~> 3.1.0"
+   gem 'uglifier'
+ end
+ 
+diff -Nru v3.1.0.rc8/config/application.rb v3.1.0/config/application.rb
+--- v3.1.0.rc8/config/application.rb	2012-08-01 09:42:15.000000000 -0400
++++ v3.1.0/config/application.rb	2012-08-01 09:42:18.000000000 -0400
+@@ -41,5 +41,8 @@
+ 
+     # Enable the asset pipeline
+     config.assets.enabled = true
++
++    # Version of your assets, change this if you want to expire all your assets
++    config.assets.version = '1.0'
+   end
+ end
+diff -Nru v3.1.0.rc8/config/environments/development.rb v3.1.0/config/environments/development.rb
+--- v3.1.0.rc8/config/environments/development.rb	2012-08-01 09:42:15.000000000 -0400
++++ v3.1.0/config/environments/development.rb	2012-08-01 09:42:18.000000000 -0400
+@@ -25,9 +25,6 @@
+   # Do not compress assets
+   config.assets.compress = false
+ 
+-  # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
+-  config.assets.allow_debugging = true
+-
+   # Expands the lines which load the assets
+   config.assets.debug = true
+ end
+diff -Nru v3.1.0.rc8/config/environments/production.rb v3.1.0/config/environments/production.rb
+--- v3.1.0.rc8/config/environments/production.rb	2012-08-01 09:42:15.000000000 -0400
++++ v3.1.0/config/environments/production.rb	2012-08-01 09:42:18.000000000 -0400
+@@ -14,6 +14,15 @@
+   # Compress JavaScripts and CSS
+   config.assets.compress = true
+ 
++  # Don't fallback to assets pipeline if a precompiled asset is missed
++  config.assets.compile = false
++
++  # Generate digests for assets URLs
++  config.assets.digest = true
++
++  # Defaults to Rails.root.join("public/assets")
++  # config.assets.manifest = YOUR_PATH
++
+   # Specifies the header that your server uses for sending files
+   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
+   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx

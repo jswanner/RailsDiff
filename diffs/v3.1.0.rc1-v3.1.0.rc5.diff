@@ -1,0 +1,111 @@
+diff -Nru v3.1.0.rc1/Gemfile v3.1.0.rc5/Gemfile
+--- v3.1.0.rc1/Gemfile	2012-08-01 09:42:01.000000000 -0400
++++ v3.1.0.rc5/Gemfile	2012-08-01 09:42:10.000000000 -0400
+@@ -1,16 +1,20 @@
+ source 'http://rubygems.org'
+ 
+-gem 'rails', '3.1.0.rc1'
++gem 'rails', '3.1.0.rc5'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails',     :git => 'git://github.com/rails/rails.git'
+ 
+ gem 'sqlite3'
+ 
+-# Asset template engines
+-gem 'sass'
+-gem 'coffee-script'
+-gem 'uglifier'
++
++# Gems used only for assets and not required
++# in production environments by default.
++group :assets do
++  gem 'sass-rails', "~> 3.1.0.rc"
++  gem 'coffee-rails', "~> 3.1.0.rc"
++  gem 'uglifier'
++end
+ 
+ gem 'jquery-rails'
+ 
+diff -Nru v3.1.0.rc1/config/application.rb v3.1.0.rc5/config/application.rb
+--- v3.1.0.rc1/config/application.rb	2012-08-01 09:42:01.000000000 -0400
++++ v3.1.0.rc5/config/application.rb	2012-08-01 09:42:10.000000000 -0400
+@@ -2,9 +2,10 @@
+ 
+ require 'rails/all'
+ 
+-# If you have a Gemfile, require the gems listed there, including any gems
+-# you've limited to :test, :development, or :production.
+-Bundler.require(:default, Rails.env) if defined?(Bundler)
++# If you have a Gemfile, require the default gems, the ones in the
++# current environment and also include :assets gems if in development
++# or test environments.
++Bundler.require *Rails.groups(:assets) if defined?(Bundler)
+ 
+ module Railsdiff
+   class Application < Rails::Application
+@@ -30,13 +31,6 @@
+     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+     # config.i18n.default_locale = :de
+ 
+-    # Please note that JavaScript expansions are *ignored altogether* if the asset
+-    # pipeline is enabled (see config.assets.enabled below). Put your defaults in
+-    # app/assets/javascripts/application.js in that case.
+-    #
+-    # JavaScript files you want as :defaults (application.js is always included).
+-    # config.action_view.javascript_expansions[:defaults] = %w(prototype prototype_ujs)
+-
+     # Configure the default encoding used in templates for Ruby 1.9.
+     config.encoding = "utf-8"
+ 
+diff -Nru v3.1.0.rc1/config/environments/development.rb v3.1.0.rc5/config/environments/development.rb
+--- v3.1.0.rc1/config/environments/development.rb	2012-08-01 09:42:01.000000000 -0400
++++ v3.1.0.rc5/config/environments/development.rb	2012-08-01 09:42:10.000000000 -0400
+@@ -21,4 +21,7 @@
+ 
+   # Only use best-standards-support built into browsers
+   config.action_dispatch.best_standards_support = :builtin
++
++  # Do not compress assets
++  config.assets.compress = false
+ end
+diff -Nru v3.1.0.rc1/config/environments/production.rb v3.1.0.rc5/config/environments/production.rb
+--- v3.1.0.rc1/config/environments/production.rb	2012-08-01 09:42:01.000000000 -0400
++++ v3.1.0.rc5/config/environments/production.rb	2012-08-01 09:42:10.000000000 -0400
+@@ -11,9 +11,8 @@
+   # Disable Rails's static asset server (Apache or nginx will already do this)
+   config.serve_static_assets = false
+ 
+-  # Compress both stylesheets and JavaScripts
+-  config.assets.js_compressor  = :uglifier
+-  config.assets.css_compressor = :scss
++  # Compress JavaScripts and CSS
++  config.assets.compress = true
+ 
+   # Specifies the header that your server uses for sending files
+   # (comment out if your front-end server doesn't support this)
+diff -Nru v3.1.0.rc1/config/initializers/wrap_parameters.rb v3.1.0.rc5/config/initializers/wrap_parameters.rb
+--- v3.1.0.rc1/config/initializers/wrap_parameters.rb	2012-08-01 09:42:01.000000000 -0400
++++ v3.1.0.rc5/config/initializers/wrap_parameters.rb	2012-08-01 09:42:10.000000000 -0400
+@@ -1,7 +1,7 @@
+ # Be sure to restart your server when you modify this file.
+ #
+-# This file contains the settings for ActionController::ParametersWrapper
+-# which will be enabled by default in the upcoming version of Ruby on Rails.
++# This file contains settings for ActionController::ParamsWrapper which
++# is enabled by default.
+ 
+ # Enable parameter wrapping for JSON. You can disable this by setting :format to an empty array.
+ ActionController::Base.wrap_parameters format: [:json]
+diff -Nru v3.1.0.rc1/test/performance/browsing_test.rb v3.1.0.rc5/test/performance/browsing_test.rb
+--- v3.1.0.rc1/test/performance/browsing_test.rb	2012-08-01 09:42:01.000000000 -0400
++++ v3.1.0.rc5/test/performance/browsing_test.rb	2012-08-01 09:42:10.000000000 -0400
+@@ -5,7 +5,7 @@
+   # Refer to the documentation for all available options
+   # self.profile_options = { :runs => 5, :metrics => [:wall_time, :memory]
+   #                          :output => 'tmp/performance', :formats => [:flat] }
+-  
++
+   def test_homepage
+     get '/'
+   end

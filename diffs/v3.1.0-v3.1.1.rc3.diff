@@ -1,0 +1,54 @@
+diff -Nru v3.1.0/Gemfile v3.1.1.rc3/Gemfile
+--- v3.1.0/Gemfile	2012-08-01 09:42:18.000000000 -0400
++++ v3.1.1.rc3/Gemfile	2012-07-26 23:32:33.000000000 -0400
+@@ -1,6 +1,6 @@
+ source 'http://rubygems.org'
+ 
+-gem 'rails', '3.1.0'
++gem 'rails', '3.1.1.rc3'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails',     :git => 'git://github.com/rails/rails.git'
+@@ -11,13 +11,16 @@
+ # Gems used only for assets and not required
+ # in production environments by default.
+ group :assets do
+-  gem 'sass-rails', "  ~> 3.1.0"
+-  gem 'coffee-rails', "~> 3.1.0"
+-  gem 'uglifier'
++  gem 'sass-rails',   '~> 3.1.4'
++  gem 'coffee-rails', '~> 3.1.1'
++  gem 'uglifier', '>= 1.0.3'
+ end
+ 
+ gem 'jquery-rails'
+ 
++# To use ActiveModel has_secure_password
++# gem 'bcrypt-ruby', '~> 3.0.0'
++
+ # Use unicorn as the web server
+ # gem 'unicorn'
+ 
+diff -Nru v3.1.0/config/application.rb v3.1.1.rc3/config/application.rb
+--- v3.1.0/config/application.rb	2012-08-01 09:42:18.000000000 -0400
++++ v3.1.1.rc3/config/application.rb	2012-07-26 23:32:33.000000000 -0400
+@@ -4,7 +4,7 @@
+ 
+ if defined?(Bundler)
+   # If you precompile assets before deploying to production, use this line
+-  Bundler.require *Rails.groups(:assets => %w(development test))
++  Bundler.require(*Rails.groups(:assets => %w(development test)))
+   # If you want your assets lazily compiled in production, use this line
+   # Bundler.require(:default, :assets, Rails.env)
+ end
+diff -Nru v3.1.0/config/environments/test.rb v3.1.1.rc3/config/environments/test.rb
+--- v3.1.0/config/environments/test.rb	2012-08-01 09:42:18.000000000 -0400
++++ v3.1.1.rc3/config/environments/test.rb	2012-07-26 23:32:33.000000000 -0400
+@@ -36,7 +36,4 @@
+ 
+   # Print deprecation notices to the stderr
+   config.active_support.deprecation = :stderr
+-
+-  # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
+-  config.assets.allow_debugging = true
+ end

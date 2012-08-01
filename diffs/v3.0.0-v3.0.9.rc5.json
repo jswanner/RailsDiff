@@ -1,0 +1,53 @@
+{
+"diffs": [
+{
+"filepath": ".gitignore",
+"diff": "@@ -1,4 +1,4 @@\n .bundle\n db/*.sqlite3\n log/*.log\n-tmp/**/*\n+tmp/\n"
+}
+,
+{
+"filepath": "Gemfile",
+"diff": "@@ -1,11 +1,11 @@\n source 'http://rubygems.org'\n \n-gem 'rails', '3.0.0'\n+gem 'rails', '3.0.9.rc5'\n \n # Bundle edge Rails instead:\n # gem 'rails', :git => 'git://github.com/rails/rails.git'\n \n-gem 'sqlite3-ruby', :require => 'sqlite3'\n+gem 'sqlite3'\n \n # Use unicorn as the web server\n # gem 'unicorn'\n@@ -13,8 +13,9 @@\n # Deploy with Capistrano\n # gem 'capistrano'\n \n-# To use debugger\n+# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)\n # gem 'ruby-debug'\n+# gem 'ruby-debug19', :require => 'ruby-debug'\n \n # Bundle the extra gems:\n # gem 'bj'\n"
+}
+,
+{
+"filepath": "README",
+"diff": "@@ -158,6 +158,7 @@\n   |-- app\n   |   |-- controllers\n   |   |-- helpers\n+  |   |-- mailers\n   |   |-- models\n   |   `-- views\n   |       `-- layouts\n@@ -175,7 +176,6 @@\n   |   |-- javascripts\n   |   `-- stylesheets\n   |-- script\n-  |   `-- performance\n   |-- test\n   |   |-- fixtures\n   |   |-- functional\n"
+}
+,
+{
+"filepath": "config/boot.rb",
+"diff": "@@ -1,13 +1,6 @@\n require 'rubygems'\n \n # Set up gems listed in the Gemfile.\n-gemfile = File.expand_path('../../Gemfile', __FILE__)\n-begin\n-  ENV['BUNDLE_GEMFILE'] = gemfile\n-  require 'bundler'\n-  Bundler.setup\n-rescue Bundler::GemNotFound => e\n-  STDERR.puts e.message\n-  STDERR.puts \"Try running `bundle install`.\"\n-  exit!\n-end if File.exist?(gemfile)\n+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)\n+\n+require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])\n"
+}
+,
+{
+"filepath": "config/database.yml",
+"diff": "@@ -1,5 +1,5 @@\n # SQLite version 3.x\n-#   gem install sqlite3-ruby (not necessary on OS X Leopard)\n+#   gem install sqlite3\n development:\n   adapter: sqlite3\n   database: db/development.sqlite3\n"
+}
+,
+{
+"filepath": "config/environments/development.rb",
+"diff": "@@ -1,5 +1,5 @@\n Railsdiff::Application.configure do\n-  # Settings specified here will take precedence over those in config/environment.rb\n+  # Settings specified here will take precedence over those in config/application.rb\n \n   # In the development environment your application's code is reloaded on\n   # every request.  This slows down response time but is perfect for development\n"
+}
+,
+{
+"filepath": "config/environments/production.rb",
+"diff": "@@ -1,5 +1,5 @@\n Railsdiff::Application.configure do\n-  # Settings specified here will take precedence over those in config/environment.rb\n+  # Settings specified here will take precedence over those in config/application.rb\n \n   # The production environment is meant for finished, \"live\" apps.\n   # Code is not reloaded between requests\n"
+}
+,
+{
+"filepath": "config/environments/test.rb",
+"diff": "@@ -1,5 +1,5 @@\n Railsdiff::Application.configure do\n-  # Settings specified here will take precedence over those in config/environment.rb\n+  # Settings specified here will take precedence over those in config/application.rb\n \n   # The test environment is used exclusively to run your application's\n   # test suite.  You never need to work with it otherwise.  Remember that\n"
+}
+,
+{
+"filepath": "config/initializers/session_store.rb",
+"diff": "@@ -4,5 +4,5 @@\n \n # Use the database for sessions instead of the cookie-based default,\n # which shouldn't be used to store highly confidential information\n-# (create the session table with \"rake db:sessions:create\")\n+# (create the session table with \"rails generate session_migration\")\n # Railsdiff::Application.config.session_store :active_record_store\n"
+}
+,
+{
+"filepath": "public/javascripts/rails.js",
+"diff": "@@ -172,4 +172,20 @@\n       input.disabled = false;\n     });\n   });\n+\n+  Ajax.Responders.register({\n+    onCreate: function(request) {\n+      var csrf_meta_tag = $$('meta[name=csrf-token]')[0];\n+\n+      if (csrf_meta_tag) {\n+        var header = 'X-CSRF-Token',\n+            token = csrf_meta_tag.readAttribute('content');\n+\n+        if (!request.options.requestHeaders) {\n+          request.options.requestHeaders = {};\n+        }\n+        request.options.requestHeaders[header] = token;\n+      }\n+    }\n+  });\n })();\n"
+}
+]
+}

@@ -1,6 +1,15 @@
 ---
 layout: diff
 ---
+<h2>.gitignore</h2>
+{% highlight diff %}
+@@ -0,0 +1,5 @@
++.bundle
++db/*.sqlite3
++log/*.log
++tmp/
++.sass-cache/
+{% endhighlight %}
 <h2>Gemfile</h2>
 {% highlight diff %}
 @@ -1,6 +1,6 @@
@@ -22,4 +31,13 @@ layout: diff
    gem 'uglifier', '>= 1.0.3'
  end
  
+{% endhighlight %}
+<h2>railsdiff/.gitignore</h2>
+{% highlight diff %}
+@@ -1,5 +0,0 @@
+-.bundle
+-db/*.sqlite3
+-log/*.log
+-tmp/
+-.sass-cache/
 {% endhighlight %}

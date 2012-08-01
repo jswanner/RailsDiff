@@ -1,0 +1,62 @@
+---
+layout: diff
+---
+<h2>Gemfile</h2>
+{% highlight diff %}
+@@ -1,16 +1,20 @@
+ source 'http://rubygems.org'
+ 
+-gem 'rails', '3.1.0.rc3'
++gem 'rails', '3.1.0.rc5'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails',     :git => 'git://github.com/rails/rails.git'
+ 
+ gem 'sqlite3'
+ 
+-# Asset template engines
+-gem 'sass-rails', "~> 3.1.0.rc"
+-gem 'coffee-script'
+-gem 'uglifier'
++
++# Gems used only for assets and not required
++# in production environments by default.
++group :assets do
++  gem 'sass-rails', "~> 3.1.0.rc"
++  gem 'coffee-rails', "~> 3.1.0.rc"
++  gem 'uglifier'
++end
+ 
+ gem 'jquery-rails'
+ 
+{% endhighlight %}
+<h2>config/application.rb</h2>
+{% highlight diff %}
+@@ -2,9 +2,10 @@
+ 
+ require 'rails/all'
+ 
+-# If you have a Gemfile, require the gems listed there, including any gems
+-# you've limited to :test, :development, or :production.
+-Bundler.require(:default, Rails.env) if defined?(Bundler)
++# If you have a Gemfile, require the default gems, the ones in the
++# current environment and also include :assets gems if in development
++# or test environments.
++Bundler.require *Rails.groups(:assets) if defined?(Bundler)
+ 
+ module Railsdiff
+   class Application < Rails::Application
+{% endhighlight %}
+<h2>config/environments/production.rb</h2>
+{% highlight diff %}
+@@ -14,9 +14,6 @@
+   # Compress JavaScripts and CSS
+   config.assets.compress = true
+ 
+-  # Specify the default JavaScript compressor
+-  config.assets.js_compressor  = :uglifier
+-
+   # Specifies the header that your server uses for sending files
+   # (comment out if your front-end server doesn't support this)
+   config.action_dispatch.x_sendfile_header = "X-Sendfile" # Use 'X-Accel-Redirect' for nginx
+{% endhighlight %}

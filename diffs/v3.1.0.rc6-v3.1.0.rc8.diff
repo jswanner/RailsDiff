@@ -1,0 +1,36 @@
+diff -Nru v3.1.0.rc6/Gemfile v3.1.0.rc8/Gemfile
+--- v3.1.0.rc6/Gemfile	2012-08-01 09:42:12.000000000 -0400
++++ v3.1.0.rc8/Gemfile	2012-08-01 09:42:15.000000000 -0400
+@@ -1,6 +1,6 @@
+ source 'http://rubygems.org'
+ 
+-gem 'rails', '3.1.0.rc6'
++gem 'rails', '3.1.0.rc8'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails',     :git => 'git://github.com/rails/rails.git'
+diff -Nru v3.1.0.rc6/config/environments/development.rb v3.1.0.rc8/config/environments/development.rb
+--- v3.1.0.rc6/config/environments/development.rb	2012-08-01 09:42:12.000000000 -0400
++++ v3.1.0.rc8/config/environments/development.rb	2012-08-01 09:42:15.000000000 -0400
+@@ -24,4 +24,10 @@
+ 
+   # Do not compress assets
+   config.assets.compress = false
++
++  # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
++  config.assets.allow_debugging = true
++
++  # Expands the lines which load the assets
++  config.assets.debug = true
+ end
+diff -Nru v3.1.0.rc6/config/environments/test.rb v3.1.0.rc8/config/environments/test.rb
+--- v3.1.0.rc6/config/environments/test.rb	2012-08-01 09:42:12.000000000 -0400
++++ v3.1.0.rc8/config/environments/test.rb	2012-08-01 09:42:15.000000000 -0400
+@@ -36,4 +36,7 @@
+ 
+   # Print deprecation notices to the stderr
+   config.active_support.deprecation = :stderr
++
++  # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
++  config.assets.allow_debugging = true
+ end

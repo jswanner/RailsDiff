@@ -24,7 +24,7 @@ rescue
 end
 
 def min_version
-  @min_version ||= version 'v3.1.1.rc1'
+  @min_version ||= version 'v3.0.0'
 end
 
 directory 'tmp/rails'
@@ -33,13 +33,23 @@ file 'tmp/rails/rails' => 'tmp/rails' do |t|
   %x{git clone git://github.com/rails/rails.git #{t}}
 end
 
-rule(/tmp\/rails\/.*/ => ['tmp/rails/rails']) do |t|
+file 'tmp/rails/generator' => 'tmp/rails' do |t|
+  generator = <<-GEN
+railties_path = File.expand_path('../railties/lib', __FILE__)
+$:.unshift(railties_path)
+require "rails/cli"
+  GEN
+  File.write(t.name, generator)
+end
+
+rule(/tmp\/rails\/.*/ => ['tmp/rails/rails', 'tmp/rails/generator']) do |t|
   cd t.source do
     tag = t.name.match(/([^\/]+)$/)[0]
     %x{git checkout master}
     %x{git checkout #{tag}}
   end
   cp_r t.source, t.name
+  cp 'tmp/rails/generator', t.name
 end
 
 directory 'tmp/generated'
@@ -47,7 +57,7 @@ rule(/tmp\/generated\/.*/ => ['tmp/generated']) do |t|
   tag = t.name.match(/([^\/]+)$/)[0]
   Rake::Task["tmp/rails/#{tag}"].invoke
   rails_dir = "tmp/rails/#{tag}"
-  %x{#{rails_binary rails_dir} new #{t.name}/railsdiff --skip-bundle}
+  system %{ruby #{rails_dir}/generator new #{t.name}/railsdiff --skip-bundle}
   rm "#{t.name}/railsdiff/config/initializers/secret_token.rb"
   %x{mv #{t.name}/railsdiff/* #{t.name}/.}
   %x{mv #{t.name}/railsdiff/.??* #{t.name}/.}

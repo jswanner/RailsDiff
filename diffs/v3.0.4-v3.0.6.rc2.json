@@ -1,0 +1,8 @@
+{
+"diffs": [
+{
+"filepath": "Gemfile",
+"diff": "@@ -1,6 +1,6 @@\n source 'http://rubygems.org'\n \n-gem 'rails', '3.0.4'\n+gem 'rails', '3.0.6.rc2'\n \n # Bundle edge Rails instead:\n # gem 'rails', :git => 'git://github.com/rails/rails.git'\n@@ -15,7 +15,7 @@\n \n # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)\n # gem 'ruby-debug'\n-# gem 'ruby-debug19'\n+# gem 'ruby-debug19', :require => 'ruby-debug'\n \n # Bundle the extra gems:\n # gem 'bj'\n"
+}
+]
+}
