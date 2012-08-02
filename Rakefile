@@ -1,20 +1,33 @@
 # encoding: utf-8
 
 task :gen_diffs => 'tmp/rails/rails' do |t|
-  all_tags = nil
-  cd 'tmp/rails/rails' do
-    all_tags = %x{git tag -l "v3*"}.split
-  end
-  all_tags.sort! { |a, b| version(a) <=> version(b) }
-  tail = all_tags.pop
-  while all_tags.any?
-    all_tags.each do |tag|
-      next unless version(tag) >= min_version
+  tags = all_tags
+  tail = tags.pop
+  while tags.any?
+    tags.each do |tag|
       Rake::Task["diffs/#{tag}-#{tail}.html"].invoke
       Rake::Task["diffs/#{tag}-#{tail}.json"].invoke
     end
-    tail = all_tags.pop
+    tail = tags.pop
   end
+end
+
+file 'index.html' => 'tmp/rails/rails' do |t|
+  require 'erubis'
+  tags = all_tags
+  versions = tags.map {|t| version(t).version }
+  template = Erubis::Eruby.new(File.read('index.html.erb'))
+  File.write(t.name, template.result(versions: versions))
+end
+
+def all_tags
+  tags = nil
+  cd 'tmp/rails/rails' do
+    tags = %x{git tag -l "v3*"}.split
+  end
+  tags.
+    sort { |a, b| version(a) <=> version(b) }.
+    select { |t| version(t) >= min_version }
 end
 
 def version tag

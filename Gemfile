@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'debugger'
+gem 'erubis'
 gem 'jekyll'
 gem 'rake'
 gem 'rspec'

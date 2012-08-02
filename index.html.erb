@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsDiff</title>
+    <script>
+      window.onload = function () {
+        var form = document.getElementById('form');
+        form.onsubmit = function () {
+          var source = document.getElementById('source'),
+              source = source.options[source.selectedIndex].value,
+              target = document.getElementById('target'),
+              target = target.options[target.selectedIndex].value,
+              href   = ['/diffs/v', source, '-v', target, '.html'].join('');
+          window.location.href = href;
+          return false;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <h1>RailsDiff</h1>
+    <form id="form">
+      <label for="source">Source</label>
+      <select id="source">
+      <% versions.each do |version| %>
+        <option value="<%= version %>"><%= version %></option>
+      <% end %>
+      </select>
+      <label for="target">Target</label>
+      <select id="target">
+      <% versions.reverse.each do |version| %>
+        <option value="<%= version %>"><%= version %></option>
+      <% end %>
+      </select>
+      <input type="submit" value="Get Diff" />
+    </form>
+  </body>
+</html>
