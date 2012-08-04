@@ -1,0 +1,104 @@
+diff -Nru v3.2.0.rc2/Gemfile v3.2.8.rc2/Gemfile
+--- v3.2.0.rc2/Gemfile	2012-07-26 23:33:01.000000000 -0400
++++ v3.2.8.rc2/Gemfile	2012-08-04 08:46:13.000000000 -0400
+@@ -1,6 +1,6 @@
+ source 'https://rubygems.org'
+ 
+-gem 'rails', '3.2.0.rc2'
++gem 'rails', '3.2.8.rc2'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails', :git => 'git://github.com/rails/rails.git'
+@@ -12,7 +12,10 @@
+ # in production environments by default.
+ group :assets do
+   gem 'sass-rails',   '~> 3.2.3'
+-  gem 'coffee-rails', '~> 3.2.0'
++  gem 'coffee-rails', '~> 3.2.1'
++
++  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
++  # gem 'therubyracer', :platforms => :ruby
+ 
+   gem 'uglifier', '>= 1.0.3'
+ end
+@@ -25,11 +28,11 @@
+ # To use Jbuilder templates for JSON
+ # gem 'jbuilder'
+ 
+-# Use unicorn as the web server
++# Use unicorn as the app server
+ # gem 'unicorn'
+ 
+ # Deploy with Capistrano
+ # gem 'capistrano'
+ 
+ # To use debugger
+-# gem 'ruby-debug19', :require => 'ruby-debug'
++# gem 'debugger'
+diff -Nru v3.2.0.rc2/app/assets/stylesheets/application.css v3.2.8.rc2/app/assets/stylesheets/application.css
+--- v3.2.0.rc2/app/assets/stylesheets/application.css	2012-07-26 23:33:01.000000000 -0400
++++ v3.2.8.rc2/app/assets/stylesheets/application.css	2012-08-04 08:46:13.000000000 -0400
+@@ -10,4 +10,4 @@
+  *
+  *= require_self
+  *= require_tree .
+-*/
++ */
+diff -Nru v3.2.0.rc2/config/application.rb v3.2.8.rc2/config/application.rb
+--- v3.2.0.rc2/config/application.rb	2012-07-26 23:33:01.000000000 -0400
++++ v3.2.8.rc2/config/application.rb	2012-08-04 08:46:13.000000000 -0400
+@@ -39,6 +39,9 @@
+     # Configure sensitive parameters which will be filtered from the log file.
+     config.filter_parameters += [:password]
+ 
++    # Enable escaping HTML in JSON.
++    config.active_support.escape_html_entities_in_json = true
++
+     # Use SQL instead of Active Record's schema dumper when creating the database.
+     # This is necessary if your schema can't be completely dumped by the schema dumper,
+     # like if you have constraints or database-specific column types
+@@ -48,7 +51,7 @@
+     # This will create an empty whitelist of attributes available for mass-assignment for all models
+     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
+     # parameters by using an attr_accessible or attr_protected declaration.
+-    # config.active_record.whitelist_attributes = true
++    config.active_record.whitelist_attributes = true
+ 
+     # Enable the asset pipeline
+     config.assets.enabled = true
+diff -Nru v3.2.0.rc2/config/environments/development.rb v3.2.8.rc2/config/environments/development.rb
+--- v3.2.0.rc2/config/environments/development.rb	2012-07-26 23:33:01.000000000 -0400
++++ v3.2.8.rc2/config/environments/development.rb	2012-08-04 08:46:13.000000000 -0400
+@@ -22,7 +22,7 @@
+   # Only use best-standards-support built into browsers
+   config.action_dispatch.best_standards_support = :builtin
+ 
+-  # Raise exception on mass assignment protection for ActiveRecord models
++  # Raise exception on mass assignment protection for Active Record models
+   config.active_record.mass_assignment_sanitizer = :strict
+ 
+   # Log the query plan for queries taking more than this (works
+diff -Nru v3.2.0.rc2/config/environments/production.rb v3.2.8.rc2/config/environments/production.rb
+--- v3.2.0.rc2/config/environments/production.rb	2012-07-26 23:33:01.000000000 -0400
++++ v3.2.8.rc2/config/environments/production.rb	2012-08-04 08:46:13.000000000 -0400
+@@ -20,7 +20,7 @@
+   # Generate digests for assets URLs
+   config.assets.digest = true
+ 
+-  # Defaults to Rails.root.join("public/assets")
++  # Defaults to nil and saved in location specified by config.assets.prefix
+   # config.assets.manifest = YOUR_PATH
+ 
+   # Specifies the header that your server uses for sending files
+diff -Nru v3.2.0.rc2/config/environments/test.rb v3.2.8.rc2/config/environments/test.rb
+--- v3.2.0.rc2/config/environments/test.rb	2012-07-26 23:33:01.000000000 -0400
++++ v3.2.8.rc2/config/environments/test.rb	2012-08-04 08:46:13.000000000 -0400
+@@ -29,7 +29,7 @@
+   # ActionMailer::Base.deliveries array.
+   config.action_mailer.delivery_method = :test
+ 
+-  # Raise exception on mass assignment protection for ActiveRecord models
++  # Raise exception on mass assignment protection for Active Record models
+   config.active_record.mass_assignment_sanitizer = :strict
+ 
+   # Print deprecation notices to the stderr
