@@ -1,114 +1,138 @@
----
-layout: diff
----
-<h2>Gemfile</h2>
-{% highlight diff %}
-@@ -1,16 +1,20 @@
- source 'http://rubygems.org'
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsDiff</title>
+    <link rel="stylesheet" href="../stylesheets/stylesheet.css" />
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css" />
+  </head>
+  <body>
+    <h1>RailsDiff</h1>
+      <h2>Gemfile</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,16 +1,20 @@</span>
+ source &#39;http://rubygems.org&#39;
  
--gem 'rails', '3.1.0.rc1'
-+gem 'rails', '3.1.0.rc5'
+<span class="gd">-gem &#39;rails&#39;, &#39;3.1.0.rc1&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.1.0.rc5&#39;</span>
  
  # Bundle edge Rails instead:
- # gem 'rails',     :git => 'git://github.com/rails/rails.git'
+ # gem &#39;rails&#39;,     :git =&gt; &#39;git://github.com/rails/rails.git&#39;
  
- gem 'sqlite3'
+ gem &#39;sqlite3&#39;
  
--# Asset template engines
--gem 'sass'
--gem 'coffee-script'
--gem 'uglifier'
-+
-+# Gems used only for assets and not required
-+# in production environments by default.
-+group :assets do
-+  gem 'sass-rails', "~> 3.1.0.rc"
-+  gem 'coffee-rails', "~> 3.1.0.rc"
-+  gem 'uglifier'
-+end
+<span class="gd">-# Asset template engines</span>
+<span class="gd">-gem &#39;sass&#39;</span>
+<span class="gd">-gem &#39;coffee-script&#39;</span>
+<span class="gd">-gem &#39;uglifier&#39;</span>
+<span class="gi">+</span>
+<span class="gi">+# Gems used only for assets and not required</span>
+<span class="gi">+# in production environments by default.</span>
+<span class="gi">+group :assets do</span>
+<span class="gi">+  gem &#39;sass-rails&#39;, &quot;~&gt; 3.1.0.rc&quot;</span>
+<span class="gi">+  gem &#39;coffee-rails&#39;, &quot;~&gt; 3.1.0.rc&quot;</span>
+<span class="gi">+  gem &#39;uglifier&#39;</span>
+<span class="gi">+end</span>
  
- gem 'jquery-rails'
+ gem &#39;jquery-rails&#39;
  
-{% endhighlight %}
-<h2>config/application.rb</h2>
-{% highlight diff %}
-@@ -2,9 +2,10 @@
+</pre>
+</div>
+
+      <h2>config/application.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -2,9 +2,10 @@</span>
  
- require 'rails/all'
+ require &#39;rails/all&#39;
  
--# If you have a Gemfile, require the gems listed there, including any gems
--# you've limited to :test, :development, or :production.
--Bundler.require(:default, Rails.env) if defined?(Bundler)
-+# If you have a Gemfile, require the default gems, the ones in the
-+# current environment and also include :assets gems if in development
-+# or test environments.
-+Bundler.require *Rails.groups(:assets) if defined?(Bundler)
+<span class="gd">-# If you have a Gemfile, require the gems listed there, including any gems</span>
+<span class="gd">-# you&#39;ve limited to :test, :development, or :production.</span>
+<span class="gd">-Bundler.require(:default, Rails.env) if defined?(Bundler)</span>
+<span class="gi">+# If you have a Gemfile, require the default gems, the ones in the</span>
+<span class="gi">+# current environment and also include :assets gems if in development</span>
+<span class="gi">+# or test environments.</span>
+<span class="gi">+Bundler.require *Rails.groups(:assets) if defined?(Bundler)</span>
  
  module Railsdiff
-   class Application < Rails::Application
-@@ -30,13 +31,6 @@
-     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+   class Application &lt; Rails::Application
+<span class="gu">@@ -30,13 +31,6 @@</span>
+     # config.i18n.load_path += Dir[Rails.root.join(&#39;my&#39;, &#39;locales&#39;, &#39;*.{rb,yml}&#39;).to_s]
      # config.i18n.default_locale = :de
  
--    # Please note that JavaScript expansions are *ignored altogether* if the asset
--    # pipeline is enabled (see config.assets.enabled below). Put your defaults in
--    # app/assets/javascripts/application.js in that case.
--    #
--    # JavaScript files you want as :defaults (application.js is always included).
--    # config.action_view.javascript_expansions[:defaults] = %w(prototype prototype_ujs)
--
+<span class="gd">-    # Please note that JavaScript expansions are *ignored altogether* if the asset</span>
+<span class="gd">-    # pipeline is enabled (see config.assets.enabled below). Put your defaults in</span>
+<span class="gd">-    # app/assets/javascripts/application.js in that case.</span>
+<span class="gd">-    #</span>
+<span class="gd">-    # JavaScript files you want as :defaults (application.js is always included).</span>
+<span class="gd">-    # config.action_view.javascript_expansions[:defaults] = %w(prototype prototype_ujs)</span>
+<span class="gd">-</span>
      # Configure the default encoding used in templates for Ruby 1.9.
-     config.encoding = "utf-8"
+     config.encoding = &quot;utf-8&quot;
  
-{% endhighlight %}
-<h2>config/environments/development.rb</h2>
-{% highlight diff %}
-@@ -21,4 +21,7 @@
+</pre>
+</div>
+
+      <h2>config/environments/development.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -21,4 +21,7 @@</span>
  
    # Only use best-standards-support built into browsers
    config.action_dispatch.best_standards_support = :builtin
-+
-+  # Do not compress assets
-+  config.assets.compress = false
+<span class="gi">+</span>
+<span class="gi">+  # Do not compress assets</span>
+<span class="gi">+  config.assets.compress = false</span>
  end
-{% endhighlight %}
-<h2>config/environments/production.rb</h2>
-{% highlight diff %}
-@@ -11,9 +11,8 @@
-   # Disable Rails's static asset server (Apache or nginx will already do this)
+</pre>
+</div>
+
+      <h2>config/environments/production.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -11,9 +11,8 @@</span>
+   # Disable Rails&#39;s static asset server (Apache or nginx will already do this)
    config.serve_static_assets = false
  
--  # Compress both stylesheets and JavaScripts
--  config.assets.js_compressor  = :uglifier
--  config.assets.css_compressor = :scss
-+  # Compress JavaScripts and CSS
-+  config.assets.compress = true
+<span class="gd">-  # Compress both stylesheets and JavaScripts</span>
+<span class="gd">-  config.assets.js_compressor  = :uglifier</span>
+<span class="gd">-  config.assets.css_compressor = :scss</span>
+<span class="gi">+  # Compress JavaScripts and CSS</span>
+<span class="gi">+  config.assets.compress = true</span>
  
    # Specifies the header that your server uses for sending files
-   # (comment out if your front-end server doesn't support this)
-{% endhighlight %}
-<h2>config/initializers/wrap_parameters.rb</h2>
-{% highlight diff %}
-@@ -1,7 +1,7 @@
+   # (comment out if your front-end server doesn&#39;t support this)
+</pre>
+</div>
+
+      <h2>config/initializers/wrap_parameters.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,7 +1,7 @@</span>
  # Be sure to restart your server when you modify this file.
  #
--# This file contains the settings for ActionController::ParametersWrapper
--# which will be enabled by default in the upcoming version of Ruby on Rails.
-+# This file contains settings for ActionController::ParamsWrapper which
-+# is enabled by default.
+<span class="gd">-# This file contains the settings for ActionController::ParametersWrapper</span>
+<span class="gd">-# which will be enabled by default in the upcoming version of Ruby on Rails.</span>
+<span class="gi">+# This file contains settings for ActionController::ParamsWrapper which</span>
+<span class="gi">+# is enabled by default.</span>
  
  # Enable parameter wrapping for JSON. You can disable this by setting :format to an empty array.
  ActionController::Base.wrap_parameters format: [:json]
-{% endhighlight %}
-<h2>test/performance/browsing_test.rb</h2>
-{% highlight diff %}
-@@ -5,7 +5,7 @@
+</pre>
+</div>
+
+      <h2>test/performance/browsing_test.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -5,7 +5,7 @@</span>
    # Refer to the documentation for all available options
-   # self.profile_options = { :runs => 5, :metrics => [:wall_time, :memory]
-   #                          :output => 'tmp/performance', :formats => [:flat] }
--  
-+
+   # self.profile_options = { :runs =&gt; 5, :metrics =&gt; [:wall_time, :memory]
+   #                          :output =&gt; &#39;tmp/performance&#39;, :formats =&gt; [:flat] }
+<span class="gd">-  </span>
+<span class="gi">+</span>
    def test_homepage
-     get '/'
+     get &#39;/&#39;
    end
-{% endhighlight %}
+</pre>
+</div>
+
+  </body>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7325596-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</html>

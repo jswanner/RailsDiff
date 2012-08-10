@@ -1,47 +1,67 @@
----
-layout: diff
----
-<h2>Gemfile</h2>
-{% highlight diff %}
-@@ -1,6 +1,6 @@
- source 'http://rubygems.org'
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsDiff</title>
+    <link rel="stylesheet" href="../stylesheets/stylesheet.css" />
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css" />
+  </head>
+  <body>
+    <h1>RailsDiff</h1>
+      <h2>Gemfile</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,6 +1,6 @@</span>
+ source &#39;http://rubygems.org&#39;
  
--gem 'rails', '3.0.4.rc1'
-+gem 'rails', '3.0.9.rc3'
+<span class="gd">-gem &#39;rails&#39;, &#39;3.0.4.rc1&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.0.9.rc3&#39;</span>
  
  # Bundle edge Rails instead:
- # gem 'rails', :git => 'git://github.com/rails/rails.git'
-@@ -15,7 +15,7 @@
+ # gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;
+<span class="gu">@@ -15,7 +15,7 @@</span>
  
  # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
- # gem 'ruby-debug'
--# gem 'ruby-debug19'
-+# gem 'ruby-debug19', :require => 'ruby-debug'
+ # gem &#39;ruby-debug&#39;
+<span class="gd">-# gem &#39;ruby-debug19&#39;</span>
+<span class="gi">+# gem &#39;ruby-debug19&#39;, :require =&gt; &#39;ruby-debug&#39;</span>
  
  # Bundle the extra gems:
- # gem 'bj'
-{% endhighlight %}
-<h2>public/javascripts/rails.js</h2>
-{% highlight diff %}
-@@ -172,4 +172,20 @@
+ # gem &#39;bj&#39;
+</pre>
+</div>
+
+      <h2>public/javascripts/rails.js</h2>
+      <div class="highlight"><pre><span class="gu">@@ -172,4 +172,20 @@</span>
        input.disabled = false;
      });
    });
-+
-+  Ajax.Responders.register({
-+    onCreate: function(request) {
-+      var csrf_meta_tag = $$('meta[name=csrf-token]')[0];
-+
-+      if (csrf_meta_tag) {
-+        var header = 'X-CSRF-Token',
-+            token = csrf_meta_tag.readAttribute('content');
-+
-+        if (!request.options.requestHeaders) {
-+          request.options.requestHeaders = {};
-+        }
-+        request.options.requestHeaders[header] = token;
-+      }
-+    }
-+  });
+<span class="gi">+</span>
+<span class="gi">+  Ajax.Responders.register({</span>
+<span class="gi">+    onCreate: function(request) {</span>
+<span class="gi">+      var csrf_meta_tag = $$(&#39;meta[name=csrf-token]&#39;)[0];</span>
+<span class="gi">+</span>
+<span class="gi">+      if (csrf_meta_tag) {</span>
+<span class="gi">+        var header = &#39;X-CSRF-Token&#39;,</span>
+<span class="gi">+            token = csrf_meta_tag.readAttribute(&#39;content&#39;);</span>
+<span class="gi">+</span>
+<span class="gi">+        if (!request.options.requestHeaders) {</span>
+<span class="gi">+          request.options.requestHeaders = {};</span>
+<span class="gi">+        }</span>
+<span class="gi">+        request.options.requestHeaders[header] = token;</span>
+<span class="gi">+      }</span>
+<span class="gi">+    }</span>
+<span class="gi">+  });</span>
  })();
-{% endhighlight %}
+</pre>
+</div>
+
+  </body>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7325596-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</html>

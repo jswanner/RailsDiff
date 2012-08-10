@@ -1,92 +1,115 @@
----
-layout: diff
----
-<h2>.gitignore</h2>
-{% highlight diff %}
-@@ -1,4 +1,4 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsDiff</title>
+    <link rel="stylesheet" href="../stylesheets/stylesheet.css" />
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css" />
+  </head>
+  <body>
+    <h1>RailsDiff</h1>
+      <h2>.gitignore</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
  .bundle
  db/*.sqlite3
  log/*.log
--tmp/**/*
-+tmp/
-{% endhighlight %}
-<h2>Gemfile</h2>
-{% highlight diff %}
-@@ -1,11 +1,11 @@
- source 'http://rubygems.org'
+<span class="gd">-tmp/**/*</span>
+<span class="gi">+tmp/</span>
+</pre>
+</div>
+
+      <h2>Gemfile</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,11 +1,11 @@</span>
+ source &#39;http://rubygems.org&#39;
  
--gem 'rails', '3.0.3'
-+gem 'rails', '3.0.6.rc1'
+<span class="gd">-gem &#39;rails&#39;, &#39;3.0.3&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.0.6.rc1&#39;</span>
  
  # Bundle edge Rails instead:
- # gem 'rails', :git => 'git://github.com/rails/rails.git'
+ # gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;
  
--gem 'sqlite3-ruby', :require => 'sqlite3'
-+gem 'sqlite3'
+<span class="gd">-gem &#39;sqlite3-ruby&#39;, :require =&gt; &#39;sqlite3&#39;</span>
+<span class="gi">+gem &#39;sqlite3&#39;</span>
  
  # Use unicorn as the web server
- # gem 'unicorn'
-@@ -15,7 +15,7 @@
+ # gem &#39;unicorn&#39;
+<span class="gu">@@ -15,7 +15,7 @@</span>
  
  # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
- # gem 'ruby-debug'
--# gem 'ruby-debug19'
-+# gem 'ruby-debug19', :require => 'ruby-debug'
+ # gem &#39;ruby-debug&#39;
+<span class="gd">-# gem &#39;ruby-debug19&#39;</span>
+<span class="gi">+# gem &#39;ruby-debug19&#39;, :require =&gt; &#39;ruby-debug&#39;</span>
  
  # Bundle the extra gems:
- # gem 'bj'
-{% endhighlight %}
-<h2>config/boot.rb</h2>
-{% highlight diff %}
-@@ -1,13 +1,6 @@
- require 'rubygems'
+ # gem &#39;bj&#39;
+</pre>
+</div>
+
+      <h2>config/boot.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,13 +1,6 @@</span>
+ require &#39;rubygems&#39;
  
  # Set up gems listed in the Gemfile.
--gemfile = File.expand_path('../../Gemfile', __FILE__)
--begin
--  ENV['BUNDLE_GEMFILE'] = gemfile
--  require 'bundler'
--  Bundler.setup
--rescue Bundler::GemNotFound => e
--  STDERR.puts e.message
--  STDERR.puts "Try running `bundle install`."
--  exit!
--end if File.exist?(gemfile)
-+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
-+
-+require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
-{% endhighlight %}
-<h2>config/database.yml</h2>
-{% highlight diff %}
-@@ -1,5 +1,5 @@
+<span class="gd">-gemfile = File.expand_path(&#39;../../Gemfile&#39;, __FILE__)</span>
+<span class="gd">-begin</span>
+<span class="gd">-  ENV[&#39;BUNDLE_GEMFILE&#39;] = gemfile</span>
+<span class="gd">-  require &#39;bundler&#39;</span>
+<span class="gd">-  Bundler.setup</span>
+<span class="gd">-rescue Bundler::GemNotFound =&gt; e</span>
+<span class="gd">-  STDERR.puts e.message</span>
+<span class="gd">-  STDERR.puts &quot;Try running `bundle install`.&quot;</span>
+<span class="gd">-  exit!</span>
+<span class="gd">-end if File.exist?(gemfile)</span>
+<span class="gi">+ENV[&#39;BUNDLE_GEMFILE&#39;] ||= File.expand_path(&#39;../../Gemfile&#39;, __FILE__)</span>
+<span class="gi">+</span>
+<span class="gi">+require &#39;bundler/setup&#39; if File.exists?(ENV[&#39;BUNDLE_GEMFILE&#39;])</span>
+</pre>
+</div>
+
+      <h2>config/database.yml</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
  # SQLite version 3.x
--#   gem install sqlite3-ruby (not necessary on OS X Leopard)
-+#   gem install sqlite3
+<span class="gd">-#   gem install sqlite3-ruby (not necessary on OS X Leopard)</span>
+<span class="gi">+#   gem install sqlite3</span>
  development:
    adapter: sqlite3
    database: db/development.sqlite3
-{% endhighlight %}
-<h2>public/javascripts/rails.js</h2>
-{% highlight diff %}
-@@ -172,4 +172,20 @@
+</pre>
+</div>
+
+      <h2>public/javascripts/rails.js</h2>
+      <div class="highlight"><pre><span class="gu">@@ -172,4 +172,20 @@</span>
        input.disabled = false;
      });
    });
-+
-+  Ajax.Responders.register({
-+    onCreate: function(request) {
-+      var csrf_meta_tag = $$('meta[name=csrf-token]')[0];
-+
-+      if (csrf_meta_tag) {
-+        var header = 'X-CSRF-Token',
-+            token = csrf_meta_tag.readAttribute('content');
-+
-+        if (!request.options.requestHeaders) {
-+          request.options.requestHeaders = {};
-+        }
-+        request.options.requestHeaders[header] = token;
-+      }
-+    }
-+  });
+<span class="gi">+</span>
+<span class="gi">+  Ajax.Responders.register({</span>
+<span class="gi">+    onCreate: function(request) {</span>
+<span class="gi">+      var csrf_meta_tag = $$(&#39;meta[name=csrf-token]&#39;)[0];</span>
+<span class="gi">+</span>
+<span class="gi">+      if (csrf_meta_tag) {</span>
+<span class="gi">+        var header = &#39;X-CSRF-Token&#39;,</span>
+<span class="gi">+            token = csrf_meta_tag.readAttribute(&#39;content&#39;);</span>
+<span class="gi">+</span>
+<span class="gi">+        if (!request.options.requestHeaders) {</span>
+<span class="gi">+          request.options.requestHeaders = {};</span>
+<span class="gi">+        }</span>
+<span class="gi">+        request.options.requestHeaders[header] = token;</span>
+<span class="gi">+      }</span>
+<span class="gi">+    }</span>
+<span class="gi">+  });</span>
  })();
-{% endhighlight %}
+</pre>
+</div>
+
+  </body>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7325596-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</html>

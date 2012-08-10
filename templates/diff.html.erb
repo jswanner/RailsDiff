@@ -1,15 +1,16 @@
----
----
 <!DOCTYPE html>
 <html>
   <head>
     <title>RailsDiff</title>
-    <link rel="stylesheet" href="/stylesheets/stylesheet.css" />
-    <link rel="stylesheet" href="/stylesheets/pygment_trac.css" />
+    <link rel="stylesheet" href="../stylesheets/stylesheet.css" />
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css" />
   </head>
   <body>
     <h1>RailsDiff</h1>
-    {{ content }}
+    <% diffs.each do |name, diff| %>
+      <h2><%= name %></h2>
+      <%= Pygments.highlight diff, lexer: 'diff' %>
+    <% end %>
   </body>
   <script>
     var _gaq = _gaq || [];

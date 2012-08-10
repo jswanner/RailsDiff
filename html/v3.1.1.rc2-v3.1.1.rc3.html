@@ -1,43 +1,64 @@
----
-layout: diff
----
-<h2>.gitignore</h2>
-{% highlight diff %}
-@@ -0,0 +1,5 @@
-+.bundle
-+db/*.sqlite3
-+log/*.log
-+tmp/
-+.sass-cache/
-{% endhighlight %}
-<h2>Gemfile</h2>
-{% highlight diff %}
-@@ -1,6 +1,6 @@
- source 'http://rubygems.org'
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsDiff</title>
+    <link rel="stylesheet" href="../stylesheets/stylesheet.css" />
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css" />
+  </head>
+  <body>
+    <h1>RailsDiff</h1>
+      <h2>.gitignore</h2>
+      <div class="highlight"><pre><span class="gu">@@ -0,0 +1,5 @@</span>
+<span class="gi">+.bundle</span>
+<span class="gi">+db/*.sqlite3</span>
+<span class="gi">+log/*.log</span>
+<span class="gi">+tmp/</span>
+<span class="gi">+.sass-cache/</span>
+</pre>
+</div>
+
+      <h2>Gemfile</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,6 +1,6 @@</span>
+ source &#39;http://rubygems.org&#39;
  
--gem 'rails', '3.1.1.rc2'
-+gem 'rails', '3.1.1.rc3'
+<span class="gd">-gem &#39;rails&#39;, &#39;3.1.1.rc2&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.1.1.rc3&#39;</span>
  
  # Bundle edge Rails instead:
- # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-@@ -11,8 +11,8 @@
+ # gem &#39;rails&#39;,     :git =&gt; &#39;git://github.com/rails/rails.git&#39;
+<span class="gu">@@ -11,8 +11,8 @@</span>
  # Gems used only for assets and not required
  # in production environments by default.
  group :assets do
--  gem 'sass-rails',   '~> 3.1.0'
--  gem 'coffee-rails', '~> 3.1.0'
-+  gem 'sass-rails',   '~> 3.1.4'
-+  gem 'coffee-rails', '~> 3.1.1'
-   gem 'uglifier', '>= 1.0.3'
+<span class="gd">-  gem &#39;sass-rails&#39;,   &#39;~&gt; 3.1.0&#39;</span>
+<span class="gd">-  gem &#39;coffee-rails&#39;, &#39;~&gt; 3.1.0&#39;</span>
+<span class="gi">+  gem &#39;sass-rails&#39;,   &#39;~&gt; 3.1.4&#39;</span>
+<span class="gi">+  gem &#39;coffee-rails&#39;, &#39;~&gt; 3.1.1&#39;</span>
+   gem &#39;uglifier&#39;, &#39;&gt;= 1.0.3&#39;
  end
  
-{% endhighlight %}
-<h2>railsdiff/.gitignore</h2>
-{% highlight diff %}
-@@ -1,5 +0,0 @@
--.bundle
--db/*.sqlite3
--log/*.log
--tmp/
--.sass-cache/
-{% endhighlight %}
+</pre>
+</div>
+
+      <h2>railsdiff/.gitignore</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,5 +0,0 @@</span>
+<span class="gd">-.bundle</span>
+<span class="gd">-db/*.sqlite3</span>
+<span class="gd">-log/*.log</span>
+<span class="gd">-tmp/</span>
+<span class="gd">-.sass-cache/</span>
+</pre>
+</div>
+
+  </body>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7325596-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</html>

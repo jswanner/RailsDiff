@@ -1,87 +1,109 @@
----
-layout: diff
----
-<h2>Gemfile</h2>
-{% highlight diff %}
-@@ -1,16 +1,20 @@
- source 'http://rubygems.org'
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsDiff</title>
+    <link rel="stylesheet" href="../stylesheets/stylesheet.css" />
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css" />
+  </head>
+  <body>
+    <h1>RailsDiff</h1>
+      <h2>Gemfile</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,16 +1,20 @@</span>
+ source &#39;http://rubygems.org&#39;
  
--gem 'rails', '3.1.0.rc4'
-+gem 'rails', '3.1.0.rc6'
+<span class="gd">-gem &#39;rails&#39;, &#39;3.1.0.rc4&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.1.0.rc6&#39;</span>
  
  # Bundle edge Rails instead:
- # gem 'rails',     :git => 'git://github.com/rails/rails.git'
+ # gem &#39;rails&#39;,     :git =&gt; &#39;git://github.com/rails/rails.git&#39;
  
- gem 'sqlite3'
+ gem &#39;sqlite3&#39;
  
--# Asset template engines
--gem 'sass-rails', "~> 3.1.0.rc"
--gem 'coffee-script'
--gem 'uglifier'
-+
-+# Gems used only for assets and not required
-+# in production environments by default.
-+group :assets do
-+  gem 'sass-rails', "  ~> 3.1.0.rc"
-+  gem 'coffee-rails', "~> 3.1.0.rc"
-+  gem 'uglifier'
-+end
+<span class="gd">-# Asset template engines</span>
+<span class="gd">-gem &#39;sass-rails&#39;, &quot;~&gt; 3.1.0.rc&quot;</span>
+<span class="gd">-gem &#39;coffee-script&#39;</span>
+<span class="gd">-gem &#39;uglifier&#39;</span>
+<span class="gi">+</span>
+<span class="gi">+# Gems used only for assets and not required</span>
+<span class="gi">+# in production environments by default.</span>
+<span class="gi">+group :assets do</span>
+<span class="gi">+  gem &#39;sass-rails&#39;, &quot;  ~&gt; 3.1.0.rc&quot;</span>
+<span class="gi">+  gem &#39;coffee-rails&#39;, &quot;~&gt; 3.1.0.rc&quot;</span>
+<span class="gi">+  gem &#39;uglifier&#39;</span>
+<span class="gi">+end</span>
  
- gem 'jquery-rails'
+ gem &#39;jquery-rails&#39;
  
-{% endhighlight %}
-<h2>config/application.rb</h2>
-{% highlight diff %}
-@@ -2,9 +2,12 @@
+</pre>
+</div>
+
+      <h2>config/application.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -2,9 +2,12 @@</span>
  
- require 'rails/all'
+ require &#39;rails/all&#39;
  
--# If you have a Gemfile, require the gems listed there, including any gems
--# you've limited to :test, :development, or :production.
--Bundler.require(:default, Rails.env) if defined?(Bundler)
-+if defined?(Bundler)
-+  # If you precompile assets before deploying to production, use this line
-+  Bundler.require *Rails.groups(:assets => %w(development test))
-+  # If you want your assets lazily compiled in production, use this line
-+  # Bundler.require(:default, :assets, Rails.env)
-+end
+<span class="gd">-# If you have a Gemfile, require the gems listed there, including any gems</span>
+<span class="gd">-# you&#39;ve limited to :test, :development, or :production.</span>
+<span class="gd">-Bundler.require(:default, Rails.env) if defined?(Bundler)</span>
+<span class="gi">+if defined?(Bundler)</span>
+<span class="gi">+  # If you precompile assets before deploying to production, use this line</span>
+<span class="gi">+  Bundler.require *Rails.groups(:assets =&gt; %w(development test))</span>
+<span class="gi">+  # If you want your assets lazily compiled in production, use this line</span>
+<span class="gi">+  # Bundler.require(:default, :assets, Rails.env)</span>
+<span class="gi">+end</span>
  
  module Railsdiff
-   class Application < Rails::Application
-{% endhighlight %}
-<h2>config/environments/production.rb</h2>
-{% highlight diff %}
-@@ -14,12 +14,9 @@
+   class Application &lt; Rails::Application
+</pre>
+</div>
+
+      <h2>config/environments/production.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -14,12 +14,9 @@</span>
    # Compress JavaScripts and CSS
    config.assets.compress = true
  
--  # Specify the default JavaScript compressor
--  config.assets.js_compressor  = :uglifier
--
+<span class="gd">-  # Specify the default JavaScript compressor</span>
+<span class="gd">-  config.assets.js_compressor  = :uglifier</span>
+<span class="gd">-</span>
    # Specifies the header that your server uses for sending files
--  # (comment out if your front-end server doesn't support this)
--  config.action_dispatch.x_sendfile_header = "X-Sendfile" # Use 'X-Accel-Redirect' for nginx
-+  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-+  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+<span class="gd">-  # (comment out if your front-end server doesn&#39;t support this)</span>
+<span class="gd">-  config.action_dispatch.x_sendfile_header = &quot;X-Sendfile&quot; # Use &#39;X-Accel-Redirect&#39; for nginx</span>
+<span class="gi">+  # config.action_dispatch.x_sendfile_header = &quot;X-Sendfile&quot; # for apache</span>
+<span class="gi">+  # config.action_dispatch.x_sendfile_header = &#39;X-Accel-Redirect&#39; # for nginx</span>
  
    # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
    # config.force_ssl = true
-{% endhighlight %}
-<h2>config/initializers/wrap_parameters.rb</h2>
-{% highlight diff %}
-@@ -4,9 +4,11 @@
+</pre>
+</div>
+
+      <h2>config/initializers/wrap_parameters.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -4,9 +4,11 @@</span>
  # is enabled by default.
  
  # Enable parameter wrapping for JSON. You can disable this by setting :format to an empty array.
--ActionController::Base.wrap_parameters format: [:json]
-+ActiveSupport.on_load(:action_controller) do
-+  wrap_parameters format: [:json]
-+end
+<span class="gd">-ActionController::Base.wrap_parameters format: [:json]</span>
+<span class="gi">+ActiveSupport.on_load(:action_controller) do</span>
+<span class="gi">+  wrap_parameters format: [:json]</span>
+<span class="gi">+end</span>
  
  # Disable root element in JSON by default.
--if defined?(ActiveRecord)
--  ActiveRecord::Base.include_root_in_json = false
-+ActiveSupport.on_load(:active_record) do
-+  self.include_root_in_json = false
+<span class="gd">-if defined?(ActiveRecord)</span>
+<span class="gd">-  ActiveRecord::Base.include_root_in_json = false</span>
+<span class="gi">+ActiveSupport.on_load(:active_record) do</span>
+<span class="gi">+  self.include_root_in_json = false</span>
  end
-{% endhighlight %}
+</pre>
+</div>
+
+  </body>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7325596-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</html>

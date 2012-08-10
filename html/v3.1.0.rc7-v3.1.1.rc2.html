@@ -1,116 +1,141 @@
----
-layout: diff
----
-<h2>.gitignore</h2>
-{% highlight diff %}
-@@ -1,5 +0,0 @@
--.bundle
--db/*.sqlite3
--log/*.log
--tmp/
--.sass-cache/
-{% endhighlight %}
-<h2>Gemfile</h2>
-{% highlight diff %}
-@@ -1,6 +1,6 @@
- source 'http://rubygems.org'
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsDiff</title>
+    <link rel="stylesheet" href="../stylesheets/stylesheet.css" />
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css" />
+  </head>
+  <body>
+    <h1>RailsDiff</h1>
+      <h2>.gitignore</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,5 +0,0 @@</span>
+<span class="gd">-.bundle</span>
+<span class="gd">-db/*.sqlite3</span>
+<span class="gd">-log/*.log</span>
+<span class="gd">-tmp/</span>
+<span class="gd">-.sass-cache/</span>
+</pre>
+</div>
+
+      <h2>Gemfile</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,6 +1,6 @@</span>
+ source &#39;http://rubygems.org&#39;
  
--gem 'rails', '3.1.0.rc7'
-+gem 'rails', '3.1.1.rc2'
+<span class="gd">-gem &#39;rails&#39;, &#39;3.1.0.rc7&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.1.1.rc2&#39;</span>
  
  # Bundle edge Rails instead:
- # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-@@ -11,13 +11,16 @@
+ # gem &#39;rails&#39;,     :git =&gt; &#39;git://github.com/rails/rails.git&#39;
+<span class="gu">@@ -11,13 +11,16 @@</span>
  # Gems used only for assets and not required
  # in production environments by default.
  group :assets do
--  gem 'sass-rails', "  ~> 3.1.0.rc"
--  gem 'coffee-rails', "~> 3.1.0.rc"
--  gem 'uglifier'
-+  gem 'sass-rails',   '~> 3.1.0'
-+  gem 'coffee-rails', '~> 3.1.0'
-+  gem 'uglifier', '>= 1.0.3'
+<span class="gd">-  gem &#39;sass-rails&#39;, &quot;  ~&gt; 3.1.0.rc&quot;</span>
+<span class="gd">-  gem &#39;coffee-rails&#39;, &quot;~&gt; 3.1.0.rc&quot;</span>
+<span class="gd">-  gem &#39;uglifier&#39;</span>
+<span class="gi">+  gem &#39;sass-rails&#39;,   &#39;~&gt; 3.1.0&#39;</span>
+<span class="gi">+  gem &#39;coffee-rails&#39;, &#39;~&gt; 3.1.0&#39;</span>
+<span class="gi">+  gem &#39;uglifier&#39;, &#39;&gt;= 1.0.3&#39;</span>
  end
  
- gem 'jquery-rails'
+ gem &#39;jquery-rails&#39;
  
-+# To use ActiveModel has_secure_password
-+# gem 'bcrypt-ruby', '~> 3.0.0'
-+
+<span class="gi">+# To use ActiveModel has_secure_password</span>
+<span class="gi">+# gem &#39;bcrypt-ruby&#39;, &#39;~&gt; 3.0.0&#39;</span>
+<span class="gi">+</span>
  # Use unicorn as the web server
- # gem 'unicorn'
+ # gem &#39;unicorn&#39;
  
-{% endhighlight %}
-<h2>config/application.rb</h2>
-{% highlight diff %}
-@@ -4,7 +4,7 @@
+</pre>
+</div>
+
+      <h2>config/application.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -4,7 +4,7 @@</span>
  
  if defined?(Bundler)
    # If you precompile assets before deploying to production, use this line
--  Bundler.require *Rails.groups(:assets => %w(development test))
-+  Bundler.require(*Rails.groups(:assets => %w(development test)))
+<span class="gd">-  Bundler.require *Rails.groups(:assets =&gt; %w(development test))</span>
+<span class="gi">+  Bundler.require(*Rails.groups(:assets =&gt; %w(development test)))</span>
    # If you want your assets lazily compiled in production, use this line
    # Bundler.require(:default, :assets, Rails.env)
  end
-@@ -41,5 +41,8 @@
+<span class="gu">@@ -41,5 +41,8 @@</span>
  
      # Enable the asset pipeline
      config.assets.enabled = true
-+
-+    # Version of your assets, change this if you want to expire all your assets
-+    config.assets.version = '1.0'
+<span class="gi">+</span>
+<span class="gi">+    # Version of your assets, change this if you want to expire all your assets</span>
+<span class="gi">+    config.assets.version = &#39;1.0&#39;</span>
    end
  end
-{% endhighlight %}
-<h2>config/environments/development.rb</h2>
-{% highlight diff %}
-@@ -25,9 +25,6 @@
+</pre>
+</div>
+
+      <h2>config/environments/development.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -25,9 +25,6 @@</span>
    # Do not compress assets
    config.assets.compress = false
  
--  # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
--  config.assets.allow_debugging = true
--
+<span class="gd">-  # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets</span>
+<span class="gd">-  config.assets.allow_debugging = true</span>
+<span class="gd">-</span>
    # Expands the lines which load the assets
    config.assets.debug = true
  end
-{% endhighlight %}
-<h2>config/environments/production.rb</h2>
-{% highlight diff %}
-@@ -14,6 +14,15 @@
+</pre>
+</div>
+
+      <h2>config/environments/production.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -14,6 +14,15 @@</span>
    # Compress JavaScripts and CSS
    config.assets.compress = true
  
-+  # Don't fallback to assets pipeline if a precompiled asset is missed
-+  config.assets.compile = false
-+
-+  # Generate digests for assets URLs
-+  config.assets.digest = true
-+
-+  # Defaults to Rails.root.join("public/assets")
-+  # config.assets.manifest = YOUR_PATH
-+
+<span class="gi">+  # Don&#39;t fallback to assets pipeline if a precompiled asset is missed</span>
+<span class="gi">+  config.assets.compile = false</span>
+<span class="gi">+</span>
+<span class="gi">+  # Generate digests for assets URLs</span>
+<span class="gi">+  config.assets.digest = true</span>
+<span class="gi">+</span>
+<span class="gi">+  # Defaults to Rails.root.join(&quot;public/assets&quot;)</span>
+<span class="gi">+  # config.assets.manifest = YOUR_PATH</span>
+<span class="gi">+</span>
    # Specifies the header that your server uses for sending files
-   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
-{% endhighlight %}
-<h2>config/environments/test.rb</h2>
-{% highlight diff %}
-@@ -36,7 +36,4 @@
+   # config.action_dispatch.x_sendfile_header = &quot;X-Sendfile&quot; # for apache
+   # config.action_dispatch.x_sendfile_header = &#39;X-Accel-Redirect&#39; # for nginx
+</pre>
+</div>
+
+      <h2>config/environments/test.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -36,7 +36,4 @@</span>
  
    # Print deprecation notices to the stderr
    config.active_support.deprecation = :stderr
--
--  # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
--  config.assets.allow_debugging = true
+<span class="gd">-</span>
+<span class="gd">-  # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets</span>
+<span class="gd">-  config.assets.allow_debugging = true</span>
  end
-{% endhighlight %}
-<h2>railsdiff/.gitignore</h2>
-{% highlight diff %}
-@@ -0,0 +1,5 @@
-+.bundle
-+db/*.sqlite3
-+log/*.log
-+tmp/
-+.sass-cache/
-{% endhighlight %}
+</pre>
+</div>
+
+      <h2>railsdiff/.gitignore</h2>
+      <div class="highlight"><pre><span class="gu">@@ -0,0 +1,5 @@</span>
+<span class="gi">+.bundle</span>
+<span class="gi">+db/*.sqlite3</span>
+<span class="gi">+log/*.log</span>
+<span class="gi">+tmp/</span>
+<span class="gi">+.sass-cache/</span>
+</pre>
+</div>
+
+  </body>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7325596-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</html>

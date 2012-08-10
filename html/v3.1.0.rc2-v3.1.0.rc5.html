@@ -1,62 +1,83 @@
----
-layout: diff
----
-<h2>Gemfile</h2>
-{% highlight diff %}
-@@ -1,16 +1,20 @@
- source 'http://rubygems.org'
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsDiff</title>
+    <link rel="stylesheet" href="../stylesheets/stylesheet.css" />
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css" />
+  </head>
+  <body>
+    <h1>RailsDiff</h1>
+      <h2>Gemfile</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,16 +1,20 @@</span>
+ source &#39;http://rubygems.org&#39;
  
--gem 'rails', '3.1.0.rc2'
-+gem 'rails', '3.1.0.rc5'
+<span class="gd">-gem &#39;rails&#39;, &#39;3.1.0.rc2&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.1.0.rc5&#39;</span>
  
  # Bundle edge Rails instead:
- # gem 'rails',     :git => 'git://github.com/rails/rails.git'
+ # gem &#39;rails&#39;,     :git =&gt; &#39;git://github.com/rails/rails.git&#39;
  
- gem 'sqlite3'
+ gem &#39;sqlite3&#39;
  
--# Asset template engines
--gem 'sass-rails', "~> 3.1.0.rc"
--gem 'coffee-script'
--gem 'uglifier'
-+
-+# Gems used only for assets and not required
-+# in production environments by default.
-+group :assets do
-+  gem 'sass-rails', "~> 3.1.0.rc"
-+  gem 'coffee-rails', "~> 3.1.0.rc"
-+  gem 'uglifier'
-+end
+<span class="gd">-# Asset template engines</span>
+<span class="gd">-gem &#39;sass-rails&#39;, &quot;~&gt; 3.1.0.rc&quot;</span>
+<span class="gd">-gem &#39;coffee-script&#39;</span>
+<span class="gd">-gem &#39;uglifier&#39;</span>
+<span class="gi">+</span>
+<span class="gi">+# Gems used only for assets and not required</span>
+<span class="gi">+# in production environments by default.</span>
+<span class="gi">+group :assets do</span>
+<span class="gi">+  gem &#39;sass-rails&#39;, &quot;~&gt; 3.1.0.rc&quot;</span>
+<span class="gi">+  gem &#39;coffee-rails&#39;, &quot;~&gt; 3.1.0.rc&quot;</span>
+<span class="gi">+  gem &#39;uglifier&#39;</span>
+<span class="gi">+end</span>
  
- gem 'jquery-rails'
+ gem &#39;jquery-rails&#39;
  
-{% endhighlight %}
-<h2>config/application.rb</h2>
-{% highlight diff %}
-@@ -2,9 +2,10 @@
+</pre>
+</div>
+
+      <h2>config/application.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -2,9 +2,10 @@</span>
  
- require 'rails/all'
+ require &#39;rails/all&#39;
  
--# If you have a Gemfile, require the gems listed there, including any gems
--# you've limited to :test, :development, or :production.
--Bundler.require(:default, Rails.env) if defined?(Bundler)
-+# If you have a Gemfile, require the default gems, the ones in the
-+# current environment and also include :assets gems if in development
-+# or test environments.
-+Bundler.require *Rails.groups(:assets) if defined?(Bundler)
+<span class="gd">-# If you have a Gemfile, require the gems listed there, including any gems</span>
+<span class="gd">-# you&#39;ve limited to :test, :development, or :production.</span>
+<span class="gd">-Bundler.require(:default, Rails.env) if defined?(Bundler)</span>
+<span class="gi">+# If you have a Gemfile, require the default gems, the ones in the</span>
+<span class="gi">+# current environment and also include :assets gems if in development</span>
+<span class="gi">+# or test environments.</span>
+<span class="gi">+Bundler.require *Rails.groups(:assets) if defined?(Bundler)</span>
  
  module Railsdiff
-   class Application < Rails::Application
-{% endhighlight %}
-<h2>config/environments/production.rb</h2>
-{% highlight diff %}
-@@ -14,9 +14,6 @@
+   class Application &lt; Rails::Application
+</pre>
+</div>
+
+      <h2>config/environments/production.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -14,9 +14,6 @@</span>
    # Compress JavaScripts and CSS
    config.assets.compress = true
  
--  # Specify the default JavaScript compressor
--  config.assets.js_compressor  = :uglifier
--
+<span class="gd">-  # Specify the default JavaScript compressor</span>
+<span class="gd">-  config.assets.js_compressor  = :uglifier</span>
+<span class="gd">-</span>
    # Specifies the header that your server uses for sending files
-   # (comment out if your front-end server doesn't support this)
-   config.action_dispatch.x_sendfile_header = "X-Sendfile" # Use 'X-Accel-Redirect' for nginx
-{% endhighlight %}
+   # (comment out if your front-end server doesn&#39;t support this)
+   config.action_dispatch.x_sendfile_header = &quot;X-Sendfile&quot; # Use &#39;X-Accel-Redirect&#39; for nginx
+</pre>
+</div>
+
+  </body>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7325596-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</html>

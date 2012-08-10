@@ -1,84 +1,108 @@
----
-layout: diff
----
-<h2>Gemfile</h2>
-{% highlight diff %}
-@@ -1,6 +1,6 @@
- source 'http://rubygems.org'
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsDiff</title>
+    <link rel="stylesheet" href="../stylesheets/stylesheet.css" />
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css" />
+  </head>
+  <body>
+    <h1>RailsDiff</h1>
+      <h2>Gemfile</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,6 +1,6 @@</span>
+ source &#39;http://rubygems.org&#39;
  
--gem 'rails', '3.0.0'
-+gem 'rails', '3.0.3'
+<span class="gd">-gem &#39;rails&#39;, &#39;3.0.0&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.0.3&#39;</span>
  
  # Bundle edge Rails instead:
- # gem 'rails', :git => 'git://github.com/rails/rails.git'
-@@ -13,8 +13,9 @@
+ # gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;
+<span class="gu">@@ -13,8 +13,9 @@</span>
  # Deploy with Capistrano
- # gem 'capistrano'
+ # gem &#39;capistrano&#39;
  
--# To use debugger
-+# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
- # gem 'ruby-debug'
-+# gem 'ruby-debug19'
+<span class="gd">-# To use debugger</span>
+<span class="gi">+# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)</span>
+ # gem &#39;ruby-debug&#39;
+<span class="gi">+# gem &#39;ruby-debug19&#39;</span>
  
  # Bundle the extra gems:
- # gem 'bj'
-{% endhighlight %}
-<h2>README</h2>
-{% highlight diff %}
-@@ -158,6 +158,7 @@
+ # gem &#39;bj&#39;
+</pre>
+</div>
+
+      <h2>README</h2>
+      <div class="highlight"><pre><span class="gu">@@ -158,6 +158,7 @@</span>
    |-- app
    |   |-- controllers
    |   |-- helpers
-+  |   |-- mailers
+<span class="gi">+  |   |-- mailers</span>
    |   |-- models
    |   `-- views
    |       `-- layouts
-@@ -175,7 +176,6 @@
+<span class="gu">@@ -175,7 +176,6 @@</span>
    |   |-- javascripts
    |   `-- stylesheets
    |-- script
--  |   `-- performance
+<span class="gd">-  |   `-- performance</span>
    |-- test
    |   |-- fixtures
    |   |-- functional
-{% endhighlight %}
-<h2>config/environments/development.rb</h2>
-{% highlight diff %}
-@@ -1,5 +1,5 @@
+</pre>
+</div>
+
+      <h2>config/environments/development.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
  Railsdiff::Application.configure do
--  # Settings specified here will take precedence over those in config/environment.rb
-+  # Settings specified here will take precedence over those in config/application.rb
+<span class="gd">-  # Settings specified here will take precedence over those in config/environment.rb</span>
+<span class="gi">+  # Settings specified here will take precedence over those in config/application.rb</span>
  
-   # In the development environment your application's code is reloaded on
+   # In the development environment your application&#39;s code is reloaded on
    # every request.  This slows down response time but is perfect for development
-{% endhighlight %}
-<h2>config/environments/production.rb</h2>
-{% highlight diff %}
-@@ -1,5 +1,5 @@
+</pre>
+</div>
+
+      <h2>config/environments/production.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
  Railsdiff::Application.configure do
--  # Settings specified here will take precedence over those in config/environment.rb
-+  # Settings specified here will take precedence over those in config/application.rb
+<span class="gd">-  # Settings specified here will take precedence over those in config/environment.rb</span>
+<span class="gi">+  # Settings specified here will take precedence over those in config/application.rb</span>
  
-   # The production environment is meant for finished, "live" apps.
+   # The production environment is meant for finished, &quot;live&quot; apps.
    # Code is not reloaded between requests
-{% endhighlight %}
-<h2>config/environments/test.rb</h2>
-{% highlight diff %}
-@@ -1,5 +1,5 @@
+</pre>
+</div>
+
+      <h2>config/environments/test.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
  Railsdiff::Application.configure do
--  # Settings specified here will take precedence over those in config/environment.rb
-+  # Settings specified here will take precedence over those in config/application.rb
+<span class="gd">-  # Settings specified here will take precedence over those in config/environment.rb</span>
+<span class="gi">+  # Settings specified here will take precedence over those in config/application.rb</span>
  
-   # The test environment is used exclusively to run your application's
+   # The test environment is used exclusively to run your application&#39;s
    # test suite.  You never need to work with it otherwise.  Remember that
-{% endhighlight %}
-<h2>config/initializers/session_store.rb</h2>
-{% highlight diff %}
-@@ -4,5 +4,5 @@
+</pre>
+</div>
+
+      <h2>config/initializers/session_store.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -4,5 +4,5 @@</span>
  
  # Use the database for sessions instead of the cookie-based default,
- # which shouldn't be used to store highly confidential information
--# (create the session table with "rake db:sessions:create")
-+# (create the session table with "rails generate session_migration")
+ # which shouldn&#39;t be used to store highly confidential information
+<span class="gd">-# (create the session table with &quot;rake db:sessions:create&quot;)</span>
+<span class="gi">+# (create the session table with &quot;rails generate session_migration&quot;)</span>
  # Railsdiff::Application.config.session_store :active_record_store
-{% endhighlight %}
+</pre>
+</div>
+
+  </body>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7325596-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</html>

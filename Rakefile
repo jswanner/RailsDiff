@@ -16,7 +16,7 @@ file 'index.html' => 'tmp/rails/rails' do |t|
   require 'erubis'
   tags = all_tags
   versions = tags.map {|t| version(t).version }
-  template = Erubis::Eruby.new(File.read('index.html.erb'))
+  template = Erubis::Eruby.new(File.read('templates/index.html.erb'))
   File.write(t.name, template.result(versions: versions))
 end
 
@@ -99,15 +99,14 @@ directory 'html'
 rule(/html\/.*\.html/ => [proc { |t| t.gsub(/html/, 'diff') }, 'html']) do |t|
   $:.unshift 'lib/rails_diff'
   require 'diff_splitter'
+  require 'erubis'
+  require 'pygments.rb'
+
   diff = File.read t.source
   diffs = RailsDiff::DiffSplitter.new(diff).split
 
-  File.open(t.name, 'w') do |file|
-    file.puts ['---', 'layout: diff', '---']
-    file.puts diffs.map { |name, text|
-      ["<h2>#{name}</h2>", '{% highlight diff %}', text, '{% endhighlight %}']
-    }
-  end
+  template = Erubis::Eruby.new(File.read('templates/diff.html.erb'))
+  File.write(t.name, template.result(diffs: diffs))
 end
 
 # Turn diff into JSON
