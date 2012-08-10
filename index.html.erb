@@ -10,7 +10,7 @@
               source = source.options[source.selectedIndex].value,
               target = document.getElementById('target'),
               target = target.options[target.selectedIndex].value,
-              href   = ['/diffs/v', source, '-v', target, '.html'].join('');
+              href   = ['/html/v', source, '-v', target, '.html'].join('');
           window.location.href = href;
           return false;
         };

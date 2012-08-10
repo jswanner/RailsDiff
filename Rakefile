@@ -5,8 +5,8 @@ task :gen_diffs => 'tmp/rails/rails' do |t|
   tail = tags.pop
   while tags.any?
     tags.each do |tag|
-      Rake::Task["diffs/#{tag}-#{tail}.html"].invoke
-      Rake::Task["diffs/#{tag}-#{tail}.json"].invoke
+      Rake::Task["html/#{tag}-#{tail}.html"].invoke
+      Rake::Task["json/#{tag}-#{tail}.json"].invoke
     end
     tail = tags.pop
   end
@@ -82,9 +82,9 @@ def rails_binary dir
   File.exists?(old) ? old : new
 end
 
-directory 'diffs'
-rule(/diffs\/.*\.diff/ => ['diffs']) do |t|
-  match = t.name.match(/diffs\/(?<s>[^-]+)-(?<t>.*?).diff/)
+directory 'diff'
+rule(/diff\/.*\.diff/ => ['diff']) do |t|
+  match = t.name.match(/diff\/(?<s>[^-]+)-(?<t>.*?).diff/)
   source = match['s']
   target = match['t']
   Rake::Task["tmp/generated/#{source}"].invoke
@@ -95,7 +95,8 @@ rule(/diffs\/.*\.diff/ => ['diffs']) do |t|
 end
 
 # Turn diff into HTML
-rule '.html' => ['.diff'] do |t|
+directory 'html'
+rule(/html\/.*\.html/ => [proc { |t| t.gsub(/html/, 'diff') }, 'html']) do |t|
   $:.unshift 'lib/rails_diff'
   require 'diff_splitter'
   diff = File.read t.source
@@ -110,7 +111,8 @@ rule '.html' => ['.diff'] do |t|
 end
 
 # Turn diff into JSON
-rule '.json' => ['.diff'] do |t|
+directory 'json'
+rule(/json\/.*\.json/ => [proc { |t| t.gsub(/json/, 'diff') }, 'json']) do |t|
   $:.unshift 'lib/rails_diff'
   require 'diff_splitter'
   diff = File.read t.source
