@@ -4,18 +4,10 @@
 
 ## TODO:
 
-1. Have rake tasks to generate diffs.
-2. Style landing page.
+1. Style landing page.
+2. Add instructional verbiage.
 
-## To run the application locally
-
-```sh
-jekyll
-```
-
-Open browser to `http://localhost:8080/`.
-
-### To generate diff files and html
+## To generate diff files and html
 
 ```sh
 rake gen_diffs
