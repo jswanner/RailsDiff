@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+desc 'Generate diff, html, & json files'
 task :gen_diffs => 'tmp/rails/rails' do |t|
   tags = all_tags
   tail = tags.pop
@@ -12,11 +13,21 @@ task :gen_diffs => 'tmp/rails/rails' do |t|
   end
 end
 
+desc 'Generate index.html'
 file 'index.html' => 'tmp/rails/rails' do |t|
   require 'erubis'
   tags = all_tags
   versions = tags.map {|t| version(t).version }
   template = Erubis::Eruby.new(File.read('templates/index.html.erb'))
+  File.write(t.name, template.result(versions: versions))
+end
+
+desc 'Generate 404.html'
+file '404.html' => 'tmp/rails/rails' do |t|
+  require 'erubis'
+  tags = all_tags
+  versions = tags.map {|t| version(t).version }
+  template = Erubis::Eruby.new(File.read('templates/404.html.erb'))
   File.write(t.name, template.result(versions: versions))
 end
 
