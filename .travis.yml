@@ -1,4 +1,7 @@
 language: ruby
 rvm:
   - 1.9.3
+branches:
+  only:
+    - gh-pages
 script: bundle exec rspec spec
