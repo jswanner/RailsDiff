@@ -22,14 +22,14 @@ desc 'Generate index.html'
 file 'index.html' => ['templates/index.html.erb', 'tmp/rails/rails'] do |t|
   tags = all_tags
   versions = tags.map {|t| version(t).version }
-  File.write(t.name, template(t.source).result(versions: versions))
+  File.write(t.name, template(t.prerequisites.first).result(versions: versions))
 end
 
 desc 'Generate 404.html'
 file '404.html' => ['templates/404.html.erb', 'tmp/rails/rails'] do |t|
   tags = all_tags
   versions = tags.map {|t| version(t).version }
-  File.write(t.name, template(t.source).result(versions: versions))
+  File.write(t.name, template(t.prerequisites.first).result(versions: versions))
 end
 
 def template name
