@@ -1,7 +1,12 @@
 # encoding: utf-8
 
+$:.unshift 'lib/rails_diff'
+require 'diff_splitter'
+require 'pygments.rb'
+require 'erubis'
+
 desc 'Generate diff, html, & json files'
-task :gen_diffs => 'tmp/rails/rails' do |t|
+task :gen_diffs => ['tmp/rails/rails', :update_rails_repo] do |t|
   tags = all_tags
   tail = tags.pop
   while tags.any?
@@ -14,21 +19,26 @@ task :gen_diffs => 'tmp/rails/rails' do |t|
 end
 
 desc 'Generate index.html'
-file 'index.html' => 'tmp/rails/rails' do |t|
-  require 'erubis'
+file 'index.html' => ['templates/index.html.erb', 'tmp/rails/rails'] do |t|
   tags = all_tags
   versions = tags.map {|t| version(t).version }
-  template = Erubis::Eruby.new(File.read('templates/index.html.erb'))
-  File.write(t.name, template.result(versions: versions))
+  File.write(t.name, template(t.source).result(versions: versions))
 end
 
 desc 'Generate 404.html'
-file '404.html' => 'tmp/rails/rails' do |t|
-  require 'erubis'
+file '404.html' => ['templates/404.html.erb', 'tmp/rails/rails'] do |t|
   tags = all_tags
   versions = tags.map {|t| version(t).version }
-  template = Erubis::Eruby.new(File.read('templates/404.html.erb'))
-  File.write(t.name, template.result(versions: versions))
+  File.write(t.name, template(t.source).result(versions: versions))
+end
+
+def template name
+  @templates ||= {}
+  @templates.fetch name do |name|
+    template = Erubis::Eruby.new(File.read name)
+    @templates[name] = template
+    template
+  end
 end
 
 def all_tags
@@ -55,6 +65,13 @@ directory 'tmp/rails'
 file 'tmp/rails/rails' => 'tmp/rails' do |t|
   puts 'Cloning Rails repo'
   %x{git clone git://github.com/rails/rails.git #{t}}
+end
+
+task 'update_rails_repo' => 'tmp/rails/rails' do |t|
+  cd t.prerequisites.first do
+    %x{git fetch origin}
+    %x{git checkout master}
+  end
 end
 
 file 'tmp/rails/generator' => 'tmp/rails' do |t|
@@ -107,24 +124,18 @@ end
 
 # Turn diff into HTML
 directory 'html'
-rule(/html\/.*\.html/ => [proc { |t| t.gsub(/html/, 'diff') }, 'html']) do |t|
-  $:.unshift 'lib/rails_diff'
-  require 'diff_splitter'
-  require 'erubis'
-  require 'pygments.rb'
+rule(/html\/.*\.html/ => [proc { |t| t.gsub(/html/, 'diff') }, 'html', 'templates/diff.html.erb']) do |t|
 
   diff = File.read t.source
   diffs = RailsDiff::DiffSplitter.new(diff).split
 
-  template = Erubis::Eruby.new(File.read('templates/diff.html.erb'))
-  File.write(t.name, template.result(diffs: diffs))
+  File.write(t.name, template(t.sources.last).result(diffs: diffs))
 end
 
 # Turn diff into JSON
 directory 'json'
 rule(/json\/.*\.json/ => [proc { |t| t.gsub(/json/, 'diff') }, 'json']) do |t|
   $:.unshift 'lib/rails_diff'
-  require 'diff_splitter'
   diff = File.read t.source
   diffs = RailsDiff::DiffSplitter.new(diff).split
 
