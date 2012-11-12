@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsDiff</title>
+    <link rel="stylesheet" href="../stylesheets/stylesheet.css" />
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css" />
+  </head>
+  <body>
+    <h1>RailsDiff</h1>
+      <h2>Gemfile</h2>
+      <div class="highlight"><pre><span class="gu">@@ -1,6 +1,6 @@</span>
+ source &#39;https://rubygems.org&#39;
+ 
+<span class="gd">-gem &#39;rails&#39;, &#39;3.2.3.rc1&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.2.9.rc2&#39;</span>
+ 
+ # Bundle edge Rails instead:
+ # gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;
+<span class="gu">@@ -15,7 +15,7 @@</span>
+   gem &#39;coffee-rails&#39;, &#39;~&gt; 3.2.1&#39;
+ 
+   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+<span class="gd">-  # gem &#39;therubyracer&#39;, :platform =&gt; :ruby</span>
+<span class="gi">+  # gem &#39;therubyracer&#39;, :platforms =&gt; :ruby</span>
+ 
+   gem &#39;uglifier&#39;, &#39;&gt;= 1.0.3&#39;
+ end
+<span class="gu">@@ -35,4 +35,4 @@</span>
+ # gem &#39;capistrano&#39;
+ 
+ # To use debugger
+<span class="gd">-# gem &#39;ruby-debug19&#39;, :require =&gt; &#39;ruby-debug&#39;</span>
+<span class="gi">+# gem &#39;debugger&#39;</span>
+</pre>
+</div>
+
+      <h2>app/assets/stylesheets/application.css</h2>
+      <div class="highlight"><pre><span class="gu">@@ -10,4 +10,4 @@</span>
+  *
+  *= require_self
+  *= require_tree .
+<span class="gd">-*/</span>
+<span class="gi">+ */</span>
+</pre>
+</div>
+
+      <h2>config/application.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -39,6 +39,9 @@</span>
+     # Configure sensitive parameters which will be filtered from the log file.
+     config.filter_parameters += [:password]
+ 
+<span class="gi">+    # Enable escaping HTML in JSON.</span>
+<span class="gi">+    config.active_support.escape_html_entities_in_json = true</span>
+<span class="gi">+</span>
+     # Use SQL instead of Active Record&#39;s schema dumper when creating the database.
+     # This is necessary if your schema can&#39;t be completely dumped by the schema dumper,
+     # like if you have constraints or database-specific column types
+</pre>
+</div>
+
+      <h2>config/environments/production.rb</h2>
+      <div class="highlight"><pre><span class="gu">@@ -20,7 +20,7 @@</span>
+   # Generate digests for assets URLs
+   config.assets.digest = true
+ 
+<span class="gd">-  # Defaults to Rails.root.join(&quot;public/assets&quot;)</span>
+<span class="gi">+  # Defaults to nil and saved in location specified by config.assets.prefix</span>
+   # config.assets.manifest = YOUR_PATH
+ 
+   # Specifies the header that your server uses for sending files
+</pre>
+</div>
+
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-7325596-4']);
+      _gaq.push(['_setSiteSpeedSampleRate', 100]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
