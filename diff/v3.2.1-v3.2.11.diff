@@ -1,0 +1,77 @@
+diff -Nru v3.2.1/Gemfile v3.2.11/Gemfile
+--- v3.2.1/Gemfile	2012-07-26 23:33:06.000000000 -0400
++++ v3.2.11/Gemfile	2013-01-09 16:48:08.000000000 -0500
+@@ -1,6 +1,6 @@
+ source 'https://rubygems.org'
+ 
+-gem 'rails', '3.2.1'
++gem 'rails', '3.2.11'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails', :git => 'git://github.com/rails/rails.git'
+@@ -15,7 +15,7 @@
+   gem 'coffee-rails', '~> 3.2.1'
+ 
+   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+-  # gem 'therubyracer'
++  # gem 'therubyracer', :platforms => :ruby
+ 
+   gem 'uglifier', '>= 1.0.3'
+ end
+@@ -28,11 +28,11 @@
+ # To use Jbuilder templates for JSON
+ # gem 'jbuilder'
+ 
+-# Use unicorn as the web server
++# Use unicorn as the app server
+ # gem 'unicorn'
+ 
+ # Deploy with Capistrano
+ # gem 'capistrano'
+ 
+ # To use debugger
+-# gem 'ruby-debug19', :require => 'ruby-debug'
++# gem 'debugger'
+diff -Nru v3.2.1/app/assets/stylesheets/application.css v3.2.11/app/assets/stylesheets/application.css
+--- v3.2.1/app/assets/stylesheets/application.css	2012-07-26 23:33:06.000000000 -0400
++++ v3.2.11/app/assets/stylesheets/application.css	2013-01-09 16:48:08.000000000 -0500
+@@ -10,4 +10,4 @@
+  *
+  *= require_self
+  *= require_tree .
+-*/
++ */
+diff -Nru v3.2.1/config/application.rb v3.2.11/config/application.rb
+--- v3.2.1/config/application.rb	2012-07-26 23:33:06.000000000 -0400
++++ v3.2.11/config/application.rb	2013-01-09 16:48:08.000000000 -0500
+@@ -39,6 +39,9 @@
+     # Configure sensitive parameters which will be filtered from the log file.
+     config.filter_parameters += [:password]
+ 
++    # Enable escaping HTML in JSON.
++    config.active_support.escape_html_entities_in_json = true
++
+     # Use SQL instead of Active Record's schema dumper when creating the database.
+     # This is necessary if your schema can't be completely dumped by the schema dumper,
+     # like if you have constraints or database-specific column types
+@@ -48,7 +51,7 @@
+     # This will create an empty whitelist of attributes available for mass-assignment for all models
+     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
+     # parameters by using an attr_accessible or attr_protected declaration.
+-    # config.active_record.whitelist_attributes = true
++    config.active_record.whitelist_attributes = true
+ 
+     # Enable the asset pipeline
+     config.assets.enabled = true
+diff -Nru v3.2.1/config/environments/production.rb v3.2.11/config/environments/production.rb
+--- v3.2.1/config/environments/production.rb	2012-07-26 23:33:06.000000000 -0400
++++ v3.2.11/config/environments/production.rb	2013-01-09 16:48:08.000000000 -0500
+@@ -20,7 +20,7 @@
+   # Generate digests for assets URLs
+   config.assets.digest = true
+ 
+-  # Defaults to Rails.root.join("public/assets")
++  # Defaults to nil and saved in location specified by config.assets.prefix
+   # config.assets.manifest = YOUR_PATH
+ 
+   # Specifies the header that your server uses for sending files
