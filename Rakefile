@@ -116,12 +116,6 @@ rule(/tmp\/generated\/.*/ => ['tmp/generated']) do |t|
   sh "mv #{t.name}/railsdiff/.??* #{t.name}/.", verbose: false
 end
 
-def rails_binary dir
-  old = "#{dir}/bin/rails"
-  new = "#{dir}/railties/bin/rails"
-  File.exists?(old) ? old : new
-end
-
 directory 'diff'
 rule(/diff\/.*\.diff/ => ['diff']) do |t|
   puts 'Generating: %s' % t.name
