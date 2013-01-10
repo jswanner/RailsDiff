@@ -5,10 +5,13 @@ require 'diff_splitter'
 require 'pygments.rb'
 require 'erubis'
 
+task 'default' => 'generate'
+
 desc 'Generate diff, html, & json files'
-task :gen_diffs => ['tmp/rails/rails', :update_rails_repo] do |t|
+task 'generate' => 'update_rails_repo' do |t|
   tags = all_tags
   tail = tags.pop
+
   while tags.any?
     tags.each do |tag|
       Rake::Task["html/#{tag}-#{tail}.html"].invoke
@@ -16,10 +19,15 @@ task :gen_diffs => ['tmp/rails/rails', :update_rails_repo] do |t|
     end
     tail = tags.pop
   end
+
+  Rake::Task["index.html"].invoke
+  Rake::Task["404.html"].invoke
 end
 
 desc 'Generate index.html'
 file 'index.html' => ['templates/index.html.erb', 'tmp/rails/rails'] do |t|
+  puts 'Generating %s' % t.name
+
   tags = all_tags
   versions = tags.map {|t| version(t).version }
   File.write(t.name, template(t.prerequisites.first).result(versions: versions))
@@ -27,6 +35,8 @@ end
 
 desc 'Generate 404.html'
 file '404.html' => ['templates/404.html.erb', 'tmp/rails/rails'] do |t|
+  puts 'Generating %s' % t.name
+
   tags = all_tags
   versions = tags.map {|t| version(t).version }
   File.write(t.name, template(t.prerequisites.first).result(versions: versions))
@@ -43,7 +53,7 @@ end
 
 def all_tags
   tags = nil
-  cd 'tmp/rails/rails' do
+  cd 'tmp/rails/rails', verbose: false do
     tags = %x{git tag -l "v3*"}.split
   end
   tags.
@@ -64,13 +74,15 @@ end
 directory 'tmp/rails'
 file 'tmp/rails/rails' => 'tmp/rails' do |t|
   puts 'Cloning Rails repo'
-  %x{git clone git://github.com/rails/rails.git #{t}}
+  sh "git clone https://github.com/rails/rails.git #{t} > /dev/null 2>&1", verbose: false
 end
 
 task 'update_rails_repo' => 'tmp/rails/rails' do |t|
-  cd t.prerequisites.first do
-    %x{git fetch origin}
-    %x{git checkout master}
+  puts 'Updating Rails repo'
+
+  cd t.prerequisites.first, verbose: false do
+    sh "git fetch origin > /dev/null", verbose: false
+    sh "git checkout master > /dev/null 2>&1", verbose: false
   end
 end
 
@@ -84,13 +96,13 @@ require "rails/cli"
 end
 
 rule(/tmp\/rails\/.*/ => ['tmp/rails/rails', 'tmp/rails/generator']) do |t|
-  cd t.source do
+  cd t.source, verbose: false do
     tag = t.name.match(/([^\/]+)$/)[0]
-    %x{git checkout master}
-    %x{git checkout #{tag}}
+    sh "git checkout master > /dev/null 2>&1", verbose: false
+    sh "git checkout #{tag} > /dev/null 2>&1", verbose: false
   end
-  cp_r t.source, t.name
-  cp 'tmp/rails/generator', t.name
+  cp_r t.source, t.name, verbose: false
+  cp 'tmp/rails/generator', t.name, verbose: false
 end
 
 directory 'tmp/generated'
@@ -98,10 +110,10 @@ rule(/tmp\/generated\/.*/ => ['tmp/generated']) do |t|
   tag = t.name.match(/([^\/]+)$/)[0]
   Rake::Task["tmp/rails/#{tag}"].invoke
   rails_dir = "tmp/rails/#{tag}"
-  system %{ruby #{rails_dir}/generator new #{t.name}/railsdiff --skip-bundle}
-  rm "#{t.name}/railsdiff/config/initializers/secret_token.rb"
-  %x{mv #{t.name}/railsdiff/* #{t.name}/.}
-  %x{mv #{t.name}/railsdiff/.??* #{t.name}/.}
+  sh "ruby #{rails_dir}/generator new #{t.name}/railsdiff --skip-bundle > /dev/null", verbose: false
+  rm "#{t.name}/railsdiff/config/initializers/secret_token.rb", verbose: false
+  sh "mv #{t.name}/railsdiff/* #{t.name}/.", verbose: false
+  sh "mv #{t.name}/railsdiff/.??* #{t.name}/.", verbose: false
 end
 
 def rails_binary dir
@@ -112,12 +124,14 @@ end
 
 directory 'diff'
 rule(/diff\/.*\.diff/ => ['diff']) do |t|
+  puts 'Generating: %s' % t.name
+
   match = t.name.match(/diff\/(?<s>[^-]+)-(?<t>.*?).diff/)
   source = match['s']
   target = match['t']
   Rake::Task["tmp/generated/#{source}"].invoke
   Rake::Task["tmp/generated/#{target}"].invoke
-  cd "tmp/generated" do
+  cd "tmp/generated", verbose: false do
     %x{diff -Nru #{source} #{target} > ../../#{t.name}}
   end
 end
@@ -125,6 +139,7 @@ end
 # Turn diff into HTML
 directory 'html'
 rule(/html\/.*\.html/ => [proc { |t| t.gsub(/html/, 'diff') }, 'html', 'templates/diff.html.erb']) do |t|
+  puts 'Generating: %s' % t.name
 
   diff = File.read t.source
   diffs = RailsDiff::DiffSplitter.new(diff).split
@@ -135,6 +150,8 @@ end
 # Turn diff into JSON
 directory 'json'
 rule(/json\/.*\.json/ => [proc { |t| t.gsub(/json/, 'diff') }, 'json']) do |t|
+  puts 'Generating: %s' % t.name
+
   $:.unshift 'lib/rails_diff'
   diff = File.read t.source
   diffs = RailsDiff::DiffSplitter.new(diff).split

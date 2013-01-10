@@ -10,7 +10,7 @@
 ## To generate diff files and html
 
 ```sh
-rake gen_diffs
+rake
 ```
 
 This will only generate files that are missing, if you want to
