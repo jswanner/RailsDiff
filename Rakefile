@@ -42,35 +42,6 @@ file '404.html' => ['templates/404.html.erb', 'tmp/rails/rails'] do |t|
   File.write(t.name, template(t.prerequisites.first).result(versions: versions))
 end
 
-def template name
-  @templates ||= {}
-  @templates.fetch name do |name|
-    template = Erubis::Eruby.new(File.read name)
-    @templates[name] = template
-    template
-  end
-end
-
-def all_tags
-  tags = nil
-  cd 'tmp/rails/rails', verbose: false do
-    tags = %x{git tag -l "v3*"}.split
-  end
-  tags.
-    sort { |a, b| version(a) <=> version(b) }.
-    select { |t| version(t) >= min_version }
-end
-
-def version tag
-  Gem::Version.new(tag[1..-1])
-rescue
-  Gem::Version.new('0')
-end
-
-def min_version
-  @min_version ||= version 'v3.0.0'
-end
-
 directory 'tmp/rails'
 file 'tmp/rails/rails' => 'tmp/rails' do |t|
   puts 'Cloning Rails repo'
@@ -157,4 +128,33 @@ rule(/json\/.*\.json/ => [proc { |t| t.gsub(/json/, 'diff') }, 'json']) do |t|
     }.flatten[0...-1]
     file.puts [']', '}']
   end
+end
+
+def template name
+  @templates ||= {}
+  @templates.fetch name do |name|
+    template = Erubis::Eruby.new(File.read name)
+    @templates[name] = template
+    template
+  end
+end
+
+def all_tags
+  tags = nil
+  cd 'tmp/rails/rails', verbose: false do
+    tags = %x{git tag -l "v3*"}.split
+  end
+  tags.
+    sort { |a, b| version(a) <=> version(b) }.
+    select { |t| version(t) >= min_version }
+end
+
+def version tag
+  Gem::Version.new(tag[1..-1])
+rescue
+  Gem::Version.new('0')
+end
+
+def min_version
+  @min_version ||= version 'v3.0.0'
 end
