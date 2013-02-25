@@ -1,8 +1,0 @@
-{
-"diffs": [
-{
-"filepath": "Gemfile",
-"diff": "@@ -1,6 +1,6 @@\n source 'http://rubygems.org'\n \n-gem 'rails', '3.0.8'\n+gem 'rails', '3.0.9.rc2'\n \n # Bundle edge Rails instead:\n # gem 'rails', :git => 'git://github.com/rails/rails.git'\n"
-}
-]
-}

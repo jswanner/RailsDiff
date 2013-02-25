@@ -1,8 +1,0 @@
-{
-"diffs": [
-{
-"filepath": "Gemfile",
-"diff": "@@ -1,6 +1,6 @@\n source 'http://rubygems.org'\n \n-gem 'rails', '3.1.2.rc1'\n+gem 'rails', '3.1.11'\n \n # Bundle edge Rails instead:\n # gem 'rails',     :git => 'git://github.com/rails/rails.git'\n@@ -11,8 +11,12 @@\n # Gems used only for assets and not required\n # in production environments by default.\n group :assets do\n-  gem 'sass-rails',   '~> 3.1.4'\n+  gem 'sass-rails',   '~> 3.1.5'\n   gem 'coffee-rails', '~> 3.1.1'\n+\n+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes\n+  # gem 'therubyracer'\n+\n   gem 'uglifier', '>= 1.0.3'\n end\n \n"
-}
-]
-}

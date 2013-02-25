@@ -9,7 +9,7 @@ task 'default' => 'generate'
 
 desc 'Generate diff, html, & json files'
 task 'generate' => 'update_rails_repo' do |t|
-  tags = all_tags
+  tags = all_included_tags.dup
   tail = tags.pop
 
   while tags.any?
@@ -28,18 +28,14 @@ desc 'Generate index.html'
 file 'index.html' => ['templates/index.html.erb', 'tmp/rails/rails'] do |t|
   puts 'Generating %s' % t.name
 
-  tags = all_tags
-  versions = tags.map {|t| version(t).version }
-  File.write(t.name, template(t.prerequisites.first).result(versions: versions))
+  File.write(t.name, template(t.prerequisites.first).result(versions: all_included_versions))
 end
 
 desc 'Generate 404.html'
 file '404.html' => ['templates/404.html.erb', 'tmp/rails/rails'] do |t|
   puts 'Generating %s' % t.name
 
-  tags = all_tags
-  versions = tags.map {|t| version(t).version }
-  File.write(t.name, template(t.prerequisites.first).result(versions: versions))
+  File.write(t.name, template(t.prerequisites.first).result(versions: all_included_versions))
 end
 
 directory 'tmp/rails'
@@ -139,22 +135,41 @@ def template name
   end
 end
 
+def all_included_tags
+  @all_included_tags ||= all_tags.select { |tag| include_tag? tag }
+end
+
+def all_included_versions
+  all_included_tags.map { |tag| version(tag).version }
+end
+
 def all_tags
-  tags = nil
-  cd 'tmp/rails/rails', verbose: false do
-    tags = %x{git tag -l "v3*"}.split
-  end
-  tags.
-    sort { |a, b| version(a) <=> version(b) }.
-    select { |t| version(t) >= min_version }
+  @all_tags ||= begin
+                  result = nil
+                  cd 'tmp/rails/rails', verbose: false do
+                    result = %x{git tag -l "v3*"}.split
+                  end
+                  result.sort { |a, b| version(a) <=> version(b) }
+                end
+end
+
+def include_tag? tag
+  version = version tag
+  (!version.prerelease? || version > last_full_release_version) &&
+    version >= min_version
+end
+
+def last_full_release_version
+  @last_full_release_version ||= all_tags.dup.reverse.
+    map{ |tag| version tag }.find { |version| !version.prerelease? }
+end
+
+def min_version
+  @min_version ||= version 'v3.0.0'
 end
 
 def version tag
   Gem::Version.new(tag[1..-1])
 rescue
   Gem::Version.new('0')
-end
-
-def min_version
-  @min_version ||= version 'v3.0.0'
 end
