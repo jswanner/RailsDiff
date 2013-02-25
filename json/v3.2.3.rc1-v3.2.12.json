@@ -1,0 +1,23 @@
+{
+"diffs": [
+{
+"filepath": "Gemfile",
+"diff": "@@ -1,6 +1,6 @@\n source 'https://rubygems.org'\n \n-gem 'rails', '3.2.3.rc1'\n+gem 'rails', '3.2.12'\n \n # Bundle edge Rails instead:\n # gem 'rails', :git => 'git://github.com/rails/rails.git'\n@@ -15,7 +15,7 @@\n   gem 'coffee-rails', '~> 3.2.1'\n \n   # See https://github.com/sstephenson/execjs#readme for more supported runtimes\n-  # gem 'therubyracer', :platform => :ruby\n+  # gem 'therubyracer', :platforms => :ruby\n \n   gem 'uglifier', '>= 1.0.3'\n end\n@@ -35,4 +35,4 @@\n # gem 'capistrano'\n \n # To use debugger\n-# gem 'ruby-debug19', :require => 'ruby-debug'\n+# gem 'debugger'\n"
+}
+,
+{
+"filepath": "app/assets/stylesheets/application.css",
+"diff": "@@ -10,4 +10,4 @@\n  *\n  *= require_self\n  *= require_tree .\n-*/\n+ */\n"
+}
+,
+{
+"filepath": "config/application.rb",
+"diff": "@@ -39,6 +39,9 @@\n     # Configure sensitive parameters which will be filtered from the log file.\n     config.filter_parameters += [:password]\n \n+    # Enable escaping HTML in JSON.\n+    config.active_support.escape_html_entities_in_json = true\n+\n     # Use SQL instead of Active Record's schema dumper when creating the database.\n     # This is necessary if your schema can't be completely dumped by the schema dumper,\n     # like if you have constraints or database-specific column types\n"
+}
+,
+{
+"filepath": "config/environments/production.rb",
+"diff": "@@ -20,7 +20,7 @@\n   # Generate digests for assets URLs\n   config.assets.digest = true\n \n-  # Defaults to Rails.root.join(\"public/assets\")\n+  # Defaults to nil and saved in location specified by config.assets.prefix\n   # config.assets.manifest = YOUR_PATH\n \n   # Specifies the header that your server uses for sending files\n"
+}
+]
+}
