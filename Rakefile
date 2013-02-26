@@ -147,7 +147,7 @@ def all_tags
   @all_tags ||= begin
                   result = nil
                   cd 'tmp/rails/rails', verbose: false do
-                    result = %x{git tag -l "v3*"}.split
+                    result = %x{git tag -l "v3*" "v4*"}.split
                   end
                   result.sort { |a, b| version(a) <=> version(b) }
                 end
