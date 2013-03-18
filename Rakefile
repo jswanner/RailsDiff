@@ -49,7 +49,6 @@ task 'update_rails_repo' => 'tmp/rails/rails' do |t|
 
   cd t.prerequisites.first, verbose: false do
     sh "git fetch origin > /dev/null", verbose: false
-    sh "git checkout master > /dev/null 2>&1", verbose: false
   end
 end
 
@@ -65,8 +64,7 @@ end
 rule(/tmp\/rails\/.*/ => ['tmp/rails/rails', 'tmp/rails/generator']) do |t|
   cd t.source, verbose: false do
     tag = t.name.match(/([^\/]+)$/)[0]
-    sh "git checkout master > /dev/null 2>&1", verbose: false
-    sh "git checkout #{tag} > /dev/null 2>&1", verbose: false
+    sh "git reset --hard #{tag} > /dev/null 2>&1", verbose: false
   end
   cp_r t.source, t.name, verbose: false
   cp 'tmp/rails/generator', t.name, verbose: false
@@ -74,13 +72,16 @@ end
 
 directory 'tmp/generated'
 rule(/tmp\/generated\/.*/ => ['tmp/generated']) do |t|
-  tag = t.name.match(/([^\/]+)$/)[0]
-  Rake::Task["tmp/rails/#{tag}"].invoke
-  rails_dir = "tmp/rails/#{tag}"
-  sh "ruby #{rails_dir}/generator new #{t.name}/railsdiff --skip-bundle > /dev/null", verbose: false
+  source = t.name.gsub /^tmp\/generated/, 'tmp/rails'
+  Rake::Task[source].invoke
+
+  rm_rf t.name, verbose: false if Dir.exists?(t.name)
+
+  sh "ruby #{source}/generator new #{t.name}/railsdiff --skip-bundle > /dev/null", verbose: false
   rm "#{t.name}/railsdiff/config/initializers/secret_token.rb", verbose: false
   sh "mv #{t.name}/railsdiff/* #{t.name}/.", verbose: false
   sh "mv #{t.name}/railsdiff/.??* #{t.name}/.", verbose: false
+  rm_rf source, verbose: false
 end
 
 directory 'diff'
@@ -99,7 +100,7 @@ end
 
 # Turn diff into HTML
 directory 'html'
-rule(/html\/.*\.html/ => [proc { |t| t.gsub(/html/, 'diff') }, 'html', 'templates/diff.html.erb']) do |t|
+rule(/html\/.*\.html/ => [->(t) { t.gsub(/html/, 'diff') }, 'html', 'templates/diff.html.erb']) do |t|
   puts 'Generating: %s' % t.name
 
   diff = File.read t.source
@@ -110,7 +111,7 @@ end
 
 # Turn diff into JSON
 directory 'json'
-rule(/json\/.*\.json/ => [proc { |t| t.gsub(/json/, 'diff') }, 'json']) do |t|
+rule(/json\/.*\.json/ => [->(t) { t.gsub(/json/, 'diff') }, 'json']) do |t|
   puts 'Generating: %s' % t.name
 
   $:.unshift 'lib/rails_diff'
