@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>RailsDiff</title>
-    <link rel="stylesheet" href="../stylesheets/stylesheet.css" />
-    <link rel="stylesheet" href="../stylesheets/pygment_trac.css" />
+    <link rel="stylesheet" href="../assets/pygment_trac.css" />
+    <link rel="stylesheet" href="../assets/app.css" />
   </head>
   <body>
     <h1>RailsDiff</h1>
@@ -11,6 +11,7 @@
       <h2><%= name %></h2>
       <%= Pygments.highlight diff, lexer: 'diff' %>
     <% end %>
+
     <script>
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-7325596-4']);
