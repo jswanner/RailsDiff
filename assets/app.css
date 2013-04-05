@@ -3,3 +3,5 @@
 body { *zoom: 1; max-width: 68em; margin-left: auto; margin-right: auto; }
 body:before, body:after { content: " "; display: table; }
 body:after { clear: both; }
+
+pre { padding: 20px; background: white; text-shadow: none; overflow: auto; border: solid 1px #f2f2f2; }

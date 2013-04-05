@@ -2,20 +2,7 @@
 <html>
   <head>
     <title>RailsDiff</title>
-    <script>
-      window.onload = function () {
-        var form = document.getElementById('form');
-        form.onsubmit = function () {
-          var source = document.getElementById('source'),
-              source = source.options[source.selectedIndex].value,
-              target = document.getElementById('target'),
-              target = target.options[target.selectedIndex].value,
-              href   = ['/html/v', source, '-v', target, '.html'].join('');
-          window.location.href = href;
-          return false;
-        };
-      };
-    </script>
+    <link rel="stylesheet" href="assets/app.css" />
   </head>
   <body>
     <h1>RailsDiff</h1>
@@ -37,6 +24,7 @@
       <input type="submit" value="Get Diff" />
     </form>
 
+    <script src="assets/app.js"></script>
     <script>
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-7325596-4']);
