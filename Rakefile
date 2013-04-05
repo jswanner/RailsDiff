@@ -43,7 +43,7 @@ directory 'assets'
 task 'assets' => ['assets/app.css']
 
 file 'assets/app.css' => ['assets/app.css.sass'] do |t|
-  system "sass -t compact -I assets/bourbon -I assets/neat #{t.prerequisites.first} #{t.name}"
+  system "sass -t compact -I assets #{t.prerequisites.first} #{t.name}"
 end
 
 directory 'tmp/rails'
