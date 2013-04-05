@@ -42,7 +42,7 @@ desc 'Compiles assets'
 directory 'assets'
 task 'assets' => ['assets/app.css']
 
-file 'assets/app.css' => ['assets/app.css.sass'] do |t|
+file 'assets/app.css' => ['assets/app.sass'] do |t|
   system "sass -t compact -I assets #{t.prerequisites.first} #{t.name}"
 end
 
@@ -108,7 +108,7 @@ end
 
 # Turn diff into HTML
 directory 'html'
-rule(/html\/.*\.html/ => [->(t) { t.gsub(/html/, 'diff') }, 'html', 'templates/diff.html.erb', 'assets']) do |t|
+rule(/html\/.*\.html/ => [->(t) { t.gsub(/html/, 'diff') }, 'html', 'assets', 'templates/diff.html.erb']) do |t|
   puts 'Generating: %s' % t.name
 
   diff = File.read t.source
