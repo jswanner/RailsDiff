@@ -1,6 +1,8 @@
 # Ignore bundler config
 .bundle
 
-# Ignore all logfiles and tempfiles.
+# Ignore all logfiles and tempfiles
 tmp
-_site
+
+# Ignore sass generated files
+.sass-cache

@@ -25,17 +25,25 @@ task 'generate' => 'update_rails_repo' do |t|
 end
 
 desc 'Generate index.html'
-file 'index.html' => ['templates/index.html.erb', 'tmp/rails/rails'] do |t|
+file 'index.html' => ['templates/index.html.erb', 'assets'] do |t|
   puts 'Generating %s' % t.name
 
   File.write(t.name, template(t.prerequisites.first).result(versions: all_included_versions))
 end
 
 desc 'Generate 404.html'
-file '404.html' => ['templates/404.html.erb', 'tmp/rails/rails'] do |t|
+file '404.html' => ['templates/404.html.erb', 'assets'] do |t|
   puts 'Generating %s' % t.name
 
   File.write(t.name, template(t.prerequisites.first).result(versions: all_included_versions))
+end
+
+desc 'Compiles assets'
+directory 'assets'
+task 'assets' => ['assets/app.css']
+
+file 'assets/app.css' => ['assets/app.css.sass'] do |t|
+  system "sass -t compact -I assets/bourbon -I assets/neat #{t.prerequisites.first} #{t.name}"
 end
 
 directory 'tmp/rails'
@@ -100,7 +108,7 @@ end
 
 # Turn diff into HTML
 directory 'html'
-rule(/html\/.*\.html/ => [->(t) { t.gsub(/html/, 'diff') }, 'html', 'templates/diff.html.erb']) do |t|
+rule(/html\/.*\.html/ => [->(t) { t.gsub(/html/, 'diff') }, 'html', 'templates/diff.html.erb', 'assets']) do |t|
   puts 'Generating: %s' % t.name
 
   diff = File.read t.source
