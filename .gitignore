@@ -1,5 +1,6 @@
-# Ignore bundler config
+# Ignore bundler stuff
 .bundle
+Gemfile.lock
 
 # Ignore all logfiles and tempfiles
 tmp
