@@ -2,13 +2,131 @@
 <html>
   <head>
     <title>RailsDiff</title>
-    <link rel="stylesheet" href="../assets/pygment_trac.css" />
-    <link rel="stylesheet" href="../assets/app.css" />
+    <link href='/assets/pygment_trac.css' rel='stylesheet'>
+    <link href='/assets/app.css' rel='stylesheet'>
   </head>
   <body>
-    <h1>RailsDiff</h1>
-      <h2>Gemfile</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,6 +1,6 @@</span>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'>
+            <option name='v3.0.0' value='v3.0.0'>3.0.0</option>
+            <option name='v3.0.1' value='v3.0.1'>3.0.1</option>
+            <option name='v3.0.2' value='v3.0.2'>3.0.2</option>
+            <option name='v3.0.3' value='v3.0.3'>3.0.3</option>
+            <option name='v3.0.4' value='v3.0.4'>3.0.4</option>
+            <option name='v3.0.5' value='v3.0.5'>3.0.5</option>
+            <option name='v3.0.6' value='v3.0.6'>3.0.6</option>
+            <option name='v3.0.7' value='v3.0.7'>3.0.7</option>
+            <option name='v3.0.8' value='v3.0.8'>3.0.8</option>
+            <option name='v3.0.9' value='v3.0.9'>3.0.9</option>
+            <option name='v3.0.10' value='v3.0.10'>3.0.10</option>
+            <option name='v3.0.11' value='v3.0.11'>3.0.11</option>
+            <option name='v3.0.12' value='v3.0.12'>3.0.12</option>
+            <option name='v3.0.13' value='v3.0.13'>3.0.13</option>
+            <option name='v3.0.14' value='v3.0.14'>3.0.14</option>
+            <option name='v3.0.15' value='v3.0.15'>3.0.15</option>
+            <option name='v3.0.16' value='v3.0.16'>3.0.16</option>
+            <option name='v3.0.17' value='v3.0.17'>3.0.17</option>
+            <option name='v3.0.18' value='v3.0.18'>3.0.18</option>
+            <option name='v3.0.19' value='v3.0.19'>3.0.19</option>
+            <option name='v3.0.20' value='v3.0.20'>3.0.20</option>
+            <option name='v3.1.0' value='v3.1.0'>3.1.0</option>
+            <option name='v3.1.1' value='v3.1.1'>3.1.1</option>
+            <option name='v3.1.2' value='v3.1.2'>3.1.2</option>
+            <option name='v3.1.3' value='v3.1.3'>3.1.3</option>
+            <option name='v3.1.4' value='v3.1.4'>3.1.4</option>
+            <option name='v3.1.5' value='v3.1.5'>3.1.5</option>
+            <option name='v3.1.6' value='v3.1.6'>3.1.6</option>
+            <option name='v3.1.7' value='v3.1.7'>3.1.7</option>
+            <option name='v3.1.8' value='v3.1.8'>3.1.8</option>
+            <option name='v3.1.9' value='v3.1.9'>3.1.9</option>
+            <option name='v3.1.10' value='v3.1.10'>3.1.10</option>
+            <option name='v3.1.11' value='v3.1.11'>3.1.11</option>
+            <option name='v3.1.12' value='v3.1.12'>3.1.12</option>
+            <option name='v3.2.0' value='v3.2.0'>3.2.0</option>
+            <option name='v3.2.1' value='v3.2.1'>3.2.1</option>
+            <option name='v3.2.2' value='v3.2.2'>3.2.2</option>
+            <option name='v3.2.3' value='v3.2.3'>3.2.3</option>
+            <option name='v3.2.4' value='v3.2.4'>3.2.4</option>
+            <option name='v3.2.5' value='v3.2.5'>3.2.5</option>
+            <option name='v3.2.6' value='v3.2.6'>3.2.6</option>
+            <option name='v3.2.7' value='v3.2.7'>3.2.7</option>
+            <option name='v3.2.8' value='v3.2.8'>3.2.8</option>
+            <option name='v3.2.9' value='v3.2.9'>3.2.9</option>
+            <option name='v3.2.10' value='v3.2.10'>3.2.10</option>
+            <option name='v3.2.11' value='v3.2.11'>3.2.11</option>
+            <option name='v3.2.12' value='v3.2.12'>3.2.12</option>
+            <option name='v3.2.13' value='v3.2.13'>3.2.13</option>
+            <option name='v4.0.0.beta1' value='v4.0.0.beta1'>4.0.0.beta1</option>
+          </select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png'></a>
+        <label>
+          Target
+          <select name='target'>
+            <option name='v4.0.0.beta1' value='v4.0.0.beta1'>4.0.0.beta1</option>
+            <option name='v3.2.13' value='v3.2.13'>3.2.13</option>
+            <option name='v3.2.12' value='v3.2.12'>3.2.12</option>
+            <option name='v3.2.11' value='v3.2.11'>3.2.11</option>
+            <option name='v3.2.10' value='v3.2.10'>3.2.10</option>
+            <option name='v3.2.9' value='v3.2.9'>3.2.9</option>
+            <option name='v3.2.8' value='v3.2.8'>3.2.8</option>
+            <option name='v3.2.7' value='v3.2.7'>3.2.7</option>
+            <option name='v3.2.6' value='v3.2.6'>3.2.6</option>
+            <option name='v3.2.5' value='v3.2.5'>3.2.5</option>
+            <option name='v3.2.4' value='v3.2.4'>3.2.4</option>
+            <option name='v3.2.3' value='v3.2.3'>3.2.3</option>
+            <option name='v3.2.2' value='v3.2.2'>3.2.2</option>
+            <option name='v3.2.1' value='v3.2.1'>3.2.1</option>
+            <option name='v3.2.0' value='v3.2.0'>3.2.0</option>
+            <option name='v3.1.12' value='v3.1.12'>3.1.12</option>
+            <option name='v3.1.11' value='v3.1.11'>3.1.11</option>
+            <option name='v3.1.10' value='v3.1.10'>3.1.10</option>
+            <option name='v3.1.9' value='v3.1.9'>3.1.9</option>
+            <option name='v3.1.8' value='v3.1.8'>3.1.8</option>
+            <option name='v3.1.7' value='v3.1.7'>3.1.7</option>
+            <option name='v3.1.6' value='v3.1.6'>3.1.6</option>
+            <option name='v3.1.5' value='v3.1.5'>3.1.5</option>
+            <option name='v3.1.4' value='v3.1.4'>3.1.4</option>
+            <option name='v3.1.3' value='v3.1.3'>3.1.3</option>
+            <option name='v3.1.2' value='v3.1.2'>3.1.2</option>
+            <option name='v3.1.1' value='v3.1.1'>3.1.1</option>
+            <option name='v3.1.0' value='v3.1.0'>3.1.0</option>
+            <option name='v3.0.20' value='v3.0.20'>3.0.20</option>
+            <option name='v3.0.19' value='v3.0.19'>3.0.19</option>
+            <option name='v3.0.18' value='v3.0.18'>3.0.18</option>
+            <option name='v3.0.17' value='v3.0.17'>3.0.17</option>
+            <option name='v3.0.16' value='v3.0.16'>3.0.16</option>
+            <option name='v3.0.15' value='v3.0.15'>3.0.15</option>
+            <option name='v3.0.14' value='v3.0.14'>3.0.14</option>
+            <option name='v3.0.13' value='v3.0.13'>3.0.13</option>
+            <option name='v3.0.12' value='v3.0.12'>3.0.12</option>
+            <option name='v3.0.11' value='v3.0.11'>3.0.11</option>
+            <option name='v3.0.10' value='v3.0.10'>3.0.10</option>
+            <option name='v3.0.9' value='v3.0.9'>3.0.9</option>
+            <option name='v3.0.8' value='v3.0.8'>3.0.8</option>
+            <option name='v3.0.7' value='v3.0.7'>3.0.7</option>
+            <option name='v3.0.6' value='v3.0.6'>3.0.6</option>
+            <option name='v3.0.5' value='v3.0.5'>3.0.5</option>
+            <option name='v3.0.4' value='v3.0.4'>3.0.4</option>
+            <option name='v3.0.3' value='v3.0.3'>3.0.3</option>
+            <option name='v3.0.2' value='v3.0.2'>3.0.2</option>
+            <option name='v3.0.1' value='v3.0.1'>3.0.1</option>
+            <option name='v3.0.0' value='v3.0.0'>3.0.0</option>
+          </select>
+        </label>
+        <input type='submit' value='View Diff'>
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+  <h2>Gemfile</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,6 +1,6 @@</span>
  source &#39;http://rubygems.org&#39;
  
 <span class="gd">-gem &#39;rails&#39;, &#39;3.0.5&#39;</span>
@@ -18,14 +136,18 @@
  # gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;
 </pre>
 </div>
-
-
+</div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+    </a>
+    <script src='/assets/app.js'></script>
     <script>
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-7325596-4']);
       _gaq.push(['_setSiteSpeedSampleRate', 100]);
       _gaq.push(['_trackPageview']);
-
+      
       (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);

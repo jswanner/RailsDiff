@@ -2,13 +2,131 @@
 <html>
   <head>
     <title>RailsDiff</title>
-    <link rel="stylesheet" href="../assets/pygment_trac.css" />
-    <link rel="stylesheet" href="../assets/app.css" />
+    <link href='/assets/pygment_trac.css' rel='stylesheet'>
+    <link href='/assets/app.css' rel='stylesheet'>
   </head>
   <body>
-    <h1>RailsDiff</h1>
-      <h2>.gitignore</h2>
-      <div class="highlight"><pre><span class="gu">@@ -2,13 +2,14 @@</span>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'>
+            <option name='v3.0.0' value='v3.0.0'>3.0.0</option>
+            <option name='v3.0.1' value='v3.0.1'>3.0.1</option>
+            <option name='v3.0.2' value='v3.0.2'>3.0.2</option>
+            <option name='v3.0.3' value='v3.0.3'>3.0.3</option>
+            <option name='v3.0.4' value='v3.0.4'>3.0.4</option>
+            <option name='v3.0.5' value='v3.0.5'>3.0.5</option>
+            <option name='v3.0.6' value='v3.0.6'>3.0.6</option>
+            <option name='v3.0.7' value='v3.0.7'>3.0.7</option>
+            <option name='v3.0.8' value='v3.0.8'>3.0.8</option>
+            <option name='v3.0.9' value='v3.0.9'>3.0.9</option>
+            <option name='v3.0.10' value='v3.0.10'>3.0.10</option>
+            <option name='v3.0.11' value='v3.0.11'>3.0.11</option>
+            <option name='v3.0.12' value='v3.0.12'>3.0.12</option>
+            <option name='v3.0.13' value='v3.0.13'>3.0.13</option>
+            <option name='v3.0.14' value='v3.0.14'>3.0.14</option>
+            <option name='v3.0.15' value='v3.0.15'>3.0.15</option>
+            <option name='v3.0.16' value='v3.0.16'>3.0.16</option>
+            <option name='v3.0.17' value='v3.0.17'>3.0.17</option>
+            <option name='v3.0.18' value='v3.0.18'>3.0.18</option>
+            <option name='v3.0.19' value='v3.0.19'>3.0.19</option>
+            <option name='v3.0.20' value='v3.0.20'>3.0.20</option>
+            <option name='v3.1.0' value='v3.1.0'>3.1.0</option>
+            <option name='v3.1.1' value='v3.1.1'>3.1.1</option>
+            <option name='v3.1.2' value='v3.1.2'>3.1.2</option>
+            <option name='v3.1.3' value='v3.1.3'>3.1.3</option>
+            <option name='v3.1.4' value='v3.1.4'>3.1.4</option>
+            <option name='v3.1.5' value='v3.1.5'>3.1.5</option>
+            <option name='v3.1.6' value='v3.1.6'>3.1.6</option>
+            <option name='v3.1.7' value='v3.1.7'>3.1.7</option>
+            <option name='v3.1.8' value='v3.1.8'>3.1.8</option>
+            <option name='v3.1.9' value='v3.1.9'>3.1.9</option>
+            <option name='v3.1.10' value='v3.1.10'>3.1.10</option>
+            <option name='v3.1.11' value='v3.1.11'>3.1.11</option>
+            <option name='v3.1.12' value='v3.1.12'>3.1.12</option>
+            <option name='v3.2.0' value='v3.2.0'>3.2.0</option>
+            <option name='v3.2.1' value='v3.2.1'>3.2.1</option>
+            <option name='v3.2.2' value='v3.2.2'>3.2.2</option>
+            <option name='v3.2.3' value='v3.2.3'>3.2.3</option>
+            <option name='v3.2.4' value='v3.2.4'>3.2.4</option>
+            <option name='v3.2.5' value='v3.2.5'>3.2.5</option>
+            <option name='v3.2.6' value='v3.2.6'>3.2.6</option>
+            <option name='v3.2.7' value='v3.2.7'>3.2.7</option>
+            <option name='v3.2.8' value='v3.2.8'>3.2.8</option>
+            <option name='v3.2.9' value='v3.2.9'>3.2.9</option>
+            <option name='v3.2.10' value='v3.2.10'>3.2.10</option>
+            <option name='v3.2.11' value='v3.2.11'>3.2.11</option>
+            <option name='v3.2.12' value='v3.2.12'>3.2.12</option>
+            <option name='v3.2.13' value='v3.2.13'>3.2.13</option>
+            <option name='v4.0.0.beta1' value='v4.0.0.beta1'>4.0.0.beta1</option>
+          </select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png'></a>
+        <label>
+          Target
+          <select name='target'>
+            <option name='v4.0.0.beta1' value='v4.0.0.beta1'>4.0.0.beta1</option>
+            <option name='v3.2.13' value='v3.2.13'>3.2.13</option>
+            <option name='v3.2.12' value='v3.2.12'>3.2.12</option>
+            <option name='v3.2.11' value='v3.2.11'>3.2.11</option>
+            <option name='v3.2.10' value='v3.2.10'>3.2.10</option>
+            <option name='v3.2.9' value='v3.2.9'>3.2.9</option>
+            <option name='v3.2.8' value='v3.2.8'>3.2.8</option>
+            <option name='v3.2.7' value='v3.2.7'>3.2.7</option>
+            <option name='v3.2.6' value='v3.2.6'>3.2.6</option>
+            <option name='v3.2.5' value='v3.2.5'>3.2.5</option>
+            <option name='v3.2.4' value='v3.2.4'>3.2.4</option>
+            <option name='v3.2.3' value='v3.2.3'>3.2.3</option>
+            <option name='v3.2.2' value='v3.2.2'>3.2.2</option>
+            <option name='v3.2.1' value='v3.2.1'>3.2.1</option>
+            <option name='v3.2.0' value='v3.2.0'>3.2.0</option>
+            <option name='v3.1.12' value='v3.1.12'>3.1.12</option>
+            <option name='v3.1.11' value='v3.1.11'>3.1.11</option>
+            <option name='v3.1.10' value='v3.1.10'>3.1.10</option>
+            <option name='v3.1.9' value='v3.1.9'>3.1.9</option>
+            <option name='v3.1.8' value='v3.1.8'>3.1.8</option>
+            <option name='v3.1.7' value='v3.1.7'>3.1.7</option>
+            <option name='v3.1.6' value='v3.1.6'>3.1.6</option>
+            <option name='v3.1.5' value='v3.1.5'>3.1.5</option>
+            <option name='v3.1.4' value='v3.1.4'>3.1.4</option>
+            <option name='v3.1.3' value='v3.1.3'>3.1.3</option>
+            <option name='v3.1.2' value='v3.1.2'>3.1.2</option>
+            <option name='v3.1.1' value='v3.1.1'>3.1.1</option>
+            <option name='v3.1.0' value='v3.1.0'>3.1.0</option>
+            <option name='v3.0.20' value='v3.0.20'>3.0.20</option>
+            <option name='v3.0.19' value='v3.0.19'>3.0.19</option>
+            <option name='v3.0.18' value='v3.0.18'>3.0.18</option>
+            <option name='v3.0.17' value='v3.0.17'>3.0.17</option>
+            <option name='v3.0.16' value='v3.0.16'>3.0.16</option>
+            <option name='v3.0.15' value='v3.0.15'>3.0.15</option>
+            <option name='v3.0.14' value='v3.0.14'>3.0.14</option>
+            <option name='v3.0.13' value='v3.0.13'>3.0.13</option>
+            <option name='v3.0.12' value='v3.0.12'>3.0.12</option>
+            <option name='v3.0.11' value='v3.0.11'>3.0.11</option>
+            <option name='v3.0.10' value='v3.0.10'>3.0.10</option>
+            <option name='v3.0.9' value='v3.0.9'>3.0.9</option>
+            <option name='v3.0.8' value='v3.0.8'>3.0.8</option>
+            <option name='v3.0.7' value='v3.0.7'>3.0.7</option>
+            <option name='v3.0.6' value='v3.0.6'>3.0.6</option>
+            <option name='v3.0.5' value='v3.0.5'>3.0.5</option>
+            <option name='v3.0.4' value='v3.0.4'>3.0.4</option>
+            <option name='v3.0.3' value='v3.0.3'>3.0.3</option>
+            <option name='v3.0.2' value='v3.0.2'>3.0.2</option>
+            <option name='v3.0.1' value='v3.0.1'>3.0.1</option>
+            <option name='v3.0.0' value='v3.0.0'>3.0.0</option>
+          </select>
+        </label>
+        <input type='submit' value='View Diff'>
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+  <h2>.gitignore</h2>
+  <div class="highlight"><pre><span class="gu">@@ -2,13 +2,14 @@</span>
  #
  # If you find yourself ignoring temporary files generated by your text editor
  # or operating system, you probably want to add a global ignore instead:
@@ -27,9 +145,8 @@
  /log/*.log
 </pre>
 </div>
-
-      <h2>Gemfile</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,38 +1,38 @@</span>
+  <h2>Gemfile</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,38 +1,38 @@</span>
  source &#39;https://rubygems.org&#39;
  
 <span class="gd">-gem &#39;rails&#39;, &#39;3.2.3&#39;</span>
@@ -83,9 +200,8 @@
 <span class="gi">+# gem &#39;debugger&#39;</span>
 </pre>
 </div>
-
-      <h2>README.rdoc</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,261 +1,28 @@</span>
+  <h2>README.rdoc</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,261 +1,28 @@</span>
 <span class="gd">-== Welcome to Rails</span>
 <span class="gi">+== README</span>
  
@@ -375,18 +491,16 @@
 <span class="gi">+&lt;tt&gt;rake doc:app&lt;/tt&gt;.</span>
 </pre>
 </div>
-
-      <h2>Rakefile</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,4 +1,3 @@</span>
+  <h2>Rakefile</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,4 +1,3 @@</span>
 <span class="gd">-#!/usr/bin/env rake</span>
  # Add your own tasks in files placed in lib/tasks ending in .rake,
  # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
  
 </pre>
 </div>
-
-      <h2>app/assets/javascripts/application.js</h2>
-      <div class="highlight"><pre><span class="gu">@@ -5,11 +5,12 @@</span>
+  <h2>app/assets/javascripts/application.js</h2>
+  <div class="highlight"><pre><span class="gu">@@ -5,11 +5,12 @@</span>
  // or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
  //
  // It&#39;s not advisable to add code directly here, but if you do, it&#39;ll appear at the bottom of the
@@ -402,9 +516,8 @@
  //= require_tree .
 </pre>
 </div>
-
-      <h2>app/assets/stylesheets/application.css</h2>
-      <div class="highlight"><pre><span class="gu">@@ -10,4 +10,4 @@</span>
+  <h2>app/assets/stylesheets/application.css</h2>
+  <div class="highlight"><pre><span class="gu">@@ -10,4 +10,4 @@</span>
   *
   *= require_self
   *= require_tree .
@@ -412,9 +525,8 @@
 <span class="gi">+ */</span>
 </pre>
 </div>
-
-      <h2>app/controllers/application_controller.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,3 +1,5 @@</span>
+  <h2>app/controllers/application_controller.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,3 +1,5 @@</span>
  class ApplicationController &lt; ActionController::Base
 <span class="gd">-  protect_from_forgery</span>
 <span class="gi">+  # Prevent CSRF attacks by raising an exception.</span>
@@ -423,9 +535,8 @@
  end
 </pre>
 </div>
-
-      <h2>app/views/layouts/application.html.erb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -2,8 +2,8 @@</span>
+  <h2>app/views/layouts/application.html.erb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -2,8 +2,8 @@</span>
  &lt;html&gt;
  &lt;head&gt;
    &lt;title&gt;Railsdiff&lt;/title&gt;
@@ -438,35 +549,31 @@
  &lt;body&gt;
 </pre>
 </div>
-
-      <h2>bin/bundle</h2>
-      <div class="highlight"><pre><span class="gu">@@ -0,0 +1,3 @@</span>
+  <h2>bin/bundle</h2>
+  <div class="highlight"><pre><span class="gu">@@ -0,0 +1,3 @@</span>
 <span class="gi">+#!/usr/bin/env ruby</span>
 <span class="gi">+ENV[&#39;BUNDLE_GEMFILE&#39;] ||= File.expand_path(&#39;../../Gemfile&#39;, __FILE__)</span>
 <span class="gi">+load Gem.bin_path(&#39;bundler&#39;, &#39;bundle&#39;)</span>
 </pre>
 </div>
-
-      <h2>bin/rails</h2>
-      <div class="highlight"><pre><span class="gu">@@ -0,0 +1,4 @@</span>
+  <h2>bin/rails</h2>
+  <div class="highlight"><pre><span class="gu">@@ -0,0 +1,4 @@</span>
 <span class="gi">+#!/usr/bin/env ruby</span>
 <span class="gi">+APP_PATH = File.expand_path(&#39;../../config/application&#39;,  __FILE__)</span>
 <span class="gi">+require_relative &#39;../config/boot&#39;</span>
 <span class="gi">+require &#39;rails/commands&#39;</span>
 </pre>
 </div>
-
-      <h2>bin/rake</h2>
-      <div class="highlight"><pre><span class="gu">@@ -0,0 +1,4 @@</span>
+  <h2>bin/rake</h2>
+  <div class="highlight"><pre><span class="gu">@@ -0,0 +1,4 @@</span>
 <span class="gi">+#!/usr/bin/env ruby</span>
 <span class="gi">+require_relative &#39;../config/boot&#39;</span>
 <span class="gi">+require &#39;rake&#39;</span>
 <span class="gi">+Rake.application.run</span>
 </pre>
 </div>
-
-      <h2>config/application.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -2,12 +2,8 @@</span>
+  <h2>config/application.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -2,12 +2,8 @@</span>
  
  require &#39;rails/all&#39;
  
@@ -529,9 +636,8 @@
  end
 </pre>
 </div>
-
-      <h2>config/boot.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,5 +1,3 @@</span>
+  <h2>config/boot.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,5 +1,3 @@</span>
 <span class="gd">-require &#39;rubygems&#39;</span>
 <span class="gd">-</span>
  # Set up gems listed in the Gemfile.
@@ -539,9 +645,8 @@
  
 </pre>
 </div>
-
-      <h2>config/environment.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
+  <h2>config/environment.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
 <span class="gd">-# Load the rails application</span>
 <span class="gi">+# Load the rails application.</span>
  require File.expand_path(&#39;../application&#39;, __FILE__)
@@ -551,9 +656,8 @@
  Railsdiff::Application.initialize!
 </pre>
 </div>
-
-      <h2>config/environments/development.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,37 +1,27 @@</span>
+  <h2>config/environments/development.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,37 +1,27 @@</span>
  Railsdiff::Application.configure do
 <span class="gd">-  # Settings specified here will take precedence over those in config/application.rb</span>
 <span class="gi">+  # Settings specified here will take precedence over those in config/application.rb.</span>
@@ -602,9 +706,8 @@
  end
 </pre>
 </div>
-
-      <h2>config/environments/production.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,67 +1,80 @@</span>
+  <h2>config/environments/production.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,67 +1,80 @@</span>
  Railsdiff::Application.configure do
 <span class="gd">-  # Settings specified here will take precedence over those in config/application.rb</span>
 <span class="gi">+  # Settings specified here will take precedence over those in config/application.rb.</span>
@@ -714,9 +817,8 @@
  end
 </pre>
 </div>
-
-      <h2>config/environments/test.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
+  <h2>config/environments/test.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
  Railsdiff::Application.configure do
 <span class="gd">-  # Settings specified here will take precedence over those in config/application.rb</span>
 <span class="gi">+  # Settings specified here will take precedence over those in config/application.rb.</span>
@@ -768,18 +870,16 @@
  end
 </pre>
 </div>
-
-      <h2>config/initializers/filter_parameter_logging.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -0,0 +1,4 @@</span>
+  <h2>config/initializers/filter_parameter_logging.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -0,0 +1,4 @@</span>
 <span class="gi">+# Be sure to restart your server when you modify this file.</span>
 <span class="gi">+</span>
 <span class="gi">+# Configure sensitive parameters which will be filtered from the log file.</span>
 <span class="gi">+Rails.application.config.filter_parameters += [:password]</span>
 </pre>
 </div>
-
-      <h2>config/initializers/inflections.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,15 +1,16 @@</span>
+  <h2>config/initializers/inflections.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,15 +1,16 @@</span>
  # Be sure to restart your server when you modify this file.
  
 <span class="gd">-# Add new inflection rules using the following format</span>
@@ -803,9 +903,8 @@
  # end
 </pre>
 </div>
-
-      <h2>config/initializers/session_store.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,8 +1,3 @@</span>
+  <h2>config/initializers/session_store.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,8 +1,3 @@</span>
  # Be sure to restart your server when you modify this file.
  
 <span class="gd">-Railsdiff::Application.config.session_store :cookie_store, key: &#39;_railsdiff_session&#39;</span>
@@ -817,9 +916,8 @@
 <span class="gi">+Railsdiff::Application.config.session_store :encrypted_cookie_store, key: &#39;_railsdiff_session&#39;</span>
 </pre>
 </div>
-
-      <h2>config/initializers/wrap_parameters.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,14 +1,14 @@</span>
+  <h2>config/initializers/wrap_parameters.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,14 +1,14 @@</span>
  # Be sure to restart your server when you modify this file.
 <span class="gd">-#</span>
 <span class="gi">+</span>
@@ -842,9 +940,8 @@
 <span class="gi">+# end</span>
 </pre>
 </div>
-
-      <h2>config/locales/en.yml</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,5 +1,23 @@</span>
+  <h2>config/locales/en.yml</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,5 +1,23 @@</span>
 <span class="gd">-# Sample localization file for English. Add more files in this directory for other locales.</span>
 <span class="gd">-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.</span>
 <span class="gi">+# Files in the config/locales directory are used for internationalization</span>
@@ -872,9 +969,8 @@
    hello: &quot;Hello world&quot;
 </pre>
 </div>
-
-      <h2>config/routes.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,19 +1,20 @@</span>
+  <h2>config/routes.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,19 +1,20 @@</span>
  Railsdiff::Application.routes.draw do
 <span class="gd">-  # The priority is based upon order of creation:</span>
 <span class="gd">-  # first created -&gt; highest priority.</span>
@@ -947,16 +1043,14 @@
  end
 </pre>
 </div>
-
-      <h2>doc/README_FOR_APP</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,2 +0,0 @@</span>
+  <h2>doc/README_FOR_APP</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,2 +0,0 @@</span>
 <span class="gd">-Use this README file to introduce your application and point to useful places in the API for learning more.</span>
 <span class="gd">-Run &quot;rake doc:app&quot; to generate API documentation for your models, controllers, helpers, and libraries.</span>
 </pre>
 </div>
-
-      <h2>public/404.html</h2>
-      <div class="highlight"><pre><span class="gu">@@ -2,7 +2,7 @@</span>
+  <h2>public/404.html</h2>
+  <div class="highlight"><pre><span class="gu">@@ -2,7 +2,7 @@</span>
  &lt;html&gt;
  &lt;head&gt;
    &lt;title&gt;The page you were looking for doesn&#39;t exist (404)&lt;/title&gt;
@@ -974,9 +1068,8 @@
  &lt;/html&gt;
 </pre>
 </div>
-
-      <h2>public/422.html</h2>
-      <div class="highlight"><pre><span class="gu">@@ -2,7 +2,7 @@</span>
+  <h2>public/422.html</h2>
+  <div class="highlight"><pre><span class="gu">@@ -2,7 +2,7 @@</span>
  &lt;html&gt;
  &lt;head&gt;
    &lt;title&gt;The change you wanted was rejected (422)&lt;/title&gt;
@@ -987,9 +1080,8 @@
        width: 25em;
 </pre>
 </div>
-
-      <h2>public/500.html</h2>
-      <div class="highlight"><pre><span class="gu">@@ -2,7 +2,7 @@</span>
+  <h2>public/500.html</h2>
+  <div class="highlight"><pre><span class="gu">@@ -2,7 +2,7 @@</span>
  &lt;html&gt;
  &lt;head&gt;
    &lt;title&gt;We&#39;re sorry, but something went wrong (500)&lt;/title&gt;
@@ -1007,9 +1099,8 @@
  &lt;/html&gt;
 </pre>
 </div>
-
-      <h2>public/index.html</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,241 +0,0 @@</span>
+  <h2>public/index.html</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,241 +0,0 @@</span>
 <span class="gd">-&lt;!DOCTYPE html&gt;</span>
 <span class="gd">-&lt;html&gt;</span>
 <span class="gd">-  &lt;head&gt;</span>
@@ -1253,9 +1344,8 @@
 <span class="gd">-&lt;/html&gt;</span>
 </pre>
 </div>
-
-      <h2>public/robots.txt</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
+  <h2>public/robots.txt</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
  # See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
  #
  # To ban all spiders from the entire site uncomment the next two lines:
@@ -1264,9 +1354,8 @@
  # Disallow: /
 </pre>
 </div>
-
-      <h2>script/rails</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,6 +0,0 @@</span>
+  <h2>script/rails</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,6 +0,0 @@</span>
 <span class="gd">-#!/usr/bin/env ruby</span>
 <span class="gd">-# This command will automatically be run when you run &quot;rails&quot; with Rails 3 gems installed from the root of your application.</span>
 <span class="gd">-</span>
@@ -1275,9 +1364,8 @@
 <span class="gd">-require &#39;rails/commands&#39;</span>
 </pre>
 </div>
-
-      <h2>test/performance/browsing_test.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -1,12 +0,0 @@</span>
+  <h2>test/performance/browsing_test.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,12 +0,0 @@</span>
 <span class="gd">-require &#39;test_helper&#39;</span>
 <span class="gd">-require &#39;rails/performance_test_help&#39;</span>
 <span class="gd">-</span>
@@ -1292,9 +1380,8 @@
 <span class="gd">-end</span>
 </pre>
 </div>
-
-      <h2>test/test_helper.rb</h2>
-      <div class="highlight"><pre><span class="gu">@@ -3,7 +3,9 @@</span>
+  <h2>test/test_helper.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -3,7 +3,9 @@</span>
  require &#39;rails/test_help&#39;
  
  class ActiveSupport::TestCase
@@ -1307,14 +1394,18 @@
    # -- they do not yet inherit this setting
 </pre>
 </div>
-
-
+</div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+    </a>
+    <script src='/assets/app.js'></script>
     <script>
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-7325596-4']);
       _gaq.push(['_setSiteSpeedSampleRate', 100]);
       _gaq.push(['_trackPageview']);
-
+      
       (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
