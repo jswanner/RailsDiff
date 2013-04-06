@@ -4,10 +4,43 @@
 
 body
   @include outer-container
+  font-family: $helvetica
+  margin-top: 0
 
 pre
-  padding: 20px
   background: #fff
-  text-shadow: none
-  overflow: auto
   border: solid 1px #f2f2f2
+  font-family: $monospace
+  font-size: 0.9em
+  overflow: auto
+  padding: 20px
+  text-shadow: none
+
+header
+  @include border-bottom-radius(20px)
+  background: #444
+  color: #fff
+  margin: 0 0 1em 0
+  padding: 1em
+
+  @each $pseudo in active, hover, link, visited
+    a:#{$pseudo}
+      color: #fff
+      text-decoration: none
+
+  h1, form
+    @include inline-block
+
+  h1
+    margin: 0 1em 0 0
+
+.content
+  .index
+    label, select
+      display: block
+
+    p:first-child
+      margin-top: 0
+
+    .block
+      @include span-columns(6)

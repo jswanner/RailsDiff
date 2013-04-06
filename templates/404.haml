@@ -1,12 +1,2 @@
 %h2 Page Not Found
 %p Were you looking for a diff? Perhaps you should try switching the order of versions.
-%form#form
-  %label(for="source") Source
-  %select#source
-    - versions.each do |version|
-      %option(value=version)= version
-  %label(for="target") Target
-  %select#target
-    - versions.reverse.each do |version|
-      %option(value=version)= version
-  %input(type="submit" value="Get Diff")/
