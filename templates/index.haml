@@ -1,0 +1,12 @@
+%form#form
+  %label(for="source") Source
+  %select#source
+    - versions.each do |version|
+      %option(value=version)= version
+  %label(for="target") Target
+  %select#target
+    - versions.reverse.each do |version|
+      %option(value=version)= version
+  %input(type="submit" value="Get Diff")/
+%a(href="https://github.com/jswanner/RailsDiff")
+  %img(alt="Fork me on GitHub" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" style="position: absolute; top: 0; right: 0; border: 0;")/

@@ -1,0 +1,3 @@
+- diffs.each do |name, diff|
+  %h2= name
+  = Pygments.highlight diff, lexer: 'diff'

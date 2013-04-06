@@ -3,7 +3,7 @@
 $:.unshift 'lib/rails_diff'
 require 'diff_splitter'
 require 'pygments.rb'
-require 'erubis'
+require 'haml'
 
 task 'default' => 'generate'
 
@@ -25,17 +25,17 @@ task 'generate' => 'update_rails_repo' do |t|
 end
 
 desc 'Generate index.html'
-file 'index.html' => ['templates/index.html.erb', 'assets'] do |t|
+file 'index.html' => ['templates/index.haml', 'templates/layout.haml'] do |t|
   puts 'Generating %s' % t.name
 
-  File.write(t.name, template(t.prerequisites.first).result(versions: all_included_versions))
+  render(t.name, t.prerequisites.first, versions: all_included_versions)
 end
 
 desc 'Generate 404.html'
-file '404.html' => ['templates/404.html.erb', 'assets'] do |t|
+file '404.html' => ['templates/404.haml', 'templates/layout.haml'] do |t|
   puts 'Generating %s' % t.name
 
-  File.write(t.name, template(t.prerequisites.first).result(versions: all_included_versions))
+  render(t.name, t.prerequisites.first, versions: all_included_versions)
 end
 
 desc 'Compiles assets'
@@ -45,6 +45,8 @@ task 'assets' => ['assets/app.css']
 file 'assets/app.css' => ['assets/app.sass'] do |t|
   system "sass -t compact -I assets #{t.prerequisites.first} #{t.name}"
 end
+
+file 'templates/layout.haml' => 'assets'
 
 directory 'tmp/rails'
 file 'tmp/rails/rails' => 'tmp/rails' do |t|
@@ -108,13 +110,13 @@ end
 
 # Turn diff into HTML
 directory 'html'
-rule(/html\/.*\.html/ => [->(t) { t.gsub(/html/, 'diff') }, 'html', 'assets', 'templates/diff.html.erb']) do |t|
+rule(/html\/.*\.html/ => [->(t) { t.gsub(/html/, 'diff') }, 'html', 'templates/layout.haml', 'templates/diff.haml']) do |t|
   puts 'Generating: %s' % t.name
 
   diff = File.read t.source
   diffs = RailsDiff::DiffSplitter.new(diff).split
 
-  File.write(t.name, template(t.sources.last).result(diffs: diffs))
+  render(t.name, t.sources.last, diffs: diffs, versions: all_included_versions)
 end
 
 # Turn diff into JSON
@@ -135,10 +137,17 @@ rule(/json\/.*\.json/ => [->(t) { t.gsub(/json/, 'diff') }, 'json']) do |t|
   end
 end
 
+def render file_name, template_name, locals
+  content = template('templates/layout.haml').render(nil, locals) do
+    template(template_name).render(nil, locals)
+  end
+  File.write file_name, content
+end
+
 def template name
   @templates ||= {}
   @templates.fetch name do |name|
-    template = Erubis::Eruby.new(File.read name)
+    template = Haml::Engine.new(File.read name)
     @templates[name] = template
     template
   end

@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>RailsDiff</title>
-    <link rel="stylesheet" href="../assets/pygment_trac.css" />
-    <link rel="stylesheet" href="../assets/app.css" />
-  </head>
-  <body>
-    <h1>RailsDiff</h1>
-    <% diffs.each do |name, diff| %>
-      <h2><%= name %></h2>
-      <%= Pygments.highlight diff, lexer: 'diff' %>
-    <% end %>
+!!!
+%html
+  %head
+    %title RailsDiff
+    %link(href="/assets/pygment_trac.css" rel="stylesheet")/
+    %link(href="/assets/app.css" rel="stylesheet")/
+  %body
+    %header
+      %h1 RailsDiff
 
-    <script>
+    = yield
+
+    %script(src="assets/app.js")
+    :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-7325596-4']);
       _gaq.push(['_setSiteSpeedSampleRate', 100]);
@@ -22,6 +21,4 @@
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-    </script>
-  </body>
-</html>
+

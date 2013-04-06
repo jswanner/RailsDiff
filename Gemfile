@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'erubis'
+gem 'haml'
 gem 'pygments.rb'
 gem 'rake'
 gem 'rspec'
