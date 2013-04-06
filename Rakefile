@@ -24,6 +24,13 @@ task 'generate' => 'update_rails_repo' do |t|
   Rake::Task["404.html"].invoke
 end
 
+desc 'Regenerate HTML files'
+task 'regenerate_html' do
+  Dir['html/*html'].each { |file| Rake::Task[file].invoke }
+  Rake::Task["index.html"].invoke
+  Rake::Task["404.html"].invoke
+end
+
 desc 'Generate index.html'
 file 'index.html' => ['templates/index.haml', 'templates/layout.haml'] do |t|
   puts 'Generating %s' % t.name
@@ -34,7 +41,6 @@ end
 desc 'Generate 404.html'
 file '404.html' => ['templates/404.haml', 'templates/layout.haml'] do |t|
   puts 'Generating %s' % t.name
-
   render(t.name, t.prerequisites.first, versions: all_included_versions)
 end
 
@@ -43,6 +49,7 @@ directory 'assets'
 task 'assets' => ['assets/app.css']
 
 file 'assets/app.css' => ['assets/app.sass'] do |t|
+  puts 'Generating %s' % t.name
   system "sass -t compact -I assets #{t.prerequisites.first} #{t.name}"
 end
 
