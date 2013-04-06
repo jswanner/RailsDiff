@@ -1,22 +1,33 @@
 window.onload = function () {
-  var idx,
-      switchHandler,
+  var form,
+      formHandler,
       forms = document.getElementsByTagName('form'),
+      idx,
+      match = this.location.pathname.match(/^\/html\/([^-]+)-(.+).html/),
+      switchHandler,
       switches = document.getElementsByClassName('switch');
 
-  for (idx in forms) {
-    forms[idx].onsubmit = function () {
-      var source    = this.source,
-          sourceVer = source.options[source.selectedIndex].value,
-          target    = this.target,
-          targetVer = target.options[target.selectedIndex].value,
-          href      = ['/html/', sourceVer, '-', targetVer, '.html'].join('');
-      window.location.href = href;
-      return false;
-    };
+  if (match) {
+    for (idx = forms.length; idx--;) {
+      form = forms[idx];
+      form.source.namedItem(match[1]).selected = true;
+      form.target.namedItem(match[2]).selected = true;
+    }
   }
 
-  switchHandler = function () {
+  formHandler = function () {
+    var source    = this.source,
+        sourceVer = source.options[source.selectedIndex].value,
+        target    = this.target,
+        targetVer = target.options[target.selectedIndex].value,
+        href      = ['/html/', sourceVer, '-', targetVer, '.html'].join('');
+    window.location.pathname = href;
+    return false;
+  };
+
+  for (idx = forms.length; idx--;) { forms[idx].onsubmit = formHandler }
+
+  switchHandler = function (event) {
     var form      = this.parentNode,
         source    = form.source,
         sourceVer = source.options[source.selectedIndex].value,
@@ -28,5 +39,5 @@ window.onload = function () {
     return false;
   };
 
-  for (idx in switches) { switches[idx].onclick = switchHandler; }
+  for (idx = switches.length; idx--;) { switches[idx].onclick = switchHandler; }
 };
