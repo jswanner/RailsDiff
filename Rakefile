@@ -3,6 +3,7 @@
 $:.unshift 'lib/rails_diff'
 require 'diff_splitter'
 require 'pygments.rb'
+require 'sass'
 require 'haml'
 
 task 'default' => 'generate'
@@ -50,7 +51,8 @@ task 'assets' => ['assets/app.css']
 
 file 'assets/app.css' => ['assets/app.sass'] do |t|
   puts 'Generating %s' % t.name
-  system "sass -t compact -I assets #{t.prerequisites.first} #{t.name}"
+  template = Sass::Engine.new File.read(t.prerequisites.first), load_paths: ['assets'], style: :compact, syntax: :sass
+  File.write t.name, template.render
 end
 
 file 'templates/layout.haml' => 'assets'
