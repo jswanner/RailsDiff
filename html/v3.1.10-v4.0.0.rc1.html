@@ -148,69 +148,86 @@
 </pre>
 </div>
   <h2>Gemfile</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,38 +1,38 @@</span>
- source &#39;https://rubygems.org&#39;
+  <div class="highlight"><pre><span class="gu">@@ -1,40 +1,45 @@</span>
+<span class="gd">-source &#39;http://rubygems.org&#39;</span>
+<span class="gi">+source &#39;https://rubygems.org&#39;</span>
  
-<span class="gd">-gem &#39;rails&#39;, &#39;3.2.9&#39;</span>
+<span class="gd">-gem &#39;rails&#39;, &#39;3.1.10&#39;</span>
 <span class="gd">-</span>
 <span class="gd">-# Bundle edge Rails instead:</span>
-<span class="gd">-# gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;</span>
+<span class="gd">-# gem &#39;rails&#39;,     :git =&gt; &#39;git://github.com/rails/rails.git&#39;</span>
 <span class="gi">+# Bundle edge Rails instead: gem &#39;rails&#39;, github: &#39;rails/rails&#39;</span>
-<span class="gi">+gem &#39;rails&#39;, &#39;4.0.0.beta1&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;4.0.0.rc1&#39;</span>
  
+<span class="gi">+# Use sqlite3 as the database for Active Record</span>
  gem &#39;sqlite3&#39;
  
-<span class="gd">-</span>
- # Gems used only for assets and not required
- # in production environments by default.
- group :assets do
-<span class="gd">-  gem &#39;sass-rails&#39;,   &#39;~&gt; 3.2.3&#39;</span>
-<span class="gd">-  gem &#39;coffee-rails&#39;, &#39;~&gt; 3.2.1&#39;</span>
-<span class="gi">+  gem &#39;sass-rails&#39;,   &#39;~&gt; 4.0.0.beta1&#39;</span>
-<span class="gi">+  gem &#39;coffee-rails&#39;, &#39;~&gt; 4.0.0.beta1&#39;</span>
+<span class="gi">+# Use SCSS for stylesheets</span>
+<span class="gi">+gem &#39;sass-rails&#39;, &#39;~&gt; 4.0.0.rc1&#39;</span>
  
-   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-<span class="gd">-  # gem &#39;therubyracer&#39;, :platforms =&gt; :ruby</span>
-<span class="gi">+  # gem &#39;therubyracer&#39;, platforms: :ruby</span>
+<span class="gd">-# Gems used only for assets and not required</span>
+<span class="gd">-# in production environments by default.</span>
+<span class="gd">-group :assets do</span>
+<span class="gd">-  gem &#39;sass-rails&#39;,   &#39;~&gt; 3.1.5&#39;</span>
+<span class="gd">-  gem &#39;coffee-rails&#39;, &#39;~&gt; 3.1.1&#39;</span>
+<span class="gi">+# Use Uglifier as compressor for JavaScript assets</span>
+<span class="gi">+gem &#39;uglifier&#39;, &#39;&gt;= 1.3.0&#39;</span>
  
-   gem &#39;uglifier&#39;, &#39;&gt;= 1.0.3&#39;
- end
+<span class="gd">-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes</span>
+<span class="gd">-  # gem &#39;therubyracer&#39;</span>
+<span class="gi">+# Use CoffeeScript for .js.coffee assets and views</span>
+<span class="gi">+gem &#39;coffee-rails&#39;, &#39;~&gt; 4.0.0&#39;</span>
  
+<span class="gd">-  gem &#39;uglifier&#39;, &#39;&gt;= 1.0.3&#39;</span>
+<span class="gd">-end</span>
+<span class="gi">+# See https://github.com/sstephenson/execjs#readme for more supported runtimes</span>
+<span class="gi">+# gem &#39;therubyracer&#39;, platforms: :ruby</span>
+ 
+<span class="gi">+# Use jquery as the JavaScript library</span>
  gem &#39;jquery-rails&#39;
  
+<span class="gd">-# To use ActiveModel has_secure_password</span>
 <span class="gi">+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks</span>
 <span class="gi">+gem &#39;turbolinks&#39;</span>
 <span class="gi">+</span>
 <span class="gi">+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder</span>
 <span class="gi">+gem &#39;jbuilder&#39;, &#39;~&gt; 1.0.1&#39;</span>
 <span class="gi">+</span>
- # To use ActiveModel has_secure_password
+<span class="gi">+group :doc do</span>
+<span class="gi">+  # bundle exec rake doc:rails generates the API under doc/api.</span>
+<span class="gi">+  gem &#39;sdoc&#39;, require: false</span>
+<span class="gi">+end</span>
+<span class="gi">+</span>
+<span class="gi">+# Use ActiveModel has_secure_password</span>
  # gem &#39;bcrypt-ruby&#39;, &#39;~&gt; 3.0.0&#39;
  
-<span class="gd">-# To use Jbuilder templates for JSON</span>
-<span class="gd">-# gem &#39;jbuilder&#39;</span>
-<span class="gd">-</span>
- # Use unicorn as the app server
+<span class="gd">-# Use unicorn as the web server</span>
+<span class="gi">+# Use unicorn as the app server</span>
  # gem &#39;unicorn&#39;
  
- # Deploy with Capistrano
+<span class="gd">-# Deploy with Capistrano</span>
 <span class="gd">-# gem &#39;capistrano&#39;</span>
+<span class="gi">+# Use Capistrano for deployment</span>
 <span class="gi">+# gem &#39;capistrano&#39;, group: :development</span>
  
- # To use debugger
- # gem &#39;debugger&#39;
+<span class="gd">-# To use debugger</span>
+<span class="gd">-# gem &#39;ruby-debug19&#39;, :require =&gt; &#39;ruby-debug&#39;</span>
+<span class="gd">-</span>
+<span class="gd">-group :test do</span>
+<span class="gd">-  # Pretty printed test output</span>
+<span class="gd">-  gem &#39;turn&#39;, &#39;~&gt; 0.8.3&#39;, :require =&gt; false</span>
+<span class="gd">-end</span>
+<span class="gi">+# Use debugger</span>
+<span class="gi">+# gem &#39;debugger&#39;, group: [:development, :test]</span>
 </pre>
 </div>
-  <h2>README.rdoc</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,261 +1,28 @@</span>
+  <h2>README</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,261 +0,0 @@</span>
 <span class="gd">-== Welcome to Rails</span>
-<span class="gi">+== README</span>
- 
+<span class="gd">-</span>
 <span class="gd">-Rails is a web-application framework that includes everything needed to create</span>
 <span class="gd">-database-backed web applications according to the Model-View-Control pattern.</span>
-<span class="gi">+This README would normally document whatever steps are necessary to get the</span>
-<span class="gi">+application up and running.</span>
- 
+<span class="gd">-</span>
 <span class="gd">-This pattern splits the view (also called the presentation) into &quot;dumb&quot;</span>
 <span class="gd">-templates that are primarily responsible for inserting pre-built data in between</span>
 <span class="gd">-HTML tags. The model contains the &quot;smart&quot; domain objects (such as Account,</span>
@@ -467,6 +484,15 @@
 <span class="gd">-  External libraries that the application depends on. Also includes the plugins</span>
 <span class="gd">-  subdirectory. If the app has frozen rails, those gems also go here, under</span>
 <span class="gd">-  vendor/rails/. This directory is in the load path.</span>
+</pre>
+</div>
+  <h2>README.rdoc</h2>
+  <div class="highlight"><pre><span class="gu">@@ -0,0 +1,28 @@</span>
+<span class="gi">+== README</span>
+<span class="gi">+</span>
+<span class="gi">+This README would normally document whatever steps are necessary to get the</span>
+<span class="gi">+application up and running.</span>
+<span class="gi">+</span>
 <span class="gi">+Things you may want to cover:</span>
 <span class="gi">+</span>
 <span class="gi">+* Ruby version</span>
@@ -498,23 +524,54 @@
  # Add your own tasks in files placed in lib/tasks ending in .rake,
  # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
  
+Binary files v3.1.10/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images/rails.png differ
 </pre>
 </div>
   <h2>app/assets/javascripts/application.js</h2>
-  <div class="highlight"><pre><span class="gu">@@ -5,11 +5,12 @@</span>
- // or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
- //
+  <div class="highlight"><pre><span class="gu">@@ -1,9 +1,16 @@</span>
+<span class="gd">-// This is a manifest file that&#39;ll be compiled into including all the files listed below.</span>
+<span class="gd">-// Add new JavaScript/Coffee code in separate files in this directory and they&#39;ll automatically</span>
+<span class="gd">-// be included in the compiled file accessible from http://example.com/assets/application.js</span>
+<span class="gi">+// This is a manifest file that&#39;ll be compiled into application.js, which will include all the files</span>
+<span class="gi">+// listed below.</span>
+<span class="gi">+//</span>
+<span class="gi">+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,</span>
+<span class="gi">+// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.</span>
+<span class="gi">+//</span>
  // It&#39;s not advisable to add code directly here, but if you do, it&#39;ll appear at the bottom of the
 <span class="gd">-// the compiled file.</span>
 <span class="gi">+// compiled file.</span>
- //
- // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT&#39;S TO BE PROCESSED, ANY BLANK LINE SHOULD
- // GO AFTER THE REQUIRES BELOW.
+<span class="gi">+//</span>
+<span class="gi">+// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT&#39;S TO BE PROCESSED, ANY BLANK LINE SHOULD</span>
+<span class="gi">+// GO AFTER THE REQUIRES BELOW.</span>
  //
  //= require jquery
  //= require jquery_ujs
 <span class="gi">+//= require turbolinks</span>
  //= require_tree .
+</pre>
+</div>
+  <h2>app/assets/stylesheets/application.css</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,7 +1,13 @@</span>
+ /*
+<span class="gd">- * This is a manifest file that&#39;ll automatically include all the stylesheets available in this directory</span>
+<span class="gd">- * and any sub-directories. You&#39;re free to add application-wide styles to this file and they&#39;ll appear at</span>
+<span class="gd">- * the top of the compiled file, but it&#39;s generally better to create a new file per style scope.</span>
+<span class="gi">+ * This is a manifest file that&#39;ll be compiled into application.css, which will include all the files</span>
+<span class="gi">+ * listed below.</span>
+<span class="gi">+ *</span>
+<span class="gi">+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,</span>
+<span class="gi">+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.</span>
+<span class="gi">+ *</span>
+<span class="gi">+ * You&#39;re free to add application-wide styles to this file and they&#39;ll appear at the top of the</span>
+<span class="gi">+ * compiled file, but it&#39;s generally better to create a new file per style scope.</span>
+<span class="gi">+ *</span>
+  *= require_self
+<span class="gd">- *= require_tree . </span>
+<span class="gd">-*/</span>
+\ No newline at end of file
+<span class="gi">+ *= require_tree .</span>
+<span class="gi">+ */</span>
 </pre>
 </div>
   <h2>app/controllers/application_controller.rb</h2>
@@ -532,7 +589,7 @@
  &lt;html&gt;
  &lt;head&gt;
    &lt;title&gt;Railsdiff&lt;/title&gt;
-<span class="gd">-  &lt;%= stylesheet_link_tag    &quot;application&quot;, :media =&gt; &quot;all&quot; %&gt;</span>
+<span class="gd">-  &lt;%= stylesheet_link_tag    &quot;application&quot; %&gt;</span>
 <span class="gd">-  &lt;%= javascript_include_tag &quot;application&quot; %&gt;</span>
 <span class="gi">+  &lt;%= stylesheet_link_tag    &quot;application&quot;, media: &quot;all&quot;, &quot;data-turbolinks-track&quot; =&gt; true %&gt;</span>
 <span class="gi">+  &lt;%= javascript_include_tag &quot;application&quot;, &quot;data-turbolinks-track&quot; =&gt; true %&gt;</span>
@@ -565,7 +622,7 @@
 </pre>
 </div>
   <h2>config/application.rb</h2>
-  <div class="highlight"><pre><span class="gu">@@ -2,12 +2,8 @@</span>
+  <div class="highlight"><pre><span class="gu">@@ -2,12 +2,9 @@</span>
  
  require &#39;rails/all&#39;
  
@@ -575,12 +632,13 @@
 <span class="gd">-  # If you want your assets lazily compiled in production, use this line</span>
 <span class="gd">-  # Bundler.require(:default, :assets, Rails.env)</span>
 <span class="gd">-end</span>
-<span class="gi">+# Assets should be precompiled for production (so we don&#39;t need the gems loaded then)</span>
-<span class="gi">+Bundler.require(*Rails.groups(assets: %w(development test)))</span>
+<span class="gi">+# Require the gems listed in Gemfile, including any gems</span>
+<span class="gi">+# you&#39;ve limited to :test, :development, or :production.</span>
+<span class="gi">+Bundler.require(:default, Rails.env)</span>
  
  module Railsdiff
    class Application &lt; Rails::Application
-<span class="gu">@@ -15,16 +11,6 @@</span>
+<span class="gu">@@ -15,16 +12,6 @@</span>
      # Application configuration should go into files in config/initializers
      # -- all .rb files in that directory are automatically loaded.
  
@@ -597,7 +655,7 @@
      # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
      # Run &quot;rake -D time&quot; for a list of tasks for finding time zone names. Default is UTC.
      # config.time_zone = &#39;Central Time (US &amp; Canada)&#39;
-<span class="gu">@@ -32,31 +18,5 @@</span>
+<span class="gu">@@ -32,17 +19,5 @@</span>
      # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
      # config.i18n.load_path += Dir[Rails.root.join(&#39;my&#39;, &#39;locales&#39;, &#39;*.{rb,yml}&#39;).to_s]
      # config.i18n.default_locale = :de
@@ -607,20 +665,6 @@
 <span class="gd">-</span>
 <span class="gd">-    # Configure sensitive parameters which will be filtered from the log file.</span>
 <span class="gd">-    config.filter_parameters += [:password]</span>
-<span class="gd">-</span>
-<span class="gd">-    # Enable escaping HTML in JSON.</span>
-<span class="gd">-    config.active_support.escape_html_entities_in_json = true</span>
-<span class="gd">-</span>
-<span class="gd">-    # Use SQL instead of Active Record&#39;s schema dumper when creating the database.</span>
-<span class="gd">-    # This is necessary if your schema can&#39;t be completely dumped by the schema dumper,</span>
-<span class="gd">-    # like if you have constraints or database-specific column types</span>
-<span class="gd">-    # config.active_record.schema_format = :sql</span>
-<span class="gd">-</span>
-<span class="gd">-    # Enforce whitelist mode for mass assignment.</span>
-<span class="gd">-    # This will create an empty whitelist of attributes available for mass-assignment for all models</span>
-<span class="gd">-    # in your app. As such, your models will need to explicitly whitelist or blacklist accessible</span>
-<span class="gd">-    # parameters by using an attr_accessible or attr_protected declaration.</span>
-<span class="gd">-    config.active_record.whitelist_attributes = true</span>
 <span class="gd">-</span>
 <span class="gd">-    # Enable the asset pipeline</span>
 <span class="gd">-    config.assets.enabled = true</span>
@@ -652,13 +696,14 @@
 </pre>
 </div>
   <h2>config/environments/development.rb</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,37 +1,27 @@</span>
+  <div class="highlight"><pre><span class="gu">@@ -1,30 +1,29 @@</span>
  Railsdiff::Application.configure do
 <span class="gd">-  # Settings specified here will take precedence over those in config/application.rb</span>
 <span class="gi">+  # Settings specified here will take precedence over those in config/application.rb.</span>
  
    # In the development environment your application&#39;s code is reloaded on
-   # every request. This slows down response time but is perfect for development
+<span class="gd">-  # every request.  This slows down response time but is perfect for development</span>
+<span class="gi">+  # every request. This slows down response time but is perfect for development</span>
    # since you don&#39;t have to restart the web server when you make code changes.
    config.cache_classes = false
  
@@ -685,24 +730,19 @@
 <span class="gi">+  # Raise an error on page load if there are pending migrations</span>
 <span class="gi">+  config.active_record.migration_error = :page_load</span>
  
-<span class="gd">-  # Raise exception on mass assignment protection for Active Record models</span>
-<span class="gd">-  config.active_record.mass_assignment_sanitizer = :strict</span>
-<span class="gd">-</span>
-<span class="gd">-  # Log the query plan for queries taking more than this (works</span>
-<span class="gd">-  # with SQLite, MySQL, and PostgreSQL)</span>
-<span class="gd">-  config.active_record.auto_explain_threshold_in_seconds = 0.5</span>
-<span class="gd">-</span>
 <span class="gd">-  # Do not compress assets</span>
 <span class="gd">-  config.assets.compress = false</span>
 <span class="gd">-</span>
 <span class="gd">-  # Expands the lines which load the assets</span>
 <span class="gi">+  # Debug mode disables concatenation and preprocessing of assets.</span>
+<span class="gi">+  # This option may cause significant delays in view rendering with a large</span>
+<span class="gi">+  # number of complex assets.</span>
    config.assets.debug = true
  end
 </pre>
 </div>
   <h2>config/environments/production.rb</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,67 +1,80 @@</span>
+  <div class="highlight"><pre><span class="gu">@@ -1,60 +1,80 @@</span>
  Railsdiff::Application.configure do
 <span class="gd">-  # Settings specified here will take precedence over those in config/application.rb</span>
 <span class="gi">+  # Settings specified here will take precedence over those in config/application.rb.</span>
@@ -734,18 +774,18 @@
 <span class="gd">-  # Compress JavaScripts and CSS</span>
 <span class="gd">-  config.assets.compress = true</span>
 <span class="gi">+  # Compress JavaScripts and CSS.</span>
-<span class="gi">+  config.assets.js_compressor  = :uglifier</span>
+<span class="gi">+  config.assets.js_compressor = :uglifier</span>
 <span class="gi">+  # config.assets.css_compressor = :sass</span>
  
 <span class="gd">-  # Don&#39;t fallback to assets pipeline if a precompiled asset is missed</span>
-<span class="gi">+  # Whether to fallback to assets pipeline if a precompiled asset is missed.</span>
+<span class="gi">+  # Do not fallback to assets pipeline if a precompiled asset is missed.</span>
    config.assets.compile = false
  
 <span class="gd">-  # Generate digests for assets URLs</span>
 <span class="gi">+  # Generate digests for assets URLs.</span>
    config.assets.digest = true
  
-<span class="gd">-  # Defaults to nil and saved in location specified by config.assets.prefix</span>
+<span class="gd">-  # Defaults to Rails.root.join(&quot;public/assets&quot;)</span>
 <span class="gd">-  # config.assets.manifest = YOUR_PATH</span>
 <span class="gi">+  # Version of your assets, change this if you want to expire all your assets.</span>
 <span class="gi">+  config.assets.version = &#39;1.0&#39;</span>
@@ -762,14 +802,14 @@
 <span class="gd">-  # config.log_level = :debug</span>
 <span class="gi">+  # Set to :debug to see everything in the log.</span>
 <span class="gi">+  config.log_level = :info</span>
- 
-<span class="gd">-  # Prepend all log lines with the following tags</span>
+<span class="gi">+</span>
 <span class="gi">+  # Prepend all log lines with the following tags.</span>
-   # config.log_tags = [ :subdomain, :uuid ]
+<span class="gi">+  # config.log_tags = [ :subdomain, :uuid ]</span>
  
 <span class="gd">-  # Use a different logger for distributed setups</span>
+<span class="gd">-  # config.logger = SyslogLogger.new</span>
 <span class="gi">+  # Use a different logger for distributed setups.</span>
-   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+<span class="gi">+  # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)</span>
  
 <span class="gd">-  # Use a different cache store in production</span>
 <span class="gi">+  # Use a different cache store in production.</span>
@@ -800,10 +840,7 @@
 <span class="gd">-  # Send deprecation notices to registered listeners</span>
 <span class="gi">+  # Send deprecation notices to registered listeners.</span>
    config.active_support.deprecation = :notify
- 
-<span class="gd">-  # Log the query plan for queries taking more than this (works</span>
-<span class="gd">-  # with SQLite, MySQL, and PostgreSQL)</span>
-<span class="gd">-  # config.active_record.auto_explain_threshold_in_seconds = 0.5</span>
+<span class="gi">+</span>
 <span class="gi">+  # Disable automatic flushing of the log to improve performance.</span>
 <span class="gi">+  # config.autoflush_log = false</span>
 <span class="gi">+</span>
@@ -813,30 +850,33 @@
 </pre>
 </div>
   <h2>config/environments/test.rb</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
+  <div class="highlight"><pre><span class="gu">@@ -1,39 +1,36 @@</span>
  Railsdiff::Application.configure do
 <span class="gd">-  # Settings specified here will take precedence over those in config/application.rb</span>
 <span class="gi">+  # Settings specified here will take precedence over those in config/application.rb.</span>
  
    # The test environment is used exclusively to run your application&#39;s
-   # test suite. You never need to work with it otherwise. Remember that
-<span class="gu">@@ -7,31 +7,30 @@</span>
-   # and recreated between test runs. Don&#39;t rely on the data there!
+<span class="gd">-  # test suite.  You never need to work with it otherwise.  Remember that</span>
+<span class="gi">+  # test suite. You never need to work with it otherwise. Remember that</span>
+   # your test database is &quot;scratch space&quot; for the test suite and is wiped
+<span class="gd">-  # and recreated between test runs.  Don&#39;t rely on the data there!</span>
+<span class="gi">+  # and recreated between test runs. Don&#39;t rely on the data there!</span>
    config.cache_classes = true
  
 <span class="gd">-  # Configure static asset server for tests with Cache-Control for performance</span>
+<span class="gd">-  config.serve_static_assets = true</span>
+<span class="gd">-  config.static_cache_control = &quot;public, max-age=3600&quot;</span>
 <span class="gi">+  # Do not eager load code on boot. This avoids loading your whole application</span>
 <span class="gi">+  # just for the purpose of running a single test. If you are using a tool that</span>
 <span class="gi">+  # preloads Rails for running tests, you may have to set it to true.</span>
 <span class="gi">+  config.eager_load = false</span>
-<span class="gi">+</span>
-<span class="gi">+  # Configure static asset server for tests with Cache-Control for performance.</span>
-   config.serve_static_assets = true
-   config.static_cache_control = &quot;public, max-age=3600&quot;
  
 <span class="gd">-  # Log error messages when you accidentally call methods on nil</span>
 <span class="gd">-  config.whiny_nils = true</span>
-<span class="gd">-</span>
+<span class="gi">+  # Configure static asset server for tests with Cache-Control for performance.</span>
+<span class="gi">+  config.serve_static_assets  = true</span>
+<span class="gi">+  config.static_cache_control = &quot;public, max-age=3600&quot;</span>
+ 
 <span class="gd">-  # Show full error reports and disable caching</span>
 <span class="gi">+  # Show full error reports and disable caching.</span>
    config.consider_all_requests_local       = true
@@ -856,8 +896,10 @@
    # ActionMailer::Base.deliveries array.
    config.action_mailer.delivery_method = :test
  
-<span class="gd">-  # Raise exception on mass assignment protection for Active Record models</span>
-<span class="gd">-  config.active_record.mass_assignment_sanitizer = :strict</span>
+<span class="gd">-  # Use SQL instead of Active Record&#39;s schema dumper when creating the test database.</span>
+<span class="gd">-  # This is necessary if your schema can&#39;t be completely dumped by the schema dumper,</span>
+<span class="gd">-  # like if you have constraints or database-specific column types</span>
+<span class="gd">-  # config.active_record.schema_format = :sql</span>
 <span class="gd">-</span>
 <span class="gd">-  # Print deprecation notices to the stderr</span>
 <span class="gi">+  # Print deprecation notices to the stderr.</span>
@@ -874,7 +916,7 @@
 </pre>
 </div>
   <h2>config/initializers/inflections.rb</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,15 +1,16 @@</span>
+  <div class="highlight"><pre><span class="gu">@@ -1,10 +1,16 @@</span>
  # Be sure to restart your server when you modify this file.
  
 <span class="gd">-# Add new inflection rules using the following format</span>
@@ -889,26 +931,23 @@
  #   inflect.irregular &#39;person&#39;, &#39;people&#39;
  #   inflect.uncountable %w( fish sheep )
  # end
-<span class="gd">-#</span>
 <span class="gi">+</span>
- # These inflection rules are supported but not enabled by default:
-<span class="gd">-# ActiveSupport::Inflector.inflections do |inflect|</span>
+<span class="gi">+# These inflection rules are supported but not enabled by default:</span>
 <span class="gi">+# ActiveSupport::Inflector.inflections(:en) do |inflect|</span>
- #   inflect.acronym &#39;RESTful&#39;
- # end
+<span class="gi">+#   inflect.acronym &#39;RESTful&#39;</span>
+<span class="gi">+# end</span>
 </pre>
 </div>
   <h2>config/initializers/session_store.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,8 +1,3 @@</span>
  # Be sure to restart your server when you modify this file.
  
-<span class="gd">-Railsdiff::Application.config.session_store :cookie_store, key: &#39;_railsdiff_session&#39;</span>
+ Railsdiff::Application.config.session_store :cookie_store, key: &#39;_railsdiff_session&#39;
 <span class="gd">-</span>
 <span class="gd">-# Use the database for sessions instead of the cookie-based default,</span>
 <span class="gd">-# which shouldn&#39;t be used to store highly confidential information</span>
 <span class="gd">-# (create the session table with &quot;rails generate session_migration&quot;)</span>
 <span class="gd">-# Railsdiff::Application.config.session_store :active_record_store</span>
-<span class="gi">+Railsdiff::Application.config.session_store :encrypted_cookie_store, key: &#39;_railsdiff_session&#39;</span>
 </pre>
 </div>
   <h2>config/initializers/wrap_parameters.rb</h2>
@@ -980,7 +1019,7 @@
 <span class="gd">-  #   match &#39;products/:id/purchase&#39; =&gt; &#39;catalog#purchase&#39;, :as =&gt; :purchase</span>
 <span class="gd">-  # This route can be invoked with purchase_url(:id =&gt; product.id)</span>
 <span class="gi">+  # You can have the root of your site routed with &quot;root&quot;</span>
-<span class="gi">+  # root to: &#39;welcome#index&#39;</span>
+<span class="gi">+  # root &#39;welcome#index&#39;</span>
 <span class="gi">+</span>
 <span class="gi">+  # Example of regular route:</span>
 <span class="gi">+  #   get &#39;products/:id&#39; =&gt; &#39;catalog#view&#39;</span>
@@ -1034,8 +1073,17 @@
 <span class="gd">-</span>
 <span class="gd">-  # This is a legacy wild controller route that&#39;s not recommended for RESTful applications.</span>
 <span class="gd">-  # Note: This route will make all actions in every controller accessible via GET requests.</span>
-<span class="gd">-  # match &#39;:controller(/:action(/:id))(.:format)&#39;</span>
+<span class="gd">-  # match &#39;:controller(/:action(/:id(.:format)))&#39;</span>
  end
+</pre>
+</div>
+  <h2>config.ru</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
+ # This file is used by Rack-based servers to start the application.
+ 
+ require ::File.expand_path(&#39;../config/environment&#39;,  __FILE__)
+<span class="gd">-run Railsdiff::Application</span>
+<span class="gi">+run Rails.application</span>
 </pre>
 </div>
   <h2>doc/README_FOR_APP</h2>
@@ -1045,16 +1093,67 @@
 </pre>
 </div>
   <h2>public/404.html</h2>
-  <div class="highlight"><pre><span class="gu">@@ -2,7 +2,7 @@</span>
+  <div class="highlight"><pre><span class="gu">@@ -2,17 +2,48 @@</span>
  &lt;html&gt;
  &lt;head&gt;
    &lt;title&gt;The page you were looking for doesn&#39;t exist (404)&lt;/title&gt;
 <span class="gd">-  &lt;style type=&quot;text/css&quot;&gt;</span>
+<span class="gd">-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }</span>
+<span class="gd">-    div.dialog {</span>
+<span class="gd">-      width: 25em;</span>
+<span class="gd">-      padding: 0 4em;</span>
+<span class="gd">-      margin: 4em auto 0 auto;</span>
+<span class="gd">-      border: 1px solid #ccc;</span>
+<span class="gd">-      border-right-color: #999;</span>
+<span class="gd">-      border-bottom-color: #999;</span>
+<span class="gd">-    }</span>
+<span class="gd">-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }</span>
 <span class="gi">+  &lt;style&gt;</span>
-     body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-     div.dialog {
-       width: 25em;
-<span class="gu">@@ -22,5 +22,6 @@</span>
+<span class="gi">+  body {</span>
+<span class="gi">+    background-color: #EFEFEF;</span>
+<span class="gi">+    color: #2E2F30;</span>
+<span class="gi">+    text-align: center;</span>
+<span class="gi">+    font-family: arial, sans-serif;</span>
+<span class="gi">+  }</span>
+<span class="gi">+</span>
+<span class="gi">+  div.dialog {</span>
+<span class="gi">+    width: 25em;</span>
+<span class="gi">+    margin: 4em auto 0 auto;</span>
+<span class="gi">+    border: 1px solid #CCC;</span>
+<span class="gi">+    border-right-color: #999;</span>
+<span class="gi">+    border-left-color: #999;</span>
+<span class="gi">+    border-bottom-color: #BBB;</span>
+<span class="gi">+    border-top: #B00100 solid 4px;</span>
+<span class="gi">+    border-top-left-radius: 9px;</span>
+<span class="gi">+    border-top-right-radius: 9px;</span>
+<span class="gi">+    background-color: white;</span>
+<span class="gi">+    padding: 7px 4em 0 4em;</span>
+<span class="gi">+  }</span>
+<span class="gi">+</span>
+<span class="gi">+  h1 {</span>
+<span class="gi">+    font-size: 100%;</span>
+<span class="gi">+    color: #730E15;</span>
+<span class="gi">+    line-height: 1.5em;</span>
+<span class="gi">+  }</span>
+<span class="gi">+</span>
+<span class="gi">+  body &gt; p {</span>
+<span class="gi">+    width: 33em;</span>
+<span class="gi">+    margin: 0 auto 1em;</span>
+<span class="gi">+    padding: 1em 0;</span>
+<span class="gi">+    background-color: #F7F7F7;</span>
+<span class="gi">+    border: 1px solid #CCC;</span>
+<span class="gi">+    border-right-color: #999;</span>
+<span class="gi">+    border-bottom-color: #999;</span>
+<span class="gi">+    border-bottom-left-radius: 4px;</span>
+<span class="gi">+    border-bottom-right-radius: 4px;</span>
+<span class="gi">+    border-top-color: #DADADA;</span>
+<span class="gi">+    color: #666;</span>
+<span class="gi">+    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);</span>
+<span class="gi">+  }</span>
+   &lt;/style&gt;
+ &lt;/head&gt;
+ 
+<span class="gu">@@ -22,5 +53,6 @@</span>
      &lt;h1&gt;The page you were looking for doesn&#39;t exist.&lt;/h1&gt;
      &lt;p&gt;You may have mistyped the address or the page may have moved.&lt;/p&gt;
    &lt;/div&gt;
@@ -1064,30 +1163,141 @@
 </pre>
 </div>
   <h2>public/422.html</h2>
-  <div class="highlight"><pre><span class="gu">@@ -2,7 +2,7 @@</span>
+  <div class="highlight"><pre><span class="gu">@@ -2,17 +2,48 @@</span>
  &lt;html&gt;
  &lt;head&gt;
    &lt;title&gt;The change you wanted was rejected (422)&lt;/title&gt;
 <span class="gd">-  &lt;style type=&quot;text/css&quot;&gt;</span>
+<span class="gd">-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }</span>
+<span class="gd">-    div.dialog {</span>
+<span class="gd">-      width: 25em;</span>
+<span class="gd">-      padding: 0 4em;</span>
+<span class="gd">-      margin: 4em auto 0 auto;</span>
+<span class="gd">-      border: 1px solid #ccc;</span>
+<span class="gd">-      border-right-color: #999;</span>
+<span class="gd">-      border-bottom-color: #999;</span>
+<span class="gd">-    }</span>
+<span class="gd">-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }</span>
 <span class="gi">+  &lt;style&gt;</span>
-     body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-     div.dialog {
-       width: 25em;
+<span class="gi">+  body {</span>
+<span class="gi">+    background-color: #EFEFEF;</span>
+<span class="gi">+    color: #2E2F30;</span>
+<span class="gi">+    text-align: center;</span>
+<span class="gi">+    font-family: arial, sans-serif;</span>
+<span class="gi">+  }</span>
+<span class="gi">+</span>
+<span class="gi">+  div.dialog {</span>
+<span class="gi">+    width: 25em;</span>
+<span class="gi">+    margin: 4em auto 0 auto;</span>
+<span class="gi">+    border: 1px solid #CCC;</span>
+<span class="gi">+    border-right-color: #999;</span>
+<span class="gi">+    border-left-color: #999;</span>
+<span class="gi">+    border-bottom-color: #BBB;</span>
+<span class="gi">+    border-top: #B00100 solid 4px;</span>
+<span class="gi">+    border-top-left-radius: 9px;</span>
+<span class="gi">+    border-top-right-radius: 9px;</span>
+<span class="gi">+    background-color: white;</span>
+<span class="gi">+    padding: 7px 4em 0 4em;</span>
+<span class="gi">+  }</span>
+<span class="gi">+</span>
+<span class="gi">+  h1 {</span>
+<span class="gi">+    font-size: 100%;</span>
+<span class="gi">+    color: #730E15;</span>
+<span class="gi">+    line-height: 1.5em;</span>
+<span class="gi">+  }</span>
+<span class="gi">+</span>
+<span class="gi">+  body &gt; p {</span>
+<span class="gi">+    width: 33em;</span>
+<span class="gi">+    margin: 0 auto 1em;</span>
+<span class="gi">+    padding: 1em 0;</span>
+<span class="gi">+    background-color: #F7F7F7;</span>
+<span class="gi">+    border: 1px solid #CCC;</span>
+<span class="gi">+    border-right-color: #999;</span>
+<span class="gi">+    border-bottom-color: #999;</span>
+<span class="gi">+    border-bottom-left-radius: 4px;</span>
+<span class="gi">+    border-bottom-right-radius: 4px;</span>
+<span class="gi">+    border-top-color: #DADADA;</span>
+<span class="gi">+    color: #666;</span>
+<span class="gi">+    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);</span>
+<span class="gi">+  }</span>
+   &lt;/style&gt;
+ &lt;/head&gt;
+ 
+<span class="gu">@@ -22,5 +53,6 @@</span>
+     &lt;h1&gt;The change you wanted was rejected.&lt;/h1&gt;
+     &lt;p&gt;Maybe you tried to change something you didn&#39;t have access to.&lt;/p&gt;
+   &lt;/div&gt;
+<span class="gi">+  &lt;p&gt;If you are the application owner check the logs for more information.&lt;/p&gt;</span>
+ &lt;/body&gt;
+ &lt;/html&gt;
 </pre>
 </div>
   <h2>public/500.html</h2>
-  <div class="highlight"><pre><span class="gu">@@ -2,7 +2,7 @@</span>
+  <div class="highlight"><pre><span class="gu">@@ -2,17 +2,48 @@</span>
  &lt;html&gt;
  &lt;head&gt;
    &lt;title&gt;We&#39;re sorry, but something went wrong (500)&lt;/title&gt;
 <span class="gd">-  &lt;style type=&quot;text/css&quot;&gt;</span>
+<span class="gd">-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }</span>
+<span class="gd">-    div.dialog {</span>
+<span class="gd">-      width: 25em;</span>
+<span class="gd">-      padding: 0 4em;</span>
+<span class="gd">-      margin: 4em auto 0 auto;</span>
+<span class="gd">-      border: 1px solid #ccc;</span>
+<span class="gd">-      border-right-color: #999;</span>
+<span class="gd">-      border-bottom-color: #999;</span>
+<span class="gd">-    }</span>
+<span class="gd">-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }</span>
 <span class="gi">+  &lt;style&gt;</span>
-     body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-     div.dialog {
-       width: 25em;
-<span class="gu">@@ -21,5 +21,6 @@</span>
+<span class="gi">+  body {</span>
+<span class="gi">+    background-color: #EFEFEF;</span>
+<span class="gi">+    color: #2E2F30;</span>
+<span class="gi">+    text-align: center;</span>
+<span class="gi">+    font-family: arial, sans-serif;</span>
+<span class="gi">+  }</span>
+<span class="gi">+</span>
+<span class="gi">+  div.dialog {</span>
+<span class="gi">+    width: 25em;</span>
+<span class="gi">+    margin: 4em auto 0 auto;</span>
+<span class="gi">+    border: 1px solid #CCC;</span>
+<span class="gi">+    border-right-color: #999;</span>
+<span class="gi">+    border-left-color: #999;</span>
+<span class="gi">+    border-bottom-color: #BBB;</span>
+<span class="gi">+    border-top: #B00100 solid 4px;</span>
+<span class="gi">+    border-top-left-radius: 9px;</span>
+<span class="gi">+    border-top-right-radius: 9px;</span>
+<span class="gi">+    background-color: white;</span>
+<span class="gi">+    padding: 7px 4em 0 4em;</span>
+<span class="gi">+  }</span>
+<span class="gi">+</span>
+<span class="gi">+  h1 {</span>
+<span class="gi">+    font-size: 100%;</span>
+<span class="gi">+    color: #730E15;</span>
+<span class="gi">+    line-height: 1.5em;</span>
+<span class="gi">+  }</span>
+<span class="gi">+</span>
+<span class="gi">+  body &gt; p {</span>
+<span class="gi">+    width: 33em;</span>
+<span class="gi">+    margin: 0 auto 1em;</span>
+<span class="gi">+    padding: 1em 0;</span>
+<span class="gi">+    background-color: #F7F7F7;</span>
+<span class="gi">+    border: 1px solid #CCC;</span>
+<span class="gi">+    border-right-color: #999;</span>
+<span class="gi">+    border-bottom-color: #999;</span>
+<span class="gi">+    border-bottom-left-radius: 4px;</span>
+<span class="gi">+    border-bottom-right-radius: 4px;</span>
+<span class="gi">+    border-top-color: #DADADA;</span>
+<span class="gi">+    color: #666;</span>
+<span class="gi">+    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);</span>
+<span class="gi">+  }</span>
+   &lt;/style&gt;
+ &lt;/head&gt;
+ 
+<span class="gu">@@ -20,7 +51,7 @@</span>
+   &lt;!-- This file lives in public/500.html --&gt;
    &lt;div class=&quot;dialog&quot;&gt;
      &lt;h1&gt;We&#39;re sorry, but something went wrong.&lt;/h1&gt;
+<span class="gd">-    &lt;p&gt;We&#39;ve been notified about this issue and we&#39;ll take a look at it shortly.&lt;/p&gt;</span>
    &lt;/div&gt;
 <span class="gi">+  &lt;p&gt;If you are the application owner check the logs for more information.&lt;/p&gt;</span>
  &lt;/body&gt;
@@ -1157,7 +1367,7 @@
 <span class="gd">-</span>
 <span class="gd">-</span>
 <span class="gd">-      #header {</span>
-<span class="gd">-        background-image: url(&quot;assets/rails.png&quot;);</span>
+<span class="gd">-        background-image: url(&quot;/assets/rails.png&quot;);</span>
 <span class="gd">-        background-repeat: no-repeat;</span>
 <span class="gd">-        background-position: top left;</span>
 <span class="gd">-        height: 64px;</span>
@@ -1376,7 +1586,10 @@
 </pre>
 </div>
   <h2>test/test_helper.rb</h2>
-  <div class="highlight"><pre><span class="gu">@@ -3,7 +3,9 @@</span>
+  <div class="highlight"><pre><span class="gu">@@ -1,9 +1,11 @@</span>
+<span class="gd">-ENV[&quot;RAILS_ENV&quot;] = &quot;test&quot;</span>
+<span class="gi">+ENV[&quot;RAILS_ENV&quot;] ||= &quot;test&quot;</span>
+ require File.expand_path(&#39;../../config/environment&#39;, __FILE__)
  require &#39;rails/test_help&#39;
  
  class ActiveSupport::TestCase
