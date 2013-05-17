@@ -5,6 +5,7 @@ require 'diff_splitter'
 require 'pygments.rb'
 require 'sass'
 require 'haml'
+require 'json'
 
 task 'default' => 'generate'
 
@@ -23,6 +24,7 @@ task 'generate' => 'update_rails_repo' do |t|
 
   Rake::Task["index.html"].invoke
   Rake::Task["404.html"].invoke
+  Rake::Task["json/versions.json"].invoke
 end
 
 desc 'Regenerate HTML files'
@@ -36,13 +38,18 @@ desc 'Generate index.html'
 file 'index.html' => ['templates/index.haml', 'templates/layout.haml', 'update_rails_repo'] do |t|
   puts 'Generating %s' % t.name
 
-  render(t.name, t.prerequisites.first, versions: all_included_versions)
+  render(t.name, t.prerequisites.first)
 end
 
 desc 'Generate 404.html'
 file '404.html' => ['templates/404.haml', 'templates/layout.haml', 'update_rails_repo'] do |t|
   puts 'Generating %s' % t.name
-  render(t.name, t.prerequisites.first, versions: all_included_versions)
+  render(t.name, t.prerequisites.first)
+end
+
+desc 'Generate versions.json'
+file 'json/versions.json' => ['json', 'update_rails_repo'] do |t|
+  File.write(t.name, JSON.dump(all_included_versions) + "\n")
 end
 
 desc 'Compiles assets'
@@ -125,7 +132,7 @@ rule(/html\/.*\.html/ => [->(t) { t.gsub(/html/, 'diff') }, 'html', 'templates/l
   diff = File.read t.source
   diffs = RailsDiff::DiffSplitter.new(diff).split
 
-  render(t.name, t.sources.last, diffs: diffs, versions: all_included_versions)
+  render(t.name, t.sources.last, diffs: diffs)
 end
 
 # Turn diff into JSON
@@ -146,7 +153,7 @@ rule(/json\/.*\.json/ => [->(t) { t.gsub(/json/, 'diff') }, 'json']) do |t|
   end
 end
 
-def render file_name, template_name, locals
+def render file_name, template_name, locals = {}
   content = template('templates/layout.haml').render(nil, locals) do
     template(template_name).render(nil, locals)
   end

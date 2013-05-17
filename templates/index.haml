@@ -17,11 +17,7 @@
       %label(for="source")
         What Rails version currently using?
       %select(id="source" name="source")
-        - versions.each do |version|
-          %option(name="v#{version}" value="v#{version}")= version
       %label(for="target")
         What Rails version migrating to?
       %select(id="target" name="target")
-        - versions.reverse.each do |version|
-          %option(name="v#{version}" value="v#{version}")= version
       %input(type="submit" value="View Diff")/

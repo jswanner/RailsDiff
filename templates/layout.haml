@@ -1,4 +1,4 @@
-!!!
+!!! 5
 %html
   %head
     %title RailsDiff
@@ -13,15 +13,11 @@
         %label
           Source
           %select(name="source")
-            - versions.each do |version|
-              %option(name="v#{version}" value="v#{version}")= version
         %a.switch(href="#")<
           %img(src="/assets/arrow_refresh.png")/
         %label
           Target
           %select(name="target")
-            - versions.reverse.each do |version|
-              %option(name="v#{version}" value="v#{version}")= version
         %input(type="submit" value="View Diff")/
 
     .content

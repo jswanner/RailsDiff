@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
   <head>
     <title>RailsDiff</title>
@@ -13,114 +13,12 @@
       <form>
         <label>
           Source
-          <select name='source'>
-            <option name='v3.0.0' value='v3.0.0'>3.0.0</option>
-            <option name='v3.0.1' value='v3.0.1'>3.0.1</option>
-            <option name='v3.0.2' value='v3.0.2'>3.0.2</option>
-            <option name='v3.0.3' value='v3.0.3'>3.0.3</option>
-            <option name='v3.0.4' value='v3.0.4'>3.0.4</option>
-            <option name='v3.0.5' value='v3.0.5'>3.0.5</option>
-            <option name='v3.0.6' value='v3.0.6'>3.0.6</option>
-            <option name='v3.0.7' value='v3.0.7'>3.0.7</option>
-            <option name='v3.0.8' value='v3.0.8'>3.0.8</option>
-            <option name='v3.0.9' value='v3.0.9'>3.0.9</option>
-            <option name='v3.0.10' value='v3.0.10'>3.0.10</option>
-            <option name='v3.0.11' value='v3.0.11'>3.0.11</option>
-            <option name='v3.0.12' value='v3.0.12'>3.0.12</option>
-            <option name='v3.0.13' value='v3.0.13'>3.0.13</option>
-            <option name='v3.0.14' value='v3.0.14'>3.0.14</option>
-            <option name='v3.0.15' value='v3.0.15'>3.0.15</option>
-            <option name='v3.0.16' value='v3.0.16'>3.0.16</option>
-            <option name='v3.0.17' value='v3.0.17'>3.0.17</option>
-            <option name='v3.0.18' value='v3.0.18'>3.0.18</option>
-            <option name='v3.0.19' value='v3.0.19'>3.0.19</option>
-            <option name='v3.0.20' value='v3.0.20'>3.0.20</option>
-            <option name='v3.1.0' value='v3.1.0'>3.1.0</option>
-            <option name='v3.1.1' value='v3.1.1'>3.1.1</option>
-            <option name='v3.1.2' value='v3.1.2'>3.1.2</option>
-            <option name='v3.1.3' value='v3.1.3'>3.1.3</option>
-            <option name='v3.1.4' value='v3.1.4'>3.1.4</option>
-            <option name='v3.1.5' value='v3.1.5'>3.1.5</option>
-            <option name='v3.1.6' value='v3.1.6'>3.1.6</option>
-            <option name='v3.1.7' value='v3.1.7'>3.1.7</option>
-            <option name='v3.1.8' value='v3.1.8'>3.1.8</option>
-            <option name='v3.1.9' value='v3.1.9'>3.1.9</option>
-            <option name='v3.1.10' value='v3.1.10'>3.1.10</option>
-            <option name='v3.1.11' value='v3.1.11'>3.1.11</option>
-            <option name='v3.1.12' value='v3.1.12'>3.1.12</option>
-            <option name='v3.2.0' value='v3.2.0'>3.2.0</option>
-            <option name='v3.2.1' value='v3.2.1'>3.2.1</option>
-            <option name='v3.2.2' value='v3.2.2'>3.2.2</option>
-            <option name='v3.2.3' value='v3.2.3'>3.2.3</option>
-            <option name='v3.2.4' value='v3.2.4'>3.2.4</option>
-            <option name='v3.2.5' value='v3.2.5'>3.2.5</option>
-            <option name='v3.2.6' value='v3.2.6'>3.2.6</option>
-            <option name='v3.2.7' value='v3.2.7'>3.2.7</option>
-            <option name='v3.2.8' value='v3.2.8'>3.2.8</option>
-            <option name='v3.2.9' value='v3.2.9'>3.2.9</option>
-            <option name='v3.2.10' value='v3.2.10'>3.2.10</option>
-            <option name='v3.2.11' value='v3.2.11'>3.2.11</option>
-            <option name='v3.2.12' value='v3.2.12'>3.2.12</option>
-            <option name='v3.2.13' value='v3.2.13'>3.2.13</option>
-            <option name='v4.0.0.beta1' value='v4.0.0.beta1'>4.0.0.beta1</option>
-            <option name='v4.0.0.rc1' value='v4.0.0.rc1'>4.0.0.rc1</option>
-          </select>
+          <select name='source'></select>
         </label>
         <a class='switch' href='#'><img src='/assets/arrow_refresh.png' /></a>
         <label>
           Target
-          <select name='target'>
-            <option name='v4.0.0.rc1' value='v4.0.0.rc1'>4.0.0.rc1</option>
-            <option name='v4.0.0.beta1' value='v4.0.0.beta1'>4.0.0.beta1</option>
-            <option name='v3.2.13' value='v3.2.13'>3.2.13</option>
-            <option name='v3.2.12' value='v3.2.12'>3.2.12</option>
-            <option name='v3.2.11' value='v3.2.11'>3.2.11</option>
-            <option name='v3.2.10' value='v3.2.10'>3.2.10</option>
-            <option name='v3.2.9' value='v3.2.9'>3.2.9</option>
-            <option name='v3.2.8' value='v3.2.8'>3.2.8</option>
-            <option name='v3.2.7' value='v3.2.7'>3.2.7</option>
-            <option name='v3.2.6' value='v3.2.6'>3.2.6</option>
-            <option name='v3.2.5' value='v3.2.5'>3.2.5</option>
-            <option name='v3.2.4' value='v3.2.4'>3.2.4</option>
-            <option name='v3.2.3' value='v3.2.3'>3.2.3</option>
-            <option name='v3.2.2' value='v3.2.2'>3.2.2</option>
-            <option name='v3.2.1' value='v3.2.1'>3.2.1</option>
-            <option name='v3.2.0' value='v3.2.0'>3.2.0</option>
-            <option name='v3.1.12' value='v3.1.12'>3.1.12</option>
-            <option name='v3.1.11' value='v3.1.11'>3.1.11</option>
-            <option name='v3.1.10' value='v3.1.10'>3.1.10</option>
-            <option name='v3.1.9' value='v3.1.9'>3.1.9</option>
-            <option name='v3.1.8' value='v3.1.8'>3.1.8</option>
-            <option name='v3.1.7' value='v3.1.7'>3.1.7</option>
-            <option name='v3.1.6' value='v3.1.6'>3.1.6</option>
-            <option name='v3.1.5' value='v3.1.5'>3.1.5</option>
-            <option name='v3.1.4' value='v3.1.4'>3.1.4</option>
-            <option name='v3.1.3' value='v3.1.3'>3.1.3</option>
-            <option name='v3.1.2' value='v3.1.2'>3.1.2</option>
-            <option name='v3.1.1' value='v3.1.1'>3.1.1</option>
-            <option name='v3.1.0' value='v3.1.0'>3.1.0</option>
-            <option name='v3.0.20' value='v3.0.20'>3.0.20</option>
-            <option name='v3.0.19' value='v3.0.19'>3.0.19</option>
-            <option name='v3.0.18' value='v3.0.18'>3.0.18</option>
-            <option name='v3.0.17' value='v3.0.17'>3.0.17</option>
-            <option name='v3.0.16' value='v3.0.16'>3.0.16</option>
-            <option name='v3.0.15' value='v3.0.15'>3.0.15</option>
-            <option name='v3.0.14' value='v3.0.14'>3.0.14</option>
-            <option name='v3.0.13' value='v3.0.13'>3.0.13</option>
-            <option name='v3.0.12' value='v3.0.12'>3.0.12</option>
-            <option name='v3.0.11' value='v3.0.11'>3.0.11</option>
-            <option name='v3.0.10' value='v3.0.10'>3.0.10</option>
-            <option name='v3.0.9' value='v3.0.9'>3.0.9</option>
-            <option name='v3.0.8' value='v3.0.8'>3.0.8</option>
-            <option name='v3.0.7' value='v3.0.7'>3.0.7</option>
-            <option name='v3.0.6' value='v3.0.6'>3.0.6</option>
-            <option name='v3.0.5' value='v3.0.5'>3.0.5</option>
-            <option name='v3.0.4' value='v3.0.4'>3.0.4</option>
-            <option name='v3.0.3' value='v3.0.3'>3.0.3</option>
-            <option name='v3.0.2' value='v3.0.2'>3.0.2</option>
-            <option name='v3.0.1' value='v3.0.1'>3.0.1</option>
-            <option name='v3.0.0' value='v3.0.0'>3.0.0</option>
-          </select>
+          <select name='target'></select>
         </label>
         <input type='submit' value='View Diff' />
       </form>
@@ -145,8 +43,7 @@
  
  # Ignore all logfiles and tempfiles.
  /log/*.log
-</pre>
-</div>
+</pre></div>
   <h2>Gemfile</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,38 +1,45 @@</span>
  source &#39;https://rubygems.org&#39;
@@ -216,8 +113,7 @@
 <span class="gd">-# gem &#39;ruby-debug19&#39;, :require =&gt; &#39;ruby-debug&#39;</span>
 <span class="gi">+# Use debugger</span>
 <span class="gi">+# gem &#39;debugger&#39;, group: [:development, :test]</span>
-</pre>
-</div>
+</pre></div>
   <h2>README.rdoc</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,261 +1,28 @@</span>
 <span class="gd">-== Welcome to Rails</span>
@@ -507,8 +403,7 @@
 <span class="gi">+</span>
 <span class="gi">+Please feel free to use a different markup language if you do not plan to run</span>
 <span class="gi">+&lt;tt&gt;rake doc:app&lt;/tt&gt;.</span>
-</pre>
-</div>
+</pre></div>
   <h2>Rakefile</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,4 +1,3 @@</span>
 <span class="gd">-#!/usr/bin/env rake</span>
@@ -516,8 +411,7 @@
  # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
  
 Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images/rails.png differ
-</pre>
-</div>
+</pre></div>
   <h2>app/assets/javascripts/application.js</h2>
   <div class="highlight"><pre><span class="gu">@@ -5,11 +5,12 @@</span>
  // or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
@@ -533,8 +427,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
  //= require jquery_ujs
 <span class="gi">+//= require turbolinks</span>
  //= require_tree .
-</pre>
-</div>
+</pre></div>
   <h2>app/assets/stylesheets/application.css</h2>
   <div class="highlight"><pre><span class="gu">@@ -10,4 +10,4 @@</span>
   *
@@ -542,8 +435,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
   *= require_tree .
 <span class="gd">-*/</span>
 <span class="gi">+ */</span>
-</pre>
-</div>
+</pre></div>
   <h2>app/controllers/application_controller.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,3 +1,5 @@</span>
  class ApplicationController &lt; ActionController::Base
@@ -552,8 +444,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gi">+  # For APIs, you may want to use :null_session instead.</span>
 <span class="gi">+  protect_from_forgery with: :exception</span>
  end
-</pre>
-</div>
+</pre></div>
   <h2>app/views/layouts/application.html.erb</h2>
   <div class="highlight"><pre><span class="gu">@@ -2,8 +2,8 @@</span>
  &lt;html&gt;
@@ -566,31 +457,27 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
    &lt;%= csrf_meta_tags %&gt;
  &lt;/head&gt;
  &lt;body&gt;
-</pre>
-</div>
+</pre></div>
   <h2>bin/bundle</h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,3 @@</span>
 <span class="gi">+#!/usr/bin/env ruby</span>
 <span class="gi">+ENV[&#39;BUNDLE_GEMFILE&#39;] ||= File.expand_path(&#39;../../Gemfile&#39;, __FILE__)</span>
 <span class="gi">+load Gem.bin_path(&#39;bundler&#39;, &#39;bundle&#39;)</span>
-</pre>
-</div>
+</pre></div>
   <h2>bin/rails</h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,4 @@</span>
 <span class="gi">+#!/usr/bin/env ruby</span>
 <span class="gi">+APP_PATH = File.expand_path(&#39;../../config/application&#39;,  __FILE__)</span>
 <span class="gi">+require_relative &#39;../config/boot&#39;</span>
 <span class="gi">+require &#39;rails/commands&#39;</span>
-</pre>
-</div>
+</pre></div>
   <h2>bin/rake</h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,4 @@</span>
 <span class="gi">+#!/usr/bin/env ruby</span>
 <span class="gi">+require_relative &#39;../config/boot&#39;</span>
 <span class="gi">+require &#39;rake&#39;</span>
 <span class="gi">+Rake.application.run</span>
-</pre>
-</div>
+</pre></div>
   <h2>config/application.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -2,12 +2,9 @@</span>
  
@@ -654,8 +541,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gd">-    config.assets.version = &#39;1.0&#39;</span>
    end
  end
-</pre>
-</div>
+</pre></div>
   <h2>config/boot.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,5 +1,3 @@</span>
 <span class="gd">-require &#39;rubygems&#39;</span>
@@ -663,8 +549,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
  # Set up gems listed in the Gemfile.
  ENV[&#39;BUNDLE_GEMFILE&#39;] ||= File.expand_path(&#39;../../Gemfile&#39;, __FILE__)
  
-</pre>
-</div>
+</pre></div>
   <h2>config/environment.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
 <span class="gd">-# Load the rails application</span>
@@ -674,8 +559,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gd">-# Initialize the rails application</span>
 <span class="gi">+# Initialize the rails application.</span>
  Railsdiff::Application.initialize!
-</pre>
-</div>
+</pre></div>
   <h2>config/environments/development.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,37 +1,29 @@</span>
  Railsdiff::Application.configure do
@@ -726,8 +610,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gi">+  # number of complex assets.</span>
    config.assets.debug = true
  end
-</pre>
-</div>
+</pre></div>
   <h2>config/environments/production.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,67 +1,80 @@</span>
  Railsdiff::Application.configure do
@@ -837,8 +720,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gi">+  # Use default logging formatter so that PID and timestamp are not suppressed.</span>
 <span class="gi">+  config.log_formatter = ::Logger::Formatter.new</span>
  end
-</pre>
-</div>
+</pre></div>
   <h2>config/environments/test.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
  Railsdiff::Application.configure do
@@ -891,16 +773,14 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gi">+  # Print deprecation notices to the stderr.</span>
    config.active_support.deprecation = :stderr
  end
-</pre>
-</div>
+</pre></div>
   <h2>config/initializers/filter_parameter_logging.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,4 @@</span>
 <span class="gi">+# Be sure to restart your server when you modify this file.</span>
 <span class="gi">+</span>
 <span class="gi">+# Configure sensitive parameters which will be filtered from the log file.</span>
 <span class="gi">+Rails.application.config.filter_parameters += [:password]</span>
-</pre>
-</div>
+</pre></div>
   <h2>config/initializers/inflections.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,15 +1,16 @@</span>
  # Be sure to restart your server when you modify this file.
@@ -924,8 +804,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gi">+# ActiveSupport::Inflector.inflections(:en) do |inflect|</span>
  #   inflect.acronym &#39;RESTful&#39;
  # end
-</pre>
-</div>
+</pre></div>
   <h2>config/initializers/session_store.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,8 +1,3 @@</span>
  # Be sure to restart your server when you modify this file.
@@ -936,8 +815,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gd">-# which shouldn&#39;t be used to store highly confidential information</span>
 <span class="gd">-# (create the session table with &quot;rails generate session_migration&quot;)</span>
 <span class="gd">-# Railsdiff::Application.config.session_store :active_record_store</span>
-</pre>
-</div>
+</pre></div>
   <h2>config/initializers/wrap_parameters.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,14 +1,14 @@</span>
  # Be sure to restart your server when you modify this file.
@@ -960,8 +838,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gi">+# ActiveSupport.on_load(:active_record) do</span>
 <span class="gi">+#  self.include_root_in_json = true</span>
 <span class="gi">+# end</span>
-</pre>
-</div>
+</pre></div>
   <h2>config/locales/en.yml</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,5 +1,23 @@</span>
 <span class="gd">-# Sample localization file for English. Add more files in this directory for other locales.</span>
@@ -989,8 +866,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
  
  en:
    hello: &quot;Hello world&quot;
-</pre>
-</div>
+</pre></div>
   <h2>config/routes.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,19 +1,20 @@</span>
  Railsdiff::Application.routes.draw do
@@ -1063,8 +939,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gd">-  # Note: This route will make all actions in every controller accessible via GET requests.</span>
 <span class="gd">-  # match &#39;:controller(/:action(/:id))(.:format)&#39;</span>
  end
-</pre>
-</div>
+</pre></div>
   <h2>config.ru</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
  # This file is used by Rack-based servers to start the application.
@@ -1072,14 +947,12 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
  require ::File.expand_path(&#39;../config/environment&#39;,  __FILE__)
 <span class="gd">-run Railsdiff::Application</span>
 <span class="gi">+run Rails.application</span>
-</pre>
-</div>
+</pre></div>
   <h2>doc/README_FOR_APP</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,2 +0,0 @@</span>
 <span class="gd">-Use this README file to introduce your application and point to useful places in the API for learning more.</span>
 <span class="gd">-Run &quot;rake doc:app&quot; to generate API documentation for your models, controllers, helpers, and libraries.</span>
-</pre>
-</div>
+</pre></div>
   <h2>public/404.html</h2>
   <div class="highlight"><pre><span class="gu">@@ -2,17 +2,48 @@</span>
  &lt;html&gt;
@@ -1148,8 +1021,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gi">+  &lt;p&gt;If you are the application owner check the logs for more information.&lt;/p&gt;</span>
  &lt;/body&gt;
  &lt;/html&gt;
-</pre>
-</div>
+</pre></div>
   <h2>public/422.html</h2>
   <div class="highlight"><pre><span class="gu">@@ -2,17 +2,48 @@</span>
  &lt;html&gt;
@@ -1218,8 +1090,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gi">+  &lt;p&gt;If you are the application owner check the logs for more information.&lt;/p&gt;</span>
  &lt;/body&gt;
  &lt;/html&gt;
-</pre>
-</div>
+</pre></div>
   <h2>public/500.html</h2>
   <div class="highlight"><pre><span class="gu">@@ -2,17 +2,48 @@</span>
  &lt;html&gt;
@@ -1288,8 +1159,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gi">+  &lt;p&gt;If you are the application owner check the logs for more information.&lt;/p&gt;</span>
  &lt;/body&gt;
  &lt;/html&gt;
-</pre>
-</div>
+</pre></div>
   <h2>public/index.html</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,241 +0,0 @@</span>
 <span class="gd">-&lt;!DOCTYPE html&gt;</span>
@@ -1533,8 +1403,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gd">-    &lt;/div&gt;</span>
 <span class="gd">-  &lt;/body&gt;</span>
 <span class="gd">-&lt;/html&gt;</span>
-</pre>
-</div>
+</pre></div>
   <h2>public/robots.txt</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
  # See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
@@ -1543,8 +1412,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gd">-# User-Agent: *</span>
 <span class="gi">+# User-agent: *</span>
  # Disallow: /
-</pre>
-</div>
+</pre></div>
   <h2>script/rails</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,6 +0,0 @@</span>
 <span class="gd">-#!/usr/bin/env ruby</span>
@@ -1553,8 +1421,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gd">-APP_PATH = File.expand_path(&#39;../../config/application&#39;,  __FILE__)</span>
 <span class="gd">-require File.expand_path(&#39;../../config/boot&#39;,  __FILE__)</span>
 <span class="gd">-require &#39;rails/commands&#39;</span>
-</pre>
-</div>
+</pre></div>
   <h2>test/performance/browsing_test.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,12 +0,0 @@</span>
 <span class="gd">-require &#39;test_helper&#39;</span>
@@ -1569,8 +1436,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
 <span class="gd">-    get &#39;/&#39;</span>
 <span class="gd">-  end</span>
 <span class="gd">-end</span>
-</pre>
-</div>
+</pre></div>
   <h2>test/test_helper.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,9 +1,11 @@</span>
 <span class="gd">-ENV[&quot;RAILS_ENV&quot;] = &quot;test&quot;</span>
@@ -1586,8 +1452,7 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.0.rc1/app/assets/images
    #
    # Note: You&#39;ll currently still have to declare fixtures explicitly in integration tests
    # -- they do not yet inherit this setting
-</pre>
-</div>
+</pre></div>
 </div>
     </div>
     <a href='https://github.com/jswanner/RailsDiff'>
