@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>RailsDiff</title>
-    <link href='/assets/pygment_trac.css' rel='stylesheet' />
-    <link href='/assets/app.css' rel='stylesheet' />
+    <link href='/assets/pygment_trac.css' rel='stylesheet'>
+    <link href='/assets/app.css' rel='stylesheet'>
   </head>
   <body>
     <header>
@@ -15,62 +15,60 @@
           Source
           <select name='source'></select>
         </label>
-        <a class='switch' href='#'><img src='/assets/arrow_refresh.png' /></a>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png'></a>
         <label>
           Target
           <select name='target'></select>
         </label>
-        <input type='submit' value='View Diff' />
+        <input type='submit' value='View Diff'>
       </form>
     </header>
     <div class='content'>
       <div class='index'>
-  <div class='block'>
-    <h2>RailsDiff is about what you'd have to change about your app's configuration when upgrading Rails versions, not about what Rails has changed internally.</h2>
-    <p>
-      When upgrading the version of Rails used in an application, it can be difficult to know precisely every detail that should be changed.
-    </p>
-    <p>
-      Often, just modifying the Rails gem version in your Gemfile and then running <code>bundle update rails</code> seems to work: your tests still pass, application runs like normal, etc. So, you never think twice and go about continuing to develop your application. But, were there other changes that could/should have been made as well? Perhaps, Rails has changed the default value for some configuration settings, or perhaps new configuration settings have been added since your application was generated.
-    </p>
-    <p>
-      What the Rails application generator creates is specific to the version of Rails it was generated for. So, as new versions of Rails are released, what the application generator creates can change; and, comparing the output of different versions of the generator can give you some understanding of the changes going on in Rails.
-    </p>
-    <p>
-      So, to that end, I've generated applications for each version of Rails; and, for each version, I've generated a diff between it and all versions before it. You can use these diffs to know precisely every change needed to upgrade to any version of Rails.
-    </p>
-  </div>
-  <div class='block'>
-    <form>
-      <label for='source'>
-        What Rails version currently using?
-      </label>
-      <select id='source' name='source'></select>
-      <label for='target'>
-        What Rails version migrating to?
-      </label>
-      <select id='target' name='target'></select>
-      <input type='submit' value='View Diff' />
-    </form>
-  </div>
-</div>
+        <h2>RailsDiff is about what you'd have to change about your app's configuration when upgrading Rails versions, not about what Rails has changed internally.</h2>
+        <div class='block'>
+          <p>
+            When upgrading the version of Rails used in an application, it can be difficult to know precisely every detail that should be changed.
+          </p>
+          <p>
+            Often, just modifying the Rails gem version in your Gemfile and then running <code>bundle update rails</code> seems to work: your tests still pass, application runs like normal, etc. So, you never think twice and go about continuing to develop your application. But, were there other changes that could/should have been made as well? Perhaps, Rails has changed the default value for some configuration settings, or perhaps new configuration settings have been added since your application was generated.
+          </p>
+          <p>
+            What the Rails application generator creates is specific to the version of Rails it was generated for. So, as new versions of Rails are released, what the application generator creates can change; and, comparing the output of different versions of the generator can give you some understanding of the changes going on in Rails.
+          </p>
+          <p>
+            So, to that end, I've generated applications for each version of Rails; and, for each version, I've generated a diff between it and all versions before it. You can use these diffs to know precisely every change needed to upgrade to any version of Rails.
+          </p>
+        </div>
+        <div class='block'>
+          <form>
+            <label for='source'>
+              What Rails version currently using?
+            </label>
+            <select id='source' name='source'></select>
+            <label for='target'>
+              What Rails version migrating to?
+            </label>
+            <select id='target' name='target'></select>
+            <input type='submit' value='View Diff'>
+          </form>
+        </div>
+      </div>
     </div>
     <a href='https://github.com/jswanner/RailsDiff'>
-      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;'>
     </a>
     <script src='/assets/app.js'></script>
-    <script type='text/javascript'>
-      //<![CDATA[
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-7325596-4']);
-        _gaq.push(['_setSiteSpeedSampleRate', 100]);
-        _gaq.push(['_trackPageview']);
-        
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-      //]]>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-7325596-4']);
+      _gaq.push(['_setSiteSpeedSampleRate', 100]);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
     </script>
   </body>
 </html>
