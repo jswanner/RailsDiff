@@ -35,14 +35,14 @@ task 'regenerate_html' do
 end
 
 desc 'Generate index.html'
-file 'index.html' => ['templates/index.haml', 'templates/layout.haml', 'update_rails_repo'] do |t|
+file 'index.html' => ['templates/index.haml', 'templates/layout.haml'] do |t|
   puts 'Generating %s' % t.name
 
   render(t.name, t.prerequisites.first)
 end
 
 desc 'Generate 404.html'
-file '404.html' => ['templates/404.haml', 'templates/layout.haml', 'update_rails_repo'] do |t|
+file '404.html' => ['templates/404.haml', 'templates/layout.haml'] do |t|
   puts 'Generating %s' % t.name
   render(t.name, t.prerequisites.first)
 end
