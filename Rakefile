@@ -25,6 +25,7 @@ task 'generate' => 'update_rails_repo' do |t|
   Rake::Task["index.html"].invoke
   Rake::Task["404.html"].invoke
   Rake::Task["json/versions.json"].invoke
+  Rake::Task["sitemap.txt"].invoke
 end
 
 desc 'Regenerate HTML files'
@@ -50,6 +51,14 @@ end
 desc 'Generate versions.json'
 file 'json/versions.json' => ['json', 'update_rails_repo'] do |t|
   File.write(t.name, JSON.dump(all_included_versions) + "\n")
+end
+
+desc 'Generate sitemap.txt'
+file 'sitemap.txt' do |t|
+  base = 'http://railsdiff.org'
+  paths = Dir['html/*'].unshift ''
+  urls = paths.map { |path| [base, path].join '/' }
+  File.write(t.name, urls.join("\n") + "\n")
 end
 
 desc 'Compiles assets'
