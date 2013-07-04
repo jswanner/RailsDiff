@@ -132,7 +132,7 @@ rule(/html\/.*\.html/ => [->(t) { t.gsub(/html/, 'diff') }, 'html', 'templates/l
   diff = File.read t.source
   diffs = RailsDiff::DiffSplitter.new(diff).split
 
-  render(t.name, t.sources.last, diffs: diffs)
+  render(t.name, t.sources.last, diffs: diffs, title: page_title(t.name))
 end
 
 # Turn diff into JSON
@@ -153,7 +153,15 @@ rule(/json\/.*\.json/ => [->(t) { t.gsub(/json/, 'diff') }, 'json']) do |t|
   end
 end
 
+def page_title file_path
+  file_name = file_path.split('/').last
+  diff_name = file_name.gsub '.html', ''
+  'Rails %s - %s diff' % diff_name.split('-')
+end
+
 def render file_name, template_name, locals = {}
+  locals[:title] ||= nil
+
   content = template('templates/layout.haml').render(nil, locals) do
     template(template_name).render(nil, locals)
   end
