@@ -1,0 +1,11 @@
+diff -Nru v3.2.13/Gemfile v3.2.16/Gemfile
+--- v3.2.13/Gemfile	2013-03-18 12:55:47.000000000 -0500
++++ v3.2.16/Gemfile	2013-12-03 23:47:19.000000000 -0600
+@@ -1,6 +1,6 @@
+ source 'https://rubygems.org'
+ 
+-gem 'rails', '3.2.13'
++gem 'rails', '3.2.16'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails', :git => 'git://github.com/rails/rails.git'
