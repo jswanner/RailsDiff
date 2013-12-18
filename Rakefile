@@ -113,7 +113,10 @@ rule(/tmp\/generated\/.*/ => ['tmp/generated']) do |t|
   rm_rf t.name, verbose: false if Dir.exists?(t.name)
 
   sh "ruby #{source}/generator new #{t.name}/railsdiff --skip-bundle > /dev/null", verbose: false
-  rm "#{t.name}/railsdiff/config/initializers/secret_token.rb", verbose: false
+  secret_token = "#{t.name}/railsdiff/config/initializers/secret_token.rb"
+  rm secret_token, verbose: false if File.exists?(secret_token)
+  secrets = "#{t.name}/railsdiff/config/secrets.yml"
+  rm secrets, verbose: false if File.exists?(secrets)
   sh "mv #{t.name}/railsdiff/* #{t.name}/.", verbose: false
   sh "mv #{t.name}/railsdiff/.??* #{t.name}/.", verbose: false
   rm_rf source, verbose: false
