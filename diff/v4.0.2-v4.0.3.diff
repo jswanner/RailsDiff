@@ -1,0 +1,12 @@
+diff -Nru v4.0.2/Gemfile v4.0.3/Gemfile
+--- v4.0.2/Gemfile	2013-12-03 21:47:04.000000000 -0800
++++ v4.0.3/Gemfile	2014-02-18 11:23:28.000000000 -0800
+@@ -1,7 +1,7 @@
+ source 'https://rubygems.org'
+ 
+ # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+-gem 'rails', '4.0.2'
++gem 'rails', '4.0.3'
+ 
+ # Use sqlite3 as the database for Active Record
+ gem 'sqlite3'

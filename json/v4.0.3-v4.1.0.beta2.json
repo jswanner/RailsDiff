@@ -1,0 +1,83 @@
+{
+"diffs": [
+{
+"filepath": "Gemfile",
+"diff": "@@ -1,13 +1,14 @@\n source 'https://rubygems.org'\n \n+\n # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'\n-gem 'rails', '4.0.3'\n+gem 'rails', '4.1.0.beta2'\n \n # Use sqlite3 as the database for Active Record\n gem 'sqlite3'\n \n # Use SCSS for stylesheets\n-gem 'sass-rails', '~> 4.0.0'\n+gem 'sass-rails', '~> 4.0.0.rc1'\n \n # Use Uglifier as compressor for JavaScript assets\n gem 'uglifier', '>= 1.3.0'\n@@ -16,7 +17,7 @@\n gem 'coffee-rails', '~> 4.0.0'\n \n # See https://github.com/sstephenson/execjs#readme for more supported runtimes\n-# gem 'therubyracer', platforms: :ruby\n+# gem 'therubyracer',  platforms: :ruby\n \n # Use jquery as the JavaScript library\n gem 'jquery-rails'\n@@ -27,10 +28,11 @@\n # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder\n gem 'jbuilder', '~> 1.2'\n \n-group :doc do\n-  # bundle exec rake doc:rails generates the API under doc/api.\n-  gem 'sdoc', require: false\n-end\n+# bundle exec rake doc:rails generates the API under doc/api.\n+gem 'sdoc',          group: :doc, require: false\n+\n+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/jonleighton/spring\n+gem 'spring',        group: :development\n \n # Use ActiveModel has_secure_password\n # gem 'bcrypt-ruby', '~> 3.1.2'\n@@ -39,7 +41,8 @@\n # gem 'unicorn'\n \n # Use Capistrano for deployment\n-# gem 'capistrano', group: :development\n+# gem 'capistrano-rails', group: :development\n \n # Use debugger\n # gem 'debugger', group: [:development, :test]\n+\n"
+}
+,
+{
+"filepath": "Rakefile",
+"diff": "@@ -3,4 +3,4 @@\n \n require File.expand_path('../config/application', __FILE__)\n \n-Railsdiff::Application.load_tasks\n+Rails.application.load_tasks\n"
+}
+,
+{
+"filepath": "app/assets/stylesheets/application.css",
+"diff": "@@ -5,9 +5,11 @@\n  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,\n  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.\n  *\n- * You're free to add application-wide styles to this file and they'll appear at the top of the\n- * compiled file, but it's generally better to create a new file per style scope.\n+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the\n+ * compiled file so the styles you add here take precedence over styles defined in any styles\n+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new\n+ * file per style scope.\n  *\n- *= require_self\n  *= require_tree .\n+ *= require_self\n  */\n"
+}
+,
+{
+"filepath": "config/application.rb",
+"diff": "@@ -4,7 +4,7 @@\n \n # Require the gems listed in Gemfile, including any gems\n # you've limited to :test, :development, or :production.\n-Bundler.require(:default, Rails.env)\n+Bundler.require(*Rails.groups)\n \n module Railsdiff\n   class Application < Rails::Application\n"
+}
+,
+{
+"filepath": "config/boot.rb",
+"diff": "@@ -1,4 +1,4 @@\n # Set up gems listed in the Gemfile.\n ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)\n \n-require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])\n+require 'bundler/setup' if File.exist?(ENV['BUNDLE_GEMFILE'])\n"
+}
+,
+{
+"filepath": "config/database.yml",
+"diff": "@@ -3,23 +3,23 @@\n #\n #   Ensure the SQLite 3 gem is defined in your Gemfile\n #   gem 'sqlite3'\n-development:\n+#\n+default: &default\n   adapter: sqlite3\n-  database: db/development.sqlite3\n   pool: 5\n   timeout: 5000\n \n+development:\n+  <<: *default\n+  database: db/development.sqlite3\n+\n # Warning: The database defined as \"test\" will be erased and\n # re-generated from your development database when you run \"rake\".\n # Do not set this db to the same as development or production.\n test:\n-  adapter: sqlite3\n+  <<: *default\n   database: db/test.sqlite3\n-  pool: 5\n-  timeout: 5000\n \n production:\n-  adapter: sqlite3\n+  <<: *default\n   database: db/production.sqlite3\n-  pool: 5\n-  timeout: 5000\n"
+}
+,
+{
+"filepath": "config/environment.rb",
+"diff": "@@ -2,4 +2,4 @@\n require File.expand_path('../application', __FILE__)\n \n # Initialize the Rails application.\n-Railsdiff::Application.initialize!\n+Rails.application.initialize!\n"
+}
+,
+{
+"filepath": "config/environments/development.rb",
+"diff": "@@ -1,4 +1,4 @@\n-Railsdiff::Application.configure do\n+Rails.application.configure do\n   # Settings specified here will take precedence over those in config/application.rb.\n \n   # In the development environment your application's code is reloaded on\n@@ -19,7 +19,7 @@\n   # Print deprecation notices to the Rails logger.\n   config.active_support.deprecation = :log\n \n-  # Raise an error on page load if there are pending migrations\n+  # Raise an error on page load if there are pending migrations.\n   config.active_record.migration_error = :page_load\n \n   # Debug mode disables concatenation and preprocessing of assets.\n"
+}
+,
+{
+"filepath": "config/environments/production.rb",
+"diff": "@@ -1,4 +1,4 @@\n-Railsdiff::Application.configure do\n+Rails.application.configure do\n   # Settings specified here will take precedence over those in config/application.rb.\n \n   # Code is not reloaded between requests.\n"
+}
+,
+{
+"filepath": "config/environments/test.rb",
+"diff": "@@ -1,4 +1,4 @@\n-Railsdiff::Application.configure do\n+Rails.application.configure do\n   # Settings specified here will take precedence over those in config/application.rb.\n \n   # The test environment is used exclusively to run your application's\n"
+}
+,
+{
+"filepath": "config/initializers/session_store.rb",
+"diff": "@@ -1,3 +1,3 @@\n # Be sure to restart your server when you modify this file.\n \n-Railsdiff::Application.config.session_store :cookie_store, key: '_railsdiff_session'\n+Rails.application.config.session_store :cookie_store, key: '_railsdiff_session'\n"
+}
+,
+{
+"filepath": "config/routes.rb",
+"diff": "@@ -1,4 +1,4 @@\n-Railsdiff::Application.routes.draw do\n+Rails.application.routes.draw do\n   # The priority is based upon order of creation: first created -> highest priority.\n   # See how all your routes lay out with \"rake routes\".\n \n"
+}
+,
+{
+"filepath": "public/404.html",
+"diff": "@@ -2,17 +2,23 @@\n <html>\n <head>\n   <title>The page you were looking for doesn't exist (404)</title>\n+  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n   <style>\n   body {\n     background-color: #EFEFEF;\n     color: #2E2F30;\n     text-align: center;\n     font-family: arial, sans-serif;\n+    margin: 0;\n   }\n \n   div.dialog {\n-    width: 25em;\n-    margin: 4em auto 0 auto;\n+    width: 95%;\n+    max-width: 33em;\n+    margin: 4em auto 0;\n+  }\n+\n+  div.dialog > div {\n     border: 1px solid #CCC;\n     border-right-color: #999;\n     border-left-color: #999;\n@@ -21,7 +27,8 @@\n     border-top-left-radius: 9px;\n     border-top-right-radius: 9px;\n     background-color: white;\n-    padding: 7px 4em 0 4em;\n+    padding: 7px 12% 0;\n+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);\n   }\n \n   h1 {\n@@ -30,19 +37,19 @@\n     line-height: 1.5em;\n   }\n \n-  body > p {\n-    width: 33em;\n-    margin: 0 auto 1em;\n-    padding: 1em 0;\n+  div.dialog > p {\n+    margin: 0 0 1em;\n+    padding: 1em;\n     background-color: #F7F7F7;\n     border: 1px solid #CCC;\n     border-right-color: #999;\n+    border-left-color: #999;\n     border-bottom-color: #999;\n     border-bottom-left-radius: 4px;\n     border-bottom-right-radius: 4px;\n     border-top-color: #DADADA;\n     color: #666;\n-    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);\n+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);\n   }\n   </style>\n </head>\n@@ -50,9 +57,11 @@\n <body>\n   <!-- This file lives in public/404.html -->\n   <div class=\"dialog\">\n-    <h1>The page you were looking for doesn't exist.</h1>\n-    <p>You may have mistyped the address or the page may have moved.</p>\n+    <div>\n+      <h1>The page you were looking for doesn't exist.</h1>\n+      <p>You may have mistyped the address or the page may have moved.</p>\n+    </div>\n+    <p>If you are the application owner check the logs for more information.</p>\n   </div>\n-  <p>If you are the application owner check the logs for more information.</p>\n </body>\n </html>\n"
+}
+,
+{
+"filepath": "public/422.html",
+"diff": "@@ -2,17 +2,23 @@\n <html>\n <head>\n   <title>The change you wanted was rejected (422)</title>\n+  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n   <style>\n   body {\n     background-color: #EFEFEF;\n     color: #2E2F30;\n     text-align: center;\n     font-family: arial, sans-serif;\n+    margin: 0;\n   }\n \n   div.dialog {\n-    width: 25em;\n-    margin: 4em auto 0 auto;\n+    width: 95%;\n+    max-width: 33em;\n+    margin: 4em auto 0;\n+  }\n+\n+  div.dialog > div {\n     border: 1px solid #CCC;\n     border-right-color: #999;\n     border-left-color: #999;\n@@ -21,7 +27,8 @@\n     border-top-left-radius: 9px;\n     border-top-right-radius: 9px;\n     background-color: white;\n-    padding: 7px 4em 0 4em;\n+    padding: 7px 12% 0;\n+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);\n   }\n \n   h1 {\n@@ -30,19 +37,19 @@\n     line-height: 1.5em;\n   }\n \n-  body > p {\n-    width: 33em;\n-    margin: 0 auto 1em;\n-    padding: 1em 0;\n+  div.dialog > p {\n+    margin: 0 0 1em;\n+    padding: 1em;\n     background-color: #F7F7F7;\n     border: 1px solid #CCC;\n     border-right-color: #999;\n+    border-left-color: #999;\n     border-bottom-color: #999;\n     border-bottom-left-radius: 4px;\n     border-bottom-right-radius: 4px;\n     border-top-color: #DADADA;\n     color: #666;\n-    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);\n+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);\n   }\n   </style>\n </head>\n@@ -50,9 +57,11 @@\n <body>\n   <!-- This file lives in public/422.html -->\n   <div class=\"dialog\">\n-    <h1>The change you wanted was rejected.</h1>\n-    <p>Maybe you tried to change something you didn't have access to.</p>\n+    <div>\n+      <h1>The change you wanted was rejected.</h1>\n+      <p>Maybe you tried to change something you didn't have access to.</p>\n+    </div>\n+    <p>If you are the application owner check the logs for more information.</p>\n   </div>\n-  <p>If you are the application owner check the logs for more information.</p>\n </body>\n </html>\n"
+}
+,
+{
+"filepath": "public/500.html",
+"diff": "@@ -2,17 +2,23 @@\n <html>\n <head>\n   <title>We're sorry, but something went wrong (500)</title>\n+  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n   <style>\n   body {\n     background-color: #EFEFEF;\n     color: #2E2F30;\n     text-align: center;\n     font-family: arial, sans-serif;\n+    margin: 0;\n   }\n \n   div.dialog {\n-    width: 25em;\n-    margin: 4em auto 0 auto;\n+    width: 95%;\n+    max-width: 33em;\n+    margin: 4em auto 0;\n+  }\n+\n+  div.dialog > div {\n     border: 1px solid #CCC;\n     border-right-color: #999;\n     border-left-color: #999;\n@@ -21,7 +27,8 @@\n     border-top-left-radius: 9px;\n     border-top-right-radius: 9px;\n     background-color: white;\n-    padding: 7px 4em 0 4em;\n+    padding: 7px 12% 0;\n+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);\n   }\n \n   h1 {\n@@ -30,19 +37,19 @@\n     line-height: 1.5em;\n   }\n \n-  body > p {\n-    width: 33em;\n-    margin: 0 auto 1em;\n-    padding: 1em 0;\n+  div.dialog > p {\n+    margin: 0 0 1em;\n+    padding: 1em;\n     background-color: #F7F7F7;\n     border: 1px solid #CCC;\n     border-right-color: #999;\n+    border-left-color: #999;\n     border-bottom-color: #999;\n     border-bottom-left-radius: 4px;\n     border-bottom-right-radius: 4px;\n     border-top-color: #DADADA;\n     color: #666;\n-    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);\n+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);\n   }\n   </style>\n </head>\n@@ -50,8 +57,10 @@\n <body>\n   <!-- This file lives in public/500.html -->\n   <div class=\"dialog\">\n-    <h1>We're sorry, but something went wrong.</h1>\n+    <div>\n+      <h1>We're sorry, but something went wrong.</h1>\n+    </div>\n+    <p>If you are the application owner check the logs for more information.</p>\n   </div>\n-  <p>If you are the application owner check the logs for more information.</p>\n </body>\n </html>\n"
+}
+,
+{
+"filepath": "public/robots.txt",
+"diff": "@@ -1,4 +1,4 @@\n-# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file\n+# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file\n #\n # To ban all spiders from the entire site uncomment the next two lines:\n # User-agent: *\n"
+}
+]
+}

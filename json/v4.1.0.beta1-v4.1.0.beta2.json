@@ -1,0 +1,8 @@
+{
+"diffs": [
+{
+"filepath": "Gemfile",
+"diff": "@@ -2,7 +2,7 @@\n \n \n # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'\n-gem 'rails', '4.1.0.beta1'\n+gem 'rails', '4.1.0.beta2'\n \n # Use sqlite3 as the database for Active Record\n gem 'sqlite3'\n"
+}
+]
+}
