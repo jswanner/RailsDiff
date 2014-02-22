@@ -113,10 +113,7 @@ rule(/tmp\/generated\/.*/ => ['tmp/generated']) do |t|
   rm_rf t.name, verbose: false if Dir.exists?(t.name)
 
   sh "ruby #{source}/generator new #{t.name}/railsdiff --skip-bundle > /dev/null", verbose: false
-  secret_token = "#{t.name}/railsdiff/config/initializers/secret_token.rb"
-  rm secret_token, verbose: false if File.exists?(secret_token)
-  secrets = "#{t.name}/railsdiff/config/secrets.yml"
-  rm secrets, verbose: false if File.exists?(secrets)
+  sh sed_command(t.name), verbose: false
   sh "mv #{t.name}/railsdiff/* #{t.name}/.", verbose: false
   sh "mv #{t.name}/railsdiff/.??* #{t.name}/.", verbose: false
   rm_rf source, verbose: false
@@ -220,6 +217,21 @@ end
 
 def min_version
   @min_version ||= version 'v3.0.0'
+end
+
+def sed_command base_path
+  expression, file_path = [
+    [
+      "s/'.*'/'your-secret-token'/",
+      "#{base_path}/railsdiff/config/initializers/secret_token.rb",
+    ],
+    [
+      's/(secret_key_base:[[:space:]])[^<].*$/\1your-secret-token/',
+      "#{base_path}/railsdiff/config/secrets.yml",
+    ],
+  ].find { |expression, file_path| File.exists?(file_path) }
+
+  %Q{sed -E -i '' "#{expression}" #{file_path}}
 end
 
 def version tag
