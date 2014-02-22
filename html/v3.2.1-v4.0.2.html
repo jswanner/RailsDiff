@@ -809,6 +809,23 @@ Binary files v3.2.1/app/assets/images/rails.png and v4.0.2/app/assets/images/rai
  #   inflect.acronym &#39;RESTful&#39;
  # end
 </pre></div>
+  <h2>config/initializers/secret_token.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,7 +1,12 @@</span>
+ # Be sure to restart your server when you modify this file.
+ 
+<span class="gd">-# Your secret key for verifying the integrity of signed cookies.</span>
+<span class="gi">+# Your secret key is used for verifying the integrity of signed cookies.</span>
+ # If you change this key, all old signed cookies will become invalid!
+<span class="gi">+</span>
+ # Make sure the secret is at least 30 characters and all random,
+ # no regular words or you&#39;ll be exposed to dictionary attacks.
+<span class="gd">-Railsdiff::Application.config.secret_token = &#39;your-secret-token&#39;</span>
+<span class="gi">+# You can use `rake secret` to generate a secure secret key.</span>
+<span class="gi">+</span>
+<span class="gi">+# Make sure your secret_key_base is kept private</span>
+<span class="gi">+# if you&#39;re sharing your code publicly.</span>
+<span class="gi">+Railsdiff::Application.config.secret_key_base = &#39;your-secret-token&#39;</span>
+</pre></div>
   <h2>config/initializers/session_store.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,8 +1,3 @@</span>
  # Be sure to restart your server when you modify this file.

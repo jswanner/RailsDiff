@@ -794,6 +794,24 @@ diff -Nru v3.2.17/config/initializers/inflections.rb v4.0.1/config/initializers/
 +# ActiveSupport::Inflector.inflections(:en) do |inflect|
  #   inflect.acronym 'RESTful'
  # end
+diff -Nru v3.2.17/config/initializers/secret_token.rb v4.0.1/config/initializers/secret_token.rb
+--- v3.2.17/config/initializers/secret_token.rb	2014-02-21 19:57:05.000000000 -0800
++++ v4.0.1/config/initializers/secret_token.rb	2014-02-21 19:45:12.000000000 -0800
+@@ -1,7 +1,12 @@
+ # Be sure to restart your server when you modify this file.
+ 
+-# Your secret key for verifying the integrity of signed cookies.
++# Your secret key is used for verifying the integrity of signed cookies.
+ # If you change this key, all old signed cookies will become invalid!
++
+ # Make sure the secret is at least 30 characters and all random,
+ # no regular words or you'll be exposed to dictionary attacks.
+-Railsdiff::Application.config.secret_token = 'your-secret-token'
++# You can use `rake secret` to generate a secure secret key.
++
++# Make sure your secret_key_base is kept private
++# if you're sharing your code publicly.
++Railsdiff::Application.config.secret_key_base = 'your-secret-token'
 diff -Nru v3.2.17/config/initializers/session_store.rb v4.0.1/config/initializers/session_store.rb
 --- v3.2.17/config/initializers/session_store.rb	2014-02-18 11:23:24.000000000 -0800
 +++ v4.0.1/config/initializers/session_store.rb	2013-11-02 09:27:47.000000000 -0700

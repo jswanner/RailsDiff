@@ -1,6 +1,6 @@
 diff -Nru v3.1.0/.gitignore v4.0.0.beta1/.gitignore
---- v3.1.0/.gitignore	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/.gitignore	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/.gitignore	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/.gitignore	2014-02-21 20:15:11.000000000 -0800
 @@ -1,5 +1,16 @@
 -.bundle
 -db/*.sqlite3
@@ -24,8 +24,8 @@ diff -Nru v3.1.0/.gitignore v4.0.0.beta1/.gitignore
 +/log/*.log
 +/tmp
 diff -Nru v3.1.0/Gemfile v4.0.0.beta1/Gemfile
---- v3.1.0/Gemfile	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/Gemfile	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/Gemfile	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/Gemfile	2014-02-21 20:15:11.000000000 -0800
 @@ -1,33 +1,38 @@
 -source 'http://rubygems.org'
 +source 'https://rubygems.org'
@@ -83,8 +83,8 @@ diff -Nru v3.1.0/Gemfile v4.0.0.beta1/Gemfile
 -end
 +# gem 'debugger'
 diff -Nru v3.1.0/README v4.0.0.beta1/README
---- v3.1.0/README	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/README	1969-12-31 19:00:00.000000000 -0500
+--- v3.1.0/README	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/README	1969-12-31 16:00:00.000000000 -0800
 @@ -1,261 +0,0 @@
 -== Welcome to Rails
 -
@@ -348,8 +348,8 @@ diff -Nru v3.1.0/README v4.0.0.beta1/README
 -  subdirectory. If the app has frozen rails, those gems also go here, under
 -  vendor/rails/. This directory is in the load path.
 diff -Nru v3.1.0/README.rdoc v4.0.0.beta1/README.rdoc
---- v3.1.0/README.rdoc	1969-12-31 19:00:00.000000000 -0500
-+++ v4.0.0.beta1/README.rdoc	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/README.rdoc	1969-12-31 16:00:00.000000000 -0800
++++ v4.0.0.beta1/README.rdoc	2014-02-21 20:15:11.000000000 -0800
 @@ -0,0 +1,28 @@
 +== README
 +
@@ -380,16 +380,16 @@ diff -Nru v3.1.0/README.rdoc v4.0.0.beta1/README.rdoc
 +Please feel free to use a different markup language if you do not plan to run
 +<tt>rake doc:app</tt>.
 diff -Nru v3.1.0/Rakefile v4.0.0.beta1/Rakefile
---- v3.1.0/Rakefile	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/Rakefile	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/Rakefile	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/Rakefile	2014-02-21 20:15:11.000000000 -0800
 @@ -1,4 +1,3 @@
 -#!/usr/bin/env rake
  # Add your own tasks in files placed in lib/tasks ending in .rake,
  # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
  
 diff -Nru v3.1.0/app/assets/javascripts/application.js v4.0.0.beta1/app/assets/javascripts/application.js
---- v3.1.0/app/assets/javascripts/application.js	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/app/assets/javascripts/application.js	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/app/assets/javascripts/application.js	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/app/assets/javascripts/application.js	2014-02-21 20:15:11.000000000 -0800
 @@ -1,9 +1,16 @@
 -// This is a manifest file that'll be compiled into including all the files listed below.
 -// Add new JavaScript/Coffee code in separate files in this directory and they'll automatically
@@ -412,8 +412,8 @@ diff -Nru v3.1.0/app/assets/javascripts/application.js v4.0.0.beta1/app/assets/j
 +//= require turbolinks
  //= require_tree .
 diff -Nru v3.1.0/app/assets/stylesheets/application.css v4.0.0.beta1/app/assets/stylesheets/application.css
---- v3.1.0/app/assets/stylesheets/application.css	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/app/assets/stylesheets/application.css	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/app/assets/stylesheets/application.css	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/app/assets/stylesheets/application.css	2014-02-21 20:15:11.000000000 -0800
 @@ -1,7 +1,13 @@
  /*
 - * This is a manifest file that'll automatically include all the stylesheets available in this directory
@@ -435,8 +435,8 @@ diff -Nru v3.1.0/app/assets/stylesheets/application.css v4.0.0.beta1/app/assets/
 + *= require_tree .
 + */
 diff -Nru v3.1.0/app/controllers/application_controller.rb v4.0.0.beta1/app/controllers/application_controller.rb
---- v3.1.0/app/controllers/application_controller.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/app/controllers/application_controller.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/app/controllers/application_controller.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/app/controllers/application_controller.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -1,3 +1,5 @@
  class ApplicationController < ActionController::Base
 -  protect_from_forgery
@@ -445,8 +445,8 @@ diff -Nru v3.1.0/app/controllers/application_controller.rb v4.0.0.beta1/app/cont
 +  protect_from_forgery with: :exception
  end
 diff -Nru v3.1.0/app/views/layouts/application.html.erb v4.0.0.beta1/app/views/layouts/application.html.erb
---- v3.1.0/app/views/layouts/application.html.erb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/app/views/layouts/application.html.erb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/app/views/layouts/application.html.erb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/app/views/layouts/application.html.erb	2014-02-21 20:15:11.000000000 -0800
 @@ -2,8 +2,8 @@
  <html>
  <head>
@@ -459,31 +459,31 @@ diff -Nru v3.1.0/app/views/layouts/application.html.erb v4.0.0.beta1/app/views/l
  </head>
  <body>
 diff -Nru v3.1.0/bin/bundle v4.0.0.beta1/bin/bundle
---- v3.1.0/bin/bundle	1969-12-31 19:00:00.000000000 -0500
-+++ v4.0.0.beta1/bin/bundle	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/bin/bundle	1969-12-31 16:00:00.000000000 -0800
++++ v4.0.0.beta1/bin/bundle	2014-02-21 20:15:11.000000000 -0800
 @@ -0,0 +1,3 @@
 +#!/usr/bin/env ruby
 +ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 +load Gem.bin_path('bundler', 'bundle')
 diff -Nru v3.1.0/bin/rails v4.0.0.beta1/bin/rails
---- v3.1.0/bin/rails	1969-12-31 19:00:00.000000000 -0500
-+++ v4.0.0.beta1/bin/rails	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/bin/rails	1969-12-31 16:00:00.000000000 -0800
++++ v4.0.0.beta1/bin/rails	2014-02-21 20:15:11.000000000 -0800
 @@ -0,0 +1,4 @@
 +#!/usr/bin/env ruby
 +APP_PATH = File.expand_path('../../config/application',  __FILE__)
 +require_relative '../config/boot'
 +require 'rails/commands'
 diff -Nru v3.1.0/bin/rake v4.0.0.beta1/bin/rake
---- v3.1.0/bin/rake	1969-12-31 19:00:00.000000000 -0500
-+++ v4.0.0.beta1/bin/rake	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/bin/rake	1969-12-31 16:00:00.000000000 -0800
++++ v4.0.0.beta1/bin/rake	2014-02-21 20:15:11.000000000 -0800
 @@ -0,0 +1,4 @@
 +#!/usr/bin/env ruby
 +require_relative '../config/boot'
 +require 'rake'
 +Rake.application.run
 diff -Nru v3.1.0/config/application.rb v4.0.0.beta1/config/application.rb
---- v3.1.0/config/application.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/config/application.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/config/application.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/config/application.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -2,12 +2,8 @@
  
  require 'rails/all'
@@ -535,8 +535,8 @@ diff -Nru v3.1.0/config/application.rb v4.0.0.beta1/config/application.rb
    end
  end
 diff -Nru v3.1.0/config/boot.rb v4.0.0.beta1/config/boot.rb
---- v3.1.0/config/boot.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/config/boot.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/config/boot.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/config/boot.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -1,5 +1,3 @@
 -require 'rubygems'
 -
@@ -544,8 +544,8 @@ diff -Nru v3.1.0/config/boot.rb v4.0.0.beta1/config/boot.rb
  ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
  
 diff -Nru v3.1.0/config/environment.rb v4.0.0.beta1/config/environment.rb
---- v3.1.0/config/environment.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/config/environment.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/config/environment.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/config/environment.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -1,5 +1,5 @@
 -# Load the rails application
 +# Load the rails application.
@@ -555,8 +555,8 @@ diff -Nru v3.1.0/config/environment.rb v4.0.0.beta1/config/environment.rb
 +# Initialize the rails application.
  Railsdiff::Application.initialize!
 diff -Nru v3.1.0/config/environments/development.rb v4.0.0.beta1/config/environments/development.rb
---- v3.1.0/config/environments/development.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/config/environments/development.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/config/environments/development.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/config/environments/development.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -1,30 +1,27 @@
  Railsdiff::Application.configure do
 -  # Settings specified here will take precedence over those in config/application.rb
@@ -599,8 +599,8 @@ diff -Nru v3.1.0/config/environments/development.rb v4.0.0.beta1/config/environm
    config.assets.debug = true
  end
 diff -Nru v3.1.0/config/environments/production.rb v4.0.0.beta1/config/environments/production.rb
---- v3.1.0/config/environments/production.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/config/environments/production.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/config/environments/production.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/config/environments/production.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -1,60 +1,80 @@
  Railsdiff::Application.configure do
 -  # Settings specified here will take precedence over those in config/application.rb
@@ -707,8 +707,8 @@ diff -Nru v3.1.0/config/environments/production.rb v4.0.0.beta1/config/environme
 +  config.log_formatter = ::Logger::Formatter.new
  end
 diff -Nru v3.1.0/config/environments/test.rb v4.0.0.beta1/config/environments/test.rb
---- v3.1.0/config/environments/test.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/config/environments/test.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/config/environments/test.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/config/environments/test.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -1,42 +1,36 @@
  Railsdiff::Application.configure do
 -  # Settings specified here will take precedence over those in config/application.rb
@@ -767,16 +767,16 @@ diff -Nru v3.1.0/config/environments/test.rb v4.0.0.beta1/config/environments/te
 -  config.assets.allow_debugging = true
  end
 diff -Nru v3.1.0/config/initializers/filter_parameter_logging.rb v4.0.0.beta1/config/initializers/filter_parameter_logging.rb
---- v3.1.0/config/initializers/filter_parameter_logging.rb	1969-12-31 19:00:00.000000000 -0500
-+++ v4.0.0.beta1/config/initializers/filter_parameter_logging.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/config/initializers/filter_parameter_logging.rb	1969-12-31 16:00:00.000000000 -0800
++++ v4.0.0.beta1/config/initializers/filter_parameter_logging.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -0,0 +1,4 @@
 +# Be sure to restart your server when you modify this file.
 +
 +# Configure sensitive parameters which will be filtered from the log file.
 +Rails.application.config.filter_parameters += [:password]
 diff -Nru v3.1.0/config/initializers/inflections.rb v4.0.0.beta1/config/initializers/inflections.rb
---- v3.1.0/config/initializers/inflections.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/config/initializers/inflections.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/config/initializers/inflections.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/config/initializers/inflections.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -1,10 +1,16 @@
  # Be sure to restart your server when you modify this file.
  
@@ -797,9 +797,25 @@ diff -Nru v3.1.0/config/initializers/inflections.rb v4.0.0.beta1/config/initiali
 +# ActiveSupport::Inflector.inflections(:en) do |inflect|
 +#   inflect.acronym 'RESTful'
 +# end
+diff -Nru v3.1.0/config/initializers/secret_token.rb v4.0.0.beta1/config/initializers/secret_token.rb
+--- v3.1.0/config/initializers/secret_token.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/config/initializers/secret_token.rb	2014-02-21 20:15:11.000000000 -0800
+@@ -2,6 +2,11 @@
+ 
+ # Your secret key for verifying the integrity of signed cookies.
+ # If you change this key, all old signed cookies will become invalid!
++
+ # Make sure the secret is at least 30 characters and all random,
+ # no regular words or you'll be exposed to dictionary attacks.
+-Railsdiff::Application.config.secret_token = 'your-secret-token'
++# You can use `rake secret` to generate a secure secret key.
++
++# Make sure your secret_key_base is kept private
++# if you're sharing your code publicly.
++Railsdiff::Application.config.secret_key_base = 'your-secret-token'
 diff -Nru v3.1.0/config/initializers/session_store.rb v4.0.0.beta1/config/initializers/session_store.rb
---- v3.1.0/config/initializers/session_store.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/config/initializers/session_store.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/config/initializers/session_store.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/config/initializers/session_store.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -1,8 +1,3 @@
  # Be sure to restart your server when you modify this file.
  
@@ -811,8 +827,8 @@ diff -Nru v3.1.0/config/initializers/session_store.rb v4.0.0.beta1/config/initia
 -# Railsdiff::Application.config.session_store :active_record_store
 +Railsdiff::Application.config.session_store :encrypted_cookie_store, key: '_railsdiff_session'
 diff -Nru v3.1.0/config/initializers/wrap_parameters.rb v4.0.0.beta1/config/initializers/wrap_parameters.rb
---- v3.1.0/config/initializers/wrap_parameters.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/config/initializers/wrap_parameters.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/config/initializers/wrap_parameters.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/config/initializers/wrap_parameters.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -1,14 +1,14 @@
  # Be sure to restart your server when you modify this file.
 -#
@@ -835,8 +851,8 @@ diff -Nru v3.1.0/config/initializers/wrap_parameters.rb v4.0.0.beta1/config/init
 +#  self.include_root_in_json = true
 +# end
 diff -Nru v3.1.0/config/locales/en.yml v4.0.0.beta1/config/locales/en.yml
---- v3.1.0/config/locales/en.yml	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/config/locales/en.yml	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/config/locales/en.yml	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/config/locales/en.yml	2014-02-21 20:15:11.000000000 -0800
 @@ -1,5 +1,23 @@
 -# Sample localization file for English. Add more files in this directory for other locales.
 -# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
@@ -864,8 +880,8 @@ diff -Nru v3.1.0/config/locales/en.yml v4.0.0.beta1/config/locales/en.yml
  en:
    hello: "Hello world"
 diff -Nru v3.1.0/config/routes.rb v4.0.0.beta1/config/routes.rb
---- v3.1.0/config/routes.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/config/routes.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/config/routes.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/config/routes.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -1,19 +1,20 @@
  Railsdiff::Application.routes.draw do
 -  # The priority is based upon order of creation:
@@ -938,14 +954,14 @@ diff -Nru v3.1.0/config/routes.rb v4.0.0.beta1/config/routes.rb
 -  # match ':controller(/:action(/:id(.:format)))'
  end
 diff -Nru v3.1.0/doc/README_FOR_APP v4.0.0.beta1/doc/README_FOR_APP
---- v3.1.0/doc/README_FOR_APP	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/doc/README_FOR_APP	1969-12-31 19:00:00.000000000 -0500
+--- v3.1.0/doc/README_FOR_APP	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/doc/README_FOR_APP	1969-12-31 16:00:00.000000000 -0800
 @@ -1,2 +0,0 @@
 -Use this README file to introduce your application and point to useful places in the API for learning more.
 -Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
 diff -Nru v3.1.0/public/404.html v4.0.0.beta1/public/404.html
---- v3.1.0/public/404.html	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/public/404.html	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/public/404.html	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/public/404.html	2014-02-21 20:15:11.000000000 -0800
 @@ -2,7 +2,7 @@
  <html>
  <head>
@@ -963,8 +979,8 @@ diff -Nru v3.1.0/public/404.html v4.0.0.beta1/public/404.html
  </body>
  </html>
 diff -Nru v3.1.0/public/422.html v4.0.0.beta1/public/422.html
---- v3.1.0/public/422.html	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/public/422.html	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/public/422.html	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/public/422.html	2014-02-21 20:15:11.000000000 -0800
 @@ -2,7 +2,7 @@
  <html>
  <head>
@@ -975,8 +991,8 @@ diff -Nru v3.1.0/public/422.html v4.0.0.beta1/public/422.html
      div.dialog {
        width: 25em;
 diff -Nru v3.1.0/public/500.html v4.0.0.beta1/public/500.html
---- v3.1.0/public/500.html	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/public/500.html	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/public/500.html	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/public/500.html	2014-02-21 20:15:11.000000000 -0800
 @@ -2,7 +2,7 @@
  <html>
  <head>
@@ -996,8 +1012,8 @@ diff -Nru v3.1.0/public/500.html v4.0.0.beta1/public/500.html
  </body>
  </html>
 diff -Nru v3.1.0/public/index.html v4.0.0.beta1/public/index.html
---- v3.1.0/public/index.html	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/public/index.html	1969-12-31 19:00:00.000000000 -0500
+--- v3.1.0/public/index.html	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/public/index.html	1969-12-31 16:00:00.000000000 -0800
 @@ -1,241 +0,0 @@
 -<!DOCTYPE html>
 -<html>
@@ -1241,8 +1257,8 @@ diff -Nru v3.1.0/public/index.html v4.0.0.beta1/public/index.html
 -  </body>
 -</html>
 diff -Nru v3.1.0/public/robots.txt v4.0.0.beta1/public/robots.txt
---- v3.1.0/public/robots.txt	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/public/robots.txt	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/public/robots.txt	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/public/robots.txt	2014-02-21 20:15:11.000000000 -0800
 @@ -1,5 +1,5 @@
  # See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
  #
@@ -1251,8 +1267,8 @@ diff -Nru v3.1.0/public/robots.txt v4.0.0.beta1/public/robots.txt
 +# User-agent: *
  # Disallow: /
 diff -Nru v3.1.0/script/rails v4.0.0.beta1/script/rails
---- v3.1.0/script/rails	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/script/rails	1969-12-31 19:00:00.000000000 -0500
+--- v3.1.0/script/rails	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/script/rails	1969-12-31 16:00:00.000000000 -0800
 @@ -1,6 +0,0 @@
 -#!/usr/bin/env ruby
 -# This command will automatically be run when you run "rails" with Rails 3 gems installed from the root of your application.
@@ -1261,8 +1277,8 @@ diff -Nru v3.1.0/script/rails v4.0.0.beta1/script/rails
 -require File.expand_path('../../config/boot',  __FILE__)
 -require 'rails/commands'
 diff -Nru v3.1.0/test/performance/browsing_test.rb v4.0.0.beta1/test/performance/browsing_test.rb
---- v3.1.0/test/performance/browsing_test.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/test/performance/browsing_test.rb	1969-12-31 19:00:00.000000000 -0500
+--- v3.1.0/test/performance/browsing_test.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/test/performance/browsing_test.rb	1969-12-31 16:00:00.000000000 -0800
 @@ -1,12 +0,0 @@
 -require 'test_helper'
 -require 'rails/performance_test_help'
@@ -1277,8 +1293,8 @@ diff -Nru v3.1.0/test/performance/browsing_test.rb v4.0.0.beta1/test/performance
 -  end
 -end
 diff -Nru v3.1.0/test/test_helper.rb v4.0.0.beta1/test/test_helper.rb
---- v3.1.0/test/test_helper.rb	2012-08-01 09:42:18.000000000 -0400
-+++ v4.0.0.beta1/test/test_helper.rb	2013-02-25 20:00:40.000000000 -0500
+--- v3.1.0/test/test_helper.rb	2014-02-21 19:35:46.000000000 -0800
++++ v4.0.0.beta1/test/test_helper.rb	2014-02-21 20:15:11.000000000 -0800
 @@ -3,7 +3,9 @@
  require 'rails/test_help'
  

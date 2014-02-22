@@ -36,6 +36,11 @@
 }
 ,
 {
+"filepath": "config/secrets.yml",
+"diff": "@@ -16,5 +16,7 @@\n test:\n   secret_key_base: your-secret-token\n \n+# Do not keep production secrets in the repository,\n+# instead read values from the environment.\n production:\n-  secret_key_base: your-secret-token\n+  secret_key_base: <%= ENV[\"SECRET_KEY_BASE\"] %>\n"
+}
+,
+{
 "filepath": "test/test_helper.rb",
 "diff": "@@ -1,10 +1,8 @@\n-ENV[\"RAILS_ENV\"] ||= \"test\"\n+ENV['RAILS_ENV'] ||= 'test'\n require File.expand_path('../../config/environment', __FILE__)\n require 'rails/test_help'\n \n class ActiveSupport::TestCase\n-  ActiveRecord::Migration.check_pending!\n-\n   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.\n   #\n   # Note: You'll currently still have to declare fixtures explicitly in integration tests\n"
 }

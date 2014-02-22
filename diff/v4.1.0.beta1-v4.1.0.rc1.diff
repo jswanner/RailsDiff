@@ -1,6 +1,6 @@
 diff -Nru v4.1.0.beta1/Gemfile v4.1.0.rc1/Gemfile
---- v4.1.0.beta1/Gemfile	2013-12-17 17:50:38.000000000 -0800
-+++ v4.1.0.rc1/Gemfile	2014-02-18 13:14:32.000000000 -0800
+--- v4.1.0.beta1/Gemfile	2014-02-21 19:33:25.000000000 -0800
++++ v4.1.0.rc1/Gemfile	2014-02-21 21:12:05.000000000 -0800
 @@ -2,36 +2,28 @@
  
  
@@ -44,8 +44,8 @@ diff -Nru v4.1.0.beta1/Gemfile v4.1.0.rc1/Gemfile
  
  # Use ActiveModel has_secure_password
 diff -Nru v4.1.0.beta1/app/views/layouts/application.html.erb v4.1.0.rc1/app/views/layouts/application.html.erb
---- v4.1.0.beta1/app/views/layouts/application.html.erb	2013-12-17 17:50:38.000000000 -0800
-+++ v4.1.0.rc1/app/views/layouts/application.html.erb	2014-02-18 13:14:32.000000000 -0800
+--- v4.1.0.beta1/app/views/layouts/application.html.erb	2014-02-21 19:33:25.000000000 -0800
++++ v4.1.0.rc1/app/views/layouts/application.html.erb	2014-02-21 21:12:05.000000000 -0800
 @@ -2,8 +2,8 @@
  <html>
  <head>
@@ -58,8 +58,8 @@ diff -Nru v4.1.0.beta1/app/views/layouts/application.html.erb v4.1.0.rc1/app/vie
  </head>
  <body>
 diff -Nru v4.1.0.beta1/config/database.yml v4.1.0.rc1/config/database.yml
---- v4.1.0.beta1/config/database.yml	2013-12-17 17:50:38.000000000 -0800
-+++ v4.1.0.rc1/config/database.yml	2014-02-18 13:14:32.000000000 -0800
+--- v4.1.0.beta1/config/database.yml	2014-02-21 19:33:25.000000000 -0800
++++ v4.1.0.rc1/config/database.yml	2014-02-21 21:12:05.000000000 -0800
 @@ -20,6 +20,11 @@
    <<: *default
    database: db/test.sqlite3
@@ -75,8 +75,8 @@ diff -Nru v4.1.0.beta1/config/database.yml v4.1.0.rc1/config/database.yml
 -  database: db/production.sqlite3
 +  url: <%= ENV["DATABASE_URL"] %>
 diff -Nru v4.1.0.beta1/config/environments/development.rb v4.1.0.rc1/config/environments/development.rb
---- v4.1.0.beta1/config/environments/development.rb	2013-12-17 17:50:38.000000000 -0800
-+++ v4.1.0.rc1/config/environments/development.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.1.0.beta1/config/environments/development.rb	2014-02-21 19:33:25.000000000 -0800
++++ v4.1.0.rc1/config/environments/development.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -26,4 +26,12 @@
    # This option may cause significant delays in view rendering with a large
    # number of complex assets.
@@ -91,8 +91,8 @@ diff -Nru v4.1.0.beta1/config/environments/development.rb v4.1.0.rc1/config/envi
 +  # config.action_view.raise_on_missing_translations = true
  end
 diff -Nru v4.1.0.beta1/config/environments/production.rb v4.1.0.rc1/config/environments/production.rb
---- v4.1.0.beta1/config/environments/production.rb	2013-12-17 17:50:38.000000000 -0800
-+++ v4.1.0.rc1/config/environments/production.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.1.0.beta1/config/environments/production.rb	2014-02-21 19:33:25.000000000 -0800
++++ v4.1.0.rc1/config/environments/production.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -5,7 +5,7 @@
    config.cache_classes = true
  
@@ -120,8 +120,8 @@ diff -Nru v4.1.0.beta1/config/environments/production.rb v4.1.0.rc1/config/envir
 +  config.active_record.dump_schema_after_migration = false
  end
 diff -Nru v4.1.0.beta1/config/environments/test.rb v4.1.0.rc1/config/environments/test.rb
---- v4.1.0.beta1/config/environments/test.rb	2013-12-17 17:50:38.000000000 -0800
-+++ v4.1.0.rc1/config/environments/test.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.1.0.beta1/config/environments/test.rb	2014-02-21 19:33:25.000000000 -0800
++++ v4.1.0.rc1/config/environments/test.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -14,7 +14,7 @@
  
    # Configure static asset server for tests with Cache-Control for performance.
@@ -141,15 +141,27 @@ diff -Nru v4.1.0.beta1/config/environments/test.rb v4.1.0.rc1/config/environment
  end
 diff -Nru v4.1.0.beta1/config/initializers/cookies_serializer.rb v4.1.0.rc1/config/initializers/cookies_serializer.rb
 --- v4.1.0.beta1/config/initializers/cookies_serializer.rb	1969-12-31 16:00:00.000000000 -0800
-+++ v4.1.0.rc1/config/initializers/cookies_serializer.rb	2014-02-18 13:14:32.000000000 -0800
++++ v4.1.0.rc1/config/initializers/cookies_serializer.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -0,0 +1,3 @@
 +# Be sure to restart your server when you modify this file.
 +
 +Rails.application.config.action_dispatch.cookies_serializer = :json
 \ No newline at end of file
+diff -Nru v4.1.0.beta1/config/secrets.yml v4.1.0.rc1/config/secrets.yml
+--- v4.1.0.beta1/config/secrets.yml	2014-02-21 19:33:25.000000000 -0800
++++ v4.1.0.rc1/config/secrets.yml	2014-02-21 21:12:05.000000000 -0800
+@@ -16,5 +16,7 @@
+ test:
+   secret_key_base: your-secret-token
+ 
++# Do not keep production secrets in the repository,
++# instead read values from the environment.
+ production:
+-  secret_key_base: your-secret-token
++  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 diff -Nru v4.1.0.beta1/test/test_helper.rb v4.1.0.rc1/test/test_helper.rb
---- v4.1.0.beta1/test/test_helper.rb	2013-12-17 17:50:38.000000000 -0800
-+++ v4.1.0.rc1/test/test_helper.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.1.0.beta1/test/test_helper.rb	2014-02-21 19:33:25.000000000 -0800
++++ v4.1.0.rc1/test/test_helper.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -1,10 +1,8 @@
 -ENV["RAILS_ENV"] ||= "test"
 +ENV['RAILS_ENV'] ||= 'test'

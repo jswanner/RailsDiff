@@ -1,6 +1,6 @@
 diff -Nru v4.0.3/Gemfile v4.1.0.rc1/Gemfile
---- v4.0.3/Gemfile	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/Gemfile	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/Gemfile	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/Gemfile	2014-02-21 21:12:05.000000000 -0800
 @@ -1,36 +1,30 @@
  source 'https://rubygems.org'
  
@@ -58,8 +58,8 @@ diff -Nru v4.0.3/Gemfile v4.1.0.rc1/Gemfile
  # gem 'debugger', group: [:development, :test]
 +
 diff -Nru v4.0.3/Rakefile v4.1.0.rc1/Rakefile
---- v4.0.3/Rakefile	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/Rakefile	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/Rakefile	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/Rakefile	2014-02-21 21:12:05.000000000 -0800
 @@ -3,4 +3,4 @@
  
  require File.expand_path('../config/application', __FILE__)
@@ -67,8 +67,8 @@ diff -Nru v4.0.3/Rakefile v4.1.0.rc1/Rakefile
 -Railsdiff::Application.load_tasks
 +Rails.application.load_tasks
 diff -Nru v4.0.3/app/assets/stylesheets/application.css v4.1.0.rc1/app/assets/stylesheets/application.css
---- v4.0.3/app/assets/stylesheets/application.css	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/app/assets/stylesheets/application.css	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/app/assets/stylesheets/application.css	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/app/assets/stylesheets/application.css	2014-02-21 21:12:05.000000000 -0800
 @@ -5,9 +5,11 @@
   * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
   * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
@@ -85,8 +85,8 @@ diff -Nru v4.0.3/app/assets/stylesheets/application.css v4.1.0.rc1/app/assets/st
 + *= require_self
   */
 diff -Nru v4.0.3/app/views/layouts/application.html.erb v4.1.0.rc1/app/views/layouts/application.html.erb
---- v4.0.3/app/views/layouts/application.html.erb	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/app/views/layouts/application.html.erb	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/app/views/layouts/application.html.erb	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/app/views/layouts/application.html.erb	2014-02-21 21:12:05.000000000 -0800
 @@ -2,8 +2,8 @@
  <html>
  <head>
@@ -99,8 +99,8 @@ diff -Nru v4.0.3/app/views/layouts/application.html.erb v4.1.0.rc1/app/views/lay
  </head>
  <body>
 diff -Nru v4.0.3/config/application.rb v4.1.0.rc1/config/application.rb
---- v4.0.3/config/application.rb	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/config/application.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/config/application.rb	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/config/application.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -4,7 +4,7 @@
  
  # Require the gems listed in Gemfile, including any gems
@@ -111,8 +111,8 @@ diff -Nru v4.0.3/config/application.rb v4.1.0.rc1/config/application.rb
  module Railsdiff
    class Application < Rails::Application
 diff -Nru v4.0.3/config/boot.rb v4.1.0.rc1/config/boot.rb
---- v4.0.3/config/boot.rb	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/config/boot.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/config/boot.rb	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/config/boot.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -1,4 +1,4 @@
  # Set up gems listed in the Gemfile.
  ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
@@ -120,8 +120,8 @@ diff -Nru v4.0.3/config/boot.rb v4.1.0.rc1/config/boot.rb
 -require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 +require 'bundler/setup' if File.exist?(ENV['BUNDLE_GEMFILE'])
 diff -Nru v4.0.3/config/database.yml v4.1.0.rc1/config/database.yml
---- v4.0.3/config/database.yml	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/config/database.yml	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/config/database.yml	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/config/database.yml	2014-02-21 21:12:05.000000000 -0800
 @@ -3,23 +3,28 @@
  #
  #   Ensure the SQLite 3 gem is defined in your Gemfile
@@ -161,8 +161,8 @@ diff -Nru v4.0.3/config/database.yml v4.1.0.rc1/config/database.yml
 -  timeout: 5000
 +  url: <%= ENV["DATABASE_URL"] %>
 diff -Nru v4.0.3/config/environment.rb v4.1.0.rc1/config/environment.rb
---- v4.0.3/config/environment.rb	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/config/environment.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/config/environment.rb	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/config/environment.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -2,4 +2,4 @@
  require File.expand_path('../application', __FILE__)
  
@@ -170,8 +170,8 @@ diff -Nru v4.0.3/config/environment.rb v4.1.0.rc1/config/environment.rb
 -Railsdiff::Application.initialize!
 +Rails.application.initialize!
 diff -Nru v4.0.3/config/environments/development.rb v4.1.0.rc1/config/environments/development.rb
---- v4.0.3/config/environments/development.rb	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/config/environments/development.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/config/environments/development.rb	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/config/environments/development.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -1,4 +1,4 @@
 -Railsdiff::Application.configure do
 +Rails.application.configure do
@@ -200,8 +200,8 @@ diff -Nru v4.0.3/config/environments/development.rb v4.1.0.rc1/config/environmen
 +  # config.action_view.raise_on_missing_translations = true
  end
 diff -Nru v4.0.3/config/environments/production.rb v4.1.0.rc1/config/environments/production.rb
---- v4.0.3/config/environments/production.rb	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/config/environments/production.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/config/environments/production.rb	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/config/environments/production.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -1,11 +1,11 @@
 -Railsdiff::Application.configure do
 +Rails.application.configure do
@@ -234,8 +234,8 @@ diff -Nru v4.0.3/config/environments/production.rb v4.1.0.rc1/config/environment
 +  config.active_record.dump_schema_after_migration = false
  end
 diff -Nru v4.0.3/config/environments/test.rb v4.1.0.rc1/config/environments/test.rb
---- v4.0.3/config/environments/test.rb	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/config/environments/test.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/config/environments/test.rb	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/config/environments/test.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -1,4 +1,4 @@
 -Railsdiff::Application.configure do
 +Rails.application.configure do
@@ -261,32 +261,74 @@ diff -Nru v4.0.3/config/environments/test.rb v4.1.0.rc1/config/environments/test
  end
 diff -Nru v4.0.3/config/initializers/cookies_serializer.rb v4.1.0.rc1/config/initializers/cookies_serializer.rb
 --- v4.0.3/config/initializers/cookies_serializer.rb	1969-12-31 16:00:00.000000000 -0800
-+++ v4.1.0.rc1/config/initializers/cookies_serializer.rb	2014-02-18 13:14:32.000000000 -0800
++++ v4.1.0.rc1/config/initializers/cookies_serializer.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -0,0 +1,3 @@
 +# Be sure to restart your server when you modify this file.
 +
 +Rails.application.config.action_dispatch.cookies_serializer = :json
 \ No newline at end of file
+diff -Nru v4.0.3/config/initializers/secret_token.rb v4.1.0.rc1/config/initializers/secret_token.rb
+--- v4.0.3/config/initializers/secret_token.rb	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/config/initializers/secret_token.rb	1969-12-31 16:00:00.000000000 -0800
+@@ -1,12 +0,0 @@
+-# Be sure to restart your server when you modify this file.
+-
+-# Your secret key is used for verifying the integrity of signed cookies.
+-# If you change this key, all old signed cookies will become invalid!
+-
+-# Make sure the secret is at least 30 characters and all random,
+-# no regular words or you'll be exposed to dictionary attacks.
+-# You can use `rake secret` to generate a secure secret key.
+-
+-# Make sure your secret_key_base is kept private
+-# if you're sharing your code publicly.
+-Railsdiff::Application.config.secret_key_base = 'your-secret-token'
 diff -Nru v4.0.3/config/initializers/session_store.rb v4.1.0.rc1/config/initializers/session_store.rb
---- v4.0.3/config/initializers/session_store.rb	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/config/initializers/session_store.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/config/initializers/session_store.rb	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/config/initializers/session_store.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -1,3 +1,3 @@
  # Be sure to restart your server when you modify this file.
  
 -Railsdiff::Application.config.session_store :cookie_store, key: '_railsdiff_session'
 +Rails.application.config.session_store :cookie_store, key: '_railsdiff_session'
 diff -Nru v4.0.3/config/routes.rb v4.1.0.rc1/config/routes.rb
---- v4.0.3/config/routes.rb	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/config/routes.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/config/routes.rb	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/config/routes.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -1,4 +1,4 @@
 -Railsdiff::Application.routes.draw do
 +Rails.application.routes.draw do
    # The priority is based upon order of creation: first created -> highest priority.
    # See how all your routes lay out with "rake routes".
  
+diff -Nru v4.0.3/config/secrets.yml v4.1.0.rc1/config/secrets.yml
+--- v4.0.3/config/secrets.yml	1969-12-31 16:00:00.000000000 -0800
++++ v4.1.0.rc1/config/secrets.yml	2014-02-21 21:12:05.000000000 -0800
+@@ -0,0 +1,22 @@
++# Be sure to restart your server when you modify this file.
++
++# Your secret key is used for verifying the integrity of signed cookies.
++# If you change this key, all old signed cookies will become invalid!
++
++# Make sure the secret is at least 30 characters and all random,
++# no regular words or you'll be exposed to dictionary attacks.
++# You can use `rake secret` to generate a secure secret key.
++
++# Make sure the secrets in this file are kept private
++# if you're sharing your code publicly.
++
++development:
++  secret_key_base: your-secret-token
++
++test:
++  secret_key_base: your-secret-token
++
++# Do not keep production secrets in the repository,
++# instead read values from the environment.
++production:
++  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 diff -Nru v4.0.3/public/404.html v4.1.0.rc1/public/404.html
---- v4.0.3/public/404.html	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/public/404.html	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/public/404.html	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/public/404.html	2014-02-21 21:12:05.000000000 -0800
 @@ -2,17 +2,23 @@
  <html>
  <head>
@@ -364,8 +406,8 @@ diff -Nru v4.0.3/public/404.html v4.1.0.rc1/public/404.html
  </body>
  </html>
 diff -Nru v4.0.3/public/422.html v4.1.0.rc1/public/422.html
---- v4.0.3/public/422.html	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/public/422.html	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/public/422.html	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/public/422.html	2014-02-21 21:12:05.000000000 -0800
 @@ -2,17 +2,23 @@
  <html>
  <head>
@@ -443,8 +485,8 @@ diff -Nru v4.0.3/public/422.html v4.1.0.rc1/public/422.html
  </body>
  </html>
 diff -Nru v4.0.3/public/500.html v4.1.0.rc1/public/500.html
---- v4.0.3/public/500.html	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/public/500.html	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/public/500.html	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/public/500.html	2014-02-21 21:12:05.000000000 -0800
 @@ -2,17 +2,23 @@
  <html>
  <head>
@@ -520,8 +562,8 @@ diff -Nru v4.0.3/public/500.html v4.1.0.rc1/public/500.html
  </body>
  </html>
 diff -Nru v4.0.3/public/robots.txt v4.1.0.rc1/public/robots.txt
---- v4.0.3/public/robots.txt	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/public/robots.txt	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/public/robots.txt	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/public/robots.txt	2014-02-21 21:12:05.000000000 -0800
 @@ -1,4 +1,4 @@
 -# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
 +# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
@@ -529,8 +571,8 @@ diff -Nru v4.0.3/public/robots.txt v4.1.0.rc1/public/robots.txt
  # To ban all spiders from the entire site uncomment the next two lines:
  # User-agent: *
 diff -Nru v4.0.3/test/test_helper.rb v4.1.0.rc1/test/test_helper.rb
---- v4.0.3/test/test_helper.rb	2014-02-18 11:23:28.000000000 -0800
-+++ v4.1.0.rc1/test/test_helper.rb	2014-02-18 13:14:32.000000000 -0800
+--- v4.0.3/test/test_helper.rb	2014-02-21 19:39:50.000000000 -0800
++++ v4.1.0.rc1/test/test_helper.rb	2014-02-21 21:12:05.000000000 -0800
 @@ -1,10 +1,8 @@
 -ENV["RAILS_ENV"] ||= "test"
 +ENV['RAILS_ENV'] ||= 'test'

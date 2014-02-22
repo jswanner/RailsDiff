@@ -167,6 +167,17 @@
 <span class="gi">+Rails.application.config.action_dispatch.cookies_serializer = :json</span>
 \ No newline at end of file
 </pre></div>
+  <h2>config/secrets.yml</h2>
+  <div class="highlight"><pre><span class="gu">@@ -16,5 +16,7 @@</span>
+ test:
+   secret_key_base: your-secret-token
+ 
+<span class="gi">+# Do not keep production secrets in the repository,</span>
+<span class="gi">+# instead read values from the environment.</span>
+ production:
+<span class="gd">-  secret_key_base: your-secret-token</span>
+<span class="gi">+  secret_key_base: &lt;%= ENV[&quot;SECRET_KEY_BASE&quot;] %&gt;</span>
+</pre></div>
   <h2>test/test_helper.rb</h2>
   <div class="highlight"><pre><span class="gu">@@ -1,10 +1,8 @@</span>
 <span class="gd">-ENV[&quot;RAILS_ENV&quot;] ||= &quot;test&quot;</span>
