@@ -54,7 +54,7 @@ file 'json/versions.json' => ['json', 'update_rails_repo'] do |t|
 end
 
 desc 'Generate sitemap.txt'
-file 'sitemap.txt' do |t|
+file 'sitemap.txt' => 'update_rails_repo' do |t|
   base = 'http://railsdiff.org'
   paths = Dir['html/*'].unshift ''
   urls = paths.map { |path| [base, path].join '/' }
