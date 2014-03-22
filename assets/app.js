@@ -41,13 +41,15 @@ Zepto(function ($) {
     $.each(data, function (_, version) {
       var option = ['<option name="v', version, '" value="v', version, '">', version, '</option>'].join('');
 
-      sources.push(option);
+      sources.unshift(option);
       targets.unshift(option);
     });
 
     forms.each(function () {
       $(this.source).append(sources.join(''));
       $(this.target).append(targets.join(''));
+
+      this.source[1].selected = true;
 
       if (pathMatch) {
         this.source.namedItem(pathMatch[1]).selected = true;
