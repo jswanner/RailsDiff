@@ -120,10 +120,10 @@ rule(/tmp\/generated\/.*/ => ['tmp/generated']) do |t|
 end
 
 directory 'diff'
-rule(/diff\/.*\.diff/ => ['diff']) do |t|
+rule(/diff\/.*\/patch\.diff/ => ['diff']) do |t|
   puts 'Generating: %s' % t.name
 
-  match = t.name.match(/diff\/(?<s>[^-]+)-(?<t>.*?).diff/)
+  match = t.name.match(/diff\/(?<s>[^\/]+)\/(?<t>.*?)\/patch\.diff/)
   source = match['s']
   target = match['t']
   Rake::Task["tmp/generated/#{source}"].invoke
