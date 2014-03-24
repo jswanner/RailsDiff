@@ -4,7 +4,7 @@ var Zepto=function(){function E(a){return a==null?String(a):y[z.call(a)]||"objec
 Zepto(function ($) {
   var formHandler,
       forms = $('form'),
-      pathMatch = this.location.pathname.match(/^\/html\/([^-]+)-(.+).html/),
+      pathMatch = this.location.pathname.match(/^\/diff\/([^\/]+)\/([^\/]+)/),
       switchHandler,
       versionsDataHandler;
 
@@ -13,7 +13,7 @@ Zepto(function ($) {
         sourceVer = source.options[source.selectedIndex].value,
         target    = this.target,
         targetVer = target.options[target.selectedIndex].value,
-        href      = ['/html/', sourceVer, '-', targetVer, '.html'].join('');
+        href      = ['/diff/', sourceVer, '/', targetVer, '/'].join('');
     window.location.pathname = href;
     return false;
   };
