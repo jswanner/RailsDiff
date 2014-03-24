@@ -17,7 +17,6 @@ task 'generate' => 'update_rails_repo' do |t|
   while tags.any?
     tags.each do |tag|
       Rake::Task["diff/#{tag}/#{tail}/index.html"].invoke
-      Rake::Task["json/#{tag}-#{tail}.json"].invoke
     end
     tail = tags.pop
   end
