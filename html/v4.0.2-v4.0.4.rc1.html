@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails v4.0.2 - v4.0.4.rc1 diff - RailsDiff</title>
+    <title>
+      RailsDiff
+    </title>
+    <meta content='0; url=/diff/v4.0.2/v4.0.4.rc1/' http-equiv='refresh' />
     <link href='/assets/pygment_trac.css' rel='stylesheet' />
     <link href='/assets/app.css' rel='stylesheet' />
   </head>
@@ -24,55 +27,11 @@
       </form>
     </header>
     <div class='content'>
-      <div class='diff'>
-  <h2>Gemfile</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,7 +1,7 @@</span>
- source &#39;https://rubygems.org&#39;
- 
- # Bundle edge Rails instead: gem &#39;rails&#39;, github: &#39;rails/rails&#39;
-<span class="gd">-gem &#39;rails&#39;, &#39;4.0.2&#39;</span>
-<span class="gi">+gem &#39;rails&#39;, &#39;4.0.4.rc1&#39;</span>
- 
- # Use sqlite3 as the database for Active Record
- gem &#39;sqlite3&#39;
-<span class="gu">@@ -33,7 +33,7 @@</span>
- end
- 
- # Use ActiveModel has_secure_password
-<span class="gd">-# gem &#39;bcrypt-ruby&#39;, &#39;~&gt; 3.1.2&#39;</span>
-<span class="gi">+# gem &#39;bcrypt&#39;, &#39;~&gt; 3.1.7&#39;</span>
- 
- # Use unicorn as the app server
- # gem &#39;unicorn&#39;
-</pre></div>
-  <h2>config/application.rb</h2>
-  <div class="highlight"><pre><span class="gu">@@ -4,7 +4,7 @@</span>
- 
- # Require the gems listed in Gemfile, including any gems
- # you&#39;ve limited to :test, :development, or :production.
-<span class="gd">-Bundler.require(:default, Rails.env)</span>
-<span class="gi">+Bundler.require(*Rails.groups)</span>
- 
- module Railsdiff
-   class Application &lt; Rails::Application
-</pre></div>
-  <h2>config/boot.rb</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
- # Set up gems listed in the Gemfile.
- ENV[&#39;BUNDLE_GEMFILE&#39;] ||= File.expand_path(&#39;../../Gemfile&#39;, __FILE__)
- 
-<span class="gd">-require &#39;bundler/setup&#39; if File.exists?(ENV[&#39;BUNDLE_GEMFILE&#39;])</span>
-<span class="gi">+require &#39;bundler/setup&#39; if File.exist?(ENV[&#39;BUNDLE_GEMFILE&#39;])</span>
-</pre></div>
-  <h2>public/robots.txt</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
-<span class="gd">-# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file</span>
-<span class="gi">+# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file</span>
- #
- # To ban all spiders from the entire site uncomment the next two lines:
- # User-agent: *
-</pre></div>
-</div>
+      You are being
+      <a href='/diff/v4.0.2/v4.0.4.rc1/'>
+        redirected
+      </a>
+      .
     </div>
     <a href='https://github.com/jswanner/RailsDiff'>
       <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />

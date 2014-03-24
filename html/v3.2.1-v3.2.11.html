@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails v3.2.1 - v3.2.11 diff - RailsDiff</title>
+    <title>
+      RailsDiff
+    </title>
+    <meta content='0; url=/diff/v3.2.1/v3.2.11/' http-equiv='refresh' />
     <link href='/assets/pygment_trac.css' rel='stylesheet' />
     <link href='/assets/app.css' rel='stylesheet' />
   </head>
@@ -24,81 +27,11 @@
       </form>
     </header>
     <div class='content'>
-      <div class='diff'>
-  <h2>Gemfile</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,6 +1,6 @@</span>
- source &#39;https://rubygems.org&#39;
- 
-<span class="gd">-gem &#39;rails&#39;, &#39;3.2.1&#39;</span>
-<span class="gi">+gem &#39;rails&#39;, &#39;3.2.11&#39;</span>
- 
- # Bundle edge Rails instead:
- # gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;
-<span class="gu">@@ -15,7 +15,7 @@</span>
-   gem &#39;coffee-rails&#39;, &#39;~&gt; 3.2.1&#39;
- 
-   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-<span class="gd">-  # gem &#39;therubyracer&#39;</span>
-<span class="gi">+  # gem &#39;therubyracer&#39;, :platforms =&gt; :ruby</span>
- 
-   gem &#39;uglifier&#39;, &#39;&gt;= 1.0.3&#39;
- end
-<span class="gu">@@ -28,11 +28,11 @@</span>
- # To use Jbuilder templates for JSON
- # gem &#39;jbuilder&#39;
- 
-<span class="gd">-# Use unicorn as the web server</span>
-<span class="gi">+# Use unicorn as the app server</span>
- # gem &#39;unicorn&#39;
- 
- # Deploy with Capistrano
- # gem &#39;capistrano&#39;
- 
- # To use debugger
-<span class="gd">-# gem &#39;ruby-debug19&#39;, :require =&gt; &#39;ruby-debug&#39;</span>
-<span class="gi">+# gem &#39;debugger&#39;</span>
-</pre></div>
-  <h2>app/assets/stylesheets/application.css</h2>
-  <div class="highlight"><pre><span class="gu">@@ -10,4 +10,4 @@</span>
-  *
-  *= require_self
-  *= require_tree .
-<span class="gd">-*/</span>
-<span class="gi">+ */</span>
-</pre></div>
-  <h2>config/application.rb</h2>
-  <div class="highlight"><pre><span class="gu">@@ -39,6 +39,9 @@</span>
-     # Configure sensitive parameters which will be filtered from the log file.
-     config.filter_parameters += [:password]
- 
-<span class="gi">+    # Enable escaping HTML in JSON.</span>
-<span class="gi">+    config.active_support.escape_html_entities_in_json = true</span>
-<span class="gi">+</span>
-     # Use SQL instead of Active Record&#39;s schema dumper when creating the database.
-     # This is necessary if your schema can&#39;t be completely dumped by the schema dumper,
-     # like if you have constraints or database-specific column types
-<span class="gu">@@ -48,7 +51,7 @@</span>
-     # This will create an empty whitelist of attributes available for mass-assignment for all models
-     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
-     # parameters by using an attr_accessible or attr_protected declaration.
-<span class="gd">-    # config.active_record.whitelist_attributes = true</span>
-<span class="gi">+    config.active_record.whitelist_attributes = true</span>
- 
-     # Enable the asset pipeline
-     config.assets.enabled = true
-</pre></div>
-  <h2>config/environments/production.rb</h2>
-  <div class="highlight"><pre><span class="gu">@@ -20,7 +20,7 @@</span>
-   # Generate digests for assets URLs
-   config.assets.digest = true
- 
-<span class="gd">-  # Defaults to Rails.root.join(&quot;public/assets&quot;)</span>
-<span class="gi">+  # Defaults to nil and saved in location specified by config.assets.prefix</span>
-   # config.assets.manifest = YOUR_PATH
- 
-   # Specifies the header that your server uses for sending files
-</pre></div>
-</div>
+      You are being
+      <a href='/diff/v3.2.1/v3.2.11/'>
+        redirected
+      </a>
+      .
     </div>
     <a href='https://github.com/jswanner/RailsDiff'>
       <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v3.1.2 - v3.1.5 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet' />
+    <link href='/assets/app.css' rel='stylesheet' />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png' /></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff' />
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+  <h2>Gemfile</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,6 +1,6 @@</span>
+ source &#39;http://rubygems.org&#39;
+ 
+<span class="gd">-gem &#39;rails&#39;, &#39;3.1.2&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.1.5&#39;</span>
+ 
+ # Bundle edge Rails instead:
+ # gem &#39;rails&#39;,     :git =&gt; &#39;git://github.com/rails/rails.git&#39;
+<span class="gu">@@ -11,8 +11,12 @@</span>
+ # Gems used only for assets and not required
+ # in production environments by default.
+ group :assets do
+<span class="gd">-  gem &#39;sass-rails&#39;,   &#39;~&gt; 3.1.5.rc.2&#39;</span>
+<span class="gi">+  gem &#39;sass-rails&#39;,   &#39;~&gt; 3.1.5&#39;</span>
+   gem &#39;coffee-rails&#39;, &#39;~&gt; 3.1.1&#39;
+<span class="gi">+</span>
+<span class="gi">+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes</span>
+<span class="gi">+  # gem &#39;therubyracer&#39;</span>
+<span class="gi">+</span>
+   gem &#39;uglifier&#39;, &#39;&gt;= 1.0.3&#39;
+ end
+ 
+</pre></div>
+</div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />
+    </a>
+    <script src='/assets/app.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7325596-4']);
+        _gaq.push(['_setSiteSpeedSampleRate', 100]);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+  </body>
+</html>

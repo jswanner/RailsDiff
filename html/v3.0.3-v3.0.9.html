@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails v3.0.3 - v3.0.9 diff - RailsDiff</title>
+    <title>
+      RailsDiff
+    </title>
+    <meta content='0; url=/diff/v3.0.3/v3.0.9/' http-equiv='refresh' />
     <link href='/assets/pygment_trac.css' rel='stylesheet' />
     <link href='/assets/app.css' rel='stylesheet' />
   </head>
@@ -24,92 +27,11 @@
       </form>
     </header>
     <div class='content'>
-      <div class='diff'>
-  <h2>.gitignore</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
- .bundle
- db/*.sqlite3
- log/*.log
-<span class="gd">-tmp/**/*</span>
-<span class="gi">+tmp/</span>
-</pre></div>
-  <h2>Gemfile</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,11 +1,11 @@</span>
- source &#39;http://rubygems.org&#39;
- 
-<span class="gd">-gem &#39;rails&#39;, &#39;3.0.3&#39;</span>
-<span class="gi">+gem &#39;rails&#39;, &#39;3.0.9&#39;</span>
- 
- # Bundle edge Rails instead:
- # gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;
- 
-<span class="gd">-gem &#39;sqlite3-ruby&#39;, :require =&gt; &#39;sqlite3&#39;</span>
-<span class="gi">+gem &#39;sqlite3&#39;</span>
- 
- # Use unicorn as the web server
- # gem &#39;unicorn&#39;
-<span class="gu">@@ -15,7 +15,7 @@</span>
- 
- # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
- # gem &#39;ruby-debug&#39;
-<span class="gd">-# gem &#39;ruby-debug19&#39;</span>
-<span class="gi">+# gem &#39;ruby-debug19&#39;, :require =&gt; &#39;ruby-debug&#39;</span>
- 
- # Bundle the extra gems:
- # gem &#39;bj&#39;
-</pre></div>
-  <h2>config/boot.rb</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,13 +1,6 @@</span>
- require &#39;rubygems&#39;
- 
- # Set up gems listed in the Gemfile.
-<span class="gd">-gemfile = File.expand_path(&#39;../../Gemfile&#39;, __FILE__)</span>
-<span class="gd">-begin</span>
-<span class="gd">-  ENV[&#39;BUNDLE_GEMFILE&#39;] = gemfile</span>
-<span class="gd">-  require &#39;bundler&#39;</span>
-<span class="gd">-  Bundler.setup</span>
-<span class="gd">-rescue Bundler::GemNotFound =&gt; e</span>
-<span class="gd">-  STDERR.puts e.message</span>
-<span class="gd">-  STDERR.puts &quot;Try running `bundle install`.&quot;</span>
-<span class="gd">-  exit!</span>
-<span class="gd">-end if File.exist?(gemfile)</span>
-<span class="gi">+ENV[&#39;BUNDLE_GEMFILE&#39;] ||= File.expand_path(&#39;../../Gemfile&#39;, __FILE__)</span>
-<span class="gi">+</span>
-<span class="gi">+require &#39;bundler/setup&#39; if File.exists?(ENV[&#39;BUNDLE_GEMFILE&#39;])</span>
-</pre></div>
-  <h2>config/database.yml</h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
- # SQLite version 3.x
-<span class="gd">-#   gem install sqlite3-ruby (not necessary on OS X Leopard)</span>
-<span class="gi">+#   gem install sqlite3</span>
- development:
-   adapter: sqlite3
-   database: db/development.sqlite3
-</pre></div>
-  <h2>public/javascripts/rails.js</h2>
-  <div class="highlight"><pre><span class="gu">@@ -172,4 +172,20 @@</span>
-       input.disabled = false;
-     });
-   });
-<span class="gi">+</span>
-<span class="gi">+  Ajax.Responders.register({</span>
-<span class="gi">+    onCreate: function(request) {</span>
-<span class="gi">+      var csrf_meta_tag = $$(&#39;meta[name=csrf-token]&#39;)[0];</span>
-<span class="gi">+</span>
-<span class="gi">+      if (csrf_meta_tag) {</span>
-<span class="gi">+        var header = &#39;X-CSRF-Token&#39;,</span>
-<span class="gi">+            token = csrf_meta_tag.readAttribute(&#39;content&#39;);</span>
-<span class="gi">+</span>
-<span class="gi">+        if (!request.options.requestHeaders) {</span>
-<span class="gi">+          request.options.requestHeaders = {};</span>
-<span class="gi">+        }</span>
-<span class="gi">+        request.options.requestHeaders[header] = token;</span>
-<span class="gi">+      }</span>
-<span class="gi">+    }</span>
-<span class="gi">+  });</span>
- })();
-</pre></div>
-</div>
+      You are being
+      <a href='/diff/v3.0.3/v3.0.9/'>
+        redirected
+      </a>
+      .
     </div>
     <a href='https://github.com/jswanner/RailsDiff'>
       <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />

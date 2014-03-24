@@ -16,7 +16,7 @@ task 'generate' => 'update_rails_repo' do |t|
 
   while tags.any?
     tags.each do |tag|
-      Rake::Task["html/#{tag}-#{tail}.html"].invoke
+      Rake::Task["diff/#{tag}/#{tail}/index.html"].invoke
       Rake::Task["json/#{tag}-#{tail}.json"].invoke
     end
     tail = tags.pop
@@ -119,8 +119,11 @@ rule(/tmp\/generated\/.*/ => ['tmp/generated']) do |t|
   rm_rf source, verbose: false
 end
 
-directory 'diff'
-rule(/diff\/.*\/patch\.diff/ => ['diff']) do |t|
+rule(/diff\/[^\/]+\/[^\/]+$/) do |t|
+  mkdir_p t.name
+end
+
+rule(/diff\/.*\/patch\.diff/ => [->(t) { t.gsub('/patch.diff', '') }]) do |t|
   puts 'Generating: %s' % t.name
 
   match = t.name.match(/diff\/(?<s>[^\/]+)\/(?<t>.*?)\/patch\.diff/)
@@ -134,14 +137,23 @@ rule(/diff\/.*\/patch\.diff/ => ['diff']) do |t|
 end
 
 # Turn diff into HTML
-directory 'html'
-rule(/html\/.*\.html/ => [->(t) { t.gsub(/html/, 'diff') }, 'html', 'templates/layout.haml', 'templates/diff.haml']) do |t|
+rule(/diff\/.*\/index\.html/ => [->(t) { t.gsub('index.html', 'patch.diff') }, 'templates/layout.haml', 'templates/diff.haml']) do |t|
   puts 'Generating: %s' % t.name
 
   diff = File.read t.source
   diffs = RailsDiff::DiffSplitter.new(diff).split
 
   render(t.name, t.sources.last, diffs: diffs, title: page_title(t.name))
+end
+
+rule(/html\/.*\.html/) do |t|
+  match = t.name.match(/html\/(?<s>[^-]+)-(?<t>.*?)\.html/)
+  source = match['s']
+  target = match['t']
+  url = '/diff/%s/%s/' % [source, target]
+
+  content = template('templates/redirect.haml').render(nil, {url: url})
+  File.write t.name, content
 end
 
 # Turn diff into JSON
@@ -163,9 +175,8 @@ rule(/json\/.*\.json/ => [->(t) { t.gsub(/json/, 'diff') }, 'json']) do |t|
 end
 
 def page_title file_path
-  file_name = file_path.split('/').last
-  diff_name = file_name.gsub '.html', ''
-  'Rails %s - %s diff' % diff_name.split('-')
+  versions = file_path.split('/')[1..2]
+  'Rails %s - %s diff' % versions
 end
 
 def render file_name, template_name, locals = {}
