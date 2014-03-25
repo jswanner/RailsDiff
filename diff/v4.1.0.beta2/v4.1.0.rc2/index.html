@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v4.1.0.beta2 - v4.1.0.rc2 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet' />
+    <link href='/assets/app.css' rel='stylesheet' />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png' /></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff' />
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+  <h2>
+    <a href='full/#Gemfile'>Gemfile</a>
+  </h2>
+  <div class="highlight"><pre><span class="gu">@@ -2,40 +2,32 @@</span>
+ 
+ 
+ # Bundle edge Rails instead: gem &#39;rails&#39;, github: &#39;rails/rails&#39;
+<span class="gd">-gem &#39;rails&#39;, &#39;4.1.0.beta2&#39;</span>
+<span class="gd">-</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;4.1.0.rc2&#39;</span>
+ # Use sqlite3 as the database for Active Record
+ gem &#39;sqlite3&#39;
+<span class="gd">-</span>
+ # Use SCSS for stylesheets
+<span class="gd">-gem &#39;sass-rails&#39;, &#39;~&gt; 4.0.0.rc1&#39;</span>
+<span class="gd">-</span>
+<span class="gi">+gem &#39;sass-rails&#39;, &#39;~&gt; 4.0.2&#39;</span>
+ # Use Uglifier as compressor for JavaScript assets
+ gem &#39;uglifier&#39;, &#39;&gt;= 1.3.0&#39;
+<span class="gd">-</span>
+ # Use CoffeeScript for .js.coffee assets and views
+ gem &#39;coffee-rails&#39;, &#39;~&gt; 4.0.0&#39;
+<span class="gd">-</span>
+ # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+ # gem &#39;therubyracer&#39;,  platforms: :ruby
+ 
+ # Use jquery as the JavaScript library
+ gem &#39;jquery-rails&#39;
+<span class="gd">-</span>
+ # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+ gem &#39;turbolinks&#39;
+<span class="gd">-</span>
+ # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+<span class="gd">-gem &#39;jbuilder&#39;, &#39;~&gt; 1.2&#39;</span>
+<span class="gd">-</span>
+<span class="gi">+gem &#39;jbuilder&#39;, &#39;~&gt; 2.0&#39;</span>
+ # bundle exec rake doc:rails generates the API under doc/api.
+<span class="gd">-gem &#39;sdoc&#39;,          group: :doc, require: false</span>
+<span class="gi">+gem &#39;sdoc&#39;, &#39;~&gt; 0.4.0&#39;,          group: :doc</span>
+ 
+<span class="gd">-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/jonleighton/spring</span>
+<span class="gi">+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring</span>
+ gem &#39;spring&#39;,        group: :development
+ 
+ # Use ActiveModel has_secure_password
+<span class="gd">-# gem &#39;bcrypt-ruby&#39;, &#39;~&gt; 3.1.2&#39;</span>
+<span class="gi">+# gem &#39;bcrypt&#39;, &#39;~&gt; 3.1.7&#39;</span>
+ 
+ # Use unicorn as the app server
+ # gem &#39;unicorn&#39;
+</pre></div>
+  <h2>
+    <a href='full/#app-views-layouts-application-html-erb'>app/views/layouts/application.html.erb</a>
+  </h2>
+  <div class="highlight"><pre><span class="gu">@@ -2,8 +2,8 @@</span>
+ &lt;html&gt;
+ &lt;head&gt;
+   &lt;title&gt;Railsdiff&lt;/title&gt;
+<span class="gd">-  &lt;%= stylesheet_link_tag    &quot;application&quot;, media: &quot;all&quot;, &quot;data-turbolinks-track&quot; =&gt; true %&gt;</span>
+<span class="gd">-  &lt;%= javascript_include_tag &quot;application&quot;, &quot;data-turbolinks-track&quot; =&gt; true %&gt;</span>
+<span class="gi">+  &lt;%= stylesheet_link_tag    &#39;application&#39;, media: &#39;all&#39;, &#39;data-turbolinks-track&#39; =&gt; true %&gt;</span>
+<span class="gi">+  &lt;%= javascript_include_tag &#39;application&#39;, &#39;data-turbolinks-track&#39; =&gt; true %&gt;</span>
+   &lt;%= csrf_meta_tags %&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+</pre></div>
+  <h2>
+    <a href='full/#config-database-yml'>config/database.yml</a>
+  </h2>
+  <div class="highlight"><pre><span class="gu">@@ -20,6 +20,11 @@</span>
+   &lt;&lt;: *default
+   database: db/test.sqlite3
+ 
+<span class="gi">+# Do not keep production credentials in the repository,</span>
+<span class="gi">+# instead read the configuration from the environment.</span>
+<span class="gi">+#</span>
+<span class="gi">+# Example:</span>
+<span class="gi">+#   sqlite3://myuser:mypass@localhost/full/path/to/somedatabase</span>
+<span class="gi">+#</span>
+ production:
+<span class="gd">-  &lt;&lt;: *default</span>
+<span class="gd">-  database: db/production.sqlite3</span>
+<span class="gi">+  url: &lt;%= ENV[&quot;DATABASE_URL&quot;] %&gt;</span>
+</pre></div>
+  <h2>
+    <a href='full/#config-environments-development-rb'>config/environments/development.rb</a>
+  </h2>
+  <div class="highlight"><pre><span class="gu">@@ -26,4 +26,12 @@</span>
+   # This option may cause significant delays in view rendering with a large
+   # number of complex assets.
+   config.assets.debug = true
+<span class="gi">+</span>
+<span class="gi">+  # Adds additional error checking when serving assets at runtime.</span>
+<span class="gi">+  # Checks for improperly declared sprockets dependencies.</span>
+<span class="gi">+  # Raises helpful error messages.</span>
+<span class="gi">+  config.assets.raise_runtime_errors = true</span>
+<span class="gi">+</span>
+<span class="gi">+  # Raises error for missing translations</span>
+<span class="gi">+  # config.action_view.raise_on_missing_translations = true</span>
+ end
+</pre></div>
+  <h2>
+    <a href='full/#config-environments-production-rb'>config/environments/production.rb</a>
+  </h2>
+  <div class="highlight"><pre><span class="gu">@@ -5,7 +5,7 @@</span>
+   config.cache_classes = true
+ 
+   # Eager load code on boot. This eager loads most of Rails and
+<span class="gd">-  # your application in memory, allowing both thread web servers</span>
+<span class="gi">+  # your application in memory, allowing both threaded web servers</span>
+   # and those relying on copy on write to perform better.
+   # Rake tasks automatically ignore this option for performance.
+   config.eager_load = true
+<span class="gu">@@ -66,7 +66,7 @@</span>
+   # config.action_mailer.raise_delivery_errors = false
+ 
+   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
+<span class="gd">-  # the I18n.default_locale when a translation can not be found).</span>
+<span class="gi">+  # the I18n.default_locale when a translation cannot be found).</span>
+   config.i18n.fallbacks = true
+ 
+   # Send deprecation notices to registered listeners.
+<span class="gu">@@ -77,4 +77,7 @@</span>
+ 
+   # Use default logging formatter so that PID and timestamp are not suppressed.
+   config.log_formatter = ::Logger::Formatter.new
+<span class="gi">+</span>
+<span class="gi">+  # Do not dump schema after migrations.</span>
+<span class="gi">+  config.active_record.dump_schema_after_migration = false</span>
+ end
+</pre></div>
+  <h2>
+    <a href='full/#config-environments-test-rb'>config/environments/test.rb</a>
+  </h2>
+  <div class="highlight"><pre><span class="gu">@@ -14,7 +14,7 @@</span>
+ 
+   # Configure static asset server for tests with Cache-Control for performance.
+   config.serve_static_assets  = true
+<span class="gd">-  config.static_cache_control = &quot;public, max-age=3600&quot;</span>
+<span class="gi">+  config.static_cache_control = &#39;public, max-age=3600&#39;</span>
+ 
+   # Show full error reports and disable caching.
+   config.consider_all_requests_local       = true
+<span class="gu">@@ -33,4 +33,7 @@</span>
+ 
+   # Print deprecation notices to the stderr.
+   config.active_support.deprecation = :stderr
+<span class="gi">+</span>
+<span class="gi">+  # Raises error for missing translations</span>
+<span class="gi">+  # config.action_view.raise_on_missing_translations = true</span>
+ end
+</pre></div>
+  <h2>
+    <a href='full/#config-initializers-cookies_serializer-rb'>config/initializers/cookies_serializer.rb</a>
+  </h2>
+  <div class="highlight"><pre><span class="gu">@@ -0,0 +1,3 @@</span>
+<span class="gi">+# Be sure to restart your server when you modify this file.</span>
+<span class="gi">+</span>
+<span class="gi">+Rails.application.config.action_dispatch.cookies_serializer = :json</span>
+\ No newline at end of file
+</pre></div>
+  <h2>
+    <a href='full/#config-secrets-yml'>config/secrets.yml</a>
+  </h2>
+  <div class="highlight"><pre><span class="gu">@@ -16,5 +16,7 @@</span>
+ test:
+   secret_key_base: your-secret-token
+ 
+<span class="gi">+# Do not keep production secrets in the repository,</span>
+<span class="gi">+# instead read values from the environment.</span>
+ production:
+<span class="gd">-  secret_key_base: your-secret-token</span>
+<span class="gi">+  secret_key_base: &lt;%= ENV[&quot;SECRET_KEY_BASE&quot;] %&gt;</span>
+</pre></div>
+  <h2>
+    <a href='full/#test-test_helper-rb'>test/test_helper.rb</a>
+  </h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,10 +1,8 @@</span>
+<span class="gd">-ENV[&quot;RAILS_ENV&quot;] ||= &quot;test&quot;</span>
+<span class="gi">+ENV[&#39;RAILS_ENV&#39;] ||= &#39;test&#39;</span>
+ require File.expand_path(&#39;../../config/environment&#39;, __FILE__)
+ require &#39;rails/test_help&#39;
+ 
+ class ActiveSupport::TestCase
+<span class="gd">-  ActiveRecord::Migration.check_pending!</span>
+<span class="gd">-</span>
+   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+   #
+   # Note: You&#39;ll currently still have to declare fixtures explicitly in integration tests
+</pre></div>
+</div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />
+    </a>
+    <script src='/assets/app.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7325596-4']);
+        _gaq.push(['_setSiteSpeedSampleRate', 100]);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+  </body>
+</html>
