@@ -1,0 +1,759 @@
+diff -Nr -U 1000 v3.0.0/.gitignore v3.0.15/.gitignore
+--- v3.0.0/.gitignore	2014-02-22 04:34:53.000000000 +0100
++++ v3.0.15/.gitignore	2012-08-01 15:41:56.000000000 +0200
+@@ -1,4 +1,4 @@
+ .bundle
+ db/*.sqlite3
+ log/*.log
+-tmp/**/*
++tmp/
+diff -Nr -U 1000 v3.0.0/Gemfile v3.0.15/Gemfile
+--- v3.0.0/Gemfile	2014-02-22 04:34:53.000000000 +0100
++++ v3.0.15/Gemfile	2012-08-01 15:41:56.000000000 +0200
+@@ -1,30 +1,31 @@
+ source 'http://rubygems.org'
+ 
+-gem 'rails', '3.0.0'
++gem 'rails', '3.0.15'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails', :git => 'git://github.com/rails/rails.git'
+ 
+-gem 'sqlite3-ruby', :require => 'sqlite3'
++gem 'sqlite3'
+ 
+ # Use unicorn as the web server
+ # gem 'unicorn'
+ 
+ # Deploy with Capistrano
+ # gem 'capistrano'
+ 
+-# To use debugger
++# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
+ # gem 'ruby-debug'
++# gem 'ruby-debug19', :require => 'ruby-debug'
+ 
+ # Bundle the extra gems:
+ # gem 'bj'
+ # gem 'nokogiri'
+ # gem 'sqlite3-ruby', :require => 'sqlite3'
+ # gem 'aws-s3', :require => 'aws/s3'
+ 
+ # Bundle gems for the local environment. Make sure to
+ # put test-only gems in this group so their generators
+ # and rake tasks are available in development mode:
+ # group :development, :test do
+ #   gem 'webrat'
+ # end
+diff -Nr -U 1000 v3.0.0/README v3.0.15/README
+--- v3.0.0/README	2014-02-22 04:34:53.000000000 +0100
++++ v3.0.15/README	2012-08-01 15:41:56.000000000 +0200
+@@ -1,256 +1,256 @@
+ == Welcome to Rails
+ 
+ Rails is a web-application framework that includes everything needed to create
+ database-backed web applications according to the Model-View-Control pattern.
+ 
+ This pattern splits the view (also called the presentation) into "dumb"
+ templates that are primarily responsible for inserting pre-built data in between
+ HTML tags. The model contains the "smart" domain objects (such as Account,
+ Product, Person, Post) that holds all the business logic and knows how to
+ persist themselves to a database. The controller handles the incoming requests
+ (such as Save New Account, Update Product, Show Post) by manipulating the model
+ and directing data to the view.
+ 
+ In Rails, the model is handled by what's called an object-relational mapping
+ layer entitled Active Record. This layer allows you to present the data from
+ database rows as objects and embellish these data objects with business logic
+ methods. You can read more about Active Record in
+ link:files/vendor/rails/activerecord/README.html.
+ 
+ The controller and view are handled by the Action Pack, which handles both
+ layers by its two parts: Action View and Action Controller. These two layers
+ are bundled in a single package due to their heavy interdependence. This is
+ unlike the relationship between the Active Record and Action Pack that is much
+ more separate. Each of these packages can be used independently outside of
+ Rails. You can read more about Action Pack in
+ link:files/vendor/rails/actionpack/README.html.
+ 
+ 
+ == Getting Started
+ 
+ 1. At the command prompt, create a new Rails application:
+        <tt>rails new myapp</tt> (where <tt>myapp</tt> is the application name)
+ 
+ 2. Change directory to <tt>myapp</tt> and start the web server:
+        <tt>cd myapp; rails server</tt> (run with --help for options)
+ 
+ 3. Go to http://localhost:3000/ and you'll see:
+        "Welcome aboard: You're riding Ruby on Rails!"
+ 
+ 4. Follow the guidelines to start developing your application. You can find
+ the following resources handy:
+ 
+ * The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
+ * Ruby on Rails Tutorial Book: http://www.railstutorial.org/
+ 
+ 
+ == Debugging Rails
+ 
+ Sometimes your application goes wrong. Fortunately there are a lot of tools that
+ will help you debug it and get it back on the rails.
+ 
+ First area to check is the application log files. Have "tail -f" commands
+ running on the server.log and development.log. Rails will automatically display
+ debugging and runtime information to these files. Debugging info will also be
+ shown in the browser on requests from 127.0.0.1.
+ 
+ You can also log your own messages directly into the log file from your code
+ using the Ruby logger class from inside your controllers. Example:
+ 
+   class WeblogController < ActionController::Base
+     def destroy
+       @weblog = Weblog.find(params[:id])
+       @weblog.destroy
+       logger.info("#{Time.now} Destroyed Weblog ID ##{@weblog.id}!")
+     end
+   end
+ 
+ The result will be a message in your log file along the lines of:
+ 
+   Mon Oct 08 14:22:29 +1000 2007 Destroyed Weblog ID #1!
+ 
+ More information on how to use the logger is at http://www.ruby-doc.org/core/
+ 
+ Also, Ruby documentation can be found at http://www.ruby-lang.org/. There are
+ several books available online as well:
+ 
+ * Programming Ruby: http://www.ruby-doc.org/docs/ProgrammingRuby/ (Pickaxe)
+ * Learn to Program: http://pine.fm/LearnToProgram/ (a beginners guide)
+ 
+ These two books will bring you up to speed on the Ruby language and also on
+ programming in general.
+ 
+ 
+ == Debugger
+ 
+ Debugger support is available through the debugger command when you start your
+ Mongrel or WEBrick server with --debugger. This means that you can break out of
+ execution at any point in the code, investigate and change the model, and then,
+ resume execution! You need to install ruby-debug to run the server in debugging
+ mode. With gems, use <tt>sudo gem install ruby-debug</tt>. Example:
+ 
+   class WeblogController < ActionController::Base
+     def index
+       @posts = Post.find(:all)
+       debugger
+     end
+   end
+ 
+ So the controller will accept the action, run the first line, then present you
+ with a IRB prompt in the server window. Here you can do things like:
+ 
+   >> @posts.inspect
+   => "[#<Post:0x14a6be8
+           @attributes={"title"=>nil, "body"=>nil, "id"=>"1"}>,
+        #<Post:0x14a6620
+           @attributes={"title"=>"Rails", "body"=>"Only ten..", "id"=>"2"}>]"
+   >> @posts.first.title = "hello from a debugger"
+   => "hello from a debugger"
+ 
+ ...and even better, you can examine how your runtime objects actually work:
+ 
+   >> f = @posts.first
+   => #<Post:0x13630c4 @attributes={"title"=>nil, "body"=>nil, "id"=>"1"}>
+   >> f.
+   Display all 152 possibilities? (y or n)
+ 
+ Finally, when you're ready to resume execution, you can enter "cont".
+ 
+ 
+ == Console
+ 
+ The console is a Ruby shell, which allows you to interact with your
+ application's domain model. Here you'll have all parts of the application
+ configured, just like it is when the application is running. You can inspect
+ domain models, change values, and save to the database. Starting the script
+ without arguments will launch it in the development environment.
+ 
+ To start the console, run <tt>rails console</tt> from the application
+ directory.
+ 
+ Options:
+ 
+ * Passing the <tt>-s, --sandbox</tt> argument will rollback any modifications
+   made to the database.
+ * Passing an environment name as an argument will load the corresponding
+   environment. Example: <tt>rails console production</tt>.
+ 
+ To reload your controllers and models after launching the console run
+ <tt>reload!</tt>
+ 
+ More information about irb can be found at:
+ link:http://www.rubycentral.com/pickaxe/irb.html
+ 
+ 
+ == dbconsole
+ 
+ You can go to the command line of your database directly through <tt>rails
+ dbconsole</tt>. You would be connected to the database with the credentials
+ defined in database.yml. Starting the script without arguments will connect you
+ to the development database. Passing an argument will connect you to a different
+ database, like <tt>rails dbconsole production</tt>. Currently works for MySQL,
+ PostgreSQL and SQLite 3.
+ 
+ == Description of Contents
+ 
+ The default directory structure of a generated Ruby on Rails application:
+ 
+   |-- app
+   |   |-- controllers
+   |   |-- helpers
++  |   |-- mailers
+   |   |-- models
+   |   `-- views
+   |       `-- layouts
+   |-- config
+   |   |-- environments
+   |   |-- initializers
+   |   `-- locales
+   |-- db
+   |-- doc
+   |-- lib
+   |   `-- tasks
+   |-- log
+   |-- public
+   |   |-- images
+   |   |-- javascripts
+   |   `-- stylesheets
+   |-- script
+-  |   `-- performance
+   |-- test
+   |   |-- fixtures
+   |   |-- functional
+   |   |-- integration
+   |   |-- performance
+   |   `-- unit
+   |-- tmp
+   |   |-- cache
+   |   |-- pids
+   |   |-- sessions
+   |   `-- sockets
+   `-- vendor
+       `-- plugins
+ 
+ app
+   Holds all the code that's specific to this particular application.
+ 
+ app/controllers
+   Holds controllers that should be named like weblogs_controller.rb for
+   automated URL mapping. All controllers should descend from
+   ApplicationController which itself descends from ActionController::Base.
+ 
+ app/models
+   Holds models that should be named like post.rb. Models descend from
+   ActiveRecord::Base by default.
+ 
+ app/views
+   Holds the template files for the view that should be named like
+   weblogs/index.html.erb for the WeblogsController#index action. All views use
+   eRuby syntax by default.
+ 
+ app/views/layouts
+   Holds the template files for layouts to be used with views. This models the
+   common header/footer method of wrapping views. In your views, define a layout
+   using the <tt>layout :default</tt> and create a file named default.html.erb.
+   Inside default.html.erb, call <% yield %> to render the view using this
+   layout.
+ 
+ app/helpers
+   Holds view helpers that should be named like weblogs_helper.rb. These are
+   generated for you automatically when using generators for controllers.
+   Helpers can be used to wrap functionality for your views into methods.
+ 
+ config
+   Configuration files for the Rails environment, the routing map, the database,
+   and other dependencies.
+ 
+ db
+   Contains the database schema in schema.rb. db/migrate contains all the
+   sequence of Migrations for your schema.
+ 
+ doc
+   This directory is where your application documentation will be stored when
+   generated using <tt>rake doc:app</tt>
+ 
+ lib
+   Application specific libraries. Basically, any kind of custom code that
+   doesn't belong under controllers, models, or helpers. This directory is in
+   the load path.
+ 
+ public
+   The directory available for the web server. Contains subdirectories for
+   images, stylesheets, and javascripts. Also contains the dispatchers and the
+   default HTML files. This should be set as the DOCUMENT_ROOT of your web
+   server.
+ 
+ script
+   Helper scripts for automation and generation.
+ 
+ test
+   Unit and functional tests along with fixtures. When using the rails generate
+   command, template test files will be generated for you and placed in this
+   directory.
+ 
+ vendor
+   External libraries that the application depends on. Also includes the plugins
+   subdirectory. If the app has frozen rails, those gems also go here, under
+   vendor/rails/. This directory is in the load path.
+diff -Nr -U 1000 v3.0.0/config/boot.rb v3.0.15/config/boot.rb
+--- v3.0.0/config/boot.rb	2014-02-22 04:34:53.000000000 +0100
++++ v3.0.15/config/boot.rb	2012-08-01 15:41:56.000000000 +0200
+@@ -1,13 +1,6 @@
+ require 'rubygems'
+ 
+ # Set up gems listed in the Gemfile.
+-gemfile = File.expand_path('../../Gemfile', __FILE__)
+-begin
+-  ENV['BUNDLE_GEMFILE'] = gemfile
+-  require 'bundler'
+-  Bundler.setup
+-rescue Bundler::GemNotFound => e
+-  STDERR.puts e.message
+-  STDERR.puts "Try running `bundle install`."
+-  exit!
+-end if File.exist?(gemfile)
++ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
++
++require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
+diff -Nr -U 1000 v3.0.0/config/database.yml v3.0.15/config/database.yml
+--- v3.0.0/config/database.yml	2014-02-22 04:34:53.000000000 +0100
++++ v3.0.15/config/database.yml	2012-08-01 15:41:56.000000000 +0200
+@@ -1,22 +1,22 @@
+ # SQLite version 3.x
+-#   gem install sqlite3-ruby (not necessary on OS X Leopard)
++#   gem install sqlite3
+ development:
+   adapter: sqlite3
+   database: db/development.sqlite3
+   pool: 5
+   timeout: 5000
+ 
+ # Warning: The database defined as "test" will be erased and
+ # re-generated from your development database when you run "rake".
+ # Do not set this db to the same as development or production.
+ test:
+   adapter: sqlite3
+   database: db/test.sqlite3
+   pool: 5
+   timeout: 5000
+ 
+ production:
+   adapter: sqlite3
+   database: db/production.sqlite3
+   pool: 5
+   timeout: 5000
+diff -Nr -U 1000 v3.0.0/config/environments/development.rb v3.0.15/config/environments/development.rb
+--- v3.0.0/config/environments/development.rb	2014-02-22 04:34:53.000000000 +0100
++++ v3.0.15/config/environments/development.rb	2012-08-01 15:41:56.000000000 +0200
+@@ -1,26 +1,26 @@
+ Railsdiff::Application.configure do
+-  # Settings specified here will take precedence over those in config/environment.rb
++  # Settings specified here will take precedence over those in config/application.rb
+ 
+   # In the development environment your application's code is reloaded on
+   # every request.  This slows down response time but is perfect for development
+   # since you don't have to restart the webserver when you make code changes.
+   config.cache_classes = false
+ 
+   # Log error messages when you accidentally call methods on nil.
+   config.whiny_nils = true
+ 
+   # Show full error reports and disable caching
+   config.consider_all_requests_local       = true
+   config.action_view.debug_rjs             = true
+   config.action_controller.perform_caching = false
+ 
+   # Don't care if the mailer can't send
+   config.action_mailer.raise_delivery_errors = false
+ 
+   # Print deprecation notices to the Rails logger
+   config.active_support.deprecation = :log
+ 
+   # Only use best-standards-support built into browsers
+   config.action_dispatch.best_standards_support = :builtin
+ end
+ 
+diff -Nr -U 1000 v3.0.0/config/environments/production.rb v3.0.15/config/environments/production.rb
+--- v3.0.0/config/environments/production.rb	2014-02-22 04:34:53.000000000 +0100
++++ v3.0.15/config/environments/production.rb	2012-08-01 15:41:56.000000000 +0200
+@@ -1,49 +1,49 @@
+ Railsdiff::Application.configure do
+-  # Settings specified here will take precedence over those in config/environment.rb
++  # Settings specified here will take precedence over those in config/application.rb
+ 
+   # The production environment is meant for finished, "live" apps.
+   # Code is not reloaded between requests
+   config.cache_classes = true
+ 
+   # Full error reports are disabled and caching is turned on
+   config.consider_all_requests_local       = false
+   config.action_controller.perform_caching = true
+ 
+   # Specifies the header that your server uses for sending files
+   config.action_dispatch.x_sendfile_header = "X-Sendfile"
+ 
+   # For nginx:
+   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+ 
+   # If you have no front-end server that supports something like X-Sendfile,
+   # just comment this out and Rails will serve the files
+ 
+   # See everything in the log (default is :info)
+   # config.log_level = :debug
+ 
+   # Use a different logger for distributed setups
+   # config.logger = SyslogLogger.new
+ 
+   # Use a different cache store in production
+   # config.cache_store = :mem_cache_store
+ 
+   # Disable Rails's static asset server
+   # In production, Apache or nginx will already do this
+   config.serve_static_assets = false
+ 
+   # Enable serving of images, stylesheets, and javascripts from an asset server
+   # config.action_controller.asset_host = "http://assets.example.com"
+ 
+   # Disable delivery errors, bad email addresses will be ignored
+   # config.action_mailer.raise_delivery_errors = false
+ 
+   # Enable threaded mode
+   # config.threadsafe!
+ 
+   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
+   # the I18n.default_locale when a translation can not be found)
+   config.i18n.fallbacks = true
+ 
+   # Send deprecation notices to registered listeners
+   config.active_support.deprecation = :notify
+ end
+diff -Nr -U 1000 v3.0.0/config/environments/test.rb v3.0.15/config/environments/test.rb
+--- v3.0.0/config/environments/test.rb	2014-02-22 04:34:53.000000000 +0100
++++ v3.0.15/config/environments/test.rb	2012-08-01 15:41:56.000000000 +0200
+@@ -1,35 +1,35 @@
+ Railsdiff::Application.configure do
+-  # Settings specified here will take precedence over those in config/environment.rb
++  # Settings specified here will take precedence over those in config/application.rb
+ 
+   # The test environment is used exclusively to run your application's
+   # test suite.  You never need to work with it otherwise.  Remember that
+   # your test database is "scratch space" for the test suite and is wiped
+   # and recreated between test runs.  Don't rely on the data there!
+   config.cache_classes = true
+ 
+   # Log error messages when you accidentally call methods on nil.
+   config.whiny_nils = true
+ 
+   # Show full error reports and disable caching
+   config.consider_all_requests_local       = true
+   config.action_controller.perform_caching = false
+ 
+   # Raise exceptions instead of rendering exception templates
+   config.action_dispatch.show_exceptions = false
+ 
+   # Disable request forgery protection in test environment
+   config.action_controller.allow_forgery_protection    = false
+ 
+   # Tell Action Mailer not to deliver emails to the real world.
+   # The :test delivery method accumulates sent emails in the
+   # ActionMailer::Base.deliveries array.
+   config.action_mailer.delivery_method = :test
+ 
+   # Use SQL instead of Active Record's schema dumper when creating the test database.
+   # This is necessary if your schema can't be completely dumped by the schema dumper,
+   # like if you have constraints or database-specific column types
+   # config.active_record.schema_format = :sql
+ 
+   # Print deprecation notices to the stderr
+   config.active_support.deprecation = :stderr
+ end
+diff -Nr -U 1000 v3.0.0/config/initializers/session_store.rb v3.0.15/config/initializers/session_store.rb
+--- v3.0.0/config/initializers/session_store.rb	2014-02-22 04:34:53.000000000 +0100
++++ v3.0.15/config/initializers/session_store.rb	2012-08-01 15:41:56.000000000 +0200
+@@ -1,8 +1,8 @@
+ # Be sure to restart your server when you modify this file.
+ 
+ Railsdiff::Application.config.session_store :cookie_store, :key => '_railsdiff_session'
+ 
+ # Use the database for sessions instead of the cookie-based default,
+ # which shouldn't be used to store highly confidential information
+-# (create the session table with "rake db:sessions:create")
++# (create the session table with "rails generate session_migration")
+ # Railsdiff::Application.config.session_store :active_record_store
+diff -Nr -U 1000 v3.0.0/public/javascripts/rails.js v3.0.15/public/javascripts/rails.js
+--- v3.0.0/public/javascripts/rails.js	2014-02-22 04:34:53.000000000 +0100
++++ v3.0.15/public/javascripts/rails.js	2012-08-01 15:41:56.000000000 +0200
+@@ -1,175 +1,202 @@
+ (function() {
++  Ajax.Responders.register({
++    onCreate: function(request) {
++      var token = $$('meta[name=csrf-token]')[0];
++      if (token) {
++        if (!request.options.requestHeaders) request.options.requestHeaders = {};
++        request.options.requestHeaders['X-CSRF-Token'] = token.readAttribute('content');
++      }
++    }
++  });
++
+   // Technique from Juriy Zaytsev
+   // http://thinkweb2.com/projects/prototype/detecting-event-support-without-browser-sniffing/
+   function isEventSupported(eventName) {
+     var el = document.createElement('div');
+     eventName = 'on' + eventName;
+     var isSupported = (eventName in el);
+     if (!isSupported) {
+       el.setAttribute(eventName, 'return;');
+       isSupported = typeof el[eventName] == 'function';
+     }
+     el = null;
+     return isSupported;
+   }
+ 
+   function isForm(element) {
+-    return Object.isElement(element) && element.nodeName.toUpperCase() == 'FORM'
++    return Object.isElement(element) && element.nodeName.toUpperCase() == 'FORM';
+   }
+ 
+   function isInput(element) {
+     if (Object.isElement(element)) {
+-      var name = element.nodeName.toUpperCase()
+-      return name == 'INPUT' || name == 'SELECT' || name == 'TEXTAREA'
++      var name = element.nodeName.toUpperCase();
++      return name == 'INPUT' || name == 'SELECT' || name == 'TEXTAREA';
+     }
+-    else return false
++    else return false;
+   }
+ 
+   var submitBubbles = isEventSupported('submit'),
+-      changeBubbles = isEventSupported('change')
++      changeBubbles = isEventSupported('change');
+ 
+   if (!submitBubbles || !changeBubbles) {
+     // augment the Event.Handler class to observe custom events when needed
+     Event.Handler.prototype.initialize = Event.Handler.prototype.initialize.wrap(
+       function(init, element, eventName, selector, callback) {
+-        init(element, eventName, selector, callback)
++        init(element, eventName, selector, callback);
+         // is the handler being attached to an element that doesn't support this event?
+         if ( (!submitBubbles && this.eventName == 'submit' && !isForm(this.element)) ||
+              (!changeBubbles && this.eventName == 'change' && !isInput(this.element)) ) {
+           // "submit" => "emulated:submit"
+-          this.eventName = 'emulated:' + this.eventName
++          this.eventName = 'emulated:' + this.eventName;
+         }
+       }
+-    )
++    );
+   }
+ 
+   if (!submitBubbles) {
+     // discover forms on the page by observing focus events which always bubble
+     document.on('focusin', 'form', function(focusEvent, form) {
+       // special handler for the real "submit" event (one-time operation)
+       if (!form.retrieve('emulated:submit')) {
+         form.on('submit', function(submitEvent) {
+-          var emulated = form.fire('emulated:submit', submitEvent, true)
++          var emulated = form.fire('emulated:submit', submitEvent, true);
+           // if custom event received preventDefault, cancel the real one too
+-          if (emulated.returnValue === false) submitEvent.preventDefault()
+-        })
+-        form.store('emulated:submit', true)
++          if (emulated.returnValue === false) submitEvent.preventDefault();
++        });
++        form.store('emulated:submit', true);
+       }
+-    })
++    });
+   }
+ 
+   if (!changeBubbles) {
+     // discover form inputs on the page
+-    document.on('focusin', 'input, select, texarea', function(focusEvent, input) {
++    document.on('focusin', 'input, select, textarea', function(focusEvent, input) {
+       // special handler for real "change" events
+       if (!input.retrieve('emulated:change')) {
+         input.on('change', function(changeEvent) {
+-          input.fire('emulated:change', changeEvent, true)
+-        })
+-        input.store('emulated:change', true)
++          input.fire('emulated:change', changeEvent, true);
++        });
++        input.store('emulated:change', true);
+       }
+-    })
++    });
+   }
+ 
+   function handleRemote(element) {
+     var method, url, params;
+ 
+     var event = element.fire("ajax:before");
+     if (event.stopped) return false;
+ 
+     if (element.tagName.toLowerCase() === 'form') {
+       method = element.readAttribute('method') || 'post';
+       url    = element.readAttribute('action');
+-      params = element.serialize();
++      // serialize the form with respect to the submit button that was pressed
++      params = element.serialize({ submit: element.retrieve('rails:submit-button') });
++      // clear the pressed submit button information
++      element.store('rails:submit-button', null);
+     } else {
+       method = element.readAttribute('data-method') || 'get';
+       url    = element.readAttribute('href');
+       params = {};
+     }
+ 
+     new Ajax.Request(url, {
+       method: method,
+       parameters: params,
+       evalScripts: true,
+ 
+-      onComplete:    function(request) { element.fire("ajax:complete", request); },
+-      onSuccess:     function(request) { element.fire("ajax:success",  request); },
+-      onFailure:     function(request) { element.fire("ajax:failure",  request); }
++      onCreate:   function(response) { element.fire("ajax:create",   response); },
++      onComplete: function(response) { element.fire("ajax:complete", response); },
++      onSuccess:  function(response) { element.fire("ajax:success",  response); },
++      onFailure:  function(response) { element.fire("ajax:failure",  response); }
+     });
+ 
+     element.fire("ajax:after");
+   }
+ 
++  function insertHiddenField(form, name, value) {
++    form.insert(new Element('input', { type: 'hidden', name: name, value: value }));
++  }
++
+   function handleMethod(element) {
+     var method = element.readAttribute('data-method'),
+         url = element.readAttribute('href'),
+         csrf_param = $$('meta[name=csrf-param]')[0],
+         csrf_token = $$('meta[name=csrf-token]')[0];
+ 
+     var form = new Element('form', { method: "POST", action: url, style: "display: none;" });
+-    element.parentNode.insert(form);
++    $(element.parentNode).insert(form);
+ 
+     if (method !== 'post') {
+-      var field = new Element('input', { type: 'hidden', name: '_method', value: method });
+-      form.insert(field);
++      insertHiddenField(form, '_method', method);
+     }
+ 
+     if (csrf_param) {
+-      var param = csrf_param.readAttribute('content'),
+-          token = csrf_token.readAttribute('content'),
+-          field = new Element('input', { type: 'hidden', name: param, value: token });
+-      form.insert(field);
++      insertHiddenField(form, csrf_param.readAttribute('content'), csrf_token.readAttribute('content'));
+     }
+ 
+     form.submit();
+   }
+ 
++  function disableFormElements(form) {
++    form.select('input[type=submit][data-disable-with]').each(function(input) {
++      input.store('rails:original-value', input.getValue());
++      input.setValue(input.readAttribute('data-disable-with')).disable();
++    });
++  }
++  
++  function enableFormElements(form) {
++    form.select('input[type=submit][data-disable-with]').each(function(input) {
++      input.setValue(input.retrieve('rails:original-value')).enable();
++    });
++  }
+ 
+-  document.on("click", "*[data-confirm]", function(event, element) {
++  function allowAction(element) {
+     var message = element.readAttribute('data-confirm');
+-    if (!confirm(message)) event.stop();
+-  });
++    return !message || confirm(message);
++  }
+ 
+-  document.on("click", "a[data-remote]", function(event, element) {
+-    if (event.stopped) return;
+-    handleRemote(element);
+-    event.stop();
++  document.on('click', 'a[data-confirm], a[data-remote], a[data-method]', function(event, link) {
++    if (!allowAction(link)) {
++      event.stop();
++      return false;
++    }
++
++    if (link.readAttribute('data-remote')) {
++      handleRemote(link);
++      event.stop();
++    } else if (link.readAttribute('data-method')) {
++      handleMethod(link);
++      event.stop();
++    }
+   });
+ 
+-  document.on("click", "a[data-method]", function(event, element) {
+-    if (event.stopped) return;
+-    handleMethod(element);
+-    event.stop();
++  document.on("click", "form input[type=submit], form button[type=submit], form button:not([type])", function(event, button) {
++    // register the pressed submit button
++    event.findElement('form').store('rails:submit-button', button.name || false);
+   });
+ 
+   document.on("submit", function(event) {
+-    var element = event.findElement(),
+-        message = element.readAttribute('data-confirm');
+-    if (message && !confirm(message)) {
++    var form = event.findElement();
++
++    if (!allowAction(form)) {
+       event.stop();
+       return false;
+     }
+ 
+-    var inputs = element.select("input[type=submit][data-disable-with]");
+-    inputs.each(function(input) {
+-      input.disabled = true;
+-      input.writeAttribute('data-original-value', input.value);
+-      input.value = input.readAttribute('data-disable-with');
+-    });
+-
+-    var element = event.findElement("form[data-remote]");
+-    if (element) {
+-      handleRemote(element);
++    if (form.readAttribute('data-remote')) {
++      handleRemote(form);
+       event.stop();
++    } else {
++      disableFormElements(form);
+     }
+   });
+ 
+-  document.on("ajax:after", "form", function(event, element) {
+-    var inputs = element.select("input[type=submit][disabled=true][data-disable-with]");
+-    inputs.each(function(input) {
+-      input.value = input.readAttribute('data-original-value');
+-      input.removeAttribute('data-original-value');
+-      input.disabled = false;
+-    });
++  document.on('ajax:create', 'form', function(event, form) {
++    if (form == event.findElement()) disableFormElements(form);
++  });
++  
++  document.on('ajax:complete', 'form', function(event, form) {
++    if (form == event.findElement()) enableFormElements(form);
+   });
+ })();

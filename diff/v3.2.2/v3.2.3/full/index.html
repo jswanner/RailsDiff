@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v3.2.2 - v3.2.3 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet' />
+    <link href='/assets/app.css' rel='stylesheet' />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png' /></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff' />
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+  <h2 id='Gemfile'>Gemfile</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,38 +1,38 @@</span>
+ source &#39;https://rubygems.org&#39;
+ 
+<span class="gd">-gem &#39;rails&#39;, &#39;3.2.2&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.2.3&#39;</span>
+ 
+ # Bundle edge Rails instead:
+ # gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;
+ 
+ gem &#39;sqlite3&#39;
+ 
+ 
+ # Gems used only for assets and not required
+ # in production environments by default.
+ group :assets do
+   gem &#39;sass-rails&#39;,   &#39;~&gt; 3.2.3&#39;
+   gem &#39;coffee-rails&#39;, &#39;~&gt; 3.2.1&#39;
+ 
+   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+<span class="gd">-  # gem &#39;therubyracer&#39;</span>
+<span class="gi">+  # gem &#39;therubyracer&#39;, :platform =&gt; :ruby</span>
+ 
+   gem &#39;uglifier&#39;, &#39;&gt;= 1.0.3&#39;
+ end
+ 
+ gem &#39;jquery-rails&#39;
+ 
+ # To use ActiveModel has_secure_password
+ # gem &#39;bcrypt-ruby&#39;, &#39;~&gt; 3.0.0&#39;
+ 
+ # To use Jbuilder templates for JSON
+ # gem &#39;jbuilder&#39;
+ 
+ # Use unicorn as the app server
+ # gem &#39;unicorn&#39;
+ 
+ # Deploy with Capistrano
+ # gem &#39;capistrano&#39;
+ 
+ # To use debugger
+ # gem &#39;ruby-debug19&#39;, :require =&gt; &#39;ruby-debug&#39;
+</pre></div>
+  <h2 id='config-application-rb'>config/application.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,59 +1,59 @@</span>
+ require File.expand_path(&#39;../boot&#39;, __FILE__)
+ 
+ require &#39;rails/all&#39;
+ 
+ if defined?(Bundler)
+   # If you precompile assets before deploying to production, use this line
+   Bundler.require(*Rails.groups(:assets =&gt; %w(development test)))
+   # If you want your assets lazily compiled in production, use this line
+   # Bundler.require(:default, :assets, Rails.env)
+ end
+ 
+ module Railsdiff
+   class Application &lt; Rails::Application
+     # Settings in config/environments/* take precedence over those specified here.
+     # Application configuration should go into files in config/initializers
+     # -- all .rb files in that directory are automatically loaded.
+ 
+     # Custom directories with classes and modules you want to be autoloadable.
+     # config.autoload_paths += %W(#{config.root}/extras)
+ 
+     # Only load the plugins named here, in the order given (default is alphabetical).
+     # :all can be used as a placeholder for all plugins not explicitly named.
+     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+ 
+     # Activate observers that should always be running.
+     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+ 
+     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+     # Run &quot;rake -D time&quot; for a list of tasks for finding time zone names. Default is UTC.
+     # config.time_zone = &#39;Central Time (US &amp; Canada)&#39;
+ 
+     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+     # config.i18n.load_path += Dir[Rails.root.join(&#39;my&#39;, &#39;locales&#39;, &#39;*.{rb,yml}&#39;).to_s]
+     # config.i18n.default_locale = :de
+ 
+     # Configure the default encoding used in templates for Ruby 1.9.
+     config.encoding = &quot;utf-8&quot;
+ 
+     # Configure sensitive parameters which will be filtered from the log file.
+     config.filter_parameters += [:password]
+ 
+     # Use SQL instead of Active Record&#39;s schema dumper when creating the database.
+     # This is necessary if your schema can&#39;t be completely dumped by the schema dumper,
+     # like if you have constraints or database-specific column types
+     # config.active_record.schema_format = :sql
+ 
+     # Enforce whitelist mode for mass assignment.
+     # This will create an empty whitelist of attributes available for mass-assignment for all models
+     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
+     # parameters by using an attr_accessible or attr_protected declaration.
+<span class="gd">-    # config.active_record.whitelist_attributes = true</span>
+<span class="gi">+    config.active_record.whitelist_attributes = true</span>
+ 
+     # Enable the asset pipeline
+     config.assets.enabled = true
+ 
+     # Version of your assets, change this if you want to expire all your assets
+     config.assets.version = &#39;1.0&#39;
+   end
+ end
+</pre></div>
+</div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />
+    </a>
+    <script src='/assets/app.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7325596-4']);
+        _gaq.push(['_setSiteSpeedSampleRate', 100]);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+  </body>
+</html>

@@ -25,7 +25,9 @@
     </header>
     <div class='content'>
       <div class='diff'>
-  <h2>Gemfile</h2>
+  <h2>
+    <a href='full/#Gemfile'>Gemfile</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,13 +1,14 @@</span>
  source &#39;https://rubygems.org&#39;
  
@@ -79,7 +81,9 @@
  # gem &#39;debugger&#39;, group: [:development, :test]
 <span class="gi">+</span>
 </pre></div>
-  <h2>Rakefile</h2>
+  <h2>
+    <a href='full/#Rakefile'>Rakefile</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -3,4 +3,4 @@</span>
  
  require File.expand_path(&#39;../config/application&#39;, __FILE__)
@@ -87,7 +91,9 @@
 <span class="gd">-Railsdiff::Application.load_tasks</span>
 <span class="gi">+Rails.application.load_tasks</span>
 </pre></div>
-  <h2>app/assets/stylesheets/application.css</h2>
+  <h2>
+    <a href='full/#app-assets-stylesheets-application-css'>app/assets/stylesheets/application.css</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -5,9 +5,11 @@</span>
   * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
   * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
@@ -104,7 +110,9 @@
 <span class="gi">+ *= require_self</span>
   */
 </pre></div>
-  <h2>config/application.rb</h2>
+  <h2>
+    <a href='full/#config-application-rb'>config/application.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -4,7 +4,7 @@</span>
  
  # Require the gems listed in Gemfile, including any gems
@@ -115,7 +123,9 @@
  module Railsdiff
    class Application &lt; Rails::Application
 </pre></div>
-  <h2>config/boot.rb</h2>
+  <h2>
+    <a href='full/#config-boot-rb'>config/boot.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
  # Set up gems listed in the Gemfile.
  ENV[&#39;BUNDLE_GEMFILE&#39;] ||= File.expand_path(&#39;../../Gemfile&#39;, __FILE__)
@@ -123,7 +133,9 @@
 <span class="gd">-require &#39;bundler/setup&#39; if File.exists?(ENV[&#39;BUNDLE_GEMFILE&#39;])</span>
 <span class="gi">+require &#39;bundler/setup&#39; if File.exist?(ENV[&#39;BUNDLE_GEMFILE&#39;])</span>
 </pre></div>
-  <h2>config/database.yml</h2>
+  <h2>
+    <a href='full/#config-database-yml'>config/database.yml</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -3,23 +3,23 @@</span>
  #
  #   Ensure the SQLite 3 gem is defined in your Gemfile
@@ -157,7 +169,9 @@
 <span class="gd">-  pool: 5</span>
 <span class="gd">-  timeout: 5000</span>
 </pre></div>
-  <h2>config/environment.rb</h2>
+  <h2>
+    <a href='full/#config-environment-rb'>config/environment.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -2,4 +2,4 @@</span>
  require File.expand_path(&#39;../application&#39;, __FILE__)
  
@@ -165,7 +179,9 @@
 <span class="gd">-Railsdiff::Application.initialize!</span>
 <span class="gi">+Rails.application.initialize!</span>
 </pre></div>
-  <h2>config/environments/development.rb</h2>
+  <h2>
+    <a href='full/#config-environments-development-rb'>config/environments/development.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
 <span class="gd">-Railsdiff::Application.configure do</span>
 <span class="gi">+Rails.application.configure do</span>
@@ -182,7 +198,9 @@
  
    # Debug mode disables concatenation and preprocessing of assets.
 </pre></div>
-  <h2>config/environments/production.rb</h2>
+  <h2>
+    <a href='full/#config-environments-production-rb'>config/environments/production.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
 <span class="gd">-Railsdiff::Application.configure do</span>
 <span class="gi">+Rails.application.configure do</span>
@@ -190,7 +208,9 @@
  
    # Code is not reloaded between requests.
 </pre></div>
-  <h2>config/environments/test.rb</h2>
+  <h2>
+    <a href='full/#config-environments-test-rb'>config/environments/test.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
 <span class="gd">-Railsdiff::Application.configure do</span>
 <span class="gi">+Rails.application.configure do</span>
@@ -198,7 +218,9 @@
  
    # The test environment is used exclusively to run your application&#39;s
 </pre></div>
-  <h2>config/initializers/secret_token.rb</h2>
+  <h2>
+    <a href='full/#config-initializers-secret_token-rb'>config/initializers/secret_token.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,12 +0,0 @@</span>
 <span class="gd">-# Be sure to restart your server when you modify this file.</span>
 <span class="gd">-</span>
@@ -213,14 +235,18 @@
 <span class="gd">-# if you&#39;re sharing your code publicly.</span>
 <span class="gd">-Railsdiff::Application.config.secret_key_base = &#39;your-secret-token&#39;</span>
 </pre></div>
-  <h2>config/initializers/session_store.rb</h2>
+  <h2>
+    <a href='full/#config-initializers-session_store-rb'>config/initializers/session_store.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,3 +1,3 @@</span>
  # Be sure to restart your server when you modify this file.
  
 <span class="gd">-Railsdiff::Application.config.session_store :cookie_store, key: &#39;_railsdiff_session&#39;</span>
 <span class="gi">+Rails.application.config.session_store :cookie_store, key: &#39;_railsdiff_session&#39;</span>
 </pre></div>
-  <h2>config/routes.rb</h2>
+  <h2>
+    <a href='full/#config-routes-rb'>config/routes.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
 <span class="gd">-Railsdiff::Application.routes.draw do</span>
 <span class="gi">+Rails.application.routes.draw do</span>
@@ -228,7 +254,9 @@
    # See how all your routes lay out with &quot;rake routes&quot;.
  
 </pre></div>
-  <h2>config/secrets.yml</h2>
+  <h2>
+    <a href='full/#config-secrets-yml'>config/secrets.yml</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,20 @@</span>
 <span class="gi">+# Be sure to restart your server when you modify this file.</span>
 <span class="gi">+</span>
@@ -251,7 +279,9 @@
 <span class="gi">+production:</span>
 <span class="gi">+  secret_key_base: your-secret-token</span>
 </pre></div>
-  <h2>public/404.html</h2>
+  <h2>
+    <a href='full/#public-404-html'>public/404.html</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -2,17 +2,23 @@</span>
  &lt;html&gt;
  &lt;head&gt;
@@ -329,7 +359,9 @@
  &lt;/body&gt;
  &lt;/html&gt;
 </pre></div>
-  <h2>public/422.html</h2>
+  <h2>
+    <a href='full/#public-422-html'>public/422.html</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -2,17 +2,23 @@</span>
  &lt;html&gt;
  &lt;head&gt;
@@ -407,7 +439,9 @@
  &lt;/body&gt;
  &lt;/html&gt;
 </pre></div>
-  <h2>public/500.html</h2>
+  <h2>
+    <a href='full/#public-500-html'>public/500.html</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -2,17 +2,23 @@</span>
  &lt;html&gt;
  &lt;head&gt;
@@ -483,7 +517,9 @@
  &lt;/body&gt;
  &lt;/html&gt;
 </pre></div>
-  <h2>public/robots.txt</h2>
+  <h2>
+    <a href='full/#public-robots-txt'>public/robots.txt</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
 <span class="gd">-# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file</span>
 <span class="gi">+# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file</span>

@@ -1,0 +1,4 @@
+.diff
+  - diffs.each do |name, diff|
+    %h2{id: name.tr('/.', '-')}= name
+    = Pygments.highlight diff, lexer: 'diff'

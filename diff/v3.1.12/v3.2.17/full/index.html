@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v3.1.12 - v3.2.17 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet' />
+    <link href='/assets/app.css' rel='stylesheet' />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png' /></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff' />
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+  <h2 id='Gemfile'>Gemfile</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,40 +1,38 @@</span>
+<span class="gd">-source &#39;http://rubygems.org&#39;</span>
+<span class="gi">+source &#39;https://rubygems.org&#39;</span>
+ 
+<span class="gd">-gem &#39;rails&#39;, &#39;3.1.12&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.2.17&#39;</span>
+ 
+ # Bundle edge Rails instead:
+<span class="gd">-# gem &#39;rails&#39;,     :git =&gt; &#39;git://github.com/rails/rails.git&#39;</span>
+<span class="gi">+# gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;</span>
+ 
+ gem &#39;sqlite3&#39;
+ 
+ 
+ # Gems used only for assets and not required
+ # in production environments by default.
+ group :assets do
+<span class="gd">-  gem &#39;sass-rails&#39;,   &#39;~&gt; 3.1.5&#39;</span>
+<span class="gd">-  gem &#39;coffee-rails&#39;, &#39;~&gt; 3.1.1&#39;</span>
+<span class="gi">+  gem &#39;sass-rails&#39;,   &#39;~&gt; 3.2.3&#39;</span>
+<span class="gi">+  gem &#39;coffee-rails&#39;, &#39;~&gt; 3.2.1&#39;</span>
+ 
+   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+<span class="gd">-  # gem &#39;therubyracer&#39;</span>
+<span class="gi">+  # gem &#39;therubyracer&#39;, :platforms =&gt; :ruby</span>
+ 
+   gem &#39;uglifier&#39;, &#39;&gt;= 1.0.3&#39;
+ end
+ 
+ gem &#39;jquery-rails&#39;
+ 
+ # To use ActiveModel has_secure_password
+ # gem &#39;bcrypt-ruby&#39;, &#39;~&gt; 3.0.0&#39;
+ 
+<span class="gd">-# Use unicorn as the web server</span>
+<span class="gi">+# To use Jbuilder templates for JSON</span>
+<span class="gi">+# gem &#39;jbuilder&#39;</span>
+<span class="gi">+</span>
+<span class="gi">+# Use unicorn as the app server</span>
+ # gem &#39;unicorn&#39;
+ 
+ # Deploy with Capistrano
+ # gem &#39;capistrano&#39;
+ 
+ # To use debugger
+<span class="gd">-# gem &#39;ruby-debug19&#39;, :require =&gt; &#39;ruby-debug&#39;</span>
+<span class="gd">-</span>
+<span class="gd">-group :test do</span>
+<span class="gd">-  # Pretty printed test output</span>
+<span class="gd">-  gem &#39;turn&#39;, &#39;~&gt; 0.8.3&#39;, :require =&gt; false</span>
+<span class="gd">-end</span>
+<span class="gi">+# gem &#39;debugger&#39;</span>
+</pre></div>
+  <h2 id='README'>README</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,261 +0,0 @@</span>
+<span class="gd">-== Welcome to Rails</span>
+<span class="gd">-</span>
+<span class="gd">-Rails is a web-application framework that includes everything needed to create</span>
+<span class="gd">-database-backed web applications according to the Model-View-Control pattern.</span>
+<span class="gd">-</span>
+<span class="gd">-This pattern splits the view (also called the presentation) into &quot;dumb&quot;</span>
+<span class="gd">-templates that are primarily responsible for inserting pre-built data in between</span>
+<span class="gd">-HTML tags. The model contains the &quot;smart&quot; domain objects (such as Account,</span>
+<span class="gd">-Product, Person, Post) that holds all the business logic and knows how to</span>
+<span class="gd">-persist themselves to a database. The controller handles the incoming requests</span>
+<span class="gd">-(such as Save New Account, Update Product, Show Post) by manipulating the model</span>
+<span class="gd">-and directing data to the view.</span>
+<span class="gd">-</span>
+<span class="gd">-In Rails, the model is handled by what&#39;s called an object-relational mapping</span>
+<span class="gd">-layer entitled Active Record. This layer allows you to present the data from</span>
+<span class="gd">-database rows as objects and embellish these data objects with business logic</span>
+<span class="gd">-methods. You can read more about Active Record in</span>
+<span class="gd">-link:files/vendor/rails/activerecord/README.html.</span>
+<span class="gd">-</span>
+<span class="gd">-The controller and view are handled by the Action Pack, which handles both</span>
+<span class="gd">-layers by its two parts: Action View and Action Controller. These two layers</span>
+<span class="gd">-are bundled in a single package due to their heavy interdependence. This is</span>
+<span class="gd">-unlike the relationship between the Active Record and Action Pack that is much</span>
+<span class="gd">-more separate. Each of these packages can be used independently outside of</span>
+<span class="gd">-Rails. You can read more about Action Pack in</span>
+<span class="gd">-link:files/vendor/rails/actionpack/README.html.</span>
+<span class="gd">-</span>
+<span class="gd">-</span>
+<span class="gd">-== Getting Started</span>
+<span class="gd">-</span>
+<span class="gd">-1. At the command prompt, create a new Rails application:</span>
+<span class="gd">-       &lt;tt&gt;rails new myapp&lt;/tt&gt; (where &lt;tt&gt;myapp&lt;/tt&gt; is the application name)</span>
+<span class="gd">-</span>
+<span class="gd">-2. Change directory to &lt;tt&gt;myapp&lt;/tt&gt; and start the web server:</span>
+<span class="gd">-       &lt;tt&gt;cd myapp; rails server&lt;/tt&gt; (run with --help for options)</span>
+<span class="gd">-</span>
+<span class="gd">-3. Go to http://localhost:3000/ and you&#39;ll see:</span>
+<span class="gd">-       &quot;Welcome aboard: You&#39;re riding Ruby on Rails!&quot;</span>
+<span class="gd">-</span>
+<span class="gd">-4. Follow the guidelines to start developing your application. You can find</span>
+<span class="gd">-the following resources handy:</span>
+<span class="gd">-</span>
+<span class="gd">-* The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html</span>
+<span class="gd">-* Ruby on Rails Tutorial Book: http://www.railstutorial.org/</span>
+<span class="gd">-</span>
+<span class="gd">-</span>
+<span class="gd">-== Debugging Rails</span>
+<span class="gd">-</span>
+<span class="gd">-Sometimes your application goes wrong. Fortunately there are a lot of tools that</span>
+<span class="gd">-will help you debug it and get it back on the rails.</span>
+<span class="gd">-</span>
+<span class="gd">-First area to check is the application log files. Have &quot;tail -f&quot; commands</span>
+<span class="gd">-running on the server.log and development.log. Rails will automatically display</span>
+<span class="gd">-debugging and runtime information to these files. Debugging info will also be</span>
+<span class="gd">-shown in the browser on requests from 127.0.0.1.</span>
+<span class="gd">-</span>
+<span class="gd">-You can also log your own messages directly into the log file from your code</span>
+<span class="gd">-using the Ruby logger class from inside your controllers. Example:</span>
+<span class="gd">-</span>
+<span class="gd">-  class WeblogController &lt; ActionController::Base</span>
+<span class="gd">-    def destroy</span>
+<span class="gd">-      @weblog = Weblog.find(params[:id])</span>
+<span class="gd">-      @weblog.destroy</span>
+<span class="gd">-      logger.info(&quot;#{Time.now} Destroyed Weblog ID ##{@weblog.id}!&quot;)</span>
+<span class="gd">-    end</span>
+<span class="gd">-  end</span>
+<span class="gd">-</span>
+<span class="gd">-The result will be a message in your log file along the lines of:</span>
+<span class="gd">-</span>
+<span class="gd">-  Mon Oct 08 14:22:29 +1000 2007 Destroyed Weblog ID #1!</span>
+<span class="gd">-</span>
+<span class="gd">-More information on how to use the logger is at http://www.ruby-doc.org/core/</span>
+<span class="gd">-</span>
+<span class="gd">-Also, Ruby documentation can be found at http://www.ruby-lang.org/. There are</span>
+<span class="gd">-several books available online as well:</span>
+<span class="gd">-</span>
+<span class="gd">-* Programming Ruby: http://www.ruby-doc.org/docs/ProgrammingRuby/ (Pickaxe)</span>
+<span class="gd">-* Learn to Program: http://pine.fm/LearnToProgram/ (a beginners guide)</span>
+<span class="gd">-</span>
+<span class="gd">-These two books will bring you up to speed on the Ruby language and also on</span>
+<span class="gd">-programming in general.</span>
+<span class="gd">-</span>
+<span class="gd">-</span>
+<span class="gd">-== Debugger</span>
+<span class="gd">-</span>
+<span class="gd">-Debugger support is available through the debugger command when you start your</span>
+<span class="gd">-Mongrel or WEBrick server with --debugger. This means that you can break out of</span>
+<span class="gd">-execution at any point in the code, investigate and change the model, and then,</span>
+<span class="gd">-resume execution! You need to install ruby-debug to run the server in debugging</span>
+<span class="gd">-mode. With gems, use &lt;tt&gt;sudo gem install ruby-debug&lt;/tt&gt;. Example:</span>
+<span class="gd">-</span>
+<span class="gd">-  class WeblogController &lt; ActionController::Base</span>
+<span class="gd">-    def index</span>
+<span class="gd">-      @posts = Post.all</span>
+<span class="gd">-      debugger</span>
+<span class="gd">-    end</span>
+<span class="gd">-  end</span>
+<span class="gd">-</span>
+<span class="gd">-So the controller will accept the action, run the first line, then present you</span>
+<span class="gd">-with a IRB prompt in the server window. Here you can do things like:</span>
+<span class="gd">-</span>
+<span class="gd">-  &gt;&gt; @posts.inspect</span>
+<span class="gd">-  =&gt; &quot;[#&lt;Post:0x14a6be8</span>
+<span class="gd">-          @attributes={&quot;title&quot;=&gt;nil, &quot;body&quot;=&gt;nil, &quot;id&quot;=&gt;&quot;1&quot;}&gt;,</span>
+<span class="gd">-       #&lt;Post:0x14a6620</span>
+<span class="gd">-          @attributes={&quot;title&quot;=&gt;&quot;Rails&quot;, &quot;body&quot;=&gt;&quot;Only ten..&quot;, &quot;id&quot;=&gt;&quot;2&quot;}&gt;]&quot;</span>
+<span class="gd">-  &gt;&gt; @posts.first.title = &quot;hello from a debugger&quot;</span>
+<span class="gd">-  =&gt; &quot;hello from a debugger&quot;</span>
+<span class="gd">-</span>
+<span class="gd">-...and even better, you can examine how your runtime objects actually work:</span>
+<span class="gd">-</span>
+<span class="gd">-  &gt;&gt; f = @posts.first</span>
+<span class="gd">-  =&gt; #&lt;Post:0x13630c4 @attributes={&quot;title&quot;=&gt;nil, &quot;body&quot;=&gt;nil, &quot;id&quot;=&gt;&quot;1&quot;}&gt;</span>
+<span class="gd">-  &gt;&gt; f.</span>
+<span class="gd">-  Display all 152 possibilities? (y or n)</span>
+<span class="gd">-</span>
+<span class="gd">-Finally, when you&#39;re ready to resume execution, you can enter &quot;cont&quot;.</span>
+<span class="gd">-</span>
+<span class="gd">-</span>
+<span class="gd">-== Console</span>
+<span class="gd">-</span>
+<span class="gd">-The console is a Ruby shell, which allows you to interact with your</span>
+<span class="gd">-application&#39;s domain model. Here you&#39;ll have all parts of the application</span>
+<span class="gd">-configured, just like it is when the application is running. You can inspect</span>
+<span class="gd">-domain models, change values, and save to the database. Starting the script</span>
+<span class="gd">-without arguments will launch it in the development environment.</span>
+<span class="gd">-</span>
+<span class="gd">-To start the console, run &lt;tt&gt;rails console&lt;/tt&gt; from the application</span>
+<span class="gd">-directory.</span>
+<span class="gd">-</span>
+<span class="gd">-Options:</span>
+<span class="gd">-</span>
+<span class="gd">-* Passing the &lt;tt&gt;-s, --sandbox&lt;/tt&gt; argument will rollback any modifications</span>
+<span class="gd">-  made to the database.</span>
+<span class="gd">-* Passing an environment name as an argument will load the corresponding</span>
+<span class="gd">-  environment. Example: &lt;tt&gt;rails console production&lt;/tt&gt;.</span>
+<span class="gd">-</span>
+<span class="gd">-To reload your controllers and models after launching the console run</span>
+<span class="gd">-&lt;tt&gt;reload!&lt;/tt&gt;</span>
+<span class="gd">-</span>
+<span class="gd">-More information about irb can be found at:</span>
+<span class="gd">-link:http://www.rubycentral.org/pickaxe/irb.html</span>
+<span class="gd">-</span>
+<span class="gd">-</span>
+<span class="gd">-== dbconsole</span>
+<span class="gd">-</span>
+<span class="gd">-You can go to the command line of your database directly through &lt;tt&gt;rails</span>
+<span class="gd">-dbconsole&lt;/tt&gt;. You would be connected to the database with the credentials</span>
+<span class="gd">-defined in database.yml. Starting the script without arguments will connect you</span>
+<span class="gd">-to the development database. Passing an argument will connect you to a different</span>
+<span class="gd">-database, like &lt;tt&gt;rails dbconsole production&lt;/tt&gt;. Currently works for MySQL,</span>
+<span class="gd">-PostgreSQL and SQLite 3.</span>
+<span class="gd">-</span>
+<span class="gd">-== Description of Contents</span>
+<span class="gd">-</span>
+<span class="gd">-The default directory structure of a generated Ruby on Rails application:</span>
+<span class="gd">-</span>
+<span class="gd">-  |-- app</span>
+<span class="gd">-  |   |-- assets</span>
+<span class="gd">-  |       |-- images</span>
+<span class="gd">-  |       |-- javascripts</span>
+<span class="gd">-  |       `-- stylesheets</span>
+<span class="gd">-  |   |-- controllers</span>
+<span class="gd">-  |   |-- helpers</span>
+<span class="gd">-  |   |-- mailers</span>
+<span class="gd">-  |   |-- models</span>
+<span class="gd">-  |   `-- views</span>
+<span class="gd">-  |       `-- layouts</span>
+<span class="gd">-  |-- config</span>
+<span class="gd">-  |   |-- environments</span>
+<span class="gd">-  |   |-- initializers</span>
+<span class="gd">-  |   `-- locales</span>
+<span class="gd">-  |-- db</span>
+<span class="gd">-  |-- doc</span>
+<span class="gd">-  |-- lib</span>
+<span class="gd">-  |   `-- tasks</span>
+<span class="gd">-  |-- log</span>
+<span class="gd">-  |-- public</span>
+<span class="gd">-  |-- script</span>
+<span class="gd">-  |-- test</span>
+<span class="gd">-  |   |-- fixtures</span>
+<span class="gd">-  |   |-- functional</span>
+<span class="gd">-  |   |-- integration</span>
+<span class="gd">-  |   |-- performance</span>
+<span class="gd">-  |   `-- unit</span>
+<span class="gd">-  |-- tmp</span>
+<span class="gd">-  |   |-- cache</span>
+<span class="gd">-  |   |-- pids</span>
+<span class="gd">-  |   |-- sessions</span>
+<span class="gd">-  |   `-- sockets</span>
+<span class="gd">-  `-- vendor</span>
+<span class="gd">-      |-- assets</span>
+<span class="gd">-          `-- stylesheets</span>
+<span class="gd">-      `-- plugins</span>
+<span class="gd">-</span>
+<span class="gd">-app</span>
+<span class="gd">-  Holds all the code that&#39;s specific to this particular application.</span>
+<span class="gd">-</span>
+<span class="gd">-app/assets</span>
+<span class="gd">-  Contains subdirectories for images, stylesheets, and JavaScript files.</span>
+<span class="gd">-</span>
+<span class="gd">-app/controllers</span>
+<span class="gd">-  Holds controllers that should be named like weblogs_controller.rb for</span>
+<span class="gd">-  automated URL mapping. All controllers should descend from</span>
+<span class="gd">-  ApplicationController which itself descends from ActionController::Base.</span>
+<span class="gd">-</span>
+<span class="gd">-app/models</span>
+<span class="gd">-  Holds models that should be named like post.rb. Models descend from</span>
+<span class="gd">-  ActiveRecord::Base by default.</span>
+<span class="gd">-</span>
+<span class="gd">-app/views</span>
+<span class="gd">-  Holds the template files for the view that should be named like</span>
+<span class="gd">-  weblogs/index.html.erb for the WeblogsController#index action. All views use</span>
+<span class="gd">-  eRuby syntax by default.</span>
+<span class="gd">-</span>
+<span class="gd">-app/views/layouts</span>
+<span class="gd">-  Holds the template files for layouts to be used with views. This models the</span>
+<span class="gd">-  common header/footer method of wrapping views. In your views, define a layout</span>
+<span class="gd">-  using the &lt;tt&gt;layout :default&lt;/tt&gt; and create a file named default.html.erb.</span>
+<span class="gd">-  Inside default.html.erb, call &lt;% yield %&gt; to render the view using this</span>
+<span class="gd">-  layout.</span>
+<span class="gd">-</span>
+<span class="gd">-app/helpers</span>
+<span class="gd">-  Holds view helpers that should be named like weblogs_helper.rb. These are</span>
+<span class="gd">-  generated for you automatically when using generators for controllers.</span>
+<span class="gd">-  Helpers can be used to wrap functionality for your views into methods.</span>
+<span class="gd">-</span>
+<span class="gd">-config</span>
+<span class="gd">-  Configuration files for the Rails environment, the routing map, the database,</span>
+<span class="gd">-  and other dependencies.</span>
+<span class="gd">-</span>
+<span class="gd">-db</span>
+<span class="gd">-  Contains the database schema in schema.rb. db/migrate contains all the</span>
+<span class="gd">-  sequence of Migrations for your schema.</span>
+<span class="gd">-</span>
+<span class="gd">-doc</span>
+<span class="gd">-  This directory is where your application documentation will be stored when</span>
+<span class="gd">-  generated using &lt;tt&gt;rake doc:app&lt;/tt&gt;</span>
+<span class="gd">-</span>
+<span class="gd">-lib</span>
+<span class="gd">-  Application specific libraries. Basically, any kind of custom code that</span>
+<span class="gd">-  doesn&#39;t belong under controllers, models, or helpers. This directory is in</span>
+<span class="gd">-  the load path.</span>
+<span class="gd">-</span>
+<span class="gd">-public</span>
+<span class="gd">-  The directory available for the web server. Also contains the dispatchers and the</span>
+<span class="gd">-  default HTML files. This should be set as the DOCUMENT_ROOT of your web</span>
+<span class="gd">-  server.</span>
+<span class="gd">-</span>
+<span class="gd">-script</span>
+<span class="gd">-  Helper scripts for automation and generation.</span>
+<span class="gd">-</span>
+<span class="gd">-test</span>
+<span class="gd">-  Unit and functional tests along with fixtures. When using the rails generate</span>
+<span class="gd">-  command, template test files will be generated for you and placed in this</span>
+<span class="gd">-  directory.</span>
+<span class="gd">-</span>
+<span class="gd">-vendor</span>
+<span class="gd">-  External libraries that the application depends on. Also includes the plugins</span>
+<span class="gd">-  subdirectory. If the app has frozen rails, those gems also go here, under</span>
+<span class="gd">-  vendor/rails/. This directory is in the load path.</span>
+</pre></div>
+  <h2 id='README-rdoc'>README.rdoc</h2>
+  <div class="highlight"><pre><span class="gu">@@ -0,0 +1,261 @@</span>
+<span class="gi">+== Welcome to Rails</span>
+<span class="gi">+</span>
+<span class="gi">+Rails is a web-application framework that includes everything needed to create</span>
+<span class="gi">+database-backed web applications according to the Model-View-Control pattern.</span>
+<span class="gi">+</span>
+<span class="gi">+This pattern splits the view (also called the presentation) into &quot;dumb&quot;</span>
+<span class="gi">+templates that are primarily responsible for inserting pre-built data in between</span>
+<span class="gi">+HTML tags. The model contains the &quot;smart&quot; domain objects (such as Account,</span>
+<span class="gi">+Product, Person, Post) that holds all the business logic and knows how to</span>
+<span class="gi">+persist themselves to a database. The controller handles the incoming requests</span>
+<span class="gi">+(such as Save New Account, Update Product, Show Post) by manipulating the model</span>
+<span class="gi">+and directing data to the view.</span>
+<span class="gi">+</span>
+<span class="gi">+In Rails, the model is handled by what&#39;s called an object-relational mapping</span>
+<span class="gi">+layer entitled Active Record. This layer allows you to present the data from</span>
+<span class="gi">+database rows as objects and embellish these data objects with business logic</span>
+<span class="gi">+methods. You can read more about Active Record in</span>
+<span class="gi">+link:files/vendor/rails/activerecord/README.html.</span>
+<span class="gi">+</span>
+<span class="gi">+The controller and view are handled by the Action Pack, which handles both</span>
+<span class="gi">+layers by its two parts: Action View and Action Controller. These two layers</span>
+<span class="gi">+are bundled in a single package due to their heavy interdependence. This is</span>
+<span class="gi">+unlike the relationship between the Active Record and Action Pack that is much</span>
+<span class="gi">+more separate. Each of these packages can be used independently outside of</span>
+<span class="gi">+Rails. You can read more about Action Pack in</span>
+<span class="gi">+link:files/vendor/rails/actionpack/README.html.</span>
+<span class="gi">+</span>
+<span class="gi">+</span>
+<span class="gi">+== Getting Started</span>
+<span class="gi">+</span>
+<span class="gi">+1. At the command prompt, create a new Rails application:</span>
+<span class="gi">+       &lt;tt&gt;rails new myapp&lt;/tt&gt; (where &lt;tt&gt;myapp&lt;/tt&gt; is the application name)</span>
+<span class="gi">+</span>
+<span class="gi">+2. Change directory to &lt;tt&gt;myapp&lt;/tt&gt; and start the web server:</span>
+<span class="gi">+       &lt;tt&gt;cd myapp; rails server&lt;/tt&gt; (run with --help for options)</span>
+<span class="gi">+</span>
+<span class="gi">+3. Go to http://localhost:3000/ and you&#39;ll see:</span>
+<span class="gi">+       &quot;Welcome aboard: You&#39;re riding Ruby on Rails!&quot;</span>
+<span class="gi">+</span>
+<span class="gi">+4. Follow the guidelines to start developing your application. You can find</span>
+<span class="gi">+the following resources handy:</span>
+<span class="gi">+</span>
+<span class="gi">+* The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html</span>
+<span class="gi">+* Ruby on Rails Tutorial Book: http://www.railstutorial.org/</span>
+<span class="gi">+</span>
+<span class="gi">+</span>
+<span class="gi">+== Debugging Rails</span>
+<span class="gi">+</span>
+<span class="gi">+Sometimes your application goes wrong. Fortunately there are a lot of tools that</span>
+<span class="gi">+will help you debug it and get it back on the rails.</span>
+<span class="gi">+</span>
+<span class="gi">+First area to check is the application log files. Have &quot;tail -f&quot; commands</span>
+<span class="gi">+running on the server.log and development.log. Rails will automatically display</span>
+<span class="gi">+debugging and runtime information to these files. Debugging info will also be</span>
+<span class="gi">+shown in the browser on requests from 127.0.0.1.</span>
+<span class="gi">+</span>
+<span class="gi">+You can also log your own messages directly into the log file from your code</span>
+<span class="gi">+using the Ruby logger class from inside your controllers. Example:</span>
+<span class="gi">+</span>
+<span class="gi">+  class WeblogController &lt; ActionController::Base</span>
+<span class="gi">+    def destroy</span>
+<span class="gi">+      @weblog = Weblog.find(params[:id])</span>
+<span class="gi">+      @weblog.destroy</span>
+<span class="gi">+      logger.info(&quot;#{Time.now} Destroyed Weblog ID ##{@weblog.id}!&quot;)</span>
+<span class="gi">+    end</span>
+<span class="gi">+  end</span>
+<span class="gi">+</span>
+<span class="gi">+The result will be a message in your log file along the lines of:</span>
+<span class="gi">+</span>
+<span class="gi">+  Mon Oct 08 14:22:29 +1000 2007 Destroyed Weblog ID #1!</span>
+<span class="gi">+</span>
+<span class="gi">+More information on how to use the logger is at http://www.ruby-doc.org/core/</span>
+<span class="gi">+</span>
+<span class="gi">+Also, Ruby documentation can be found at http://www.ruby-lang.org/. There are</span>
+<span class="gi">+several books available online as well:</span>
+<span class="gi">+</span>
+<span class="gi">+* Programming Ruby: http://www.ruby-doc.org/docs/ProgrammingRuby/ (Pickaxe)</span>
+<span class="gi">+* Learn to Program: http://pine.fm/LearnToProgram/ (a beginners guide)</span>
+<span class="gi">+</span>
+<span class="gi">+These two books will bring you up to speed on the Ruby language and also on</span>
+<span class="gi">+programming in general.</span>
+<span class="gi">+</span>
+<span class="gi">+</span>
+<span class="gi">+== Debugger</span>
+<span class="gi">+</span>
+<span class="gi">+Debugger support is available through the debugger command when you start your</span>
+<span class="gi">+Mongrel or WEBrick server with --debugger. This means that you can break out of</span>
+<span class="gi">+execution at any point in the code, investigate and change the model, and then,</span>
+<span class="gi">+resume execution! You need to install ruby-debug to run the server in debugging</span>
+<span class="gi">+mode. With gems, use &lt;tt&gt;sudo gem install ruby-debug&lt;/tt&gt;. Example:</span>
+<span class="gi">+</span>
+<span class="gi">+  class WeblogController &lt; ActionController::Base</span>
+<span class="gi">+    def index</span>
+<span class="gi">+      @posts = Post.all</span>
+<span class="gi">+      debugger</span>
+<span class="gi">+    end</span>
+<span class="gi">+  end</span>
+<span class="gi">+</span>
+<span class="gi">+So the controller will accept the action, run the first line, then present you</span>
+<span class="gi">+with a IRB prompt in the server window. Here you can do things like:</span>
+<span class="gi">+</span>
+<span class="gi">+  &gt;&gt; @posts.inspect</span>
+<span class="gi">+  =&gt; &quot;[#&lt;Post:0x14a6be8</span>
+<span class="gi">+          @attributes={&quot;title&quot;=&gt;nil, &quot;body&quot;=&gt;nil, &quot;id&quot;=&gt;&quot;1&quot;}&gt;,</span>
+<span class="gi">+       #&lt;Post:0x14a6620</span>
+<span class="gi">+          @attributes={&quot;title&quot;=&gt;&quot;Rails&quot;, &quot;body&quot;=&gt;&quot;Only ten..&quot;, &quot;id&quot;=&gt;&quot;2&quot;}&gt;]&quot;</span>
+<span class="gi">+  &gt;&gt; @posts.first.title = &quot;hello from a debugger&quot;</span>
+<span class="gi">+  =&gt; &quot;hello from a debugger&quot;</span>
+<span class="gi">+</span>
+<span class="gi">+...and even better, you can examine how your runtime objects actually work:</span>
+<span class="gi">+</span>
+<span class="gi">+  &gt;&gt; f = @posts.first</span>
+<span class="gi">+  =&gt; #&lt;Post:0x13630c4 @attributes={&quot;title&quot;=&gt;nil, &quot;body&quot;=&gt;nil, &quot;id&quot;=&gt;&quot;1&quot;}&gt;</span>
+<span class="gi">+  &gt;&gt; f.</span>
+<span class="gi">+  Display all 152 possibilities? (y or n)</span>
+<span class="gi">+</span>
+<span class="gi">+Finally, when you&#39;re ready to resume execution, you can enter &quot;cont&quot;.</span>
+<span class="gi">+</span>
+<span class="gi">+</span>
+<span class="gi">+== Console</span>
+<span class="gi">+</span>
+<span class="gi">+The console is a Ruby shell, which allows you to interact with your</span>
+<span class="gi">+application&#39;s domain model. Here you&#39;ll have all parts of the application</span>
+<span class="gi">+configured, just like it is when the application is running. You can inspect</span>
+<span class="gi">+domain models, change values, and save to the database. Starting the script</span>
+<span class="gi">+without arguments will launch it in the development environment.</span>
+<span class="gi">+</span>
+<span class="gi">+To start the console, run &lt;tt&gt;rails console&lt;/tt&gt; from the application</span>
+<span class="gi">+directory.</span>
+<span class="gi">+</span>
+<span class="gi">+Options:</span>
+<span class="gi">+</span>
+<span class="gi">+* Passing the &lt;tt&gt;-s, --sandbox&lt;/tt&gt; argument will rollback any modifications</span>
+<span class="gi">+  made to the database.</span>
+<span class="gi">+* Passing an environment name as an argument will load the corresponding</span>
+<span class="gi">+  environment. Example: &lt;tt&gt;rails console production&lt;/tt&gt;.</span>
+<span class="gi">+</span>
+<span class="gi">+To reload your controllers and models after launching the console run</span>
+<span class="gi">+&lt;tt&gt;reload!&lt;/tt&gt;</span>
+<span class="gi">+</span>
+<span class="gi">+More information about irb can be found at:</span>
+<span class="gi">+link:http://www.rubycentral.org/pickaxe/irb.html</span>
+<span class="gi">+</span>
+<span class="gi">+</span>
+<span class="gi">+== dbconsole</span>
+<span class="gi">+</span>
+<span class="gi">+You can go to the command line of your database directly through &lt;tt&gt;rails</span>
+<span class="gi">+dbconsole&lt;/tt&gt;. You would be connected to the database with the credentials</span>
+<span class="gi">+defined in database.yml. Starting the script without arguments will connect you</span>
+<span class="gi">+to the development database. Passing an argument will connect you to a different</span>
+<span class="gi">+database, like &lt;tt&gt;rails dbconsole production&lt;/tt&gt;. Currently works for MySQL,</span>
+<span class="gi">+PostgreSQL and SQLite 3.</span>
+<span class="gi">+</span>
+<span class="gi">+== Description of Contents</span>
+<span class="gi">+</span>
+<span class="gi">+The default directory structure of a generated Ruby on Rails application:</span>
+<span class="gi">+</span>
+<span class="gi">+  |-- app</span>
+<span class="gi">+  |   |-- assets</span>
+<span class="gi">+  |   |   |-- images</span>
+<span class="gi">+  |   |   |-- javascripts</span>
+<span class="gi">+  |   |   `-- stylesheets</span>
+<span class="gi">+  |   |-- controllers</span>
+<span class="gi">+  |   |-- helpers</span>
+<span class="gi">+  |   |-- mailers</span>
+<span class="gi">+  |   |-- models</span>
+<span class="gi">+  |   `-- views</span>
+<span class="gi">+  |       `-- layouts</span>
+<span class="gi">+  |-- config</span>
+<span class="gi">+  |   |-- environments</span>
+<span class="gi">+  |   |-- initializers</span>
+<span class="gi">+  |   `-- locales</span>
+<span class="gi">+  |-- db</span>
+<span class="gi">+  |-- doc</span>
+<span class="gi">+  |-- lib</span>
+<span class="gi">+  |   |-- assets</span>
+<span class="gi">+  |   `-- tasks</span>
+<span class="gi">+  |-- log</span>
+<span class="gi">+  |-- public</span>
+<span class="gi">+  |-- script</span>
+<span class="gi">+  |-- test</span>
+<span class="gi">+  |   |-- fixtures</span>
+<span class="gi">+  |   |-- functional</span>
+<span class="gi">+  |   |-- integration</span>
+<span class="gi">+  |   |-- performance</span>
+<span class="gi">+  |   `-- unit</span>
+<span class="gi">+  |-- tmp</span>
+<span class="gi">+  |   `-- cache</span>
+<span class="gi">+  |       `-- assets</span>
+<span class="gi">+  `-- vendor</span>
+<span class="gi">+      |-- assets</span>
+<span class="gi">+      |   |-- javascripts</span>
+<span class="gi">+      |   `-- stylesheets</span>
+<span class="gi">+      `-- plugins</span>
+<span class="gi">+</span>
+<span class="gi">+app</span>
+<span class="gi">+  Holds all the code that&#39;s specific to this particular application.</span>
+<span class="gi">+</span>
+<span class="gi">+app/assets</span>
+<span class="gi">+  Contains subdirectories for images, stylesheets, and JavaScript files.</span>
+<span class="gi">+</span>
+<span class="gi">+app/controllers</span>
+<span class="gi">+  Holds controllers that should be named like weblogs_controller.rb for</span>
+<span class="gi">+  automated URL mapping. All controllers should descend from</span>
+<span class="gi">+  ApplicationController which itself descends from ActionController::Base.</span>
+<span class="gi">+</span>
+<span class="gi">+app/models</span>
+<span class="gi">+  Holds models that should be named like post.rb. Models descend from</span>
+<span class="gi">+  ActiveRecord::Base by default.</span>
+<span class="gi">+</span>
+<span class="gi">+app/views</span>
+<span class="gi">+  Holds the template files for the view that should be named like</span>
+<span class="gi">+  weblogs/index.html.erb for the WeblogsController#index action. All views use</span>
+<span class="gi">+  eRuby syntax by default.</span>
+<span class="gi">+</span>
+<span class="gi">+app/views/layouts</span>
+<span class="gi">+  Holds the template files for layouts to be used with views. This models the</span>
+<span class="gi">+  common header/footer method of wrapping views. In your views, define a layout</span>
+<span class="gi">+  using the &lt;tt&gt;layout :default&lt;/tt&gt; and create a file named default.html.erb.</span>
+<span class="gi">+  Inside default.html.erb, call &lt;% yield %&gt; to render the view using this</span>
+<span class="gi">+  layout.</span>
+<span class="gi">+</span>
+<span class="gi">+app/helpers</span>
+<span class="gi">+  Holds view helpers that should be named like weblogs_helper.rb. These are</span>
+<span class="gi">+  generated for you automatically when using generators for controllers.</span>
+<span class="gi">+  Helpers can be used to wrap functionality for your views into methods.</span>
+<span class="gi">+</span>
+<span class="gi">+config</span>
+<span class="gi">+  Configuration files for the Rails environment, the routing map, the database,</span>
+<span class="gi">+  and other dependencies.</span>
+<span class="gi">+</span>
+<span class="gi">+db</span>
+<span class="gi">+  Contains the database schema in schema.rb. db/migrate contains all the</span>
+<span class="gi">+  sequence of Migrations for your schema.</span>
+<span class="gi">+</span>
+<span class="gi">+doc</span>
+<span class="gi">+  This directory is where your application documentation will be stored when</span>
+<span class="gi">+  generated using &lt;tt&gt;rake doc:app&lt;/tt&gt;</span>
+<span class="gi">+</span>
+<span class="gi">+lib</span>
+<span class="gi">+  Application specific libraries. Basically, any kind of custom code that</span>
+<span class="gi">+  doesn&#39;t belong under controllers, models, or helpers. This directory is in</span>
+<span class="gi">+  the load path.</span>
+<span class="gi">+</span>
+<span class="gi">+public</span>
+<span class="gi">+  The directory available for the web server. Also contains the dispatchers and the</span>
+<span class="gi">+  default HTML files. This should be set as the DOCUMENT_ROOT of your web</span>
+<span class="gi">+  server.</span>
+<span class="gi">+</span>
+<span class="gi">+script</span>
+<span class="gi">+  Helper scripts for automation and generation.</span>
+<span class="gi">+</span>
+<span class="gi">+test</span>
+<span class="gi">+  Unit and functional tests along with fixtures. When using the rails generate</span>
+<span class="gi">+  command, template test files will be generated for you and placed in this</span>
+<span class="gi">+  directory.</span>
+<span class="gi">+</span>
+<span class="gi">+vendor</span>
+<span class="gi">+  External libraries that the application depends on. Also includes the plugins</span>
+<span class="gi">+  subdirectory. If the app has frozen rails, those gems also go here, under</span>
+<span class="gi">+  vendor/rails/. This directory is in the load path.</span>
+</pre></div>
+  <h2 id='app-assets-javascripts-application-js'>app/assets/javascripts/application.js</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,9 +1,15 @@</span>
+<span class="gd">-// This is a manifest file that&#39;ll be compiled into including all the files listed below.</span>
+<span class="gd">-// Add new JavaScript/Coffee code in separate files in this directory and they&#39;ll automatically</span>
+<span class="gd">-// be included in the compiled file accessible from http://example.com/assets/application.js</span>
+<span class="gi">+// This is a manifest file that&#39;ll be compiled into application.js, which will include all the files</span>
+<span class="gi">+// listed below.</span>
+<span class="gi">+//</span>
+<span class="gi">+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,</span>
+<span class="gi">+// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.</span>
+<span class="gi">+//</span>
+ // It&#39;s not advisable to add code directly here, but if you do, it&#39;ll appear at the bottom of the
+ // the compiled file.
+ //
+<span class="gi">+// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT&#39;S TO BE PROCESSED, ANY BLANK LINE SHOULD</span>
+<span class="gi">+// GO AFTER THE REQUIRES BELOW.</span>
+<span class="gi">+//</span>
+ //= require jquery
+ //= require jquery_ujs
+ //= require_tree .
+</pre></div>
+  <h2 id='app-assets-stylesheets-application-css'>app/assets/stylesheets/application.css</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,7 +1,13 @@</span>
+ /*
+<span class="gd">- * This is a manifest file that&#39;ll automatically include all the stylesheets available in this directory</span>
+<span class="gd">- * and any sub-directories. You&#39;re free to add application-wide styles to this file and they&#39;ll appear at</span>
+<span class="gd">- * the top of the compiled file, but it&#39;s generally better to create a new file per style scope.</span>
+<span class="gi">+ * This is a manifest file that&#39;ll be compiled into application.css, which will include all the files</span>
+<span class="gi">+ * listed below.</span>
+<span class="gi">+ *</span>
+<span class="gi">+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,</span>
+<span class="gi">+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.</span>
+<span class="gi">+ *</span>
+<span class="gi">+ * You&#39;re free to add application-wide styles to this file and they&#39;ll appear at the top of the</span>
+<span class="gi">+ * compiled file, but it&#39;s generally better to create a new file per style scope.</span>
+<span class="gi">+ *</span>
+  *= require_self
+<span class="gd">- *= require_tree . </span>
+<span class="gd">-*/</span>
+\ No newline at end of file
+<span class="gi">+ *= require_tree .</span>
+<span class="gi">+ */</span>
+</pre></div>
+  <h2 id='app-views-layouts-application-html-erb'>app/views/layouts/application.html.erb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,14 +1,14 @@</span>
+ &lt;!DOCTYPE html&gt;
+ &lt;html&gt;
+ &lt;head&gt;
+   &lt;title&gt;Railsdiff&lt;/title&gt;
+<span class="gd">-  &lt;%= stylesheet_link_tag    &quot;application&quot; %&gt;</span>
+<span class="gi">+  &lt;%= stylesheet_link_tag    &quot;application&quot;, :media =&gt; &quot;all&quot; %&gt;</span>
+   &lt;%= javascript_include_tag &quot;application&quot; %&gt;
+   &lt;%= csrf_meta_tags %&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+ 
+ &lt;%= yield %&gt;
+ 
+ &lt;/body&gt;
+ &lt;/html&gt;
+</pre></div>
+  <h2 id='config-application-rb'>config/application.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,48 +1,62 @@</span>
+ require File.expand_path(&#39;../boot&#39;, __FILE__)
+ 
+ require &#39;rails/all&#39;
+ 
+ if defined?(Bundler)
+   # If you precompile assets before deploying to production, use this line
+   Bundler.require(*Rails.groups(:assets =&gt; %w(development test)))
+   # If you want your assets lazily compiled in production, use this line
+   # Bundler.require(:default, :assets, Rails.env)
+ end
+ 
+ module Railsdiff
+   class Application &lt; Rails::Application
+     # Settings in config/environments/* take precedence over those specified here.
+     # Application configuration should go into files in config/initializers
+     # -- all .rb files in that directory are automatically loaded.
+ 
+     # Custom directories with classes and modules you want to be autoloadable.
+     # config.autoload_paths += %W(#{config.root}/extras)
+ 
+     # Only load the plugins named here, in the order given (default is alphabetical).
+     # :all can be used as a placeholder for all plugins not explicitly named.
+     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+ 
+     # Activate observers that should always be running.
+     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+ 
+     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+     # Run &quot;rake -D time&quot; for a list of tasks for finding time zone names. Default is UTC.
+     # config.time_zone = &#39;Central Time (US &amp; Canada)&#39;
+ 
+     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+     # config.i18n.load_path += Dir[Rails.root.join(&#39;my&#39;, &#39;locales&#39;, &#39;*.{rb,yml}&#39;).to_s]
+     # config.i18n.default_locale = :de
+ 
+     # Configure the default encoding used in templates for Ruby 1.9.
+     config.encoding = &quot;utf-8&quot;
+ 
+     # Configure sensitive parameters which will be filtered from the log file.
+     config.filter_parameters += [:password]
+ 
+<span class="gi">+    # Enable escaping HTML in JSON.</span>
+<span class="gi">+    config.active_support.escape_html_entities_in_json = true</span>
+<span class="gi">+</span>
+<span class="gi">+    # Use SQL instead of Active Record&#39;s schema dumper when creating the database.</span>
+<span class="gi">+    # This is necessary if your schema can&#39;t be completely dumped by the schema dumper,</span>
+<span class="gi">+    # like if you have constraints or database-specific column types</span>
+<span class="gi">+    # config.active_record.schema_format = :sql</span>
+<span class="gi">+</span>
+<span class="gi">+    # Enforce whitelist mode for mass assignment.</span>
+<span class="gi">+    # This will create an empty whitelist of attributes available for mass-assignment for all models</span>
+<span class="gi">+    # in your app. As such, your models will need to explicitly whitelist or blacklist accessible</span>
+<span class="gi">+    # parameters by using an attr_accessible or attr_protected declaration.</span>
+<span class="gi">+    config.active_record.whitelist_attributes = true</span>
+<span class="gi">+</span>
+     # Enable the asset pipeline
+     config.assets.enabled = true
+ 
+     # Version of your assets, change this if you want to expire all your assets
+     config.assets.version = &#39;1.0&#39;
+   end
+ end
+</pre></div>
+  <h2 id='config-environments-development-rb'>config/environments/development.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,30 +1,37 @@</span>
+ Railsdiff::Application.configure do
+   # Settings specified here will take precedence over those in config/application.rb
+ 
+   # In the development environment your application&#39;s code is reloaded on
+<span class="gd">-  # every request.  This slows down response time but is perfect for development</span>
+<span class="gi">+  # every request. This slows down response time but is perfect for development</span>
+   # since you don&#39;t have to restart the web server when you make code changes.
+   config.cache_classes = false
+ 
+   # Log error messages when you accidentally call methods on nil.
+   config.whiny_nils = true
+ 
+   # Show full error reports and disable caching
+   config.consider_all_requests_local       = true
+   config.action_controller.perform_caching = false
+ 
+   # Don&#39;t care if the mailer can&#39;t send
+   config.action_mailer.raise_delivery_errors = false
+ 
+   # Print deprecation notices to the Rails logger
+   config.active_support.deprecation = :log
+ 
+   # Only use best-standards-support built into browsers
+   config.action_dispatch.best_standards_support = :builtin
+ 
+<span class="gi">+  # Raise exception on mass assignment protection for Active Record models</span>
+<span class="gi">+  config.active_record.mass_assignment_sanitizer = :strict</span>
+<span class="gi">+</span>
+<span class="gi">+  # Log the query plan for queries taking more than this (works</span>
+<span class="gi">+  # with SQLite, MySQL, and PostgreSQL)</span>
+<span class="gi">+  config.active_record.auto_explain_threshold_in_seconds = 0.5</span>
+<span class="gi">+</span>
+   # Do not compress assets
+   config.assets.compress = false
+ 
+   # Expands the lines which load the assets
+   config.assets.debug = true
+ end
+</pre></div>
+  <h2 id='config-environments-production-rb'>config/environments/production.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,60 +1,67 @@</span>
+ Railsdiff::Application.configure do
+   # Settings specified here will take precedence over those in config/application.rb
+ 
+   # Code is not reloaded between requests
+   config.cache_classes = true
+ 
+   # Full error reports are disabled and caching is turned on
+   config.consider_all_requests_local       = false
+   config.action_controller.perform_caching = true
+ 
+   # Disable Rails&#39;s static asset server (Apache or nginx will already do this)
+   config.serve_static_assets = false
+ 
+   # Compress JavaScripts and CSS
+   config.assets.compress = true
+ 
+   # Don&#39;t fallback to assets pipeline if a precompiled asset is missed
+   config.assets.compile = false
+ 
+   # Generate digests for assets URLs
+   config.assets.digest = true
+ 
+<span class="gd">-  # Defaults to Rails.root.join(&quot;public/assets&quot;)</span>
+<span class="gi">+  # Defaults to nil and saved in location specified by config.assets.prefix</span>
+   # config.assets.manifest = YOUR_PATH
+ 
+   # Specifies the header that your server uses for sending files
+   # config.action_dispatch.x_sendfile_header = &quot;X-Sendfile&quot; # for apache
+   # config.action_dispatch.x_sendfile_header = &#39;X-Accel-Redirect&#39; # for nginx
+ 
+   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+   # config.force_ssl = true
+ 
+   # See everything in the log (default is :info)
+   # config.log_level = :debug
+ 
+<span class="gi">+  # Prepend all log lines with the following tags</span>
+<span class="gi">+  # config.log_tags = [ :subdomain, :uuid ]</span>
+<span class="gi">+</span>
+   # Use a different logger for distributed setups
+<span class="gd">-  # config.logger = SyslogLogger.new</span>
+<span class="gi">+  # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)</span>
+ 
+   # Use a different cache store in production
+   # config.cache_store = :mem_cache_store
+ 
+   # Enable serving of images, stylesheets, and JavaScripts from an asset server
+   # config.action_controller.asset_host = &quot;http://assets.example.com&quot;
+ 
+   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+   # config.assets.precompile += %w( search.js )
+ 
+   # Disable delivery errors, bad email addresses will be ignored
+   # config.action_mailer.raise_delivery_errors = false
+ 
+   # Enable threaded mode
+   # config.threadsafe!
+ 
+   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
+   # the I18n.default_locale when a translation can not be found)
+   config.i18n.fallbacks = true
+ 
+   # Send deprecation notices to registered listeners
+   config.active_support.deprecation = :notify
+<span class="gi">+</span>
+<span class="gi">+  # Log the query plan for queries taking more than this (works</span>
+<span class="gi">+  # with SQLite, MySQL, and PostgreSQL)</span>
+<span class="gi">+  # config.active_record.auto_explain_threshold_in_seconds = 0.5</span>
+ end
+</pre></div>
+  <h2 id='config-environments-test-rb'>config/environments/test.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,39 +1,37 @@</span>
+ Railsdiff::Application.configure do
+   # Settings specified here will take precedence over those in config/application.rb
+ 
+   # The test environment is used exclusively to run your application&#39;s
+<span class="gd">-  # test suite.  You never need to work with it otherwise.  Remember that</span>
+<span class="gi">+  # test suite. You never need to work with it otherwise. Remember that</span>
+   # your test database is &quot;scratch space&quot; for the test suite and is wiped
+<span class="gd">-  # and recreated between test runs.  Don&#39;t rely on the data there!</span>
+<span class="gi">+  # and recreated between test runs. Don&#39;t rely on the data there!</span>
+   config.cache_classes = true
+ 
+   # Configure static asset server for tests with Cache-Control for performance
+   config.serve_static_assets = true
+   config.static_cache_control = &quot;public, max-age=3600&quot;
+ 
+   # Log error messages when you accidentally call methods on nil
+   config.whiny_nils = true
+ 
+   # Show full error reports and disable caching
+   config.consider_all_requests_local       = true
+   config.action_controller.perform_caching = false
+ 
+   # Raise exceptions instead of rendering exception templates
+   config.action_dispatch.show_exceptions = false
+ 
+   # Disable request forgery protection in test environment
+   config.action_controller.allow_forgery_protection    = false
+ 
+   # Tell Action Mailer not to deliver emails to the real world.
+   # The :test delivery method accumulates sent emails in the
+   # ActionMailer::Base.deliveries array.
+   config.action_mailer.delivery_method = :test
+ 
+<span class="gd">-  # Use SQL instead of Active Record&#39;s schema dumper when creating the test database.</span>
+<span class="gd">-  # This is necessary if your schema can&#39;t be completely dumped by the schema dumper,</span>
+<span class="gd">-  # like if you have constraints or database-specific column types</span>
+<span class="gd">-  # config.active_record.schema_format = :sql</span>
+<span class="gi">+  # Raise exception on mass assignment protection for Active Record models</span>
+<span class="gi">+  config.active_record.mass_assignment_sanitizer = :strict</span>
+ 
+   # Print deprecation notices to the stderr
+   config.active_support.deprecation = :stderr
+ end
+</pre></div>
+  <h2 id='config-initializers-inflections-rb'>config/initializers/inflections.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,10 +1,15 @@</span>
+ # Be sure to restart your server when you modify this file.
+ 
+ # Add new inflection rules using the following format
+ # (all these examples are active by default):
+ # ActiveSupport::Inflector.inflections do |inflect|
+ #   inflect.plural /^(ox)$/i, &#39;\1en&#39;
+ #   inflect.singular /^(ox)en/i, &#39;\1&#39;
+ #   inflect.irregular &#39;person&#39;, &#39;people&#39;
+ #   inflect.uncountable %w( fish sheep )
+ # end
+<span class="gi">+#</span>
+<span class="gi">+# These inflection rules are supported but not enabled by default:</span>
+<span class="gi">+# ActiveSupport::Inflector.inflections do |inflect|</span>
+<span class="gi">+#   inflect.acronym &#39;RESTful&#39;</span>
+<span class="gi">+# end</span>
+</pre></div>
+  <h2 id='config-routes-rb'>config/routes.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,58 +1,58 @@</span>
+ Railsdiff::Application.routes.draw do
+   # The priority is based upon order of creation:
+   # first created -&gt; highest priority.
+ 
+   # Sample of regular route:
+   #   match &#39;products/:id&#39; =&gt; &#39;catalog#view&#39;
+   # Keep in mind you can assign values other than :controller and :action
+ 
+   # Sample of named route:
+   #   match &#39;products/:id/purchase&#39; =&gt; &#39;catalog#purchase&#39;, :as =&gt; :purchase
+   # This route can be invoked with purchase_url(:id =&gt; product.id)
+ 
+   # Sample resource route (maps HTTP verbs to controller actions automatically):
+   #   resources :products
+ 
+   # Sample resource route with options:
+   #   resources :products do
+   #     member do
+   #       get &#39;short&#39;
+   #       post &#39;toggle&#39;
+   #     end
+   #
+   #     collection do
+   #       get &#39;sold&#39;
+   #     end
+   #   end
+ 
+   # Sample resource route with sub-resources:
+   #   resources :products do
+   #     resources :comments, :sales
+   #     resource :seller
+   #   end
+ 
+   # Sample resource route with more complex sub-resources
+   #   resources :products do
+   #     resources :comments
+   #     resources :sales do
+   #       get &#39;recent&#39;, :on =&gt; :collection
+   #     end
+   #   end
+ 
+   # Sample resource route within a namespace:
+   #   namespace :admin do
+   #     # Directs /admin/products/* to Admin::ProductsController
+   #     # (app/controllers/admin/products_controller.rb)
+   #     resources :products
+   #   end
+ 
+   # You can have the root of your site routed with &quot;root&quot;
+   # just remember to delete public/index.html.
+   # root :to =&gt; &#39;welcome#index&#39;
+ 
+   # See how all your routes lay out with &quot;rake routes&quot;
+ 
+   # This is a legacy wild controller route that&#39;s not recommended for RESTful applications.
+   # Note: This route will make all actions in every controller accessible via GET requests.
+<span class="gd">-  # match &#39;:controller(/:action(/:id(.:format)))&#39;</span>
+<span class="gi">+  # match &#39;:controller(/:action(/:id))(.:format)&#39;</span>
+ end
+</pre></div>
+  <h2 id='public-500-html'>public/500.html</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,26 +1,25 @@</span>
+ &lt;!DOCTYPE html&gt;
+ &lt;html&gt;
+ &lt;head&gt;
+   &lt;title&gt;We&#39;re sorry, but something went wrong (500)&lt;/title&gt;
+   &lt;style type=&quot;text/css&quot;&gt;
+     body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+     div.dialog {
+       width: 25em;
+       padding: 0 4em;
+       margin: 4em auto 0 auto;
+       border: 1px solid #ccc;
+       border-right-color: #999;
+       border-bottom-color: #999;
+     }
+     h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+   &lt;/style&gt;
+ &lt;/head&gt;
+ 
+ &lt;body&gt;
+   &lt;!-- This file lives in public/500.html --&gt;
+   &lt;div class=&quot;dialog&quot;&gt;
+     &lt;h1&gt;We&#39;re sorry, but something went wrong.&lt;/h1&gt;
+<span class="gd">-    &lt;p&gt;We&#39;ve been notified about this issue and we&#39;ll take a look at it shortly.&lt;/p&gt;</span>
+   &lt;/div&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;
+</pre></div>
+  <h2 id='public-index-html'>public/index.html</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,241 +1,241 @@</span>
+ &lt;!DOCTYPE html&gt;
+ &lt;html&gt;
+   &lt;head&gt;
+     &lt;title&gt;Ruby on Rails: Welcome aboard&lt;/title&gt;
+     &lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
+       body {
+         margin: 0;
+         margin-bottom: 25px;
+         padding: 0;
+         background-color: #f0f0f0;
+         font-family: &quot;Lucida Grande&quot;, &quot;Bitstream Vera Sans&quot;, &quot;Verdana&quot;;
+         font-size: 13px;
+         color: #333;
+       }
+ 
+       h1 {
+         font-size: 28px;
+         color: #000;
+       }
+ 
+       a  {color: #03c}
+       a:hover {
+         background-color: #03c;
+         color: white;
+         text-decoration: none;
+       }
+ 
+ 
+       #page {
+         background-color: #f0f0f0;
+         width: 750px;
+         margin: 0;
+         margin-left: auto;
+         margin-right: auto;
+       }
+ 
+       #content {
+         float: left;
+         background-color: white;
+         border: 3px solid #aaa;
+         border-top: none;
+         padding: 25px;
+         width: 500px;
+       }
+ 
+       #sidebar {
+         float: right;
+         width: 175px;
+       }
+ 
+       #footer {
+         clear: both;
+       }
+ 
+       #header, #about, #getting-started {
+         padding-left: 75px;
+         padding-right: 30px;
+       }
+ 
+ 
+       #header {
+<span class="gd">-        background-image: url(&quot;/assets/rails.png&quot;);</span>
+<span class="gi">+        background-image: url(&quot;assets/rails.png&quot;);</span>
+         background-repeat: no-repeat;
+         background-position: top left;
+         height: 64px;
+       }
+       #header h1, #header h2 {margin: 0}
+       #header h2 {
+         color: #888;
+         font-weight: normal;
+         font-size: 16px;
+       }
+ 
+ 
+       #about h3 {
+         margin: 0;
+         margin-bottom: 10px;
+         font-size: 14px;
+       }
+ 
+       #about-content {
+         background-color: #ffd;
+         border: 1px solid #fc0;
+         margin-left: -55px;
+         margin-right: -10px;
+       }
+       #about-content table {
+         margin-top: 10px;
+         margin-bottom: 10px;
+         font-size: 11px;
+         border-collapse: collapse;
+       }
+       #about-content td {
+         padding: 10px;
+         padding-top: 3px;
+         padding-bottom: 3px;
+       }
+       #about-content td.name  {color: #555}
+       #about-content td.value {color: #000}
+ 
+       #about-content ul {
+         padding: 0;
+         list-style-type: none;
+       }
+ 
+       #about-content.failure {
+         background-color: #fcc;
+         border: 1px solid #f00;
+       }
+       #about-content.failure p {
+         margin: 0;
+         padding: 10px;
+       }
+ 
+ 
+       #getting-started {
+         border-top: 1px solid #ccc;
+         margin-top: 25px;
+         padding-top: 15px;
+       }
+       #getting-started h1 {
+         margin: 0;
+         font-size: 20px;
+       }
+       #getting-started h2 {
+         margin: 0;
+         font-size: 14px;
+         font-weight: normal;
+         color: #333;
+         margin-bottom: 25px;
+       }
+       #getting-started ol {
+         margin-left: 0;
+         padding-left: 0;
+       }
+       #getting-started li {
+         font-size: 18px;
+         color: #888;
+         margin-bottom: 25px;
+       }
+       #getting-started li h2 {
+         margin: 0;
+         font-weight: normal;
+         font-size: 18px;
+         color: #333;
+       }
+       #getting-started li p {
+         color: #555;
+         font-size: 13px;
+       }
+ 
+ 
+       #sidebar ul {
+         margin-left: 0;
+         padding-left: 0;
+       }
+       #sidebar ul h3 {
+         margin-top: 25px;
+         font-size: 16px;
+         padding-bottom: 10px;
+         border-bottom: 1px solid #ccc;
+       }
+       #sidebar li {
+         list-style-type: none;
+       }
+       #sidebar ul.links li {
+         margin-bottom: 5px;
+       }
+ 
+       .filename {
+         font-style: italic;
+       }
+     &lt;/style&gt;
+     &lt;script type=&quot;text/javascript&quot;&gt;
+       function about() {
+         info = document.getElementById(&#39;about-content&#39;);
+         if (window.XMLHttpRequest)
+           { xhr = new XMLHttpRequest(); }
+         else
+           { xhr = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;); }
+         xhr.open(&quot;GET&quot;,&quot;rails/info/properties&quot;,false);
+         xhr.send(&quot;&quot;);
+         info.innerHTML = xhr.responseText;
+         info.style.display = &#39;block&#39;
+       }
+     &lt;/script&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+     &lt;div id=&quot;page&quot;&gt;
+       &lt;div id=&quot;sidebar&quot;&gt;
+         &lt;ul id=&quot;sidebar-items&quot;&gt;
+           &lt;li&gt;
+             &lt;h3&gt;Browse the documentation&lt;/h3&gt;
+             &lt;ul class=&quot;links&quot;&gt;
+               &lt;li&gt;&lt;a href=&quot;http://guides.rubyonrails.org/&quot;&gt;Rails Guides&lt;/a&gt;&lt;/li&gt;
+               &lt;li&gt;&lt;a href=&quot;http://api.rubyonrails.org/&quot;&gt;Rails API&lt;/a&gt;&lt;/li&gt;
+               &lt;li&gt;&lt;a href=&quot;http://www.ruby-doc.org/core/&quot;&gt;Ruby core&lt;/a&gt;&lt;/li&gt;
+               &lt;li&gt;&lt;a href=&quot;http://www.ruby-doc.org/stdlib/&quot;&gt;Ruby standard library&lt;/a&gt;&lt;/li&gt;
+             &lt;/ul&gt;
+           &lt;/li&gt;
+         &lt;/ul&gt;
+       &lt;/div&gt;
+ 
+       &lt;div id=&quot;content&quot;&gt;
+         &lt;div id=&quot;header&quot;&gt;
+           &lt;h1&gt;Welcome aboard&lt;/h1&gt;
+           &lt;h2&gt;You&amp;rsquo;re riding Ruby on Rails!&lt;/h2&gt;
+         &lt;/div&gt;
+ 
+         &lt;div id=&quot;about&quot;&gt;
+           &lt;h3&gt;&lt;a href=&quot;rails/info/properties&quot; onclick=&quot;about(); return false&quot;&gt;About your application&amp;rsquo;s environment&lt;/a&gt;&lt;/h3&gt;
+           &lt;div id=&quot;about-content&quot; style=&quot;display: none&quot;&gt;&lt;/div&gt;
+         &lt;/div&gt;
+ 
+         &lt;div id=&quot;getting-started&quot;&gt;
+           &lt;h1&gt;Getting started&lt;/h1&gt;
+           &lt;h2&gt;Here&amp;rsquo;s how to get rolling:&lt;/h2&gt;
+ 
+           &lt;ol&gt;
+             &lt;li&gt;
+               &lt;h2&gt;Use &lt;code&gt;rails generate&lt;/code&gt; to create your models and controllers&lt;/h2&gt;
+               &lt;p&gt;To see all available options, run it without parameters.&lt;/p&gt;
+             &lt;/li&gt;
+ 
+             &lt;li&gt;
+               &lt;h2&gt;Set up a default route and remove &lt;span class=&quot;filename&quot;&gt;public/index.html&lt;/span&gt;&lt;/h2&gt;
+               &lt;p&gt;Routes are set up in &lt;span class=&quot;filename&quot;&gt;config/routes.rb&lt;/span&gt;.&lt;/p&gt;
+             &lt;/li&gt;
+ 
+             &lt;li&gt;
+               &lt;h2&gt;Create your database&lt;/h2&gt;
+               &lt;p&gt;Run &lt;code&gt;rake db:create&lt;/code&gt; to create your database. If you&#39;re not using SQLite (the default), edit &lt;span class=&quot;filename&quot;&gt;config/database.yml&lt;/span&gt; with your username and password.&lt;/p&gt;
+             &lt;/li&gt;
+           &lt;/ol&gt;
+         &lt;/div&gt;
+       &lt;/div&gt;
+ 
+       &lt;div id=&quot;footer&quot;&gt;&amp;nbsp;&lt;/div&gt;
+     &lt;/div&gt;
+   &lt;/body&gt;
+ &lt;/html&gt;
+</pre></div>
+</div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />
+    </a>
+    <script src='/assets/app.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7325596-4']);
+        _gaq.push(['_setSiteSpeedSampleRate', 100]);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+  </body>
+</html>

@@ -17,6 +17,7 @@ task 'generate' => 'update_rails_repo' do |t|
   while tags.any?
     tags.each do |tag|
       Rake::Task["diff/#{tag}/#{tail}/index.html"].invoke
+      Rake::Task["diff/#{tag}/#{tail}/full/index.html"].invoke
     end
     tail = tags.pop
   end
@@ -119,7 +120,7 @@ rule(/tmp\/generated\/.*/ => ['tmp/generated']) do |t|
 end
 
 rule(/diff\/[^\/]+\/[^\/]+$/) do |t|
-  mkdir_p t.name
+  mkdir_p t.name, verbose: false
 end
 
 rule(/diff\/.*\/patch\.diff/ => [->(t) { t.gsub('/patch.diff', '') }]) do |t|
@@ -135,8 +136,37 @@ rule(/diff\/.*\/patch\.diff/ => [->(t) { t.gsub('/patch.diff', '') }]) do |t|
   end
 end
 
+rule(/diff\/.*\/full\.diff/ => [->(t) { t.gsub('/full.diff', '') }]) do |t|
+  puts 'Generating: %s' % t.name
+
+  match = t.name.match(/diff\/(?<s>[^\/]+)\/(?<t>.*?)\/full\.diff/)
+  source = match['s']
+  target = match['t']
+
+  Rake::Task["tmp/generated/#{source}"].invoke
+  Rake::Task["tmp/generated/#{target}"].invoke
+
+  cd "tmp/generated", verbose: false do
+    %x{diff -Nr -U 1000 #{source} #{target} > ../../#{t.name}}
+  end
+end
+
 # Turn diff into HTML
-rule(/diff\/.*\/index\.html/ => [->(t) { t.gsub('index.html', 'patch.diff') }, 'templates/layout.haml', 'templates/diff.haml']) do |t|
+rule(/diff\/[^\/]+\/[^\/]+\/index\.html/ => [->(t) { t.gsub('index.html', 'patch.diff') }, 'templates/layout.haml', 'templates/diff.haml']) do |t|
+  puts 'Generating: %s' % t.name
+
+  diff = File.read t.source
+  diffs = RailsDiff::DiffSplitter.new(diff).split
+
+  render(t.name, t.sources.last, diffs: diffs, title: page_title(t.name))
+end
+
+rule(/diff\/[^\/]+\/[^\/]+\/full$/) do |t|
+  mkdir_p t.name, verbose: false
+end
+
+# Turn full file diff into HTML
+rule(/diff\/[^\/]+\/[^\/]+\/full\/index\.html/ => [->(t) { t.gsub('full/index.html', 'full.diff') }, ->(t) { t.gsub('/index.html', '') }, 'templates/layout.haml', 'templates/full_diff.haml']) do |t|
   puts 'Generating: %s' % t.name
 
   diff = File.read t.source

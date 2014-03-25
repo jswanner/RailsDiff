@@ -1,4 +1,5 @@
 .diff
   - diffs.each do |name, diff|
-    %h2= name
+    %h2
+      %a{href: "full/##{name.tr('/.', '-')}"}= name
     = Pygments.highlight diff, lexer: 'diff'

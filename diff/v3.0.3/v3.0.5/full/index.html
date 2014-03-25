@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v3.0.3 - v3.0.5 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet' />
+    <link href='/assets/app.css' rel='stylesheet' />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png' /></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff' />
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+  <h2 id='-gitignore'>.gitignore</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
+ .bundle
+ db/*.sqlite3
+ log/*.log
+<span class="gd">-tmp/**/*</span>
+<span class="gi">+tmp/</span>
+</pre></div>
+  <h2 id='Gemfile'>Gemfile</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,31 +1,31 @@</span>
+ source &#39;http://rubygems.org&#39;
+ 
+<span class="gd">-gem &#39;rails&#39;, &#39;3.0.3&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.0.5&#39;</span>
+ 
+ # Bundle edge Rails instead:
+ # gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;
+ 
+<span class="gd">-gem &#39;sqlite3-ruby&#39;, :require =&gt; &#39;sqlite3&#39;</span>
+<span class="gi">+gem &#39;sqlite3&#39;</span>
+ 
+ # Use unicorn as the web server
+ # gem &#39;unicorn&#39;
+ 
+ # Deploy with Capistrano
+ # gem &#39;capistrano&#39;
+ 
+ # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
+ # gem &#39;ruby-debug&#39;
+<span class="gd">-# gem &#39;ruby-debug19&#39;</span>
+<span class="gi">+# gem &#39;ruby-debug19&#39;, :require =&gt; &#39;ruby-debug&#39;</span>
+ 
+ # Bundle the extra gems:
+ # gem &#39;bj&#39;
+ # gem &#39;nokogiri&#39;
+ # gem &#39;sqlite3-ruby&#39;, :require =&gt; &#39;sqlite3&#39;
+ # gem &#39;aws-s3&#39;, :require =&gt; &#39;aws/s3&#39;
+ 
+ # Bundle gems for the local environment. Make sure to
+ # put test-only gems in this group so their generators
+ # and rake tasks are available in development mode:
+ # group :development, :test do
+ #   gem &#39;webrat&#39;
+ # end
+</pre></div>
+  <h2 id='config-boot-rb'>config/boot.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,13 +1,6 @@</span>
+ require &#39;rubygems&#39;
+ 
+ # Set up gems listed in the Gemfile.
+<span class="gd">-gemfile = File.expand_path(&#39;../../Gemfile&#39;, __FILE__)</span>
+<span class="gd">-begin</span>
+<span class="gd">-  ENV[&#39;BUNDLE_GEMFILE&#39;] = gemfile</span>
+<span class="gd">-  require &#39;bundler&#39;</span>
+<span class="gd">-  Bundler.setup</span>
+<span class="gd">-rescue Bundler::GemNotFound =&gt; e</span>
+<span class="gd">-  STDERR.puts e.message</span>
+<span class="gd">-  STDERR.puts &quot;Try running `bundle install`.&quot;</span>
+<span class="gd">-  exit!</span>
+<span class="gd">-end if File.exist?(gemfile)</span>
+<span class="gi">+ENV[&#39;BUNDLE_GEMFILE&#39;] ||= File.expand_path(&#39;../../Gemfile&#39;, __FILE__)</span>
+<span class="gi">+</span>
+<span class="gi">+require &#39;bundler/setup&#39; if File.exists?(ENV[&#39;BUNDLE_GEMFILE&#39;])</span>
+</pre></div>
+  <h2 id='config-database-yml'>config/database.yml</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,22 +1,22 @@</span>
+ # SQLite version 3.x
+<span class="gd">-#   gem install sqlite3-ruby (not necessary on OS X Leopard)</span>
+<span class="gi">+#   gem install sqlite3</span>
+ development:
+   adapter: sqlite3
+   database: db/development.sqlite3
+   pool: 5
+   timeout: 5000
+ 
+ # Warning: The database defined as &quot;test&quot; will be erased and
+ # re-generated from your development database when you run &quot;rake&quot;.
+ # Do not set this db to the same as development or production.
+ test:
+   adapter: sqlite3
+   database: db/test.sqlite3
+   pool: 5
+   timeout: 5000
+ 
+ production:
+   adapter: sqlite3
+   database: db/production.sqlite3
+   pool: 5
+   timeout: 5000
+</pre></div>
+  <h2 id='public-javascripts-rails-js'>public/javascripts/rails.js</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,175 +1,191 @@</span>
+ (function() {
+   // Technique from Juriy Zaytsev
+   // http://thinkweb2.com/projects/prototype/detecting-event-support-without-browser-sniffing/
+   function isEventSupported(eventName) {
+     var el = document.createElement(&#39;div&#39;);
+     eventName = &#39;on&#39; + eventName;
+     var isSupported = (eventName in el);
+     if (!isSupported) {
+       el.setAttribute(eventName, &#39;return;&#39;);
+       isSupported = typeof el[eventName] == &#39;function&#39;;
+     }
+     el = null;
+     return isSupported;
+   }
+ 
+   function isForm(element) {
+     return Object.isElement(element) &amp;&amp; element.nodeName.toUpperCase() == &#39;FORM&#39;
+   }
+ 
+   function isInput(element) {
+     if (Object.isElement(element)) {
+       var name = element.nodeName.toUpperCase()
+       return name == &#39;INPUT&#39; || name == &#39;SELECT&#39; || name == &#39;TEXTAREA&#39;
+     }
+     else return false
+   }
+ 
+   var submitBubbles = isEventSupported(&#39;submit&#39;),
+       changeBubbles = isEventSupported(&#39;change&#39;)
+ 
+   if (!submitBubbles || !changeBubbles) {
+     // augment the Event.Handler class to observe custom events when needed
+     Event.Handler.prototype.initialize = Event.Handler.prototype.initialize.wrap(
+       function(init, element, eventName, selector, callback) {
+         init(element, eventName, selector, callback)
+         // is the handler being attached to an element that doesn&#39;t support this event?
+         if ( (!submitBubbles &amp;&amp; this.eventName == &#39;submit&#39; &amp;&amp; !isForm(this.element)) ||
+              (!changeBubbles &amp;&amp; this.eventName == &#39;change&#39; &amp;&amp; !isInput(this.element)) ) {
+           // &quot;submit&quot; =&gt; &quot;emulated:submit&quot;
+           this.eventName = &#39;emulated:&#39; + this.eventName
+         }
+       }
+     )
+   }
+ 
+   if (!submitBubbles) {
+     // discover forms on the page by observing focus events which always bubble
+     document.on(&#39;focusin&#39;, &#39;form&#39;, function(focusEvent, form) {
+       // special handler for the real &quot;submit&quot; event (one-time operation)
+       if (!form.retrieve(&#39;emulated:submit&#39;)) {
+         form.on(&#39;submit&#39;, function(submitEvent) {
+           var emulated = form.fire(&#39;emulated:submit&#39;, submitEvent, true)
+           // if custom event received preventDefault, cancel the real one too
+           if (emulated.returnValue === false) submitEvent.preventDefault()
+         })
+         form.store(&#39;emulated:submit&#39;, true)
+       }
+     })
+   }
+ 
+   if (!changeBubbles) {
+     // discover form inputs on the page
+     document.on(&#39;focusin&#39;, &#39;input, select, texarea&#39;, function(focusEvent, input) {
+       // special handler for real &quot;change&quot; events
+       if (!input.retrieve(&#39;emulated:change&#39;)) {
+         input.on(&#39;change&#39;, function(changeEvent) {
+           input.fire(&#39;emulated:change&#39;, changeEvent, true)
+         })
+         input.store(&#39;emulated:change&#39;, true)
+       }
+     })
+   }
+ 
+   function handleRemote(element) {
+     var method, url, params;
+ 
+     var event = element.fire(&quot;ajax:before&quot;);
+     if (event.stopped) return false;
+ 
+     if (element.tagName.toLowerCase() === &#39;form&#39;) {
+       method = element.readAttribute(&#39;method&#39;) || &#39;post&#39;;
+       url    = element.readAttribute(&#39;action&#39;);
+       params = element.serialize();
+     } else {
+       method = element.readAttribute(&#39;data-method&#39;) || &#39;get&#39;;
+       url    = element.readAttribute(&#39;href&#39;);
+       params = {};
+     }
+ 
+     new Ajax.Request(url, {
+       method: method,
+       parameters: params,
+       evalScripts: true,
+ 
+       onComplete:    function(request) { element.fire(&quot;ajax:complete&quot;, request); },
+       onSuccess:     function(request) { element.fire(&quot;ajax:success&quot;,  request); },
+       onFailure:     function(request) { element.fire(&quot;ajax:failure&quot;,  request); }
+     });
+ 
+     element.fire(&quot;ajax:after&quot;);
+   }
+ 
+   function handleMethod(element) {
+     var method = element.readAttribute(&#39;data-method&#39;),
+         url = element.readAttribute(&#39;href&#39;),
+         csrf_param = $$(&#39;meta[name=csrf-param]&#39;)[0],
+         csrf_token = $$(&#39;meta[name=csrf-token]&#39;)[0];
+ 
+     var form = new Element(&#39;form&#39;, { method: &quot;POST&quot;, action: url, style: &quot;display: none;&quot; });
+     element.parentNode.insert(form);
+ 
+     if (method !== &#39;post&#39;) {
+       var field = new Element(&#39;input&#39;, { type: &#39;hidden&#39;, name: &#39;_method&#39;, value: method });
+       form.insert(field);
+     }
+ 
+     if (csrf_param) {
+       var param = csrf_param.readAttribute(&#39;content&#39;),
+           token = csrf_token.readAttribute(&#39;content&#39;),
+           field = new Element(&#39;input&#39;, { type: &#39;hidden&#39;, name: param, value: token });
+       form.insert(field);
+     }
+ 
+     form.submit();
+   }
+ 
+ 
+   document.on(&quot;click&quot;, &quot;*[data-confirm]&quot;, function(event, element) {
+     var message = element.readAttribute(&#39;data-confirm&#39;);
+     if (!confirm(message)) event.stop();
+   });
+ 
+   document.on(&quot;click&quot;, &quot;a[data-remote]&quot;, function(event, element) {
+     if (event.stopped) return;
+     handleRemote(element);
+     event.stop();
+   });
+ 
+   document.on(&quot;click&quot;, &quot;a[data-method]&quot;, function(event, element) {
+     if (event.stopped) return;
+     handleMethod(element);
+     event.stop();
+   });
+ 
+   document.on(&quot;submit&quot;, function(event) {
+     var element = event.findElement(),
+         message = element.readAttribute(&#39;data-confirm&#39;);
+     if (message &amp;&amp; !confirm(message)) {
+       event.stop();
+       return false;
+     }
+ 
+     var inputs = element.select(&quot;input[type=submit][data-disable-with]&quot;);
+     inputs.each(function(input) {
+       input.disabled = true;
+       input.writeAttribute(&#39;data-original-value&#39;, input.value);
+       input.value = input.readAttribute(&#39;data-disable-with&#39;);
+     });
+ 
+     var element = event.findElement(&quot;form[data-remote]&quot;);
+     if (element) {
+       handleRemote(element);
+       event.stop();
+     }
+   });
+ 
+   document.on(&quot;ajax:after&quot;, &quot;form&quot;, function(event, element) {
+     var inputs = element.select(&quot;input[type=submit][disabled=true][data-disable-with]&quot;);
+     inputs.each(function(input) {
+       input.value = input.readAttribute(&#39;data-original-value&#39;);
+       input.removeAttribute(&#39;data-original-value&#39;);
+       input.disabled = false;
+     });
+   });
+<span class="gi">+</span>
+<span class="gi">+  Ajax.Responders.register({</span>
+<span class="gi">+    onCreate: function(request) {</span>
+<span class="gi">+      var csrf_meta_tag = $$(&#39;meta[name=csrf-token]&#39;)[0];</span>
+<span class="gi">+</span>
+<span class="gi">+      if (csrf_meta_tag) {</span>
+<span class="gi">+        var header = &#39;X-CSRF-Token&#39;,</span>
+<span class="gi">+            token = csrf_meta_tag.readAttribute(&#39;content&#39;);</span>
+<span class="gi">+</span>
+<span class="gi">+        if (!request.options.requestHeaders) {</span>
+<span class="gi">+          request.options.requestHeaders = {};</span>
+<span class="gi">+        }</span>
+<span class="gi">+        request.options.requestHeaders[header] = token;</span>
+<span class="gi">+      }</span>
+<span class="gi">+    }</span>
+<span class="gi">+  });</span>
+ })();
+</pre></div>
+</div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />
+    </a>
+    <script src='/assets/app.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7325596-4']);
+        _gaq.push(['_setSiteSpeedSampleRate', 100]);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+  </body>
+</html>

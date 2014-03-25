@@ -25,7 +25,9 @@
     </header>
     <div class='content'>
       <div class='diff'>
-  <h2>.gitignore</h2>
+  <h2>
+    <a href='full/#-gitignore'>.gitignore</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,4 +1,16 @@</span>
 <span class="gd">-.bundle</span>
 <span class="gd">-db/*.sqlite3</span>
@@ -48,7 +50,9 @@
 <span class="gi">+/log/*.log</span>
 <span class="gi">+/tmp</span>
 </pre></div>
-  <h2>Gemfile</h2>
+  <h2>
+    <a href='full/#Gemfile'>Gemfile</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,31 +1,48 @@</span>
 <span class="gd">-source &#39;http://rubygems.org&#39;</span>
 <span class="gi">+source &#39;https://rubygems.org&#39;</span>
@@ -122,7 +126,9 @@
 <span class="gd">-#   gem &#39;webrat&#39;</span>
 <span class="gd">-# end</span>
 </pre></div>
-  <h2>README</h2>
+  <h2>
+    <a href='full/#README'>README</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,256 +0,0 @@</span>
 <span class="gd">-== Welcome to Rails</span>
 <span class="gd">-</span>
@@ -381,7 +387,9 @@
 <span class="gd">-  subdirectory. If the app has frozen rails, those gems also go here, under</span>
 <span class="gd">-  vendor/rails/. This directory is in the load path.</span>
 </pre></div>
-  <h2>README.rdoc</h2>
+  <h2>
+    <a href='full/#README-rdoc'>README.rdoc</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,28 @@</span>
 <span class="gi">+== README</span>
 <span class="gi">+</span>
@@ -412,7 +420,9 @@
 <span class="gi">+Please feel free to use a different markup language if you do not plan to run</span>
 <span class="gi">+&lt;tt&gt;rake doc:app&lt;/tt&gt;.</span>
 </pre></div>
-  <h2>Rakefile</h2>
+  <h2>
+    <a href='full/#Rakefile'>Rakefile</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -2,6 +2,5 @@</span>
  # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
  
@@ -422,7 +432,9 @@
 <span class="gd">-Railsdiff::Application.load_tasks</span>
 <span class="gi">+Rails.application.load_tasks</span>
 </pre></div>
-  <h2>app/assets/javascripts/application.js</h2>
+  <h2>
+    <a href='full/#app-assets-javascripts-application-js'>app/assets/javascripts/application.js</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,16 @@</span>
 <span class="gi">+// This is a manifest file that&#39;ll be compiled into application.js, which will include all the files</span>
 <span class="gi">+// listed below.</span>
@@ -441,7 +453,9 @@
 <span class="gi">+//= require turbolinks</span>
 <span class="gi">+//= require_tree .</span>
 </pre></div>
-  <h2>app/assets/stylesheets/application.css</h2>
+  <h2>
+    <a href='full/#app-assets-stylesheets-application-css'>app/assets/stylesheets/application.css</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,15 @@</span>
 <span class="gi">+/*</span>
 <span class="gi">+ * This is a manifest file that&#39;ll be compiled into application.css, which will include all the files</span>
@@ -459,7 +473,9 @@
 <span class="gi">+ *= require_self</span>
 <span class="gi">+ */</span>
 </pre></div>
-  <h2>app/controllers/application_controller.rb</h2>
+  <h2>
+    <a href='full/#app-controllers-application_controller-rb'>app/controllers/application_controller.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,3 +1,5 @@</span>
  class ApplicationController &lt; ActionController::Base
 <span class="gd">-  protect_from_forgery</span>
@@ -468,7 +484,9 @@
 <span class="gi">+  protect_from_forgery with: :exception</span>
  end
 </pre></div>
-  <h2>app/views/layouts/application.html.erb</h2>
+  <h2>
+    <a href='full/#app-views-layouts-application-html-erb'>app/views/layouts/application.html.erb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -2,9 +2,9 @@</span>
  &lt;html&gt;
  &lt;head&gt;
@@ -483,27 +501,35 @@
  &lt;body&gt;
  
 </pre></div>
-  <h2>bin/bundle</h2>
+  <h2>
+    <a href='full/#bin-bundle'>bin/bundle</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,3 @@</span>
 <span class="gi">+#!/usr/bin/env ruby</span>
 <span class="gi">+ENV[&#39;BUNDLE_GEMFILE&#39;] ||= File.expand_path(&#39;../../Gemfile&#39;, __FILE__)</span>
 <span class="gi">+load Gem.bin_path(&#39;bundler&#39;, &#39;bundle&#39;)</span>
 </pre></div>
-  <h2>bin/rails</h2>
+  <h2>
+    <a href='full/#bin-rails'>bin/rails</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,4 @@</span>
 <span class="gi">+#!/usr/bin/env ruby</span>
 <span class="gi">+APP_PATH = File.expand_path(&#39;../../config/application&#39;,  __FILE__)</span>
 <span class="gi">+require_relative &#39;../config/boot&#39;</span>
 <span class="gi">+require &#39;rails/commands&#39;</span>
 </pre></div>
-  <h2>bin/rake</h2>
+  <h2>
+    <a href='full/#bin-rake'>bin/rake</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,4 @@</span>
 <span class="gi">+#!/usr/bin/env ruby</span>
 <span class="gi">+require_relative &#39;../config/boot&#39;</span>
 <span class="gi">+require &#39;rake&#39;</span>
 <span class="gi">+Rake.application.run</span>
 </pre></div>
-  <h2>config/application.rb</h2>
+  <h2>
+    <a href='full/#config-application-rb'>config/application.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -2,9 +2,9 @@</span>
  
  require &#39;rails/all&#39;
@@ -549,7 +575,9 @@
    end
  end
 </pre></div>
-  <h2>config/boot.rb</h2>
+  <h2>
+    <a href='full/#config-boot-rb'>config/boot.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,6 +1,4 @@</span>
 <span class="gd">-require &#39;rubygems&#39;</span>
 <span class="gd">-</span>
@@ -559,7 +587,9 @@
 <span class="gd">-require &#39;bundler/setup&#39; if File.exists?(ENV[&#39;BUNDLE_GEMFILE&#39;])</span>
 <span class="gi">+require &#39;bundler/setup&#39; if File.exist?(ENV[&#39;BUNDLE_GEMFILE&#39;])</span>
 </pre></div>
-  <h2>config/database.yml</h2>
+  <h2>
+    <a href='full/#config-database-yml'>config/database.yml</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,22 +1,25 @@</span>
  # SQLite version 3.x
  #   gem install sqlite3
@@ -595,7 +625,9 @@
 <span class="gd">-  pool: 5</span>
 <span class="gd">-  timeout: 5000</span>
 </pre></div>
-  <h2>config/environment.rb</h2>
+  <h2>
+    <a href='full/#config-environment-rb'>config/environment.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
 <span class="gd">-# Load the rails application</span>
 <span class="gi">+# Load the Rails application.</span>
@@ -606,7 +638,9 @@
 <span class="gi">+# Initialize the Rails application.</span>
 <span class="gi">+Rails.application.initialize!</span>
 </pre></div>
-  <h2>config/environments/development.rb</h2>
+  <h2>
+    <a href='full/#config-environments-development-rb'>config/environments/development.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,26 +1,29 @@</span>
 <span class="gd">-Railsdiff::Application.configure do</span>
 <span class="gd">-  # Settings specified here will take precedence over those in config/application.rb</span>
@@ -651,7 +685,9 @@
 <span class="gi">+  config.assets.debug = true</span>
 <span class="gi">+end</span>
 </pre></div>
-  <h2>config/environments/production.rb</h2>
+  <h2>
+    <a href='full/#config-environments-production-rb'>config/environments/production.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,49 +1,80 @@</span>
 <span class="gd">-Railsdiff::Application.configure do</span>
 <span class="gd">-  # Settings specified here will take precedence over those in config/application.rb</span>
@@ -761,7 +797,9 @@
 <span class="gi">+  config.log_formatter = ::Logger::Formatter.new</span>
  end
 </pre></div>
-  <h2>config/environments/test.rb</h2>
+  <h2>
+    <a href='full/#config-environments-test-rb'>config/environments/test.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,35 +1,36 @@</span>
 <span class="gd">-Railsdiff::Application.configure do</span>
 <span class="gd">-  # Settings specified here will take precedence over those in config/application.rb</span>
@@ -816,14 +854,18 @@
    config.active_support.deprecation = :stderr
  end
 </pre></div>
-  <h2>config/initializers/filter_parameter_logging.rb</h2>
+  <h2>
+    <a href='full/#config-initializers-filter_parameter_logging-rb'>config/initializers/filter_parameter_logging.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,4 @@</span>
 <span class="gi">+# Be sure to restart your server when you modify this file.</span>
 <span class="gi">+</span>
 <span class="gi">+# Configure sensitive parameters which will be filtered from the log file.</span>
 <span class="gi">+Rails.application.config.filter_parameters += [:password]</span>
 </pre></div>
-  <h2>config/initializers/inflections.rb</h2>
+  <h2>
+    <a href='full/#config-initializers-inflections-rb'>config/initializers/inflections.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,10 +1,16 @@</span>
  # Be sure to restart your server when you modify this file.
  
@@ -845,7 +887,9 @@
 <span class="gi">+#   inflect.acronym &#39;RESTful&#39;</span>
 <span class="gi">+# end</span>
 </pre></div>
-  <h2>config/initializers/secret_token.rb</h2>
+  <h2>
+    <a href='full/#config-initializers-secret_token-rb'>config/initializers/secret_token.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,7 +0,0 @@</span>
 <span class="gd">-# Be sure to restart your server when you modify this file.</span>
 <span class="gd">-</span>
@@ -855,7 +899,9 @@
 <span class="gd">-# no regular words or you&#39;ll be exposed to dictionary attacks.</span>
 <span class="gd">-Railsdiff::Application.config.secret_token = &#39;your-secret-token&#39;</span>
 </pre></div>
-  <h2>config/initializers/session_store.rb</h2>
+  <h2>
+    <a href='full/#config-initializers-session_store-rb'>config/initializers/session_store.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,8 +1,3 @@</span>
  # Be sure to restart your server when you modify this file.
  
@@ -867,7 +913,9 @@
 <span class="gd">-# Railsdiff::Application.config.session_store :active_record_store</span>
 <span class="gi">+Rails.application.config.session_store :cookie_store, key: &#39;_railsdiff_session&#39;</span>
 </pre></div>
-  <h2>config/initializers/wrap_parameters.rb</h2>
+  <h2>
+    <a href='full/#config-initializers-wrap_parameters-rb'>config/initializers/wrap_parameters.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,14 @@</span>
 <span class="gi">+# Be sure to restart your server when you modify this file.</span>
 <span class="gi">+</span>
@@ -884,7 +932,9 @@
 <span class="gi">+#  self.include_root_in_json = true</span>
 <span class="gi">+# end</span>
 </pre></div>
-  <h2>config/locales/en.yml</h2>
+  <h2>
+    <a href='full/#config-locales-en-yml'>config/locales/en.yml</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,5 +1,23 @@</span>
 <span class="gd">-# Sample localization file for English. Add more files in this directory for other locales.</span>
 <span class="gd">-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.</span>
@@ -912,7 +962,9 @@
  en:
    hello: &quot;Hello world&quot;
 </pre></div>
-  <h2>config/routes.rb</h2>
+  <h2>
+    <a href='full/#config-routes-rb'>config/routes.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,19 +1,20 @@</span>
 <span class="gd">-Railsdiff::Application.routes.draw do</span>
 <span class="gd">-  # The priority is based upon order of creation:</span>
@@ -994,7 +1046,9 @@
 <span class="gd">-  # match &#39;:controller(/:action(/:id(.:format)))&#39;</span>
  end
 </pre></div>
-  <h2>config/secrets.yml</h2>
+  <h2>
+    <a href='full/#config-secrets-yml'>config/secrets.yml</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -0,0 +1,20 @@</span>
 <span class="gi">+# Be sure to restart your server when you modify this file.</span>
 <span class="gi">+</span>
@@ -1017,7 +1071,9 @@
 <span class="gi">+production:</span>
 <span class="gi">+  secret_key_base: your-secret-token</span>
 </pre></div>
-  <h2>config.ru</h2>
+  <h2>
+    <a href='full/#config-ru'>config.ru</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
  # This file is used by Rack-based servers to start the application.
  
@@ -1025,7 +1081,9 @@
 <span class="gd">-run Railsdiff::Application</span>
 <span class="gi">+run Rails.application</span>
 </pre></div>
-  <h2>db/seeds.rb</h2>
+  <h2>
+    <a href='full/#db-seeds-rb'>db/seeds.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -3,5 +3,5 @@</span>
  #
  # Examples:
@@ -1035,12 +1093,16 @@
 <span class="gi">+#   cities = City.create([{ name: &#39;Chicago&#39; }, { name: &#39;Copenhagen&#39; }])</span>
 <span class="gi">+#   Mayor.create(name: &#39;Emanuel&#39;, city: cities.first)</span>
 </pre></div>
-  <h2>doc/README_FOR_APP</h2>
+  <h2>
+    <a href='full/#doc-README_FOR_APP'>doc/README_FOR_APP</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,2 +0,0 @@</span>
 <span class="gd">-Use this README file to introduce your application and point to useful places in the API for learning more.</span>
 <span class="gd">-Run &quot;rake doc:app&quot; to generate API documentation for your models, controllers, helpers, and libraries.</span>
 </pre></div>
-  <h2>public/404.html</h2>
+  <h2>
+    <a href='full/#public-404-html'>public/404.html</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -2,25 +2,66 @@</span>
  &lt;html&gt;
  &lt;head&gt;
@@ -1122,7 +1184,9 @@
  &lt;/body&gt;
  &lt;/html&gt;
 </pre></div>
-  <h2>public/422.html</h2>
+  <h2>
+    <a href='full/#public-422-html'>public/422.html</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -2,25 +2,66 @@</span>
  &lt;html&gt;
  &lt;head&gt;
@@ -1204,7 +1268,9 @@
  &lt;/body&gt;
  &lt;/html&gt;
 </pre></div>
-  <h2>public/500.html</h2>
+  <h2>
+    <a href='full/#public-500-html'>public/500.html</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -2,25 +2,65 @@</span>
  &lt;html&gt;
  &lt;head&gt;
@@ -1286,7 +1352,9 @@
  &lt;/html&gt;
 Binary files v3.0.14/public/images/rails.png and v4.1.0.beta1/public/images/rails.png differ
 </pre></div>
-  <h2>public/index.html</h2>
+  <h2>
+    <a href='full/#public-index-html'>public/index.html</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,239 +0,0 @@</span>
 <span class="gd">-&lt;!DOCTYPE html&gt;</span>
 <span class="gd">-&lt;html&gt;</span>
@@ -1528,12 +1596,16 @@ Binary files v3.0.14/public/images/rails.png and v4.1.0.beta1/public/images/rail
 <span class="gd">-  &lt;/body&gt;</span>
 <span class="gd">-&lt;/html&gt;</span>
 </pre></div>
-  <h2>public/javascripts/application.js</h2>
+  <h2>
+    <a href='full/#public-javascripts-application-js'>public/javascripts/application.js</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,2 +0,0 @@</span>
 <span class="gd">-// Place your application-specific JavaScript functions and classes here</span>
 <span class="gd">-// This file is automatically included by javascript_include_tag :defaults</span>
 </pre></div>
-  <h2>public/javascripts/controls.js</h2>
+  <h2>
+    <a href='full/#public-javascripts-controls-js'>public/javascripts/controls.js</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,965 +0,0 @@</span>
 <span class="gd">-// script.aculo.us controls.js v1.8.3, Thu Oct 08 11:23:33 +0200 2009</span>
 <span class="gd">-</span>
@@ -2502,7 +2574,9 @@ Binary files v3.0.14/public/images/rails.png and v4.1.0.beta1/public/images/rail
 <span class="gd">-});</span>
 \ No newline at end of file
 </pre></div>
-  <h2>public/javascripts/dragdrop.js</h2>
+  <h2>
+    <a href='full/#public-javascripts-dragdrop-js'>public/javascripts/dragdrop.js</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,974 +0,0 @@</span>
 <span class="gd">-// script.aculo.us dragdrop.js v1.8.3, Thu Oct 08 11:23:33 +0200 2009</span>
 <span class="gd">-</span>
@@ -3480,7 +3554,9 @@ Binary files v3.0.14/public/images/rails.png and v4.1.0.beta1/public/images/rail
 <span class="gd">-};</span>
 \ No newline at end of file
 </pre></div>
-  <h2>public/javascripts/effects.js</h2>
+  <h2>
+    <a href='full/#public-javascripts-effects-js'>public/javascripts/effects.js</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,1123 +0,0 @@</span>
 <span class="gd">-// script.aculo.us effects.js v1.8.3, Thu Oct 08 11:23:33 +0200 2009</span>
 <span class="gd">-</span>
@@ -4607,7 +4683,9 @@ Binary files v3.0.14/public/images/rails.png and v4.1.0.beta1/public/images/rail
 <span class="gd">-Element.addMethods(Effect.Methods);</span>
 \ No newline at end of file
 </pre></div>
-  <h2>public/javascripts/prototype.js</h2>
+  <h2>
+    <a href='full/#public-javascripts-prototype-js'>public/javascripts/prototype.js</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,6001 +0,0 @@</span>
 <span class="gd">-/*  Prototype JavaScript framework, version 1.7_rc2</span>
 <span class="gd">- *  (c) 2005-2010 Sam Stephenson</span>
@@ -10611,7 +10689,9 @@ Binary files v3.0.14/public/images/rails.png and v4.1.0.beta1/public/images/rail
 <span class="gd">-  });</span>
 <span class="gd">-})();</span>
 </pre></div>
-  <h2>public/javascripts/rails.js</h2>
+  <h2>
+    <a href='full/#public-javascripts-rails-js'>public/javascripts/rails.js</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,202 +0,0 @@</span>
 <span class="gd">-(function() {</span>
 <span class="gd">-  Ajax.Responders.register({</span>
@@ -10816,7 +10896,9 @@ Binary files v3.0.14/public/images/rails.png and v4.1.0.beta1/public/images/rail
 <span class="gd">-  });</span>
 <span class="gd">-})();</span>
 </pre></div>
-  <h2>public/robots.txt</h2>
+  <h2>
+    <a href='full/#public-robots-txt'>public/robots.txt</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
 <span class="gd">-# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file</span>
 <span class="gi">+# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file</span>
@@ -10826,7 +10908,9 @@ Binary files v3.0.14/public/images/rails.png and v4.1.0.beta1/public/images/rail
 <span class="gi">+# User-agent: *</span>
  # Disallow: /
 </pre></div>
-  <h2>script/rails</h2>
+  <h2>
+    <a href='full/#script-rails'>script/rails</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,6 +0,0 @@</span>
 <span class="gd">-#!/usr/bin/env ruby</span>
 <span class="gd">-# This command will automatically be run when you run &quot;rails&quot; with Rails 3 gems installed from the root of your application.</span>
@@ -10835,7 +10919,9 @@ Binary files v3.0.14/public/images/rails.png and v4.1.0.beta1/public/images/rail
 <span class="gd">-require File.expand_path(&#39;../../config/boot&#39;,  __FILE__)</span>
 <span class="gd">-require &#39;rails/commands&#39;</span>
 </pre></div>
-  <h2>test/performance/browsing_test.rb</h2>
+  <h2>
+    <a href='full/#test-performance-browsing_test-rb'>test/performance/browsing_test.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,9 +0,0 @@</span>
 <span class="gd">-require &#39;test_helper&#39;</span>
 <span class="gd">-require &#39;rails/performance_test_help&#39;</span>
@@ -10847,7 +10933,9 @@ Binary files v3.0.14/public/images/rails.png and v4.1.0.beta1/public/images/rail
 <span class="gd">-  end</span>
 <span class="gd">-end</span>
 </pre></div>
-  <h2>test/test_helper.rb</h2>
+  <h2>
+    <a href='full/#test-test_helper-rb'>test/test_helper.rb</a>
+  </h2>
   <div class="highlight"><pre><span class="gu">@@ -1,9 +1,11 @@</span>
 <span class="gd">-ENV[&quot;RAILS_ENV&quot;] = &quot;test&quot;</span>
 <span class="gi">+ENV[&quot;RAILS_ENV&quot;] ||= &quot;test&quot;</span>
