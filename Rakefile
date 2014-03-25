@@ -55,7 +55,7 @@ end
 desc 'Generate sitemap.txt'
 file 'sitemap.txt' => 'update_rails_repo' do |t|
   base = 'http://railsdiff.org'
-  paths = Dir['html/*'].unshift ''
+  paths = Dir['diff/**/index.html'].unshift ''
   urls = paths.map { |path| [base, path].join '/' }
   File.write(t.name, urls.join("\n") + "\n")
 end
