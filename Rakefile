@@ -11,15 +11,13 @@ task 'default' => 'generate'
 
 desc 'Generate diff, html, & json files'
 task 'generate' => 'update_rails_repo' do |t|
-  tags = all_included_tags.dup
-  tail = tags.pop
+  tags = organized_included_tags.dup
 
-  while tags.any?
-    tags.each do |tag|
+  tags.each do |tag, tails|
+    tails.each do |tail|
       Rake::Task["diff/#{tag}/#{tail}/index.html"].invoke
       Rake::Task["diff/#{tag}/#{tail}/full/index.html"].invoke
     end
-    tail = tags.pop
   end
 
   Rake::Task["index.html"].invoke
@@ -50,7 +48,7 @@ end
 
 desc 'Generate versions.json'
 file 'json/versions.json' => ['json', 'update_rails_repo'] do |t|
-  File.write(t.name, JSON.dump(all_included_versions) + "\n")
+  File.write(t.name, JSON.dump(organized_included_tags) + "\n")
 end
 
 desc 'Generate sitemap.txt'
@@ -245,6 +243,23 @@ end
 
 def all_included_versions
   all_included_tags.map { |tag| version(tag).version }
+end
+
+def organized_included_tags
+  organized_tags = {}
+  all_included_tags.each do |tag|
+    organized_tag = {
+      tag => all_included_tags.select.with_index do |t, index|
+        index > all_included_tags.index(tag) && t < max_comparable_tag(tag).next
+      end
+    }
+    organized_tags.merge!(organized_tag)
+  end
+  organized_tags
+end
+
+def max_comparable_tag(tag)
+  tag =~ /\Av2.3/ ? 'v3.0' : 'v4.2'
 end
 
 def all_tags

@@ -6,7 +6,9 @@ Zepto(function ($) {
       forms = $('form'),
       pathMatch = this.location.pathname.match(/^\/diff\/([^\/]+)\/([^\/]+)/),
       switchHandler,
-      versionsDataHandler;
+      versions,
+      versionsSourceDataHandler,
+      versionsTargetDataHandler;
 
   formHandler = function () {
     var source    = this.source,
@@ -34,29 +36,59 @@ Zepto(function ($) {
 
   $('.switch').on('click', switchHandler);
 
-  versionsDataHandler = function (data) {
-    var sources = [],
-        targets = [];
+  versionsSourceDataHandler = function (data) {
+    var sources = [];
 
-    $.each(data, function (_, version) {
-      var option = ['<option name="v', version, '" value="v', version, '">', version, '</option>'].join('');
+    $.each(data, function (version, _) {
+      var option = ['<option name="', version, '" value="', version, '">', version, '</option>'].join('');
 
       sources.unshift(option);
-      targets.unshift(option);
     });
 
     forms.each(function () {
       $(this.source).append(sources.join(''));
-      $(this.target).append(targets.join(''));
+    });
 
-      this.source[1].selected = true;
+    if (pathMatch) {
+      versionsTargetDataHandler(pathMatch[1]);
 
-      if (pathMatch) {
-        this.source.namedItem(pathMatch[1]).selected = true;
+      forms.each(function () {
         this.target.namedItem(pathMatch[2]).selected = true;
-      }
+      });
+    };
+  };
+
+  $.getJSON('/json/versions.json', function (data) {
+    versions = data;
+    versionsSourceDataHandler(versions);
+  });
+
+  versionsTargetDataHandler = function (sourceValue) {
+    var targetData = versions[sourceValue],
+        targets = [];
+
+    $.each(targetData, function (_, version) {
+      var option = ['<option name="', version, '" value="', version, '">', version, '</option>'].join('');
+
+      targets.unshift(option);
+    });
+
+    forms.each(function () {
+      this.source.namedItem(sourceValue).selected = true;
+      $(this.target).html('');
+      $(this.target).append(targets.join(''));
     });
   };
 
-  $.getJSON('/json/versions.json', versionsDataHandler);
+  $("select[name='source']").on('change', function () {
+    versionsTargetDataHandler(this.value);
+  });
+
+  $("select[name='target']").on('change', function () {
+    var targetValue = this.value;
+
+    forms.each(function () {
+      this.target.namedItem(targetValue).selected = true;
+    });
+  });
 });
