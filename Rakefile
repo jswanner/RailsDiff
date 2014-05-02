@@ -89,16 +89,7 @@ file 'tmp/rails/generator' => 'tmp/rails' do |t|
   generator = <<-GEN
 railties_path = File.expand_path('../railties/lib', __FILE__)
 $:.unshift(railties_path)
-require 'rails/version'
-
-if Rails::VERSION::STRING =~ /\\A2.3/
-  require "rails_generator"
-  require "rails_generator/scripts/generate"
-  Rails::Generator::Base.use_application_sources!
-  Rails::Generator::Scripts::Generate.new.run(ARGV, :generator => 'app')
-else
-  require "rails/cli"
-end
+require "rails/cli"
   GEN
   File.write(t.name, generator)
 end
@@ -117,16 +108,15 @@ rule(/tmp\/generated\/.*/ => ['tmp/generated']) do |t|
   source = t.name.gsub /^tmp\/generated/, 'tmp/rails'
   Rake::Task[source].invoke
 
-  rm_rf t.name, verbose: false if Dir.exists?(t.name)
+  hidden_glob = "#{t.name}/railsdiff/.??*"
 
-  if source.split(/\//).last =~ /v2.3/
-    sh "ruby #{source}/generator #{t.name} > /dev/null", verbose: false
-  else
-    sh "ruby #{source}/generator new #{t.name}/railsdiff > /dev/null", verbose: false
-    sh sed_command(t.name), verbose: false
-    sh "mv #{t.name}/railsdiff/* #{t.name}/.", verbose: false
-    sh "mv #{t.name}/railsdiff/.??* #{t.name}/.", verbose: false
+  rm_rf t.name, verbose: false if Dir.exists?(t.name)
+  sh generator_command(source, t.name), verbose: false
+  sed_commands(t.name).each do |expression, file_path|
+    sh %{sed -E -i '' "#{expression}" #{file_path}}, verbose: false
   end
+  sh "mv #{t.name}/railsdiff/* #{t.name}/.", verbose: false
+  %x{test -e #{hidden_glob} && mv #{hidden_glob} #{t.name}/.}
   rm_rf source, verbose: false
 end
 
@@ -272,6 +262,14 @@ def all_tags
                 end
 end
 
+def generator_command source_path, dest_path
+  if source_path.split(/\//).last =~ /v2.3/
+    "ruby #{source_path}/railties/bin/rails #{dest_path}/railsdiff > /dev/null"
+  else
+    "ruby #{source_path}/generator new #{dest_path}/railsdiff > /dev/null"
+  end
+end
+
 def include_tag? tag
   version = version tag
   (!version.prerelease? || version > last_full_release_version) &&
@@ -287,8 +285,16 @@ def min_version
   @min_version ||= version 'v2.3.0'
 end
 
-def sed_command base_path
-  expression, file_path = [
+def sed_commands base_path
+  [
+    [
+      "s/'.*'/'your-secret-token'/",
+      "#{base_path}/railsdiff/config/initializers/cookie_verification_secret.rb",
+    ],
+    [
+      "s/'.{20,}'/'your-secret-token'/",
+      "#{base_path}/railsdiff/config/initializers/session_store.rb",
+    ],
     [
       "s/'.*'/'your-secret-token'/",
       "#{base_path}/railsdiff/config/initializers/secret_token.rb",
@@ -297,9 +303,8 @@ def sed_command base_path
       's/(secret_key_base:[[:space:]])[^<].*$/\1your-secret-token/',
       "#{base_path}/railsdiff/config/secrets.yml",
     ],
-  ].find { |expression, file_path| File.exists?(file_path) }
+  ].select { |_expression, file_path| File.exists?(file_path) }
 
-  %Q{sed -E -i '' "#{expression}" #{file_path}}
 end
 
 def version tag
