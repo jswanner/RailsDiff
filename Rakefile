@@ -232,34 +232,17 @@ def all_included_tags
 end
 
 def all_included_versions
-  all_included_tags.map { |tag| version(tag).version }
-end
-
-def organized_included_tags
-  organized_tags = {}
-  all_included_tags.each do |tag|
-    organized_tag = {
-      tag => all_included_tags.select.with_index do |t, index|
-        index > all_included_tags.index(tag) && t < max_comparable_tag(tag).next
-      end
-    }
-    organized_tags.merge!(organized_tag)
-  end
-  organized_tags
-end
-
-def max_comparable_tag(tag)
-  tag =~ /\Av2.3/ ? 'v3.0' : 'w'
+  @all_included_versions ||= all_included_tags.map { |tag| version(tag) }
 end
 
 def all_tags
   @all_tags ||= begin
-                  result = nil
-                  cd 'tmp/rails/rails', verbose: false do
-                    result = %x{git tag -l "v2.3*" "v3*" "v4*"}.split
-                  end
-                  result.sort { |a, b| version(a) <=> version(b) }
-                end
+    result = nil
+    cd 'tmp/rails/rails', verbose: false do
+      result = %x{git tag -l "v2.3*" "v3*" "v4*"}.split
+    end
+    result.sort { |a, b| version(a) <=> version(b) }
+  end
 end
 
 def generator_command source_path, dest_path
@@ -273,7 +256,11 @@ end
 def include_tag? tag
   version = version tag
   (!version.prerelease? || version > last_full_release_version) &&
-    version >= min_version
+    version >= min_version && !skip_tag?(tag)
+end
+
+def include_target? source, target
+  requirement_for(source) =~ target
 end
 
 def last_full_release_version
@@ -283,6 +270,29 @@ end
 
 def min_version
   @min_version ||= version 'v2.3.0'
+end
+
+def organized_included_tags
+  all_included_versions.reduce({}) do |hash, source|
+    hash[source.version] = all_included_versions.select { |target|
+      include_target?(source, target)
+    }.map(&:version)
+
+    hash
+  end
+end
+
+def requirement requirement
+  Gem::Requirement.new(requirement)
+end
+
+def requirement_for version
+  case version
+  when requirement('~>2.3')
+    requirement(%W[>#{version.version} <3.1])
+  else
+    requirement(">#{version.version}")
+  end
 end
 
 def sed_commands base_path
@@ -304,7 +314,10 @@ def sed_commands base_path
       "#{base_path}/railsdiff/config/secrets.yml",
     ],
   ].select { |_expression, file_path| File.exists?(file_path) }
+end
 
+def skip_tag? tag
+  %w[v2.3.2.1 v2.3.3.1].include? tag
 end
 
 def version tag
