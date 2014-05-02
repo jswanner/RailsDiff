@@ -259,7 +259,7 @@ def organized_included_tags
 end
 
 def max_comparable_tag(tag)
-  tag =~ /\Av2.3/ ? 'v3.0' : 'v4.2'
+  tag =~ /\Av2.3/ ? 'v3.0' : 'w'
 end
 
 def all_tags
