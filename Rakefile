@@ -11,15 +11,13 @@ task 'default' => 'generate'
 
 desc 'Generate diff, html, & json files'
 task 'generate' => 'update_rails_repo' do |t|
-  tags = all_included_tags.dup
-  tail = tags.pop
+  tags = organized_included_tags.dup
 
-  while tags.any?
-    tags.each do |tag|
+  tags.each do |tag, tails|
+    tails.each do |tail|
       Rake::Task["diff/#{tag}/#{tail}/index.html"].invoke
       Rake::Task["diff/#{tag}/#{tail}/full/index.html"].invoke
     end
-    tail = tags.pop
   end
 
   Rake::Task["index.html"].invoke
@@ -50,7 +48,7 @@ end
 
 desc 'Generate versions.json'
 file 'json/versions.json' => ['json', 'update_rails_repo'] do |t|
-  File.write(t.name, JSON.dump(all_included_versions) + "\n")
+  File.write(t.name, JSON.dump(organized_included_tags) + "\n")
 end
 
 desc 'Generate sitemap.txt'
@@ -91,7 +89,16 @@ file 'tmp/rails/generator' => 'tmp/rails' do |t|
   generator = <<-GEN
 railties_path = File.expand_path('../railties/lib', __FILE__)
 $:.unshift(railties_path)
-require "rails/cli"
+require 'rails/version'
+
+if Rails::VERSION::STRING =~ /\\A2.3/
+  require "rails_generator"
+  require "rails_generator/scripts/generate"
+  Rails::Generator::Base.use_application_sources!
+  Rails::Generator::Scripts::Generate.new.run(ARGV, :generator => 'app')
+else
+  require "rails/cli"
+end
   GEN
   File.write(t.name, generator)
 end
@@ -112,10 +119,14 @@ rule(/tmp\/generated\/.*/ => ['tmp/generated']) do |t|
 
   rm_rf t.name, verbose: false if Dir.exists?(t.name)
 
-  sh "ruby #{source}/generator new #{t.name}/railsdiff --skip-bundle > /dev/null", verbose: false
-  sh sed_command(t.name), verbose: false
-  sh "mv #{t.name}/railsdiff/* #{t.name}/.", verbose: false
-  sh "mv #{t.name}/railsdiff/.??* #{t.name}/.", verbose: false
+  if source.split(/\//).last =~ /v2.3/
+    sh "ruby #{source}/generator #{t.name} > /dev/null", verbose: false
+  else
+    sh "ruby #{source}/generator new #{t.name}/railsdiff > /dev/null", verbose: false
+    sh sed_command(t.name), verbose: false
+    sh "mv #{t.name}/railsdiff/* #{t.name}/.", verbose: false
+    sh "mv #{t.name}/railsdiff/.??* #{t.name}/.", verbose: false
+  end
   rm_rf source, verbose: false
 end
 
@@ -234,11 +245,28 @@ def all_included_versions
   all_included_tags.map { |tag| version(tag).version }
 end
 
+def organized_included_tags
+  organized_tags = {}
+  all_included_tags.each do |tag|
+    organized_tag = {
+      tag => all_included_tags.select.with_index do |t, index|
+        index > all_included_tags.index(tag) && t < max_comparable_tag(tag).next
+      end
+    }
+    organized_tags.merge!(organized_tag)
+  end
+  organized_tags
+end
+
+def max_comparable_tag(tag)
+  tag =~ /\Av2.3/ ? 'v3.0' : 'w'
+end
+
 def all_tags
   @all_tags ||= begin
                   result = nil
                   cd 'tmp/rails/rails', verbose: false do
-                    result = %x{git tag -l "v3*" "v4*"}.split
+                    result = %x{git tag -l "v2.3*" "v3*" "v4*"}.split
                   end
                   result.sort { |a, b| version(a) <=> version(b) }
                 end
@@ -256,7 +284,7 @@ def last_full_release_version
 end
 
 def min_version
-  @min_version ||= version 'v3.0.0'
+  @min_version ||= version 'v2.3.0'
 end
 
 def sed_command base_path
