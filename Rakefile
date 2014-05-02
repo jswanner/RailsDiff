@@ -91,7 +91,7 @@ railties_path = File.expand_path('../railties/lib', __FILE__)
 $:.unshift(railties_path)
 require 'rails/version'
 
-if Rails::VERSION::STRING =~ /\A2.3/
+if Rails::VERSION::STRING =~ /\\A2.3/
   require "rails_generator"
   require "rails_generator/scripts/generate"
   Rails::Generator::Base.use_application_sources!
