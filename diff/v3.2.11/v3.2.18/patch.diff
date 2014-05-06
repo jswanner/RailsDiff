@@ -1,0 +1,53 @@
+diff -Nru v3.2.11/Gemfile v3.2.18/Gemfile
+--- v3.2.11/Gemfile	2013-01-09 13:48:08.000000000 -0800
++++ v3.2.18/Gemfile	2014-05-06 11:06:43.000000000 -0700
+@@ -1,6 +1,6 @@
+ source 'https://rubygems.org'
+ 
+-gem 'rails', '3.2.11'
++gem 'rails', '3.2.18'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails', :git => 'git://github.com/rails/rails.git'
+diff -Nru v3.2.11/README.rdoc v3.2.18/README.rdoc
+--- v3.2.11/README.rdoc	2013-01-09 13:48:08.000000000 -0800
++++ v3.2.18/README.rdoc	2014-05-06 11:06:43.000000000 -0700
+@@ -157,9 +157,9 @@
+ 
+   |-- app
+   |   |-- assets
+-  |       |-- images
+-  |       |-- javascripts
+-  |       `-- stylesheets
++  |   |   |-- images
++  |   |   |-- javascripts
++  |   |   `-- stylesheets
+   |   |-- controllers
+   |   |-- helpers
+   |   |-- mailers
+@@ -173,6 +173,7 @@
+   |-- db
+   |-- doc
+   |-- lib
++  |   |-- assets
+   |   `-- tasks
+   |-- log
+   |-- public
+@@ -184,13 +185,12 @@
+   |   |-- performance
+   |   `-- unit
+   |-- tmp
+-  |   |-- cache
+-  |   |-- pids
+-  |   |-- sessions
+-  |   `-- sockets
++  |   `-- cache
++  |       `-- assets
+   `-- vendor
+       |-- assets
+-          `-- stylesheets
++      |   |-- javascripts
++      |   `-- stylesheets
+       `-- plugins
+ 
+ app

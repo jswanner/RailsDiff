@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v3.2.5 - v3.2.18 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet' />
+    <link href='/assets/app.css' rel='stylesheet' />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png' /></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff' />
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+  <h2 id='Gemfile'>Gemfile</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,38 +1,38 @@</span>
+ source &#39;https://rubygems.org&#39;
+ 
+<span class="gd">-gem &#39;rails&#39;, &#39;3.2.5&#39;</span>
+<span class="gi">+gem &#39;rails&#39;, &#39;3.2.18&#39;</span>
+ 
+ # Bundle edge Rails instead:
+ # gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;
+ 
+ gem &#39;sqlite3&#39;
+ 
+ 
+ # Gems used only for assets and not required
+ # in production environments by default.
+ group :assets do
+   gem &#39;sass-rails&#39;,   &#39;~&gt; 3.2.3&#39;
+   gem &#39;coffee-rails&#39;, &#39;~&gt; 3.2.1&#39;
+ 
+   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+   # gem &#39;therubyracer&#39;, :platforms =&gt; :ruby
+ 
+   gem &#39;uglifier&#39;, &#39;&gt;= 1.0.3&#39;
+ end
+ 
+ gem &#39;jquery-rails&#39;
+ 
+ # To use ActiveModel has_secure_password
+ # gem &#39;bcrypt-ruby&#39;, &#39;~&gt; 3.0.0&#39;
+ 
+ # To use Jbuilder templates for JSON
+ # gem &#39;jbuilder&#39;
+ 
+ # Use unicorn as the app server
+ # gem &#39;unicorn&#39;
+ 
+ # Deploy with Capistrano
+ # gem &#39;capistrano&#39;
+ 
+ # To use debugger
+ # gem &#39;debugger&#39;
+</pre></div>
+  <h2 id='README-rdoc'>README.rdoc</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,261 +1,261 @@</span>
+ == Welcome to Rails
+ 
+ Rails is a web-application framework that includes everything needed to create
+ database-backed web applications according to the Model-View-Control pattern.
+ 
+ This pattern splits the view (also called the presentation) into &quot;dumb&quot;
+ templates that are primarily responsible for inserting pre-built data in between
+ HTML tags. The model contains the &quot;smart&quot; domain objects (such as Account,
+ Product, Person, Post) that holds all the business logic and knows how to
+ persist themselves to a database. The controller handles the incoming requests
+ (such as Save New Account, Update Product, Show Post) by manipulating the model
+ and directing data to the view.
+ 
+ In Rails, the model is handled by what&#39;s called an object-relational mapping
+ layer entitled Active Record. This layer allows you to present the data from
+ database rows as objects and embellish these data objects with business logic
+ methods. You can read more about Active Record in
+ link:files/vendor/rails/activerecord/README.html.
+ 
+ The controller and view are handled by the Action Pack, which handles both
+ layers by its two parts: Action View and Action Controller. These two layers
+ are bundled in a single package due to their heavy interdependence. This is
+ unlike the relationship between the Active Record and Action Pack that is much
+ more separate. Each of these packages can be used independently outside of
+ Rails. You can read more about Action Pack in
+ link:files/vendor/rails/actionpack/README.html.
+ 
+ 
+ == Getting Started
+ 
+ 1. At the command prompt, create a new Rails application:
+        &lt;tt&gt;rails new myapp&lt;/tt&gt; (where &lt;tt&gt;myapp&lt;/tt&gt; is the application name)
+ 
+ 2. Change directory to &lt;tt&gt;myapp&lt;/tt&gt; and start the web server:
+        &lt;tt&gt;cd myapp; rails server&lt;/tt&gt; (run with --help for options)
+ 
+ 3. Go to http://localhost:3000/ and you&#39;ll see:
+        &quot;Welcome aboard: You&#39;re riding Ruby on Rails!&quot;
+ 
+ 4. Follow the guidelines to start developing your application. You can find
+ the following resources handy:
+ 
+ * The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
+ * Ruby on Rails Tutorial Book: http://www.railstutorial.org/
+ 
+ 
+ == Debugging Rails
+ 
+ Sometimes your application goes wrong. Fortunately there are a lot of tools that
+ will help you debug it and get it back on the rails.
+ 
+ First area to check is the application log files. Have &quot;tail -f&quot; commands
+ running on the server.log and development.log. Rails will automatically display
+ debugging and runtime information to these files. Debugging info will also be
+ shown in the browser on requests from 127.0.0.1.
+ 
+ You can also log your own messages directly into the log file from your code
+ using the Ruby logger class from inside your controllers. Example:
+ 
+   class WeblogController &lt; ActionController::Base
+     def destroy
+       @weblog = Weblog.find(params[:id])
+       @weblog.destroy
+       logger.info(&quot;#{Time.now} Destroyed Weblog ID ##{@weblog.id}!&quot;)
+     end
+   end
+ 
+ The result will be a message in your log file along the lines of:
+ 
+   Mon Oct 08 14:22:29 +1000 2007 Destroyed Weblog ID #1!
+ 
+ More information on how to use the logger is at http://www.ruby-doc.org/core/
+ 
+ Also, Ruby documentation can be found at http://www.ruby-lang.org/. There are
+ several books available online as well:
+ 
+ * Programming Ruby: http://www.ruby-doc.org/docs/ProgrammingRuby/ (Pickaxe)
+ * Learn to Program: http://pine.fm/LearnToProgram/ (a beginners guide)
+ 
+ These two books will bring you up to speed on the Ruby language and also on
+ programming in general.
+ 
+ 
+ == Debugger
+ 
+ Debugger support is available through the debugger command when you start your
+ Mongrel or WEBrick server with --debugger. This means that you can break out of
+ execution at any point in the code, investigate and change the model, and then,
+ resume execution! You need to install ruby-debug to run the server in debugging
+ mode. With gems, use &lt;tt&gt;sudo gem install ruby-debug&lt;/tt&gt;. Example:
+ 
+   class WeblogController &lt; ActionController::Base
+     def index
+       @posts = Post.all
+       debugger
+     end
+   end
+ 
+ So the controller will accept the action, run the first line, then present you
+ with a IRB prompt in the server window. Here you can do things like:
+ 
+   &gt;&gt; @posts.inspect
+   =&gt; &quot;[#&lt;Post:0x14a6be8
+           @attributes={&quot;title&quot;=&gt;nil, &quot;body&quot;=&gt;nil, &quot;id&quot;=&gt;&quot;1&quot;}&gt;,
+        #&lt;Post:0x14a6620
+           @attributes={&quot;title&quot;=&gt;&quot;Rails&quot;, &quot;body&quot;=&gt;&quot;Only ten..&quot;, &quot;id&quot;=&gt;&quot;2&quot;}&gt;]&quot;
+   &gt;&gt; @posts.first.title = &quot;hello from a debugger&quot;
+   =&gt; &quot;hello from a debugger&quot;
+ 
+ ...and even better, you can examine how your runtime objects actually work:
+ 
+   &gt;&gt; f = @posts.first
+   =&gt; #&lt;Post:0x13630c4 @attributes={&quot;title&quot;=&gt;nil, &quot;body&quot;=&gt;nil, &quot;id&quot;=&gt;&quot;1&quot;}&gt;
+   &gt;&gt; f.
+   Display all 152 possibilities? (y or n)
+ 
+ Finally, when you&#39;re ready to resume execution, you can enter &quot;cont&quot;.
+ 
+ 
+ == Console
+ 
+ The console is a Ruby shell, which allows you to interact with your
+ application&#39;s domain model. Here you&#39;ll have all parts of the application
+ configured, just like it is when the application is running. You can inspect
+ domain models, change values, and save to the database. Starting the script
+ without arguments will launch it in the development environment.
+ 
+ To start the console, run &lt;tt&gt;rails console&lt;/tt&gt; from the application
+ directory.
+ 
+ Options:
+ 
+ * Passing the &lt;tt&gt;-s, --sandbox&lt;/tt&gt; argument will rollback any modifications
+   made to the database.
+ * Passing an environment name as an argument will load the corresponding
+   environment. Example: &lt;tt&gt;rails console production&lt;/tt&gt;.
+ 
+ To reload your controllers and models after launching the console run
+ &lt;tt&gt;reload!&lt;/tt&gt;
+ 
+ More information about irb can be found at:
+ link:http://www.rubycentral.org/pickaxe/irb.html
+ 
+ 
+ == dbconsole
+ 
+ You can go to the command line of your database directly through &lt;tt&gt;rails
+ dbconsole&lt;/tt&gt;. You would be connected to the database with the credentials
+ defined in database.yml. Starting the script without arguments will connect you
+ to the development database. Passing an argument will connect you to a different
+ database, like &lt;tt&gt;rails dbconsole production&lt;/tt&gt;. Currently works for MySQL,
+ PostgreSQL and SQLite 3.
+ 
+ == Description of Contents
+ 
+ The default directory structure of a generated Ruby on Rails application:
+ 
+   |-- app
+   |   |-- assets
+<span class="gd">-  |       |-- images</span>
+<span class="gd">-  |       |-- javascripts</span>
+<span class="gd">-  |       `-- stylesheets</span>
+<span class="gi">+  |   |   |-- images</span>
+<span class="gi">+  |   |   |-- javascripts</span>
+<span class="gi">+  |   |   `-- stylesheets</span>
+   |   |-- controllers
+   |   |-- helpers
+   |   |-- mailers
+   |   |-- models
+   |   `-- views
+   |       `-- layouts
+   |-- config
+   |   |-- environments
+   |   |-- initializers
+   |   `-- locales
+   |-- db
+   |-- doc
+   |-- lib
+<span class="gi">+  |   |-- assets</span>
+   |   `-- tasks
+   |-- log
+   |-- public
+   |-- script
+   |-- test
+   |   |-- fixtures
+   |   |-- functional
+   |   |-- integration
+   |   |-- performance
+   |   `-- unit
+   |-- tmp
+<span class="gd">-  |   |-- cache</span>
+<span class="gd">-  |   |-- pids</span>
+<span class="gd">-  |   |-- sessions</span>
+<span class="gd">-  |   `-- sockets</span>
+<span class="gi">+  |   `-- cache</span>
+<span class="gi">+  |       `-- assets</span>
+   `-- vendor
+       |-- assets
+<span class="gd">-          `-- stylesheets</span>
+<span class="gi">+      |   |-- javascripts</span>
+<span class="gi">+      |   `-- stylesheets</span>
+       `-- plugins
+ 
+ app
+   Holds all the code that&#39;s specific to this particular application.
+ 
+ app/assets
+   Contains subdirectories for images, stylesheets, and JavaScript files.
+ 
+ app/controllers
+   Holds controllers that should be named like weblogs_controller.rb for
+   automated URL mapping. All controllers should descend from
+   ApplicationController which itself descends from ActionController::Base.
+ 
+ app/models
+   Holds models that should be named like post.rb. Models descend from
+   ActiveRecord::Base by default.
+ 
+ app/views
+   Holds the template files for the view that should be named like
+   weblogs/index.html.erb for the WeblogsController#index action. All views use
+   eRuby syntax by default.
+ 
+ app/views/layouts
+   Holds the template files for layouts to be used with views. This models the
+   common header/footer method of wrapping views. In your views, define a layout
+   using the &lt;tt&gt;layout :default&lt;/tt&gt; and create a file named default.html.erb.
+   Inside default.html.erb, call &lt;% yield %&gt; to render the view using this
+   layout.
+ 
+ app/helpers
+   Holds view helpers that should be named like weblogs_helper.rb. These are
+   generated for you automatically when using generators for controllers.
+   Helpers can be used to wrap functionality for your views into methods.
+ 
+ config
+   Configuration files for the Rails environment, the routing map, the database,
+   and other dependencies.
+ 
+ db
+   Contains the database schema in schema.rb. db/migrate contains all the
+   sequence of Migrations for your schema.
+ 
+ doc
+   This directory is where your application documentation will be stored when
+   generated using &lt;tt&gt;rake doc:app&lt;/tt&gt;
+ 
+ lib
+   Application specific libraries. Basically, any kind of custom code that
+   doesn&#39;t belong under controllers, models, or helpers. This directory is in
+   the load path.
+ 
+ public
+   The directory available for the web server. Also contains the dispatchers and the
+   default HTML files. This should be set as the DOCUMENT_ROOT of your web
+   server.
+ 
+ script
+   Helper scripts for automation and generation.
+ 
+ test
+   Unit and functional tests along with fixtures. When using the rails generate
+   command, template test files will be generated for you and placed in this
+   directory.
+ 
+ vendor
+   External libraries that the application depends on. Also includes the plugins
+   subdirectory. If the app has frozen rails, those gems also go here, under
+   vendor/rails/. This directory is in the load path.
+</pre></div>
+</div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />
+    </a>
+    <script src='/assets/app.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7325596-4']);
+        _gaq.push(['_setSiteSpeedSampleRate', 100]);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+  </body>
+</html>
