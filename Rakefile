@@ -15,8 +15,8 @@ task 'generate' => 'update_rails_repo' do |t|
 
   tags.each do |tag, tails|
     tails.each do |tail|
-      Rake::Task["diff/#{tag}/#{tail}/index.html"].invoke
-      Rake::Task["diff/#{tag}/#{tail}/full/index.html"].invoke
+      Rake::Task["diff/v#{tag}/v#{tail}/index.html"].invoke
+      Rake::Task["diff/v#{tag}/v#{tail}/full/index.html"].invoke
     end
   end
 
