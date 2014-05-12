@@ -4,8 +4,7 @@ var Zepto=function(){function E(a){return a==null?String(a):y[z.call(a)]||"objec
 Zepto(function ($) {
   var formHandler,
       forms = $('form'),
-      pathMatch = this.location.pathname.match(/^\/diff\/([^\/]+)\/([^\/]+)/),
-      switchHandler,
+      pathMatch = this.location.pathname.match(/^\/diff\/v([^\/]+)\/v([^\/]+)/),
       versions,
       versionsSourceDataHandler,
       versionsTargetDataHandler;
@@ -15,28 +14,15 @@ Zepto(function ($) {
         sourceVer = source.options[source.selectedIndex].value,
         target    = this.target,
         targetVer = target.options[target.selectedIndex].value,
-        href      = ['/diff/', sourceVer, '/', targetVer, '/'].join('');
+        href      = ['/diff/v', sourceVer, '/v', targetVer, '/'].join('');
     window.location.pathname = href;
     return false;
   };
 
   forms.on('submit', formHandler);
 
-  switchHandler = function () {
-    var form      = this.parentNode,
-        source    = form.source,
-        sourceVer = source.options[source.selectedIndex].value,
-        target    = form.target,
-        targetVer = target.options[target.selectedIndex].value;
-
-    source.namedItem(targetVer).selected = true;
-    target.namedItem(sourceVer).selected = true;
-    return false;
-  };
-
-  $('.switch').on('click', switchHandler);
-
   versionsSourceDataHandler = function (data) {
+    versions = data;
     var sources = [];
 
     $.each(data, function (version, _) {
@@ -55,13 +41,13 @@ Zepto(function ($) {
       forms.each(function () {
         this.target.namedItem(pathMatch[2]).selected = true;
       });
-    };
+    } else {
+      this.source[1].selected = true;
+      versionsTargetDataHandler(this.source[1].value);
+    }
   };
 
-  $.getJSON('/json/versions.json', function (data) {
-    versions = data;
-    versionsSourceDataHandler(versions);
-  });
+  $.getJSON('/json/versions.json', versionsSourceDataHandler);
 
   versionsTargetDataHandler = function (sourceValue) {
     var targetData = versions[sourceValue],
@@ -75,16 +61,15 @@ Zepto(function ($) {
 
     forms.each(function () {
       this.source.namedItem(sourceValue).selected = true;
-      $(this.target).html('');
-      $(this.target).append(targets.join(''));
+      $(this.target).html(targets.join(''));
     });
   };
 
-  $("select[name='source']").on('change', function () {
+  $('select[name=source]').on('change', function () {
     versionsTargetDataHandler(this.value);
   });
 
-  $("select[name='target']").on('change', function () {
+  $('select[name=target]').on('change', function () {
     var targetValue = this.value;
 
     forms.each(function () {

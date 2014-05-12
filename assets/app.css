@@ -13,6 +13,7 @@ header a:link { color: white; text-decoration: none; }
 header a:visited { color: white; text-decoration: none; }
 header h1, header form { display: inline-block; vertical-align: baseline; zoom: 1; *display: inline; *vertical-align: auto; }
 header h1 { margin: 0 1em 0 0; }
+header .switch { display: none; }
 
 .content .index label, .content .index select { display: block; }
 .content .index p:first-child { margin-top: 0; }
