@@ -269,7 +269,7 @@ def last_full_release_version
 end
 
 def min_version
-  @min_version ||= version 'v2.3.0'
+  @min_version ||= version 'v2.3.6'
 end
 
 def organized_included_tags
