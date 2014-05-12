@@ -1,0 +1,39 @@
+diff -Nru v2.3.8/config/boot.rb v2.3.12/config/boot.rb
+--- v2.3.8/config/boot.rb	2014-05-11 23:40:22.000000000 -0700
++++ v2.3.12/config/boot.rb	2014-05-11 23:34:54.000000000 -0700
+@@ -62,8 +62,12 @@
+         gem 'rails'
+       end
+     rescue Gem::LoadError => load_error
+-      $stderr.puts %(Missing the Rails #{version} gem. Please `gem install -v=#{version} rails`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.)
+-      exit 1
++      if load_error.message =~ /Could not find RubyGem rails/
++        STDERR.puts %(Missing the Rails #{version} gem. Please `gem install -v=#{version} rails`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.)
++        exit 1
++      else
++        raise
++      end
+     end
+ 
+     class << self
+diff -Nru v2.3.8/config/environment.rb v2.3.12/config/environment.rb
+--- v2.3.8/config/environment.rb	2014-05-11 23:40:22.000000000 -0700
++++ v2.3.12/config/environment.rb	2014-05-11 23:34:54.000000000 -0700
+@@ -1,7 +1,7 @@
+ # Be sure to restart your server when you modify this file
+ 
+ # Specifies gem version of Rails to use when vendor/rails is not present
+-RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
++RAILS_GEM_VERSION = '2.3.12' unless defined? RAILS_GEM_VERSION
+ 
+ # Bootstrap the Rails environment, frameworks, and default configuration
+ require File.join(File.dirname(__FILE__), 'boot')
+@@ -12,7 +12,7 @@
+   # -- all .rb files in that directory are automatically loaded.
+ 
+   # Add additional load paths for your own custom dirs
+-  # config.load_paths += %W( #{RAILS_ROOT}/extras )
++  # config.autoload_paths += %W( #{RAILS_ROOT}/extras )
+ 
+   # Specify gems that this application depends on and have them installed with rake gems:install
+   # config.gem "bj"

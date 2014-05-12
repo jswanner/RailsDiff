@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v2.3.11 - v2.3.14 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet' />
+    <link href='/assets/app.css' rel='stylesheet' />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png' /></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff' />
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+  <h2 id='config-environment-rb'>config/environment.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,41 +1,41 @@</span>
+ # Be sure to restart your server when you modify this file
+ 
+ # Specifies gem version of Rails to use when vendor/rails is not present
+<span class="gd">-RAILS_GEM_VERSION = &#39;2.3.11&#39; unless defined? RAILS_GEM_VERSION</span>
+<span class="gi">+RAILS_GEM_VERSION = &#39;2.3.14&#39; unless defined? RAILS_GEM_VERSION</span>
+ 
+ # Bootstrap the Rails environment, frameworks, and default configuration
+ require File.join(File.dirname(__FILE__), &#39;boot&#39;)
+ 
+ Rails::Initializer.run do |config|
+   # Settings in config/environments/* take precedence over those specified here.
+   # Application configuration should go into files in config/initializers
+   # -- all .rb files in that directory are automatically loaded.
+ 
+   # Add additional load paths for your own custom dirs
+   # config.autoload_paths += %W( #{RAILS_ROOT}/extras )
+ 
+   # Specify gems that this application depends on and have them installed with rake gems:install
+   # config.gem &quot;bj&quot;
+   # config.gem &quot;hpricot&quot;, :version =&gt; &#39;0.6&#39;, :source =&gt; &quot;http://code.whytheluckystiff.net&quot;
+   # config.gem &quot;sqlite3-ruby&quot;, :lib =&gt; &quot;sqlite3&quot;
+   # config.gem &quot;aws-s3&quot;, :lib =&gt; &quot;aws/s3&quot;
+ 
+   # Only load the plugins named here, in the order given (default is alphabetical).
+   # :all can be used as a placeholder for all plugins not explicitly named
+   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+ 
+   # Skip frameworks you&#39;re not going to use. To use Rails without a database,
+   # you must remove the Active Record framework.
+   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
+ 
+   # Activate observers that should always be running
+   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+ 
+   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+   # Run &quot;rake -D time&quot; for a list of tasks for finding time zone names.
+   config.time_zone = &#39;UTC&#39;
+ 
+   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+   # config.i18n.load_path += Dir[Rails.root.join(&#39;my&#39;, &#39;locales&#39;, &#39;*.{rb,yml}&#39;)]
+   # config.i18n.default_locale = :de
+ end
+\ No newline at end of file
+</pre></div>
+</div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />
+    </a>
+    <script src='/assets/app.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7325596-4']);
+        _gaq.push(['_setSiteSpeedSampleRate', 100]);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+  </body>
+</html>

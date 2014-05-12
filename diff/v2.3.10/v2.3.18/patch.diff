@@ -1,0 +1,12 @@
+diff -Nru v2.3.10/config/environment.rb v2.3.18/config/environment.rb
+--- v2.3.10/config/environment.rb	2014-05-11 23:34:48.000000000 -0700
++++ v2.3.18/config/environment.rb	2014-05-01 23:46:40.000000000 -0700
+@@ -1,7 +1,7 @@
+ # Be sure to restart your server when you modify this file
+ 
+ # Specifies gem version of Rails to use when vendor/rails is not present
+-RAILS_GEM_VERSION = '2.3.10' unless defined? RAILS_GEM_VERSION
++RAILS_GEM_VERSION = '2.3.18' unless defined? RAILS_GEM_VERSION
+ 
+ # Bootstrap the Rails environment, frameworks, and default configuration
+ require File.join(File.dirname(__FILE__), 'boot')

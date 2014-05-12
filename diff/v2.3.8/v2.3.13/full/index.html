@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v2.3.8 - v2.3.13 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet' />
+    <link href='/assets/app.css' rel='stylesheet' />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png' /></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff' />
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+  <h2 id='config-boot-rb'>config/boot.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,110 +1,114 @@</span>
+ # Don&#39;t change this file!
+ # Configure your app in config/environment.rb and config/environments/*.rb
+ 
+ RAILS_ROOT = &quot;#{File.dirname(__FILE__)}/..&quot; unless defined?(RAILS_ROOT)
+ 
+ module Rails
+   class &lt;&lt; self
+     def boot!
+       unless booted?
+         preinitialize
+         pick_boot.run
+       end
+     end
+ 
+     def booted?
+       defined? Rails::Initializer
+     end
+ 
+     def pick_boot
+       (vendor_rails? ? VendorBoot : GemBoot).new
+     end
+ 
+     def vendor_rails?
+       File.exist?(&quot;#{RAILS_ROOT}/vendor/rails&quot;)
+     end
+ 
+     def preinitialize
+       load(preinitializer_path) if File.exist?(preinitializer_path)
+     end
+ 
+     def preinitializer_path
+       &quot;#{RAILS_ROOT}/config/preinitializer.rb&quot;
+     end
+   end
+ 
+   class Boot
+     def run
+       load_initializer
+       Rails::Initializer.run(:set_load_path)
+     end
+   end
+ 
+   class VendorBoot &lt; Boot
+     def load_initializer
+       require &quot;#{RAILS_ROOT}/vendor/rails/railties/lib/initializer&quot;
+       Rails::Initializer.run(:install_gem_spec_stubs)
+       Rails::GemDependency.add_frozen_gem_path
+     end
+   end
+ 
+   class GemBoot &lt; Boot
+     def load_initializer
+       self.class.load_rubygems
+       load_rails_gem
+       require &#39;initializer&#39;
+     end
+ 
+     def load_rails_gem
+       if version = self.class.gem_version
+         gem &#39;rails&#39;, version
+       else
+         gem &#39;rails&#39;
+       end
+     rescue Gem::LoadError =&gt; load_error
+<span class="gd">-      $stderr.puts %(Missing the Rails #{version} gem. Please `gem install -v=#{version} rails`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.)</span>
+<span class="gd">-      exit 1</span>
+<span class="gi">+      if load_error.message =~ /Could not find RubyGem rails/</span>
+<span class="gi">+        STDERR.puts %(Missing the Rails #{version} gem. Please `gem install -v=#{version} rails`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.)</span>
+<span class="gi">+        exit 1</span>
+<span class="gi">+      else</span>
+<span class="gi">+        raise</span>
+<span class="gi">+      end</span>
+     end
+ 
+     class &lt;&lt; self
+       def rubygems_version
+         Gem::RubyGemsVersion rescue nil
+       end
+ 
+       def gem_version
+         if defined? RAILS_GEM_VERSION
+           RAILS_GEM_VERSION
+         elsif ENV.include?(&#39;RAILS_GEM_VERSION&#39;)
+           ENV[&#39;RAILS_GEM_VERSION&#39;]
+         else
+           parse_gem_version(read_environment_rb)
+         end
+       end
+ 
+       def load_rubygems
+         min_version = &#39;1.3.2&#39;
+         require &#39;rubygems&#39;
+         unless rubygems_version &gt;= min_version
+           $stderr.puts %Q(Rails requires RubyGems &gt;= #{min_version} (you have #{rubygems_version}). Please `gem update --system` and try again.)
+           exit 1
+         end
+ 
+       rescue LoadError
+         $stderr.puts %Q(Rails requires RubyGems &gt;= #{min_version}. Please install RubyGems and try again: http://rubygems.rubyforge.org)
+         exit 1
+       end
+ 
+       def parse_gem_version(text)
+         $1 if text =~ /^[^#]*RAILS_GEM_VERSION\s*=\s*[&quot;&#39;]([!~&lt;&gt;=]*\s*[\d.]+)[&quot;&#39;]/
+       end
+ 
+       private
+         def read_environment_rb
+           File.read(&quot;#{RAILS_ROOT}/config/environment.rb&quot;)
+         end
+     end
+   end
+ end
+ 
+ # All that for this:
+ Rails.boot!
+</pre></div>
+  <h2 id='config-environment-rb'>config/environment.rb</h2>
+  <div class="highlight"><pre><span class="gu">@@ -1,41 +1,41 @@</span>
+ # Be sure to restart your server when you modify this file
+ 
+ # Specifies gem version of Rails to use when vendor/rails is not present
+<span class="gd">-RAILS_GEM_VERSION = &#39;2.3.8&#39; unless defined? RAILS_GEM_VERSION</span>
+<span class="gi">+RAILS_GEM_VERSION = &#39;2.3.13&#39; unless defined? RAILS_GEM_VERSION</span>
+ 
+ # Bootstrap the Rails environment, frameworks, and default configuration
+ require File.join(File.dirname(__FILE__), &#39;boot&#39;)
+ 
+ Rails::Initializer.run do |config|
+   # Settings in config/environments/* take precedence over those specified here.
+   # Application configuration should go into files in config/initializers
+   # -- all .rb files in that directory are automatically loaded.
+ 
+   # Add additional load paths for your own custom dirs
+<span class="gd">-  # config.load_paths += %W( #{RAILS_ROOT}/extras )</span>
+<span class="gi">+  # config.autoload_paths += %W( #{RAILS_ROOT}/extras )</span>
+ 
+   # Specify gems that this application depends on and have them installed with rake gems:install
+   # config.gem &quot;bj&quot;
+   # config.gem &quot;hpricot&quot;, :version =&gt; &#39;0.6&#39;, :source =&gt; &quot;http://code.whytheluckystiff.net&quot;
+   # config.gem &quot;sqlite3-ruby&quot;, :lib =&gt; &quot;sqlite3&quot;
+   # config.gem &quot;aws-s3&quot;, :lib =&gt; &quot;aws/s3&quot;
+ 
+   # Only load the plugins named here, in the order given (default is alphabetical).
+   # :all can be used as a placeholder for all plugins not explicitly named
+   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+ 
+   # Skip frameworks you&#39;re not going to use. To use Rails without a database,
+   # you must remove the Active Record framework.
+   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
+ 
+   # Activate observers that should always be running
+   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+ 
+   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+   # Run &quot;rake -D time&quot; for a list of tasks for finding time zone names.
+   config.time_zone = &#39;UTC&#39;
+ 
+   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+   # config.i18n.load_path += Dir[Rails.root.join(&#39;my&#39;, &#39;locales&#39;, &#39;*.{rb,yml}&#39;)]
+   # config.i18n.default_locale = :de
+ end
+\ No newline at end of file
+</pre></div>
+</div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />
+    </a>
+    <script src='/assets/app.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7325596-4']);
+        _gaq.push(['_setSiteSpeedSampleRate', 100]);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+  </body>
+</html>
