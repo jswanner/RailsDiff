@@ -1,6 +1,6 @@
 diff -Nr -U 1000 v4.0.3/Gemfile v4.1.2.rc1/Gemfile
 --- v4.0.3/Gemfile	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/Gemfile	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/Gemfile	2014-05-27 10:26:16.000000000 -0700
 @@ -1,45 +1,40 @@
  source 'https://rubygems.org'
  
@@ -59,138 +59,9 @@ diff -Nr -U 1000 v4.0.3/Gemfile v4.1.2.rc1/Gemfile
  # Use debugger
  # gem 'debugger', group: [:development, :test]
 +
-diff -Nr -U 1000 v4.0.3/Gemfile.lock v4.1.2.rc1/Gemfile.lock
---- v4.0.3/Gemfile.lock	1969-12-31 16:00:00.000000000 -0800
-+++ v4.1.2.rc1/Gemfile.lock	2014-05-27 09:57:43.000000000 -0700
-@@ -0,0 +1,125 @@
-+GEM
-+  remote: https://rubygems.org/
-+  specs:
-+    actionmailer (4.1.2.rc1)
-+      actionpack (= 4.1.2.rc1)
-+      actionview (= 4.1.2.rc1)
-+      mail (~> 2.5.4)
-+    actionpack (4.1.2.rc1)
-+      actionview (= 4.1.2.rc1)
-+      activesupport (= 4.1.2.rc1)
-+      rack (~> 1.5.2)
-+      rack-test (~> 0.6.2)
-+    actionview (4.1.2.rc1)
-+      activesupport (= 4.1.2.rc1)
-+      builder (~> 3.1)
-+      erubis (~> 2.7.0)
-+    activemodel (4.1.2.rc1)
-+      activesupport (= 4.1.2.rc1)
-+      builder (~> 3.1)
-+    activerecord (4.1.2.rc1)
-+      activemodel (= 4.1.2.rc1)
-+      activesupport (= 4.1.2.rc1)
-+      arel (~> 5.0.0)
-+    activesupport (4.1.2.rc1)
-+      i18n (~> 0.6, >= 0.6.9)
-+      json (~> 1.7, >= 1.7.7)
-+      minitest (~> 5.1)
-+      thread_safe (~> 0.1)
-+      tzinfo (~> 1.1)
-+    arel (5.0.1.20140414130214)
-+    builder (3.2.2)
-+    coffee-rails (4.0.1)
-+      coffee-script (>= 2.2.0)
-+      railties (>= 4.0.0, < 5.0)
-+    coffee-script (2.2.0)
-+      coffee-script-source
-+      execjs
-+    coffee-script-source (1.7.0)
-+    erubis (2.7.0)
-+    execjs (2.0.2)
-+    hike (1.2.3)
-+    i18n (0.6.9)
-+    jbuilder (2.0.7)
-+      activesupport (>= 3.0.0, < 5)
-+      multi_json (~> 1.2)
-+    jquery-rails (3.1.0)
-+      railties (>= 3.0, < 5.0)
-+      thor (>= 0.14, < 2.0)
-+    json (1.8.1)
-+    mail (2.5.4)
-+      mime-types (~> 1.16)
-+      treetop (~> 1.4.8)
-+    mime-types (1.25.1)
-+    minitest (5.3.4)
-+    multi_json (1.10.1)
-+    polyglot (0.3.4)
-+    rack (1.5.2)
-+    rack-test (0.6.2)
-+      rack (>= 1.0)
-+    rails (4.1.2.rc1)
-+      actionmailer (= 4.1.2.rc1)
-+      actionpack (= 4.1.2.rc1)
-+      actionview (= 4.1.2.rc1)
-+      activemodel (= 4.1.2.rc1)
-+      activerecord (= 4.1.2.rc1)
-+      activesupport (= 4.1.2.rc1)
-+      bundler (>= 1.3.0, < 2.0)
-+      railties (= 4.1.2.rc1)
-+      sprockets-rails (~> 2.0)
-+    railties (4.1.2.rc1)
-+      actionpack (= 4.1.2.rc1)
-+      activesupport (= 4.1.2.rc1)
-+      rake (>= 0.8.7)
-+      thor (>= 0.18.1, < 2.0)
-+    rake (10.3.2)
-+    rdoc (4.1.1)
-+      json (~> 1.4)
-+    sass (3.2.19)
-+    sass-rails (4.0.3)
-+      railties (>= 4.0.0, < 5.0)
-+      sass (~> 3.2.0)
-+      sprockets (~> 2.8, <= 2.11.0)
-+      sprockets-rails (~> 2.0)
-+    sdoc (0.4.0)
-+      json (~> 1.8)
-+      rdoc (~> 4.0, < 5.0)
-+    spring (1.1.3)
-+    sprockets (2.11.0)
-+      hike (~> 1.2)
-+      multi_json (~> 1.0)
-+      rack (~> 1.0)
-+      tilt (~> 1.1, != 1.3.0)
-+    sprockets-rails (2.1.3)
-+      actionpack (>= 3.0)
-+      activesupport (>= 3.0)
-+      sprockets (~> 2.8)
-+    sqlite3 (1.3.9)
-+    thor (0.19.1)
-+    thread_safe (0.3.3)
-+    tilt (1.4.1)
-+    treetop (1.4.15)
-+      polyglot
-+      polyglot (>= 0.3.1)
-+    turbolinks (2.2.2)
-+      coffee-rails
-+    tzinfo (1.2.0)
-+      thread_safe (~> 0.1)
-+    uglifier (2.5.0)
-+      execjs (>= 0.3.0)
-+      json (>= 1.8.0)
-+
-+PLATFORMS
-+  ruby
-+
-+DEPENDENCIES
-+  coffee-rails (~> 4.0.0)
-+  jbuilder (~> 2.0)
-+  jquery-rails
-+  rails (= 4.1.2.rc1)
-+  sass-rails (~> 4.0.3)
-+  sdoc (~> 0.4.0)
-+  spring
-+  sqlite3
-+  turbolinks
-+  uglifier (>= 1.3.0)
 diff -Nr -U 1000 v4.0.3/Rakefile v4.1.2.rc1/Rakefile
 --- v4.0.3/Rakefile	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/Rakefile	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/Rakefile	2014-05-27 10:26:16.000000000 -0700
 @@ -1,6 +1,6 @@
  # Add your own tasks in files placed in lib/tasks ending in .rake,
  # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
@@ -201,7 +72,7 @@ diff -Nr -U 1000 v4.0.3/Rakefile v4.1.2.rc1/Rakefile
 +Rails.application.load_tasks
 diff -Nr -U 1000 v4.0.3/app/assets/stylesheets/application.css v4.1.2.rc1/app/assets/stylesheets/application.css
 --- v4.0.3/app/assets/stylesheets/application.css	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/app/assets/stylesheets/application.css	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/app/assets/stylesheets/application.css	2014-05-27 10:26:16.000000000 -0700
 @@ -1,13 +1,15 @@
  /*
   * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -223,7 +94,7 @@ diff -Nr -U 1000 v4.0.3/app/assets/stylesheets/application.css v4.1.2.rc1/app/as
   */
 diff -Nr -U 1000 v4.0.3/app/views/layouts/application.html.erb v4.1.2.rc1/app/views/layouts/application.html.erb
 --- v4.0.3/app/views/layouts/application.html.erb	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/app/views/layouts/application.html.erb	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/app/views/layouts/application.html.erb	2014-05-27 10:26:16.000000000 -0700
 @@ -1,14 +1,14 @@
  <!DOCTYPE html>
  <html>
@@ -241,55 +112,9 @@ diff -Nr -U 1000 v4.0.3/app/views/layouts/application.html.erb v4.1.2.rc1/app/vi
  
  </body>
  </html>
-diff -Nr -U 1000 v4.0.3/bin/rails v4.1.2.rc1/bin/rails
---- v4.0.3/bin/rails	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/bin/rails	2014-05-27 09:57:46.000000000 -0700
-@@ -1,4 +1,8 @@
- #!/usr/bin/env ruby
-+begin
-+  load File.expand_path("../spring", __FILE__)
-+rescue LoadError
-+end
- APP_PATH = File.expand_path('../../config/application',  __FILE__)
- require_relative '../config/boot'
- require 'rails/commands'
-diff -Nr -U 1000 v4.0.3/bin/rake v4.1.2.rc1/bin/rake
---- v4.0.3/bin/rake	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/bin/rake	2014-05-27 09:57:46.000000000 -0700
-@@ -1,4 +1,8 @@
- #!/usr/bin/env ruby
-+begin
-+  load File.expand_path("../spring", __FILE__)
-+rescue LoadError
-+end
- require_relative '../config/boot'
- require 'rake'
- Rake.application.run
-diff -Nr -U 1000 v4.0.3/bin/spring v4.1.2.rc1/bin/spring
---- v4.0.3/bin/spring	1969-12-31 16:00:00.000000000 -0800
-+++ v4.1.2.rc1/bin/spring	2014-05-27 09:57:46.000000000 -0700
-@@ -0,0 +1,18 @@
-+#!/usr/bin/env ruby
-+
-+# This file loads spring without using Bundler, in order to be fast
-+# It gets overwritten when you run the `spring binstub` command
-+
-+unless defined?(Spring)
-+  require "rubygems"
-+  require "bundler"
-+
-+  if match = Bundler.default_lockfile.read.match(/^GEM$.*?^    spring \((.*?)\)$.*?^$/m)
-+    ENV["GEM_PATH"] = ([Bundler.bundle_path.to_s] + Gem.path).join(File::PATH_SEPARATOR)
-+    ENV["GEM_HOME"] = ""
-+    Gem.paths = ENV
-+
-+    gem "spring", match[1]
-+    require "spring/binstub"
-+  end
-+end
 diff -Nr -U 1000 v4.0.3/config/application.rb v4.1.2.rc1/config/application.rb
 --- v4.0.3/config/application.rb	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/config/application.rb	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/config/application.rb	2014-05-27 10:26:16.000000000 -0700
 @@ -1,23 +1,23 @@
  require File.expand_path('../boot', __FILE__)
  
@@ -317,7 +142,7 @@ diff -Nr -U 1000 v4.0.3/config/application.rb v4.1.2.rc1/config/application.rb
  end
 diff -Nr -U 1000 v4.0.3/config/boot.rb v4.1.2.rc1/config/boot.rb
 --- v4.0.3/config/boot.rb	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/config/boot.rb	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/config/boot.rb	2014-05-27 10:26:16.000000000 -0700
 @@ -1,4 +1,4 @@
  # Set up gems listed in the Gemfile.
  ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
@@ -326,7 +151,7 @@ diff -Nr -U 1000 v4.0.3/config/boot.rb v4.1.2.rc1/config/boot.rb
 +require 'bundler/setup' if File.exist?(ENV['BUNDLE_GEMFILE'])
 diff -Nr -U 1000 v4.0.3/config/database.yml v4.1.2.rc1/config/database.yml
 --- v4.0.3/config/database.yml	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/config/database.yml	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/config/database.yml	2014-05-27 10:26:16.000000000 -0700
 @@ -1,25 +1,25 @@
  # SQLite version 3.x
  #   gem install sqlite3
@@ -363,7 +188,7 @@ diff -Nr -U 1000 v4.0.3/config/database.yml v4.1.2.rc1/config/database.yml
 -  timeout: 5000
 diff -Nr -U 1000 v4.0.3/config/environment.rb v4.1.2.rc1/config/environment.rb
 --- v4.0.3/config/environment.rb	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/config/environment.rb	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/config/environment.rb	2014-05-27 10:26:16.000000000 -0700
 @@ -1,5 +1,5 @@
  # Load the Rails application.
  require File.expand_path('../application', __FILE__)
@@ -373,7 +198,7 @@ diff -Nr -U 1000 v4.0.3/config/environment.rb v4.1.2.rc1/config/environment.rb
 +Rails.application.initialize!
 diff -Nr -U 1000 v4.0.3/config/environments/development.rb v4.1.2.rc1/config/environments/development.rb
 --- v4.0.3/config/environments/development.rb	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/config/environments/development.rb	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/config/environments/development.rb	2014-05-27 10:26:16.000000000 -0700
 @@ -1,29 +1,37 @@
 -Railsdiff::Application.configure do
 +Rails.application.configure do
@@ -416,7 +241,7 @@ diff -Nr -U 1000 v4.0.3/config/environments/development.rb v4.1.2.rc1/config/env
  end
 diff -Nr -U 1000 v4.0.3/config/environments/production.rb v4.1.2.rc1/config/environments/production.rb
 --- v4.0.3/config/environments/production.rb	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/config/environments/production.rb	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/config/environments/production.rb	2014-05-27 10:26:16.000000000 -0700
 @@ -1,80 +1,82 @@
 -Railsdiff::Application.configure do
 +Rails.application.configure do
@@ -507,7 +332,7 @@ diff -Nr -U 1000 v4.0.3/config/environments/production.rb v4.1.2.rc1/config/envi
  end
 diff -Nr -U 1000 v4.0.3/config/environments/test.rb v4.1.2.rc1/config/environments/test.rb
 --- v4.0.3/config/environments/test.rb	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/config/environments/test.rb	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/config/environments/test.rb	2014-05-27 10:26:16.000000000 -0700
 @@ -1,36 +1,39 @@
 -Railsdiff::Application.configure do
 +Rails.application.configure do
@@ -552,7 +377,7 @@ diff -Nr -U 1000 v4.0.3/config/environments/test.rb v4.1.2.rc1/config/environmen
  end
 diff -Nr -U 1000 v4.0.3/config/initializers/assets.rb v4.1.2.rc1/config/initializers/assets.rb
 --- v4.0.3/config/initializers/assets.rb	1969-12-31 16:00:00.000000000 -0800
-+++ v4.1.2.rc1/config/initializers/assets.rb	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/config/initializers/assets.rb	2014-05-27 10:26:16.000000000 -0700
 @@ -0,0 +1,8 @@
 +# Be sure to restart your server when you modify this file.
 +
@@ -564,7 +389,7 @@ diff -Nr -U 1000 v4.0.3/config/initializers/assets.rb v4.1.2.rc1/config/initiali
 +# Rails.application.config.assets.precompile += %w( search.js )
 diff -Nr -U 1000 v4.0.3/config/initializers/cookies_serializer.rb v4.1.2.rc1/config/initializers/cookies_serializer.rb
 --- v4.0.3/config/initializers/cookies_serializer.rb	1969-12-31 16:00:00.000000000 -0800
-+++ v4.1.2.rc1/config/initializers/cookies_serializer.rb	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/config/initializers/cookies_serializer.rb	2014-05-27 10:26:16.000000000 -0700
 @@ -0,0 +1,3 @@
 +# Be sure to restart your server when you modify this file.
 +
@@ -572,7 +397,7 @@ diff -Nr -U 1000 v4.0.3/config/initializers/cookies_serializer.rb v4.1.2.rc1/con
 \ No newline at end of file
 diff -Nr -U 1000 v4.0.3/config/initializers/mime_types.rb v4.1.2.rc1/config/initializers/mime_types.rb
 --- v4.0.3/config/initializers/mime_types.rb	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/config/initializers/mime_types.rb	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/config/initializers/mime_types.rb	2014-05-27 10:26:16.000000000 -0700
 @@ -1,5 +1,4 @@
  # Be sure to restart your server when you modify this file.
  
@@ -597,7 +422,7 @@ diff -Nr -U 1000 v4.0.3/config/initializers/secret_token.rb v4.1.2.rc1/config/in
 -Railsdiff::Application.config.secret_key_base = 'your-secret-token'
 diff -Nr -U 1000 v4.0.3/config/initializers/session_store.rb v4.1.2.rc1/config/initializers/session_store.rb
 --- v4.0.3/config/initializers/session_store.rb	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/config/initializers/session_store.rb	2014-05-27 09:57:46.000000000 -0700
++++ v4.1.2.rc1/config/initializers/session_store.rb	2014-05-27 10:26:16.000000000 -0700
 @@ -1,3 +1,3 @@
  # Be sure to restart your server when you modify this file.
  
@@ -605,7 +430,7 @@ diff -Nr -U 1000 v4.0.3/config/initializers/session_store.rb v4.1.2.rc1/config/i
 +Rails.application.config.session_store :cookie_store, key: '_railsdiff_session'
 diff -Nr -U 1000 v4.0.3/config/routes.rb v4.1.2.rc1/config/routes.rb
 --- v4.0.3/config/routes.rb	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/config/routes.rb	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/config/routes.rb	2014-05-27 10:26:16.000000000 -0700
 @@ -1,56 +1,56 @@
 -Railsdiff::Application.routes.draw do
 +Rails.application.routes.draw do
@@ -666,7 +491,7 @@ diff -Nr -U 1000 v4.0.3/config/routes.rb v4.1.2.rc1/config/routes.rb
  end
 diff -Nr -U 1000 v4.0.3/config/secrets.yml v4.1.2.rc1/config/secrets.yml
 --- v4.0.3/config/secrets.yml	1969-12-31 16:00:00.000000000 -0800
-+++ v4.1.2.rc1/config/secrets.yml	2014-05-27 09:57:46.000000000 -0700
++++ v4.1.2.rc1/config/secrets.yml	2014-05-27 10:26:16.000000000 -0700
 @@ -0,0 +1,22 @@
 +# Be sure to restart your server when you modify this file.
 +
@@ -692,7 +517,7 @@ diff -Nr -U 1000 v4.0.3/config/secrets.yml v4.1.2.rc1/config/secrets.yml
 +  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 diff -Nr -U 1000 v4.0.3/public/404.html v4.1.2.rc1/public/404.html
 --- v4.0.3/public/404.html	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/public/404.html	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/public/404.html	2014-05-27 10:26:16.000000000 -0700
 @@ -1,58 +1,67 @@
  <!DOCTYPE html>
  <html>
@@ -774,7 +599,7 @@ diff -Nr -U 1000 v4.0.3/public/404.html v4.1.2.rc1/public/404.html
  </html>
 diff -Nr -U 1000 v4.0.3/public/422.html v4.1.2.rc1/public/422.html
 --- v4.0.3/public/422.html	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/public/422.html	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/public/422.html	2014-05-27 10:26:16.000000000 -0700
 @@ -1,58 +1,67 @@
  <!DOCTYPE html>
  <html>
@@ -856,7 +681,7 @@ diff -Nr -U 1000 v4.0.3/public/422.html v4.1.2.rc1/public/422.html
  </html>
 diff -Nr -U 1000 v4.0.3/public/500.html v4.1.2.rc1/public/500.html
 --- v4.0.3/public/500.html	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/public/500.html	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/public/500.html	2014-05-27 10:26:16.000000000 -0700
 @@ -1,57 +1,66 @@
  <!DOCTYPE html>
  <html>
@@ -936,7 +761,7 @@ diff -Nr -U 1000 v4.0.3/public/500.html v4.1.2.rc1/public/500.html
  </html>
 diff -Nr -U 1000 v4.0.3/public/robots.txt v4.1.2.rc1/public/robots.txt
 --- v4.0.3/public/robots.txt	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/public/robots.txt	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/public/robots.txt	2014-05-27 10:26:16.000000000 -0700
 @@ -1,5 +1,5 @@
 -# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
 +# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
@@ -946,7 +771,7 @@ diff -Nr -U 1000 v4.0.3/public/robots.txt v4.1.2.rc1/public/robots.txt
  # Disallow: /
 diff -Nr -U 1000 v4.0.3/test/test_helper.rb v4.1.2.rc1/test/test_helper.rb
 --- v4.0.3/test/test_helper.rb	2014-02-21 19:39:50.000000000 -0800
-+++ v4.1.2.rc1/test/test_helper.rb	2014-05-27 09:56:31.000000000 -0700
++++ v4.1.2.rc1/test/test_helper.rb	2014-05-27 10:26:16.000000000 -0700
 @@ -1,15 +1,10 @@
 -ENV["RAILS_ENV"] ||= "test"
 +ENV['RAILS_ENV'] ||= 'test'
