@@ -1,0 +1,337 @@
+diff -Nr -U 1000 v4.1.0/Gemfile v4.1.2.rc1/Gemfile
+--- v4.1.0/Gemfile	2014-04-08 12:48:18.000000000 -0700
++++ v4.1.2.rc1/Gemfile	2014-05-27 09:56:31.000000000 -0700
+@@ -1,40 +1,40 @@
+ source 'https://rubygems.org'
+ 
+ 
+ # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+-gem 'rails', '4.1.0'
++gem 'rails', '4.1.2.rc1'
+ # Use sqlite3 as the database for Active Record
+ gem 'sqlite3'
+ # Use SCSS for stylesheets
+ gem 'sass-rails', '~> 4.0.3'
+ # Use Uglifier as compressor for JavaScript assets
+ gem 'uglifier', '>= 1.3.0'
+ # Use CoffeeScript for .js.coffee assets and views
+ gem 'coffee-rails', '~> 4.0.0'
+ # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+ # gem 'therubyracer',  platforms: :ruby
+ 
+ # Use jquery as the JavaScript library
+ gem 'jquery-rails'
+ # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+ gem 'turbolinks'
+ # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+ gem 'jbuilder', '~> 2.0'
+ # bundle exec rake doc:rails generates the API under doc/api.
+ gem 'sdoc', '~> 0.4.0',          group: :doc
+ 
+ # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+ gem 'spring',        group: :development
+ 
+ # Use ActiveModel has_secure_password
+ # gem 'bcrypt', '~> 3.1.7'
+ 
+ # Use unicorn as the app server
+ # gem 'unicorn'
+ 
+ # Use Capistrano for deployment
+ # gem 'capistrano-rails', group: :development
+ 
+ # Use debugger
+ # gem 'debugger', group: [:development, :test]
+ 
+diff -Nr -U 1000 v4.1.0/Gemfile.lock v4.1.2.rc1/Gemfile.lock
+--- v4.1.0/Gemfile.lock	1969-12-31 16:00:00.000000000 -0800
++++ v4.1.2.rc1/Gemfile.lock	2014-05-27 09:57:43.000000000 -0700
+@@ -0,0 +1,125 @@
++GEM
++  remote: https://rubygems.org/
++  specs:
++    actionmailer (4.1.2.rc1)
++      actionpack (= 4.1.2.rc1)
++      actionview (= 4.1.2.rc1)
++      mail (~> 2.5.4)
++    actionpack (4.1.2.rc1)
++      actionview (= 4.1.2.rc1)
++      activesupport (= 4.1.2.rc1)
++      rack (~> 1.5.2)
++      rack-test (~> 0.6.2)
++    actionview (4.1.2.rc1)
++      activesupport (= 4.1.2.rc1)
++      builder (~> 3.1)
++      erubis (~> 2.7.0)
++    activemodel (4.1.2.rc1)
++      activesupport (= 4.1.2.rc1)
++      builder (~> 3.1)
++    activerecord (4.1.2.rc1)
++      activemodel (= 4.1.2.rc1)
++      activesupport (= 4.1.2.rc1)
++      arel (~> 5.0.0)
++    activesupport (4.1.2.rc1)
++      i18n (~> 0.6, >= 0.6.9)
++      json (~> 1.7, >= 1.7.7)
++      minitest (~> 5.1)
++      thread_safe (~> 0.1)
++      tzinfo (~> 1.1)
++    arel (5.0.1.20140414130214)
++    builder (3.2.2)
++    coffee-rails (4.0.1)
++      coffee-script (>= 2.2.0)
++      railties (>= 4.0.0, < 5.0)
++    coffee-script (2.2.0)
++      coffee-script-source
++      execjs
++    coffee-script-source (1.7.0)
++    erubis (2.7.0)
++    execjs (2.0.2)
++    hike (1.2.3)
++    i18n (0.6.9)
++    jbuilder (2.0.7)
++      activesupport (>= 3.0.0, < 5)
++      multi_json (~> 1.2)
++    jquery-rails (3.1.0)
++      railties (>= 3.0, < 5.0)
++      thor (>= 0.14, < 2.0)
++    json (1.8.1)
++    mail (2.5.4)
++      mime-types (~> 1.16)
++      treetop (~> 1.4.8)
++    mime-types (1.25.1)
++    minitest (5.3.4)
++    multi_json (1.10.1)
++    polyglot (0.3.4)
++    rack (1.5.2)
++    rack-test (0.6.2)
++      rack (>= 1.0)
++    rails (4.1.2.rc1)
++      actionmailer (= 4.1.2.rc1)
++      actionpack (= 4.1.2.rc1)
++      actionview (= 4.1.2.rc1)
++      activemodel (= 4.1.2.rc1)
++      activerecord (= 4.1.2.rc1)
++      activesupport (= 4.1.2.rc1)
++      bundler (>= 1.3.0, < 2.0)
++      railties (= 4.1.2.rc1)
++      sprockets-rails (~> 2.0)
++    railties (4.1.2.rc1)
++      actionpack (= 4.1.2.rc1)
++      activesupport (= 4.1.2.rc1)
++      rake (>= 0.8.7)
++      thor (>= 0.18.1, < 2.0)
++    rake (10.3.2)
++    rdoc (4.1.1)
++      json (~> 1.4)
++    sass (3.2.19)
++    sass-rails (4.0.3)
++      railties (>= 4.0.0, < 5.0)
++      sass (~> 3.2.0)
++      sprockets (~> 2.8, <= 2.11.0)
++      sprockets-rails (~> 2.0)
++    sdoc (0.4.0)
++      json (~> 1.8)
++      rdoc (~> 4.0, < 5.0)
++    spring (1.1.3)
++    sprockets (2.11.0)
++      hike (~> 1.2)
++      multi_json (~> 1.0)
++      rack (~> 1.0)
++      tilt (~> 1.1, != 1.3.0)
++    sprockets-rails (2.1.3)
++      actionpack (>= 3.0)
++      activesupport (>= 3.0)
++      sprockets (~> 2.8)
++    sqlite3 (1.3.9)
++    thor (0.19.1)
++    thread_safe (0.3.3)
++    tilt (1.4.1)
++    treetop (1.4.15)
++      polyglot
++      polyglot (>= 0.3.1)
++    turbolinks (2.2.2)
++      coffee-rails
++    tzinfo (1.2.0)
++      thread_safe (~> 0.1)
++    uglifier (2.5.0)
++      execjs (>= 0.3.0)
++      json (>= 1.8.0)
++
++PLATFORMS
++  ruby
++
++DEPENDENCIES
++  coffee-rails (~> 4.0.0)
++  jbuilder (~> 2.0)
++  jquery-rails
++  rails (= 4.1.2.rc1)
++  sass-rails (~> 4.0.3)
++  sdoc (~> 0.4.0)
++  spring
++  sqlite3
++  turbolinks
++  uglifier (>= 1.3.0)
+diff -Nr -U 1000 v4.1.0/bin/rails v4.1.2.rc1/bin/rails
+--- v4.1.0/bin/rails	2014-04-08 12:48:18.000000000 -0700
++++ v4.1.2.rc1/bin/rails	2014-05-27 09:57:46.000000000 -0700
+@@ -1,4 +1,8 @@
+ #!/usr/bin/env ruby
++begin
++  load File.expand_path("../spring", __FILE__)
++rescue LoadError
++end
+ APP_PATH = File.expand_path('../../config/application',  __FILE__)
+ require_relative '../config/boot'
+ require 'rails/commands'
+diff -Nr -U 1000 v4.1.0/bin/rake v4.1.2.rc1/bin/rake
+--- v4.1.0/bin/rake	2014-04-08 12:48:18.000000000 -0700
++++ v4.1.2.rc1/bin/rake	2014-05-27 09:57:46.000000000 -0700
+@@ -1,4 +1,8 @@
+ #!/usr/bin/env ruby
++begin
++  load File.expand_path("../spring", __FILE__)
++rescue LoadError
++end
+ require_relative '../config/boot'
+ require 'rake'
+ Rake.application.run
+diff -Nr -U 1000 v4.1.0/bin/spring v4.1.2.rc1/bin/spring
+--- v4.1.0/bin/spring	1969-12-31 16:00:00.000000000 -0800
++++ v4.1.2.rc1/bin/spring	2014-05-27 09:57:46.000000000 -0700
+@@ -0,0 +1,18 @@
++#!/usr/bin/env ruby
++
++# This file loads spring without using Bundler, in order to be fast
++# It gets overwritten when you run the `spring binstub` command
++
++unless defined?(Spring)
++  require "rubygems"
++  require "bundler"
++
++  if match = Bundler.default_lockfile.read.match(/^GEM$.*?^    spring \((.*?)\)$.*?^$/m)
++    ENV["GEM_PATH"] = ([Bundler.bundle_path.to_s] + Gem.path).join(File::PATH_SEPARATOR)
++    ENV["GEM_HOME"] = ""
++    Gem.paths = ENV
++
++    gem "spring", match[1]
++    require "spring/binstub"
++  end
++end
+diff -Nr -U 1000 v4.1.0/config/environments/production.rb v4.1.2.rc1/config/environments/production.rb
+--- v4.1.0/config/environments/production.rb	2014-04-08 12:48:18.000000000 -0700
++++ v4.1.2.rc1/config/environments/production.rb	2014-05-27 09:56:31.000000000 -0700
+@@ -1,83 +1,82 @@
+ Rails.application.configure do
+   # Settings specified here will take precedence over those in config/application.rb.
+ 
+   # Code is not reloaded between requests.
+   config.cache_classes = true
+ 
+   # Eager load code on boot. This eager loads most of Rails and
+   # your application in memory, allowing both threaded web servers
+   # and those relying on copy on write to perform better.
+   # Rake tasks automatically ignore this option for performance.
+   config.eager_load = true
+ 
+   # Full error reports are disabled and caching is turned on.
+   config.consider_all_requests_local       = false
+   config.action_controller.perform_caching = true
+ 
+   # Enable Rack::Cache to put a simple HTTP cache in front of your application
+   # Add `rack-cache` to your Gemfile before enabling this.
+   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
+   # config.action_dispatch.rack_cache = true
+ 
+   # Disable Rails's static asset server (Apache or nginx will already do this).
+   config.serve_static_assets = false
+ 
+   # Compress JavaScripts and CSS.
+   config.assets.js_compressor = :uglifier
+   # config.assets.css_compressor = :sass
+ 
+   # Do not fallback to assets pipeline if a precompiled asset is missed.
+   config.assets.compile = false
+ 
+   # Generate digests for assets URLs.
+   config.assets.digest = true
+ 
+-  # Version of your assets, change this if you want to expire all your assets.
+-  config.assets.version = '1.0'
++  # `config.assets.precompile` has moved to config/initializers/assets.rb
+ 
+   # Specifies the header that your server uses for sending files.
+   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
+   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+ 
+   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+   # config.force_ssl = true
+ 
+   # Set to :debug to see everything in the log.
+   config.log_level = :info
+ 
+   # Prepend all log lines with the following tags.
+   # config.log_tags = [ :subdomain, :uuid ]
+ 
+   # Use a different logger for distributed setups.
+   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+ 
+   # Use a different cache store in production.
+   # config.cache_store = :mem_cache_store
+ 
+   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+   # config.action_controller.asset_host = "http://assets.example.com"
+ 
+   # Precompile additional assets.
+   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+   # config.assets.precompile += %w( search.js )
+ 
+   # Ignore bad email addresses and do not raise email delivery errors.
+   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+   # config.action_mailer.raise_delivery_errors = false
+ 
+   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
+   # the I18n.default_locale when a translation cannot be found).
+   config.i18n.fallbacks = true
+ 
+   # Send deprecation notices to registered listeners.
+   config.active_support.deprecation = :notify
+ 
+   # Disable automatic flushing of the log to improve performance.
+   # config.autoflush_log = false
+ 
+   # Use default logging formatter so that PID and timestamp are not suppressed.
+   config.log_formatter = ::Logger::Formatter.new
+ 
+   # Do not dump schema after migrations.
+   config.active_record.dump_schema_after_migration = false
+ end
+diff -Nr -U 1000 v4.1.0/config/initializers/assets.rb v4.1.2.rc1/config/initializers/assets.rb
+--- v4.1.0/config/initializers/assets.rb	1969-12-31 16:00:00.000000000 -0800
++++ v4.1.2.rc1/config/initializers/assets.rb	2014-05-27 09:56:31.000000000 -0700
+@@ -0,0 +1,8 @@
++# Be sure to restart your server when you modify this file.
++
++# Version of your assets, change this if you want to expire all your assets.
++Rails.application.config.assets.version = '1.0'
++
++# Precompile additional assets.
++# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
++# Rails.application.config.assets.precompile += %w( search.js )
+diff -Nr -U 1000 v4.1.0/test/test_helper.rb v4.1.2.rc1/test/test_helper.rb
+--- v4.1.0/test/test_helper.rb	2014-04-08 12:48:18.000000000 -0700
++++ v4.1.2.rc1/test/test_helper.rb	2014-05-27 09:56:31.000000000 -0700
+@@ -1,13 +1,10 @@
+ ENV['RAILS_ENV'] ||= 'test'
+ require File.expand_path('../../config/environment', __FILE__)
+ require 'rails/test_help'
+ 
+ class ActiveSupport::TestCase
+   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+-  #
+-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
+-  # -- they do not yet inherit this setting
+   fixtures :all
+ 
+   # Add more helper methods to be used by all tests here...
+ end

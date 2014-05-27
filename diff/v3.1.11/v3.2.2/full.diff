@@ -1,6 +1,6 @@
 diff -Nr -U 1000 v3.1.11/Gemfile v3.2.2/Gemfile
---- v3.1.11/Gemfile	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/Gemfile	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/Gemfile	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/Gemfile	2012-07-26 20:33:10.000000000 -0700
 @@ -1,40 +1,38 @@
 -source 'http://rubygems.org'
 +source 'https://rubygems.org'
@@ -52,8 +52,8 @@ diff -Nr -U 1000 v3.1.11/Gemfile v3.2.2/Gemfile
 -  gem 'turn', '~> 0.8.3', :require => false
 -end
 diff -Nr -U 1000 v3.1.11/README v3.2.2/README
---- v3.1.11/README	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/README	1970-01-01 01:00:00.000000000 +0100
+--- v3.1.11/README	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/README	1969-12-31 16:00:00.000000000 -0800
 @@ -1,261 +0,0 @@
 -== Welcome to Rails
 -
@@ -317,8 +317,8 @@ diff -Nr -U 1000 v3.1.11/README v3.2.2/README
 -  subdirectory. If the app has frozen rails, those gems also go here, under
 -  vendor/rails/. This directory is in the load path.
 diff -Nr -U 1000 v3.1.11/README.rdoc v3.2.2/README.rdoc
---- v3.1.11/README.rdoc	1970-01-01 01:00:00.000000000 +0100
-+++ v3.2.2/README.rdoc	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/README.rdoc	1969-12-31 16:00:00.000000000 -0800
++++ v3.2.2/README.rdoc	2012-07-26 20:33:10.000000000 -0700
 @@ -0,0 +1,261 @@
 +== Welcome to Rails
 +
@@ -582,8 +582,8 @@ diff -Nr -U 1000 v3.1.11/README.rdoc v3.2.2/README.rdoc
 +  subdirectory. If the app has frozen rails, those gems also go here, under
 +  vendor/rails/. This directory is in the load path.
 diff -Nr -U 1000 v3.1.11/app/assets/javascripts/application.js v3.2.2/app/assets/javascripts/application.js
---- v3.1.11/app/assets/javascripts/application.js	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/app/assets/javascripts/application.js	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/app/assets/javascripts/application.js	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/app/assets/javascripts/application.js	2012-07-26 20:33:10.000000000 -0700
 @@ -1,9 +1,15 @@
 -// This is a manifest file that'll be compiled into including all the files listed below.
 -// Add new JavaScript/Coffee code in separate files in this directory and they'll automatically
@@ -604,8 +604,8 @@ diff -Nr -U 1000 v3.1.11/app/assets/javascripts/application.js v3.2.2/app/assets
  //= require jquery_ujs
  //= require_tree .
 diff -Nr -U 1000 v3.1.11/app/assets/stylesheets/application.css v3.2.2/app/assets/stylesheets/application.css
---- v3.1.11/app/assets/stylesheets/application.css	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/app/assets/stylesheets/application.css	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/app/assets/stylesheets/application.css	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/app/assets/stylesheets/application.css	2012-07-26 20:33:10.000000000 -0700
 @@ -1,7 +1,13 @@
  /*
 - * This is a manifest file that'll automatically include all the stylesheets available in this directory
@@ -627,8 +627,8 @@ diff -Nr -U 1000 v3.1.11/app/assets/stylesheets/application.css v3.2.2/app/asset
 + *= require_tree .
 +*/
 diff -Nr -U 1000 v3.1.11/app/views/layouts/application.html.erb v3.2.2/app/views/layouts/application.html.erb
---- v3.1.11/app/views/layouts/application.html.erb	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/app/views/layouts/application.html.erb	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/app/views/layouts/application.html.erb	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/app/views/layouts/application.html.erb	2012-07-26 20:33:10.000000000 -0700
 @@ -1,14 +1,14 @@
  <!DOCTYPE html>
  <html>
@@ -646,8 +646,8 @@ diff -Nr -U 1000 v3.1.11/app/views/layouts/application.html.erb v3.2.2/app/views
  </body>
  </html>
 diff -Nr -U 1000 v3.1.11/config/application.rb v3.2.2/config/application.rb
---- v3.1.11/config/application.rb	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/config/application.rb	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/config/application.rb	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/config/application.rb	2012-07-26 20:33:10.000000000 -0700
 @@ -1,48 +1,59 @@
  require File.expand_path('../boot', __FILE__)
  
@@ -709,8 +709,8 @@ diff -Nr -U 1000 v3.1.11/config/application.rb v3.2.2/config/application.rb
    end
  end
 diff -Nr -U 1000 v3.1.11/config/environments/development.rb v3.2.2/config/environments/development.rb
---- v3.1.11/config/environments/development.rb	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/config/environments/development.rb	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/config/environments/development.rb	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/config/environments/development.rb	2012-07-26 20:33:10.000000000 -0700
 @@ -1,30 +1,37 @@
  Railsdiff::Application.configure do
    # Settings specified here will take precedence over those in config/application.rb
@@ -751,8 +751,8 @@ diff -Nr -U 1000 v3.1.11/config/environments/development.rb v3.2.2/config/enviro
    config.assets.debug = true
  end
 diff -Nr -U 1000 v3.1.11/config/environments/production.rb v3.2.2/config/environments/production.rb
---- v3.1.11/config/environments/production.rb	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/config/environments/production.rb	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/config/environments/production.rb	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/config/environments/production.rb	2012-07-26 20:33:10.000000000 -0700
 @@ -1,60 +1,67 @@
  Railsdiff::Application.configure do
    # Settings specified here will take precedence over those in config/application.rb
@@ -823,8 +823,8 @@ diff -Nr -U 1000 v3.1.11/config/environments/production.rb v3.2.2/config/environ
 +  # config.active_record.auto_explain_threshold_in_seconds = 0.5
  end
 diff -Nr -U 1000 v3.1.11/config/environments/test.rb v3.2.2/config/environments/test.rb
---- v3.1.11/config/environments/test.rb	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/config/environments/test.rb	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/config/environments/test.rb	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/config/environments/test.rb	2012-07-26 20:33:10.000000000 -0700
 @@ -1,39 +1,37 @@
  Railsdiff::Application.configure do
    # Settings specified here will take precedence over those in config/application.rb
@@ -870,8 +870,8 @@ diff -Nr -U 1000 v3.1.11/config/environments/test.rb v3.2.2/config/environments/
    config.active_support.deprecation = :stderr
  end
 diff -Nr -U 1000 v3.1.11/config/initializers/inflections.rb v3.2.2/config/initializers/inflections.rb
---- v3.1.11/config/initializers/inflections.rb	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/config/initializers/inflections.rb	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/config/initializers/inflections.rb	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/config/initializers/inflections.rb	2012-07-26 20:33:10.000000000 -0700
 @@ -1,10 +1,15 @@
  # Be sure to restart your server when you modify this file.
  
@@ -889,8 +889,8 @@ diff -Nr -U 1000 v3.1.11/config/initializers/inflections.rb v3.2.2/config/initia
 +#   inflect.acronym 'RESTful'
 +# end
 diff -Nr -U 1000 v3.1.11/config/routes.rb v3.2.2/config/routes.rb
---- v3.1.11/config/routes.rb	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/config/routes.rb	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/config/routes.rb	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/config/routes.rb	2012-07-26 20:33:10.000000000 -0700
 @@ -1,58 +1,58 @@
  Railsdiff::Application.routes.draw do
    # The priority is based upon order of creation:
@@ -952,8 +952,8 @@ diff -Nr -U 1000 v3.1.11/config/routes.rb v3.2.2/config/routes.rb
 +  # match ':controller(/:action(/:id))(.:format)'
  end
 diff -Nr -U 1000 v3.1.11/public/500.html v3.2.2/public/500.html
---- v3.1.11/public/500.html	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/public/500.html	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/public/500.html	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/public/500.html	2012-07-26 20:33:10.000000000 -0700
 @@ -1,26 +1,25 @@
  <!DOCTYPE html>
  <html>
@@ -982,8 +982,8 @@ diff -Nr -U 1000 v3.1.11/public/500.html v3.2.2/public/500.html
  </body>
  </html>
 diff -Nr -U 1000 v3.1.11/public/index.html v3.2.2/public/index.html
---- v3.1.11/public/index.html	2013-02-25 17:02:23.000000000 +0100
-+++ v3.2.2/public/index.html	2012-07-27 05:33:10.000000000 +0200
+--- v3.1.11/public/index.html	2013-02-25 08:02:23.000000000 -0800
++++ v3.2.2/public/index.html	2012-07-26 20:33:10.000000000 -0700
 @@ -1,241 +1,241 @@
  <!DOCTYPE html>
  <html>

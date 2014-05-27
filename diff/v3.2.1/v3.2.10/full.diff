@@ -1,6 +1,6 @@
 diff -Nr -U 1000 v3.2.1/Gemfile v3.2.10/Gemfile
---- v3.2.1/Gemfile	2012-07-27 05:33:06.000000000 +0200
-+++ v3.2.10/Gemfile	2013-01-04 17:18:25.000000000 +0100
+--- v3.2.1/Gemfile	2012-07-26 20:33:06.000000000 -0700
++++ v3.2.10/Gemfile	2013-01-04 08:18:25.000000000 -0800
 @@ -1,38 +1,38 @@
  source 'https://rubygems.org'
  
@@ -45,8 +45,8 @@ diff -Nr -U 1000 v3.2.1/Gemfile v3.2.10/Gemfile
 -# gem 'ruby-debug19', :require => 'ruby-debug'
 +# gem 'debugger'
 diff -Nr -U 1000 v3.2.1/app/assets/stylesheets/application.css v3.2.10/app/assets/stylesheets/application.css
---- v3.2.1/app/assets/stylesheets/application.css	2012-07-27 05:33:06.000000000 +0200
-+++ v3.2.10/app/assets/stylesheets/application.css	2013-01-04 17:18:25.000000000 +0100
+--- v3.2.1/app/assets/stylesheets/application.css	2012-07-26 20:33:06.000000000 -0700
++++ v3.2.10/app/assets/stylesheets/application.css	2013-01-04 08:18:25.000000000 -0800
 @@ -1,13 +1,13 @@
  /*
   * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -63,8 +63,8 @@ diff -Nr -U 1000 v3.2.1/app/assets/stylesheets/application.css v3.2.10/app/asset
 -*/
 + */
 diff -Nr -U 1000 v3.2.1/config/application.rb v3.2.10/config/application.rb
---- v3.2.1/config/application.rb	2012-07-27 05:33:06.000000000 +0200
-+++ v3.2.10/config/application.rb	2013-01-04 17:18:25.000000000 +0100
+--- v3.2.1/config/application.rb	2012-07-26 20:33:06.000000000 -0700
++++ v3.2.10/config/application.rb	2013-01-04 08:18:25.000000000 -0800
 @@ -1,59 +1,62 @@
  require File.expand_path('../boot', __FILE__)
  
@@ -130,8 +130,8 @@ diff -Nr -U 1000 v3.2.1/config/application.rb v3.2.10/config/application.rb
    end
  end
 diff -Nr -U 1000 v3.2.1/config/environments/production.rb v3.2.10/config/environments/production.rb
---- v3.2.1/config/environments/production.rb	2012-07-27 05:33:06.000000000 +0200
-+++ v3.2.10/config/environments/production.rb	2013-01-04 17:18:25.000000000 +0100
+--- v3.2.1/config/environments/production.rb	2012-07-26 20:33:06.000000000 -0700
++++ v3.2.10/config/environments/production.rb	2013-01-04 08:18:25.000000000 -0800
 @@ -1,67 +1,67 @@
  Railsdiff::Application.configure do
    # Settings specified here will take precedence over those in config/application.rb
