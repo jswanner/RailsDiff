@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'haml'
+gem 'i18n'
 gem 'pygments.rb'
 gem 'rake'
 gem 'rspec'
 gem 'sass'
+gem 'thor'
+gem 'thread_safe'
