@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>Rails v2.3.8 - v2.3.17 diff - RailsDiff</title>
-    <link href='/assets/pygment_trac.css' rel='stylesheet' />
-    <link href='/assets/app.css' rel='stylesheet' />
+    <link href='/assets/pygment_trac.css' rel='stylesheet'>
+    <link href='/assets/app.css' rel='stylesheet'>
   </head>
   <body>
     <header>
@@ -15,75 +15,73 @@
           Source
           <select name='source'></select>
         </label>
-        <a class='switch' href='#'><img src='/assets/arrow_refresh.png' /></a>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png'></a>
         <label>
           Target
           <select name='target'></select>
         </label>
-        <input type='submit' value='View Diff' />
+        <input type='submit' value='View Diff'>
       </form>
     </header>
     <div class='content'>
       <div class='diff'>
-  <h2>
-    <a href='full/#config-boot-rb'>config/boot.rb</a>
-  </h2>
-  <div class="highlight"><pre><span class="gu">@@ -62,8 +62,12 @@</span>
-         gem &#39;rails&#39;
-       end
-     rescue Gem::LoadError =&gt; load_error
-<span class="gd">-      $stderr.puts %(Missing the Rails #{version} gem. Please `gem install -v=#{version} rails`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.)</span>
-<span class="gd">-      exit 1</span>
-<span class="gi">+      if load_error.message =~ /Could not find RubyGem rails/</span>
-<span class="gi">+        STDERR.puts %(Missing the Rails #{version} gem. Please `gem install -v=#{version} rails`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.)</span>
-<span class="gi">+        exit 1</span>
-<span class="gi">+      else</span>
-<span class="gi">+        raise</span>
-<span class="gi">+      end</span>
-     end
- 
-     class &lt;&lt; self
-</pre></div>
-  <h2>
-    <a href='full/#config-environment-rb'>config/environment.rb</a>
-  </h2>
-  <div class="highlight"><pre><span class="gu">@@ -1,7 +1,7 @@</span>
- # Be sure to restart your server when you modify this file
- 
- # Specifies gem version of Rails to use when vendor/rails is not present
-<span class="gd">-RAILS_GEM_VERSION = &#39;2.3.8&#39; unless defined? RAILS_GEM_VERSION</span>
-<span class="gi">+RAILS_GEM_VERSION = &#39;2.3.17&#39; unless defined? RAILS_GEM_VERSION</span>
- 
- # Bootstrap the Rails environment, frameworks, and default configuration
- require File.join(File.dirname(__FILE__), &#39;boot&#39;)
-<span class="gu">@@ -12,7 +12,7 @@</span>
-   # -- all .rb files in that directory are automatically loaded.
- 
-   # Add additional load paths for your own custom dirs
-<span class="gd">-  # config.load_paths += %W( #{RAILS_ROOT}/extras )</span>
-<span class="gi">+  # config.autoload_paths += %W( #{RAILS_ROOT}/extras )</span>
- 
-   # Specify gems that this application depends on and have them installed with rake gems:install
-   # config.gem &quot;bj&quot;
-</pre></div>
-</div>
+        <h2>
+          <a href='full/#config-boot-rb'>config/boot.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -62,8 +62,12 @@</span>
+                 gem &#39;rails&#39;
+               end
+             rescue Gem::LoadError =&gt; load_error
+        <span class="gd">-      $stderr.puts %(Missing the Rails #{version} gem. Please `gem install -v=#{version} rails`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.)</span>
+        <span class="gd">-      exit 1</span>
+        <span class="gi">+      if load_error.message =~ /Could not find RubyGem rails/</span>
+        <span class="gi">+        STDERR.puts %(Missing the Rails #{version} gem. Please `gem install -v=#{version} rails`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.)</span>
+        <span class="gi">+        exit 1</span>
+        <span class="gi">+      else</span>
+        <span class="gi">+        raise</span>
+        <span class="gi">+      end</span>
+             end
+         
+             class &lt;&lt; self
+        </pre></div>
+        <h2>
+          <a href='full/#config-environment-rb'>config/environment.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,7 +1,7 @@</span>
+         # Be sure to restart your server when you modify this file
+         
+         # Specifies gem version of Rails to use when vendor/rails is not present
+        <span class="gd">-RAILS_GEM_VERSION = &#39;2.3.8&#39; unless defined? RAILS_GEM_VERSION</span>
+        <span class="gi">+RAILS_GEM_VERSION = &#39;2.3.17&#39; unless defined? RAILS_GEM_VERSION</span>
+         
+         # Bootstrap the Rails environment, frameworks, and default configuration
+         require File.join(File.dirname(__FILE__), &#39;boot&#39;)
+        <span class="gu">@@ -12,7 +12,7 @@</span>
+           # -- all .rb files in that directory are automatically loaded.
+         
+           # Add additional load paths for your own custom dirs
+        <span class="gd">-  # config.load_paths += %W( #{RAILS_ROOT}/extras )</span>
+        <span class="gi">+  # config.autoload_paths += %W( #{RAILS_ROOT}/extras )</span>
+         
+           # Specify gems that this application depends on and have them installed with rake gems:install
+           # config.gem &quot;bj&quot;
+        </pre></div>
+      </div>
     </div>
     <a href='https://github.com/jswanner/RailsDiff'>
-      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;' />
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;'>
     </a>
     <script src='/assets/app.js'></script>
-    <script type='text/javascript'>
-      //<![CDATA[
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-7325596-4']);
-        _gaq.push(['_setSiteSpeedSampleRate', 100]);
-        _gaq.push(['_trackPageview']);
-        
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-      //]]>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-7325596-4']);
+      _gaq.push(['_setSiteSpeedSampleRate', 100]);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
     </script>
   </body>
 </html>
