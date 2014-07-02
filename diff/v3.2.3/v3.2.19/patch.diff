@@ -1,0 +1,102 @@
+diff -Nru v3.2.3/Gemfile v3.2.19/Gemfile
+--- v3.2.3/Gemfile	2012-07-26 20:33:17.000000000 -0700
++++ v3.2.19/Gemfile	2014-07-02 10:30:50.000000000 -0700
+@@ -1,6 +1,6 @@
+ source 'https://rubygems.org'
+ 
+-gem 'rails', '3.2.3'
++gem 'rails', '3.2.19'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails', :git => 'git://github.com/rails/rails.git'
+@@ -15,7 +15,7 @@
+   gem 'coffee-rails', '~> 3.2.1'
+ 
+   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+-  # gem 'therubyracer', :platform => :ruby
++  # gem 'therubyracer', :platforms => :ruby
+ 
+   gem 'uglifier', '>= 1.0.3'
+ end
+@@ -35,4 +35,4 @@
+ # gem 'capistrano'
+ 
+ # To use debugger
+-# gem 'ruby-debug19', :require => 'ruby-debug'
++# gem 'debugger'
+diff -Nru v3.2.3/README.rdoc v3.2.19/README.rdoc
+--- v3.2.3/README.rdoc	2012-07-26 20:33:17.000000000 -0700
++++ v3.2.19/README.rdoc	2014-07-02 10:30:50.000000000 -0700
+@@ -157,9 +157,9 @@
+ 
+   |-- app
+   |   |-- assets
+-  |       |-- images
+-  |       |-- javascripts
+-  |       `-- stylesheets
++  |   |   |-- images
++  |   |   |-- javascripts
++  |   |   `-- stylesheets
+   |   |-- controllers
+   |   |-- helpers
+   |   |-- mailers
+@@ -173,6 +173,7 @@
+   |-- db
+   |-- doc
+   |-- lib
++  |   |-- assets
+   |   `-- tasks
+   |-- log
+   |-- public
+@@ -184,13 +185,12 @@
+   |   |-- performance
+   |   `-- unit
+   |-- tmp
+-  |   |-- cache
+-  |   |-- pids
+-  |   |-- sessions
+-  |   `-- sockets
++  |   `-- cache
++  |       `-- assets
+   `-- vendor
+       |-- assets
+-          `-- stylesheets
++      |   |-- javascripts
++      |   `-- stylesheets
+       `-- plugins
+ 
+ app
+diff -Nru v3.2.3/app/assets/stylesheets/application.css v3.2.19/app/assets/stylesheets/application.css
+--- v3.2.3/app/assets/stylesheets/application.css	2012-07-26 20:33:17.000000000 -0700
++++ v3.2.19/app/assets/stylesheets/application.css	2014-07-02 10:30:50.000000000 -0700
+@@ -10,4 +10,4 @@
+  *
+  *= require_self
+  *= require_tree .
+-*/
++ */
+diff -Nru v3.2.3/config/application.rb v3.2.19/config/application.rb
+--- v3.2.3/config/application.rb	2012-07-26 20:33:17.000000000 -0700
++++ v3.2.19/config/application.rb	2014-07-02 10:30:50.000000000 -0700
+@@ -39,6 +39,9 @@
+     # Configure sensitive parameters which will be filtered from the log file.
+     config.filter_parameters += [:password]
+ 
++    # Enable escaping HTML in JSON.
++    config.active_support.escape_html_entities_in_json = true
++
+     # Use SQL instead of Active Record's schema dumper when creating the database.
+     # This is necessary if your schema can't be completely dumped by the schema dumper,
+     # like if you have constraints or database-specific column types
+diff -Nru v3.2.3/config/environments/production.rb v3.2.19/config/environments/production.rb
+--- v3.2.3/config/environments/production.rb	2012-07-26 20:33:17.000000000 -0700
++++ v3.2.19/config/environments/production.rb	2014-07-02 10:30:51.000000000 -0700
+@@ -20,7 +20,7 @@
+   # Generate digests for assets URLs
+   config.assets.digest = true
+ 
+-  # Defaults to Rails.root.join("public/assets")
++  # Defaults to nil and saved in location specified by config.assets.prefix
+   # config.assets.manifest = YOUR_PATH
+ 
+   # Specifies the header that your server uses for sending files
