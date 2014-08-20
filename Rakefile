@@ -81,7 +81,7 @@ task 'update_rails_repo' => 'tmp/rails/rails' do |t|
   puts 'Updating Rails repo'
 
   cd t.prerequisites.first, verbose: false do
-    sh "git fetch origin > /dev/null", verbose: false
+    sh "git fetch origin --tags > /dev/null", verbose: false
   end
 end
 
