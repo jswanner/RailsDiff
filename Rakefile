@@ -133,7 +133,7 @@ rule(/diff\/.*\/patch\.diff/ => [->(t) { t.gsub('/patch.diff', '') }]) do |t|
   Rake::Task["tmp/generated/#{source}"].invoke
   Rake::Task["tmp/generated/#{target}"].invoke
   cd "tmp/generated", verbose: false do
-    %x{diff -Nru #{source} #{target} > ../../#{t.name}}
+    %x{diff -Nru -x '*.png' #{source} #{target} > ../../#{t.name}}
   end
 end
 
@@ -148,7 +148,7 @@ rule(/diff\/.*\/full\.diff/ => [->(t) { t.gsub('/full.diff', '') }]) do |t|
   Rake::Task["tmp/generated/#{target}"].invoke
 
   cd "tmp/generated", verbose: false do
-    %x{diff -Nr -U 1000 #{source} #{target} > ../../#{t.name}}
+    %x{diff -Nr -U 1000 -x '*.png' #{source} #{target} > ../../#{t.name}}
   end
 end
 
