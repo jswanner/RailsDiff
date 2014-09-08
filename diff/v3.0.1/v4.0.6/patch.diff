@@ -1,6 +1,6 @@
-diff -Nru v3.0.1/.gitignore v4.0.6/.gitignore
---- v3.0.1/.gitignore	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/.gitignore	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/.gitignore v4.0.6/.gitignore
+--- v3.0.1/.gitignore	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/.gitignore	2014-06-26 12:03:54.000000000 -0400
 @@ -1,4 +1,16 @@
 -.bundle
 -db/*.sqlite3
@@ -22,9 +22,9 @@ diff -Nru v3.0.1/.gitignore v4.0.6/.gitignore
 +# Ignore all logfiles and tempfiles.
 +/log/*.log
 +/tmp
-diff -Nru v3.0.1/Gemfile v4.0.6/Gemfile
---- v3.0.1/Gemfile	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/Gemfile	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/Gemfile v4.0.6/Gemfile
+--- v3.0.1/Gemfile	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/Gemfile	2014-06-26 12:03:54.000000000 -0400
 @@ -1,30 +1,45 @@
 -source 'http://rubygems.org'
 +source 'https://rubygems.org'
@@ -94,9 +94,9 @@ diff -Nru v3.0.1/Gemfile v4.0.6/Gemfile
 -# end
 +# Use debugger
 +# gem 'debugger', group: [:development, :test]
-diff -Nru v3.0.1/README v4.0.6/README
---- v3.0.1/README	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/README	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.0.1/README v4.0.6/README
+--- v3.0.1/README	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/README	1969-12-31 19:00:00.000000000 -0500
 @@ -1,256 +0,0 @@
 -== Welcome to Rails
 -
@@ -354,9 +354,9 @@ diff -Nru v3.0.1/README v4.0.6/README
 -  External libraries that the application depends on. Also includes the plugins
 -  subdirectory. If the app has frozen rails, those gems also go here, under
 -  vendor/rails/. This directory is in the load path.
-diff -Nru v3.0.1/README.rdoc v4.0.6/README.rdoc
---- v3.0.1/README.rdoc	1969-12-31 16:00:00.000000000 -0800
-+++ v4.0.6/README.rdoc	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/README.rdoc v4.0.6/README.rdoc
+--- v3.0.1/README.rdoc	1969-12-31 19:00:00.000000000 -0500
++++ v4.0.6/README.rdoc	2014-06-26 12:03:54.000000000 -0400
 @@ -0,0 +1,28 @@
 +== README
 +
@@ -386,9 +386,9 @@ diff -Nru v3.0.1/README.rdoc v4.0.6/README.rdoc
 +
 +Please feel free to use a different markup language if you do not plan to run
 +<tt>rake doc:app</tt>.
-diff -Nru v3.0.1/Rakefile v4.0.6/Rakefile
---- v3.0.1/Rakefile	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/Rakefile	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/Rakefile v4.0.6/Rakefile
+--- v3.0.1/Rakefile	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/Rakefile	2014-06-26 12:03:54.000000000 -0400
 @@ -2,6 +2,5 @@
  # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
  
@@ -396,9 +396,9 @@ diff -Nru v3.0.1/Rakefile v4.0.6/Rakefile
 -require 'rake'
  
  Railsdiff::Application.load_tasks
-diff -Nru v3.0.1/app/assets/javascripts/application.js v4.0.6/app/assets/javascripts/application.js
---- v3.0.1/app/assets/javascripts/application.js	1969-12-31 16:00:00.000000000 -0800
-+++ v4.0.6/app/assets/javascripts/application.js	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/app/assets/javascripts/application.js v4.0.6/app/assets/javascripts/application.js
+--- v3.0.1/app/assets/javascripts/application.js	1969-12-31 19:00:00.000000000 -0500
++++ v4.0.6/app/assets/javascripts/application.js	2014-06-26 12:03:54.000000000 -0400
 @@ -0,0 +1,16 @@
 +// This is a manifest file that'll be compiled into application.js, which will include all the files
 +// listed below.
@@ -416,9 +416,9 @@ diff -Nru v3.0.1/app/assets/javascripts/application.js v4.0.6/app/assets/javascr
 +//= require jquery_ujs
 +//= require turbolinks
 +//= require_tree .
-diff -Nru v3.0.1/app/assets/stylesheets/application.css v4.0.6/app/assets/stylesheets/application.css
---- v3.0.1/app/assets/stylesheets/application.css	1969-12-31 16:00:00.000000000 -0800
-+++ v4.0.6/app/assets/stylesheets/application.css	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/app/assets/stylesheets/application.css v4.0.6/app/assets/stylesheets/application.css
+--- v3.0.1/app/assets/stylesheets/application.css	1969-12-31 19:00:00.000000000 -0500
++++ v4.0.6/app/assets/stylesheets/application.css	2014-06-26 12:03:54.000000000 -0400
 @@ -0,0 +1,13 @@
 +/*
 + * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -433,9 +433,9 @@ diff -Nru v3.0.1/app/assets/stylesheets/application.css v4.0.6/app/assets/styles
 + *= require_self
 + *= require_tree .
 + */
-diff -Nru v3.0.1/app/controllers/application_controller.rb v4.0.6/app/controllers/application_controller.rb
---- v3.0.1/app/controllers/application_controller.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/app/controllers/application_controller.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/app/controllers/application_controller.rb v4.0.6/app/controllers/application_controller.rb
+--- v3.0.1/app/controllers/application_controller.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/app/controllers/application_controller.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -1,3 +1,5 @@
  class ApplicationController < ActionController::Base
 -  protect_from_forgery
@@ -443,9 +443,9 @@ diff -Nru v3.0.1/app/controllers/application_controller.rb v4.0.6/app/controller
 +  # For APIs, you may want to use :null_session instead.
 +  protect_from_forgery with: :exception
  end
-diff -Nru v3.0.1/app/views/layouts/application.html.erb v4.0.6/app/views/layouts/application.html.erb
---- v3.0.1/app/views/layouts/application.html.erb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/app/views/layouts/application.html.erb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/app/views/layouts/application.html.erb v4.0.6/app/views/layouts/application.html.erb
+--- v3.0.1/app/views/layouts/application.html.erb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/app/views/layouts/application.html.erb	2014-06-26 12:03:54.000000000 -0400
 @@ -2,9 +2,9 @@
  <html>
  <head>
@@ -459,32 +459,32 @@ diff -Nru v3.0.1/app/views/layouts/application.html.erb v4.0.6/app/views/layouts
  </head>
  <body>
  
-diff -Nru v3.0.1/bin/bundle v4.0.6/bin/bundle
---- v3.0.1/bin/bundle	1969-12-31 16:00:00.000000000 -0800
-+++ v4.0.6/bin/bundle	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/bin/bundle v4.0.6/bin/bundle
+--- v3.0.1/bin/bundle	1969-12-31 19:00:00.000000000 -0500
++++ v4.0.6/bin/bundle	2014-06-26 12:03:54.000000000 -0400
 @@ -0,0 +1,3 @@
 +#!/usr/bin/env ruby
 +ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 +load Gem.bin_path('bundler', 'bundle')
-diff -Nru v3.0.1/bin/rails v4.0.6/bin/rails
---- v3.0.1/bin/rails	1969-12-31 16:00:00.000000000 -0800
-+++ v4.0.6/bin/rails	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/bin/rails v4.0.6/bin/rails
+--- v3.0.1/bin/rails	1969-12-31 19:00:00.000000000 -0500
++++ v4.0.6/bin/rails	2014-06-26 12:03:54.000000000 -0400
 @@ -0,0 +1,4 @@
 +#!/usr/bin/env ruby
 +APP_PATH = File.expand_path('../../config/application',  __FILE__)
 +require_relative '../config/boot'
 +require 'rails/commands'
-diff -Nru v3.0.1/bin/rake v4.0.6/bin/rake
---- v3.0.1/bin/rake	1969-12-31 16:00:00.000000000 -0800
-+++ v4.0.6/bin/rake	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/bin/rake v4.0.6/bin/rake
+--- v3.0.1/bin/rake	1969-12-31 19:00:00.000000000 -0500
++++ v4.0.6/bin/rake	2014-06-26 12:03:54.000000000 -0400
 @@ -0,0 +1,4 @@
 +#!/usr/bin/env ruby
 +require_relative '../config/boot'
 +require 'rake'
 +Rake.application.run
-diff -Nru v3.0.1/config/application.rb v4.0.6/config/application.rb
---- v3.0.1/config/application.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/config/application.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/application.rb v4.0.6/config/application.rb
+--- v3.0.1/config/application.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/config/application.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -2,9 +2,9 @@
  
  require 'rails/all'
@@ -529,9 +529,9 @@ diff -Nru v3.0.1/config/application.rb v4.0.6/config/application.rb
 -    config.filter_parameters += [:password]
    end
  end
-diff -Nru v3.0.1/config/boot.rb v4.0.6/config/boot.rb
---- v3.0.1/config/boot.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/config/boot.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/boot.rb v4.0.6/config/boot.rb
+--- v3.0.1/config/boot.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/config/boot.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -1,13 +1,4 @@
 -require 'rubygems'
 -
@@ -549,9 +549,9 @@ diff -Nru v3.0.1/config/boot.rb v4.0.6/config/boot.rb
 +ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 +
 +require 'bundler/setup' if File.exist?(ENV['BUNDLE_GEMFILE'])
-diff -Nru v3.0.1/config/database.yml v4.0.6/config/database.yml
---- v3.0.1/config/database.yml	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/config/database.yml	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/database.yml v4.0.6/config/database.yml
+--- v3.0.1/config/database.yml	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/config/database.yml	2014-06-26 12:03:54.000000000 -0400
 @@ -1,5 +1,8 @@
  # SQLite version 3.x
 -#   gem install sqlite3-ruby (not necessary on OS X Leopard)
@@ -562,9 +562,9 @@ diff -Nru v3.0.1/config/database.yml v4.0.6/config/database.yml
  development:
    adapter: sqlite3
    database: db/development.sqlite3
-diff -Nru v3.0.1/config/environment.rb v4.0.6/config/environment.rb
---- v3.0.1/config/environment.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/config/environment.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/environment.rb v4.0.6/config/environment.rb
+--- v3.0.1/config/environment.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/config/environment.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -1,5 +1,5 @@
 -# Load the rails application
 +# Load the Rails application.
@@ -573,9 +573,9 @@ diff -Nru v3.0.1/config/environment.rb v4.0.6/config/environment.rb
 -# Initialize the rails application
 +# Initialize the Rails application.
  Railsdiff::Application.initialize!
-diff -Nru v3.0.1/config/environments/development.rb v4.0.6/config/environments/development.rb
---- v3.0.1/config/environments/development.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/config/environments/development.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/environments/development.rb v4.0.6/config/environments/development.rb
+--- v3.0.1/config/environments/development.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/config/environments/development.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -1,26 +1,29 @@
  Railsdiff::Application.configure do
 -  # Settings specified here will take precedence over those in config/environment.rb
@@ -618,9 +618,9 @@ diff -Nru v3.0.1/config/environments/development.rb v4.0.6/config/environments/d
 +  # number of complex assets.
 +  config.assets.debug = true
 +end
-diff -Nru v3.0.1/config/environments/production.rb v4.0.6/config/environments/production.rb
---- v3.0.1/config/environments/production.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/config/environments/production.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/environments/production.rb v4.0.6/config/environments/production.rb
+--- v3.0.1/config/environments/production.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/config/environments/production.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -1,49 +1,80 @@
  Railsdiff::Application.configure do
 -  # Settings specified here will take precedence over those in config/environment.rb
@@ -728,9 +728,9 @@ diff -Nru v3.0.1/config/environments/production.rb v4.0.6/config/environments/pr
 +  # Use default logging formatter so that PID and timestamp are not suppressed.
 +  config.log_formatter = ::Logger::Formatter.new
  end
-diff -Nru v3.0.1/config/environments/test.rb v4.0.6/config/environments/test.rb
---- v3.0.1/config/environments/test.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/config/environments/test.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/environments/test.rb v4.0.6/config/environments/test.rb
+--- v3.0.1/config/environments/test.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/config/environments/test.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -1,35 +1,36 @@
  Railsdiff::Application.configure do
 -  # Settings specified here will take precedence over those in config/environment.rb
@@ -783,17 +783,17 @@ diff -Nru v3.0.1/config/environments/test.rb v4.0.6/config/environments/test.rb
 +  # Print deprecation notices to the stderr.
    config.active_support.deprecation = :stderr
  end
-diff -Nru v3.0.1/config/initializers/filter_parameter_logging.rb v4.0.6/config/initializers/filter_parameter_logging.rb
---- v3.0.1/config/initializers/filter_parameter_logging.rb	1969-12-31 16:00:00.000000000 -0800
-+++ v4.0.6/config/initializers/filter_parameter_logging.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/initializers/filter_parameter_logging.rb v4.0.6/config/initializers/filter_parameter_logging.rb
+--- v3.0.1/config/initializers/filter_parameter_logging.rb	1969-12-31 19:00:00.000000000 -0500
++++ v4.0.6/config/initializers/filter_parameter_logging.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -0,0 +1,4 @@
 +# Be sure to restart your server when you modify this file.
 +
 +# Configure sensitive parameters which will be filtered from the log file.
 +Rails.application.config.filter_parameters += [:password]
-diff -Nru v3.0.1/config/initializers/inflections.rb v4.0.6/config/initializers/inflections.rb
---- v3.0.1/config/initializers/inflections.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/config/initializers/inflections.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/initializers/inflections.rb v4.0.6/config/initializers/inflections.rb
+--- v3.0.1/config/initializers/inflections.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/config/initializers/inflections.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -1,10 +1,16 @@
  # Be sure to restart your server when you modify this file.
  
@@ -814,9 +814,9 @@ diff -Nru v3.0.1/config/initializers/inflections.rb v4.0.6/config/initializers/i
 +# ActiveSupport::Inflector.inflections(:en) do |inflect|
 +#   inflect.acronym 'RESTful'
 +# end
-diff -Nru v3.0.1/config/initializers/secret_token.rb v4.0.6/config/initializers/secret_token.rb
---- v3.0.1/config/initializers/secret_token.rb	2014-02-21 19:54:35.000000000 -0800
-+++ v4.0.6/config/initializers/secret_token.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/initializers/secret_token.rb v4.0.6/config/initializers/secret_token.rb
+--- v3.0.1/config/initializers/secret_token.rb	2014-02-21 22:54:35.000000000 -0500
++++ v4.0.6/config/initializers/secret_token.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -1,7 +1,12 @@
  # Be sure to restart your server when you modify this file.
  
@@ -832,9 +832,9 @@ diff -Nru v3.0.1/config/initializers/secret_token.rb v4.0.6/config/initializers/
 +# Make sure your secret_key_base is kept private
 +# if you're sharing your code publicly.
 +Railsdiff::Application.config.secret_key_base = 'your-secret-token'
-diff -Nru v3.0.1/config/initializers/session_store.rb v4.0.6/config/initializers/session_store.rb
---- v3.0.1/config/initializers/session_store.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/config/initializers/session_store.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/initializers/session_store.rb v4.0.6/config/initializers/session_store.rb
+--- v3.0.1/config/initializers/session_store.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/config/initializers/session_store.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -1,8 +1,3 @@
  # Be sure to restart your server when you modify this file.
  
@@ -845,9 +845,9 @@ diff -Nru v3.0.1/config/initializers/session_store.rb v4.0.6/config/initializers
 -# (create the session table with "rake db:sessions:create")
 -# Railsdiff::Application.config.session_store :active_record_store
 +Railsdiff::Application.config.session_store :cookie_store, key: '_railsdiff_session'
-diff -Nru v3.0.1/config/initializers/wrap_parameters.rb v4.0.6/config/initializers/wrap_parameters.rb
---- v3.0.1/config/initializers/wrap_parameters.rb	1969-12-31 16:00:00.000000000 -0800
-+++ v4.0.6/config/initializers/wrap_parameters.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/initializers/wrap_parameters.rb v4.0.6/config/initializers/wrap_parameters.rb
+--- v3.0.1/config/initializers/wrap_parameters.rb	1969-12-31 19:00:00.000000000 -0500
++++ v4.0.6/config/initializers/wrap_parameters.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -0,0 +1,14 @@
 +# Be sure to restart your server when you modify this file.
 +
@@ -863,9 +863,9 @@ diff -Nru v3.0.1/config/initializers/wrap_parameters.rb v4.0.6/config/initialize
 +# ActiveSupport.on_load(:active_record) do
 +#  self.include_root_in_json = true
 +# end
-diff -Nru v3.0.1/config/locales/en.yml v4.0.6/config/locales/en.yml
---- v3.0.1/config/locales/en.yml	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/config/locales/en.yml	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/locales/en.yml v4.0.6/config/locales/en.yml
+--- v3.0.1/config/locales/en.yml	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/config/locales/en.yml	2014-06-26 12:03:54.000000000 -0400
 @@ -1,5 +1,23 @@
 -# Sample localization file for English. Add more files in this directory for other locales.
 -# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
@@ -892,9 +892,9 @@ diff -Nru v3.0.1/config/locales/en.yml v4.0.6/config/locales/en.yml
  
  en:
    hello: "Hello world"
-diff -Nru v3.0.1/config/routes.rb v4.0.6/config/routes.rb
---- v3.0.1/config/routes.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/config/routes.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config/routes.rb v4.0.6/config/routes.rb
+--- v3.0.1/config/routes.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/config/routes.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -1,19 +1,20 @@
  Railsdiff::Application.routes.draw do
 -  # The priority is based upon order of creation:
@@ -973,18 +973,18 @@ diff -Nru v3.0.1/config/routes.rb v4.0.6/config/routes.rb
 -  # Note: This route will make all actions in every controller accessible via GET requests.
 -  # match ':controller(/:action(/:id(.:format)))'
  end
-diff -Nru v3.0.1/config.ru v4.0.6/config.ru
---- v3.0.1/config.ru	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/config.ru	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/config.ru v4.0.6/config.ru
+--- v3.0.1/config.ru	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/config.ru	2014-06-26 12:03:54.000000000 -0400
 @@ -1,4 +1,4 @@
  # This file is used by Rack-based servers to start the application.
  
  require ::File.expand_path('../config/environment',  __FILE__)
 -run Railsdiff::Application
 +run Rails.application
-diff -Nru v3.0.1/db/seeds.rb v4.0.6/db/seeds.rb
---- v3.0.1/db/seeds.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/db/seeds.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/db/seeds.rb v4.0.6/db/seeds.rb
+--- v3.0.1/db/seeds.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/db/seeds.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -3,5 +3,5 @@
  #
  # Examples:
@@ -993,15 +993,15 @@ diff -Nru v3.0.1/db/seeds.rb v4.0.6/db/seeds.rb
 -#   Mayor.create(:name => 'Daley', :city => cities.first)
 +#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 +#   Mayor.create(name: 'Emanuel', city: cities.first)
-diff -Nru v3.0.1/doc/README_FOR_APP v4.0.6/doc/README_FOR_APP
---- v3.0.1/doc/README_FOR_APP	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/doc/README_FOR_APP	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.0.1/doc/README_FOR_APP v4.0.6/doc/README_FOR_APP
+--- v3.0.1/doc/README_FOR_APP	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/doc/README_FOR_APP	1969-12-31 19:00:00.000000000 -0500
 @@ -1,2 +0,0 @@
 -Use this README file to introduce your application and point to useful places in the API for learning more.
 -Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
-diff -Nru v3.0.1/public/404.html v4.0.6/public/404.html
---- v3.0.1/public/404.html	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/public/404.html	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/public/404.html v4.0.6/public/404.html
+--- v3.0.1/public/404.html	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/public/404.html	2014-06-26 12:03:54.000000000 -0400
 @@ -2,17 +2,48 @@
  <html>
  <head>
@@ -1069,9 +1069,9 @@ diff -Nru v3.0.1/public/404.html v4.0.6/public/404.html
 +  <p>If you are the application owner check the logs for more information.</p>
  </body>
  </html>
-diff -Nru v3.0.1/public/422.html v4.0.6/public/422.html
---- v3.0.1/public/422.html	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/public/422.html	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/public/422.html v4.0.6/public/422.html
+--- v3.0.1/public/422.html	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/public/422.html	2014-06-26 12:03:54.000000000 -0400
 @@ -2,17 +2,48 @@
  <html>
  <head>
@@ -1139,9 +1139,9 @@ diff -Nru v3.0.1/public/422.html v4.0.6/public/422.html
 +  <p>If you are the application owner check the logs for more information.</p>
  </body>
  </html>
-diff -Nru v3.0.1/public/500.html v4.0.6/public/500.html
---- v3.0.1/public/500.html	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/public/500.html	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/public/500.html v4.0.6/public/500.html
+--- v3.0.1/public/500.html	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/public/500.html	2014-06-26 12:03:54.000000000 -0400
 @@ -2,17 +2,48 @@
  <html>
  <head>
@@ -1211,10 +1211,9 @@ diff -Nru v3.0.1/public/500.html v4.0.6/public/500.html
 +  <p>If you are the application owner check the logs for more information.</p>
  </body>
  </html>
-Binary files v3.0.1/public/images/rails.png and v4.0.6/public/images/rails.png differ
-diff -Nru v3.0.1/public/index.html v4.0.6/public/index.html
---- v3.0.1/public/index.html	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/public/index.html	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.0.1/public/index.html v4.0.6/public/index.html
+--- v3.0.1/public/index.html	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/public/index.html	1969-12-31 19:00:00.000000000 -0500
 @@ -1,239 +0,0 @@
 -<!DOCTYPE html>
 -<html>
@@ -1455,15 +1454,15 @@ diff -Nru v3.0.1/public/index.html v4.0.6/public/index.html
 -    </div>
 -  </body>
 -</html>
-diff -Nru v3.0.1/public/javascripts/application.js v4.0.6/public/javascripts/application.js
---- v3.0.1/public/javascripts/application.js	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/public/javascripts/application.js	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.0.1/public/javascripts/application.js v4.0.6/public/javascripts/application.js
+--- v3.0.1/public/javascripts/application.js	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/public/javascripts/application.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,2 +0,0 @@
 -// Place your application-specific JavaScript functions and classes here
 -// This file is automatically included by javascript_include_tag :defaults
-diff -Nru v3.0.1/public/javascripts/controls.js v4.0.6/public/javascripts/controls.js
---- v3.0.1/public/javascripts/controls.js	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/public/javascripts/controls.js	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.0.1/public/javascripts/controls.js v4.0.6/public/javascripts/controls.js
+--- v3.0.1/public/javascripts/controls.js	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/public/javascripts/controls.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,965 +0,0 @@
 -// script.aculo.us controls.js v1.8.3, Thu Oct 08 11:23:33 +0200 2009
 -
@@ -2431,9 +2430,9 @@ diff -Nru v3.0.1/public/javascripts/controls.js v4.0.6/public/javascripts/contro
 -  }
 -});
 \ No newline at end of file
-diff -Nru v3.0.1/public/javascripts/dragdrop.js v4.0.6/public/javascripts/dragdrop.js
---- v3.0.1/public/javascripts/dragdrop.js	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/public/javascripts/dragdrop.js	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.0.1/public/javascripts/dragdrop.js v4.0.6/public/javascripts/dragdrop.js
+--- v3.0.1/public/javascripts/dragdrop.js	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/public/javascripts/dragdrop.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,974 +0,0 @@
 -// script.aculo.us dragdrop.js v1.8.3, Thu Oct 08 11:23:33 +0200 2009
 -
@@ -3410,9 +3409,9 @@ diff -Nru v3.0.1/public/javascripts/dragdrop.js v4.0.6/public/javascripts/dragdr
 -  return element['offset' + ((type=='vertical' || type=='height') ? 'Height' : 'Width')];
 -};
 \ No newline at end of file
-diff -Nru v3.0.1/public/javascripts/effects.js v4.0.6/public/javascripts/effects.js
---- v3.0.1/public/javascripts/effects.js	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/public/javascripts/effects.js	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.0.1/public/javascripts/effects.js v4.0.6/public/javascripts/effects.js
+--- v3.0.1/public/javascripts/effects.js	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/public/javascripts/effects.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,1123 +0,0 @@
 -// script.aculo.us effects.js v1.8.3, Thu Oct 08 11:23:33 +0200 2009
 -
@@ -4538,9 +4537,9 @@ diff -Nru v3.0.1/public/javascripts/effects.js v4.0.6/public/javascripts/effects
 -
 -Element.addMethods(Effect.Methods);
 \ No newline at end of file
-diff -Nru v3.0.1/public/javascripts/prototype.js v4.0.6/public/javascripts/prototype.js
---- v3.0.1/public/javascripts/prototype.js	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/public/javascripts/prototype.js	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.0.1/public/javascripts/prototype.js v4.0.6/public/javascripts/prototype.js
+--- v3.0.1/public/javascripts/prototype.js	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/public/javascripts/prototype.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,6001 +0,0 @@
 -/*  Prototype JavaScript framework, version 1.7_rc2
 - *  (c) 2005-2010 Sam Stephenson
@@ -10543,9 +10542,9 @@ diff -Nru v3.0.1/public/javascripts/prototype.js v4.0.6/public/javascripts/proto
 -    }
 -  });
 -})();
-diff -Nru v3.0.1/public/javascripts/rails.js v4.0.6/public/javascripts/rails.js
---- v3.0.1/public/javascripts/rails.js	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/public/javascripts/rails.js	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.0.1/public/javascripts/rails.js v4.0.6/public/javascripts/rails.js
+--- v3.0.1/public/javascripts/rails.js	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/public/javascripts/rails.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,175 +0,0 @@
 -(function() {
 -  // Technique from Juriy Zaytsev
@@ -10722,9 +10721,9 @@ diff -Nru v3.0.1/public/javascripts/rails.js v4.0.6/public/javascripts/rails.js
 -    });
 -  });
 -})();
-diff -Nru v3.0.1/public/robots.txt v4.0.6/public/robots.txt
---- v3.0.1/public/robots.txt	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/public/robots.txt	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/public/robots.txt v4.0.6/public/robots.txt
+--- v3.0.1/public/robots.txt	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/public/robots.txt	2014-06-26 12:03:54.000000000 -0400
 @@ -1,5 +1,5 @@
 -# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
 +# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
@@ -10733,9 +10732,9 @@ diff -Nru v3.0.1/public/robots.txt v4.0.6/public/robots.txt
 -# User-Agent: *
 +# User-agent: *
  # Disallow: /
-diff -Nru v3.0.1/script/rails v4.0.6/script/rails
---- v3.0.1/script/rails	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/script/rails	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.0.1/script/rails v4.0.6/script/rails
+--- v3.0.1/script/rails	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/script/rails	1969-12-31 19:00:00.000000000 -0500
 @@ -1,6 +0,0 @@
 -#!/usr/bin/env ruby
 -# This command will automatically be run when you run "rails" with Rails 3 gems installed from the root of your application.
@@ -10743,9 +10742,9 @@ diff -Nru v3.0.1/script/rails v4.0.6/script/rails
 -APP_PATH = File.expand_path('../../config/application',  __FILE__)
 -require File.expand_path('../../config/boot',  __FILE__)
 -require 'rails/commands'
-diff -Nru v3.0.1/test/performance/browsing_test.rb v4.0.6/test/performance/browsing_test.rb
---- v3.0.1/test/performance/browsing_test.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/test/performance/browsing_test.rb	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.0.1/test/performance/browsing_test.rb v4.0.6/test/performance/browsing_test.rb
+--- v3.0.1/test/performance/browsing_test.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/test/performance/browsing_test.rb	1969-12-31 19:00:00.000000000 -0500
 @@ -1,9 +0,0 @@
 -require 'test_helper'
 -require 'rails/performance_test_help'
@@ -10756,9 +10755,9 @@ diff -Nru v3.0.1/test/performance/browsing_test.rb v4.0.6/test/performance/brows
 -    get '/'
 -  end
 -end
-diff -Nru v3.0.1/test/test_helper.rb v4.0.6/test/test_helper.rb
---- v3.0.1/test/test_helper.rb	2012-08-01 06:40:39.000000000 -0700
-+++ v4.0.6/test/test_helper.rb	2014-06-26 09:03:54.000000000 -0700
+diff -Nru -x '*.png' v3.0.1/test/test_helper.rb v4.0.6/test/test_helper.rb
+--- v3.0.1/test/test_helper.rb	2012-08-01 09:40:39.000000000 -0400
++++ v4.0.6/test/test_helper.rb	2014-06-26 12:03:54.000000000 -0400
 @@ -1,9 +1,11 @@
 -ENV["RAILS_ENV"] = "test"
 +ENV["RAILS_ENV"] ||= "test"

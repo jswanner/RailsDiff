@@ -1,6 +1,6 @@
-diff -Nru v3.2.1/.gitignore v4.0.2/.gitignore
---- v3.2.1/.gitignore	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/.gitignore	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/.gitignore v4.0.2/.gitignore
+--- v3.2.1/.gitignore	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/.gitignore	2013-12-04 00:47:04.000000000 -0500
 @@ -1,14 +1,15 @@
 -# See http://help.github.com/ignore-files/ for more about ignoring files.
 +# See https://help.github.com/articles/ignoring-files for more about ignoring files.
@@ -20,9 +20,9 @@ diff -Nru v3.2.1/.gitignore v4.0.2/.gitignore
  
  # Ignore all logfiles and tempfiles.
  /log/*.log
-diff -Nru v3.2.1/Gemfile v4.0.2/Gemfile
---- v3.2.1/Gemfile	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/Gemfile	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/Gemfile v4.0.2/Gemfile
+--- v3.2.1/Gemfile	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/Gemfile	2013-12-04 00:47:04.000000000 -0500
 @@ -1,38 +1,45 @@
  source 'https://rubygems.org'
  
@@ -91,9 +91,9 @@ diff -Nru v3.2.1/Gemfile v4.0.2/Gemfile
 -# gem 'ruby-debug19', :require => 'ruby-debug'
 +# Use debugger
 +# gem 'debugger', group: [:development, :test]
-diff -Nru v3.2.1/README.rdoc v4.0.2/README.rdoc
---- v3.2.1/README.rdoc	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/README.rdoc	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/README.rdoc v4.0.2/README.rdoc
+--- v3.2.1/README.rdoc	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/README.rdoc	2013-12-04 00:47:04.000000000 -0500
 @@ -1,261 +1,28 @@
 -== Welcome to Rails
 +== README
@@ -382,18 +382,17 @@ diff -Nru v3.2.1/README.rdoc v4.0.2/README.rdoc
 +
 +Please feel free to use a different markup language if you do not plan to run
 +<tt>rake doc:app</tt>.
-diff -Nru v3.2.1/Rakefile v4.0.2/Rakefile
---- v3.2.1/Rakefile	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/Rakefile	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/Rakefile v4.0.2/Rakefile
+--- v3.2.1/Rakefile	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/Rakefile	2013-12-04 00:47:04.000000000 -0500
 @@ -1,4 +1,3 @@
 -#!/usr/bin/env rake
  # Add your own tasks in files placed in lib/tasks ending in .rake,
  # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
  
-Binary files v3.2.1/app/assets/images/rails.png and v4.0.2/app/assets/images/rails.png differ
-diff -Nru v3.2.1/app/assets/javascripts/application.js v4.0.2/app/assets/javascripts/application.js
---- v3.2.1/app/assets/javascripts/application.js	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/app/assets/javascripts/application.js	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/app/assets/javascripts/application.js v4.0.2/app/assets/javascripts/application.js
+--- v3.2.1/app/assets/javascripts/application.js	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/app/assets/javascripts/application.js	2013-12-04 00:47:04.000000000 -0500
 @@ -5,11 +5,12 @@
  // or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
  //
@@ -410,18 +409,18 @@ diff -Nru v3.2.1/app/assets/javascripts/application.js v4.0.2/app/assets/javascr
  //= require jquery_ujs
 +//= require turbolinks
  //= require_tree .
-diff -Nru v3.2.1/app/assets/stylesheets/application.css v4.0.2/app/assets/stylesheets/application.css
---- v3.2.1/app/assets/stylesheets/application.css	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/app/assets/stylesheets/application.css	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/app/assets/stylesheets/application.css v4.0.2/app/assets/stylesheets/application.css
+--- v3.2.1/app/assets/stylesheets/application.css	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/app/assets/stylesheets/application.css	2013-12-04 00:47:04.000000000 -0500
 @@ -10,4 +10,4 @@
   *
   *= require_self
   *= require_tree .
 -*/
 + */
-diff -Nru v3.2.1/app/controllers/application_controller.rb v4.0.2/app/controllers/application_controller.rb
---- v3.2.1/app/controllers/application_controller.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/app/controllers/application_controller.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/app/controllers/application_controller.rb v4.0.2/app/controllers/application_controller.rb
+--- v3.2.1/app/controllers/application_controller.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/app/controllers/application_controller.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -1,3 +1,5 @@
  class ApplicationController < ActionController::Base
 -  protect_from_forgery
@@ -429,9 +428,9 @@ diff -Nru v3.2.1/app/controllers/application_controller.rb v4.0.2/app/controller
 +  # For APIs, you may want to use :null_session instead.
 +  protect_from_forgery with: :exception
  end
-diff -Nru v3.2.1/app/views/layouts/application.html.erb v4.0.2/app/views/layouts/application.html.erb
---- v3.2.1/app/views/layouts/application.html.erb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/app/views/layouts/application.html.erb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/app/views/layouts/application.html.erb v4.0.2/app/views/layouts/application.html.erb
+--- v3.2.1/app/views/layouts/application.html.erb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/app/views/layouts/application.html.erb	2013-12-04 00:47:04.000000000 -0500
 @@ -2,8 +2,8 @@
  <html>
  <head>
@@ -443,32 +442,32 @@ diff -Nru v3.2.1/app/views/layouts/application.html.erb v4.0.2/app/views/layouts
    <%= csrf_meta_tags %>
  </head>
  <body>
-diff -Nru v3.2.1/bin/bundle v4.0.2/bin/bundle
---- v3.2.1/bin/bundle	1969-12-31 16:00:00.000000000 -0800
-+++ v4.0.2/bin/bundle	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/bin/bundle v4.0.2/bin/bundle
+--- v3.2.1/bin/bundle	1969-12-31 19:00:00.000000000 -0500
++++ v4.0.2/bin/bundle	2013-12-04 00:47:04.000000000 -0500
 @@ -0,0 +1,3 @@
 +#!/usr/bin/env ruby
 +ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 +load Gem.bin_path('bundler', 'bundle')
-diff -Nru v3.2.1/bin/rails v4.0.2/bin/rails
---- v3.2.1/bin/rails	1969-12-31 16:00:00.000000000 -0800
-+++ v4.0.2/bin/rails	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/bin/rails v4.0.2/bin/rails
+--- v3.2.1/bin/rails	1969-12-31 19:00:00.000000000 -0500
++++ v4.0.2/bin/rails	2013-12-04 00:47:04.000000000 -0500
 @@ -0,0 +1,4 @@
 +#!/usr/bin/env ruby
 +APP_PATH = File.expand_path('../../config/application',  __FILE__)
 +require_relative '../config/boot'
 +require 'rails/commands'
-diff -Nru v3.2.1/bin/rake v4.0.2/bin/rake
---- v3.2.1/bin/rake	1969-12-31 16:00:00.000000000 -0800
-+++ v4.0.2/bin/rake	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/bin/rake v4.0.2/bin/rake
+--- v3.2.1/bin/rake	1969-12-31 19:00:00.000000000 -0500
++++ v4.0.2/bin/rake	2013-12-04 00:47:04.000000000 -0500
 @@ -0,0 +1,4 @@
 +#!/usr/bin/env ruby
 +require_relative '../config/boot'
 +require 'rake'
 +Rake.application.run
-diff -Nru v3.2.1/config/application.rb v4.0.2/config/application.rb
---- v3.2.1/config/application.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/config/application.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/application.rb v4.0.2/config/application.rb
+--- v3.2.1/config/application.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/config/application.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -2,12 +2,9 @@
  
  require 'rails/all'
@@ -531,18 +530,18 @@ diff -Nru v3.2.1/config/application.rb v4.0.2/config/application.rb
 -    config.assets.version = '1.0'
    end
  end
-diff -Nru v3.2.1/config/boot.rb v4.0.2/config/boot.rb
---- v3.2.1/config/boot.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/config/boot.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/boot.rb v4.0.2/config/boot.rb
+--- v3.2.1/config/boot.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/config/boot.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -1,5 +1,3 @@
 -require 'rubygems'
 -
  # Set up gems listed in the Gemfile.
  ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
  
-diff -Nru v3.2.1/config/environment.rb v4.0.2/config/environment.rb
---- v3.2.1/config/environment.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/config/environment.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/environment.rb v4.0.2/config/environment.rb
+--- v3.2.1/config/environment.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/config/environment.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -1,5 +1,5 @@
 -# Load the rails application
 +# Load the Rails application.
@@ -551,9 +550,9 @@ diff -Nru v3.2.1/config/environment.rb v4.0.2/config/environment.rb
 -# Initialize the rails application
 +# Initialize the Rails application.
  Railsdiff::Application.initialize!
-diff -Nru v3.2.1/config/environments/development.rb v4.0.2/config/environments/development.rb
---- v3.2.1/config/environments/development.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/config/environments/development.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/environments/development.rb v4.0.2/config/environments/development.rb
+--- v3.2.1/config/environments/development.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/config/environments/development.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -1,37 +1,29 @@
  Railsdiff::Application.configure do
 -  # Settings specified here will take precedence over those in config/application.rb
@@ -603,9 +602,9 @@ diff -Nru v3.2.1/config/environments/development.rb v4.0.2/config/environments/d
 +  # number of complex assets.
    config.assets.debug = true
  end
-diff -Nru v3.2.1/config/environments/production.rb v4.0.2/config/environments/production.rb
---- v3.2.1/config/environments/production.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/config/environments/production.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/environments/production.rb v4.0.2/config/environments/production.rb
+--- v3.2.1/config/environments/production.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/config/environments/production.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -1,67 +1,80 @@
  Railsdiff::Application.configure do
 -  # Settings specified here will take precedence over those in config/application.rb
@@ -714,9 +713,9 @@ diff -Nru v3.2.1/config/environments/production.rb v4.0.2/config/environments/pr
 +  # Use default logging formatter so that PID and timestamp are not suppressed.
 +  config.log_formatter = ::Logger::Formatter.new
  end
-diff -Nru v3.2.1/config/environments/test.rb v4.0.2/config/environments/test.rb
---- v3.2.1/config/environments/test.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/config/environments/test.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/environments/test.rb v4.0.2/config/environments/test.rb
+--- v3.2.1/config/environments/test.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/config/environments/test.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -1,5 +1,5 @@
  Railsdiff::Application.configure do
 -  # Settings specified here will take precedence over those in config/application.rb
@@ -768,17 +767,17 @@ diff -Nru v3.2.1/config/environments/test.rb v4.0.2/config/environments/test.rb
 +  # Print deprecation notices to the stderr.
    config.active_support.deprecation = :stderr
  end
-diff -Nru v3.2.1/config/initializers/filter_parameter_logging.rb v4.0.2/config/initializers/filter_parameter_logging.rb
---- v3.2.1/config/initializers/filter_parameter_logging.rb	1969-12-31 16:00:00.000000000 -0800
-+++ v4.0.2/config/initializers/filter_parameter_logging.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/initializers/filter_parameter_logging.rb v4.0.2/config/initializers/filter_parameter_logging.rb
+--- v3.2.1/config/initializers/filter_parameter_logging.rb	1969-12-31 19:00:00.000000000 -0500
++++ v4.0.2/config/initializers/filter_parameter_logging.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -0,0 +1,4 @@
 +# Be sure to restart your server when you modify this file.
 +
 +# Configure sensitive parameters which will be filtered from the log file.
 +Rails.application.config.filter_parameters += [:password]
-diff -Nru v3.2.1/config/initializers/inflections.rb v4.0.2/config/initializers/inflections.rb
---- v3.2.1/config/initializers/inflections.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/config/initializers/inflections.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/initializers/inflections.rb v4.0.2/config/initializers/inflections.rb
+--- v3.2.1/config/initializers/inflections.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/config/initializers/inflections.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -1,15 +1,16 @@
  # Be sure to restart your server when you modify this file.
  
@@ -801,9 +800,9 @@ diff -Nru v3.2.1/config/initializers/inflections.rb v4.0.2/config/initializers/i
 +# ActiveSupport::Inflector.inflections(:en) do |inflect|
  #   inflect.acronym 'RESTful'
  # end
-diff -Nru v3.2.1/config/initializers/secret_token.rb v4.0.2/config/initializers/secret_token.rb
---- v3.2.1/config/initializers/secret_token.rb	2014-02-21 19:57:05.000000000 -0800
-+++ v4.0.2/config/initializers/secret_token.rb	2014-02-21 19:51:24.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/initializers/secret_token.rb v4.0.2/config/initializers/secret_token.rb
+--- v3.2.1/config/initializers/secret_token.rb	2014-02-21 22:57:05.000000000 -0500
++++ v4.0.2/config/initializers/secret_token.rb	2014-02-21 22:51:24.000000000 -0500
 @@ -1,7 +1,12 @@
  # Be sure to restart your server when you modify this file.
  
@@ -819,9 +818,9 @@ diff -Nru v3.2.1/config/initializers/secret_token.rb v4.0.2/config/initializers/
 +# Make sure your secret_key_base is kept private
 +# if you're sharing your code publicly.
 +Railsdiff::Application.config.secret_key_base = 'your-secret-token'
-diff -Nru v3.2.1/config/initializers/session_store.rb v4.0.2/config/initializers/session_store.rb
---- v3.2.1/config/initializers/session_store.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/config/initializers/session_store.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/initializers/session_store.rb v4.0.2/config/initializers/session_store.rb
+--- v3.2.1/config/initializers/session_store.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/config/initializers/session_store.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -1,8 +1,3 @@
  # Be sure to restart your server when you modify this file.
  
@@ -831,9 +830,9 @@ diff -Nru v3.2.1/config/initializers/session_store.rb v4.0.2/config/initializers
 -# which shouldn't be used to store highly confidential information
 -# (create the session table with "rails generate session_migration")
 -# Railsdiff::Application.config.session_store :active_record_store
-diff -Nru v3.2.1/config/initializers/wrap_parameters.rb v4.0.2/config/initializers/wrap_parameters.rb
---- v3.2.1/config/initializers/wrap_parameters.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/config/initializers/wrap_parameters.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/initializers/wrap_parameters.rb v4.0.2/config/initializers/wrap_parameters.rb
+--- v3.2.1/config/initializers/wrap_parameters.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/config/initializers/wrap_parameters.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -1,14 +1,14 @@
  # Be sure to restart your server when you modify this file.
 -#
@@ -855,9 +854,9 @@ diff -Nru v3.2.1/config/initializers/wrap_parameters.rb v4.0.2/config/initialize
 +# ActiveSupport.on_load(:active_record) do
 +#  self.include_root_in_json = true
 +# end
-diff -Nru v3.2.1/config/locales/en.yml v4.0.2/config/locales/en.yml
---- v3.2.1/config/locales/en.yml	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/config/locales/en.yml	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/locales/en.yml v4.0.2/config/locales/en.yml
+--- v3.2.1/config/locales/en.yml	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/config/locales/en.yml	2013-12-04 00:47:04.000000000 -0500
 @@ -1,5 +1,23 @@
 -# Sample localization file for English. Add more files in this directory for other locales.
 -# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
@@ -884,9 +883,9 @@ diff -Nru v3.2.1/config/locales/en.yml v4.0.2/config/locales/en.yml
  
  en:
    hello: "Hello world"
-diff -Nru v3.2.1/config/routes.rb v4.0.2/config/routes.rb
---- v3.2.1/config/routes.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/config/routes.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config/routes.rb v4.0.2/config/routes.rb
+--- v3.2.1/config/routes.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/config/routes.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -1,19 +1,20 @@
  Railsdiff::Application.routes.draw do
 -  # The priority is based upon order of creation:
@@ -965,24 +964,24 @@ diff -Nru v3.2.1/config/routes.rb v4.0.2/config/routes.rb
 -  # Note: This route will make all actions in every controller accessible via GET requests.
 -  # match ':controller(/:action(/:id))(.:format)'
  end
-diff -Nru v3.2.1/config.ru v4.0.2/config.ru
---- v3.2.1/config.ru	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/config.ru	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/config.ru v4.0.2/config.ru
+--- v3.2.1/config.ru	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/config.ru	2013-12-04 00:47:04.000000000 -0500
 @@ -1,4 +1,4 @@
  # This file is used by Rack-based servers to start the application.
  
  require ::File.expand_path('../config/environment',  __FILE__)
 -run Railsdiff::Application
 +run Rails.application
-diff -Nru v3.2.1/doc/README_FOR_APP v4.0.2/doc/README_FOR_APP
---- v3.2.1/doc/README_FOR_APP	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/doc/README_FOR_APP	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/doc/README_FOR_APP v4.0.2/doc/README_FOR_APP
+--- v3.2.1/doc/README_FOR_APP	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/doc/README_FOR_APP	1969-12-31 19:00:00.000000000 -0500
 @@ -1,2 +0,0 @@
 -Use this README file to introduce your application and point to useful places in the API for learning more.
 -Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
-diff -Nru v3.2.1/public/404.html v4.0.2/public/404.html
---- v3.2.1/public/404.html	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/public/404.html	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/public/404.html v4.0.2/public/404.html
+--- v3.2.1/public/404.html	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/public/404.html	2013-12-04 00:47:04.000000000 -0500
 @@ -2,17 +2,48 @@
  <html>
  <head>
@@ -1050,9 +1049,9 @@ diff -Nru v3.2.1/public/404.html v4.0.2/public/404.html
 +  <p>If you are the application owner check the logs for more information.</p>
  </body>
  </html>
-diff -Nru v3.2.1/public/422.html v4.0.2/public/422.html
---- v3.2.1/public/422.html	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/public/422.html	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/public/422.html v4.0.2/public/422.html
+--- v3.2.1/public/422.html	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/public/422.html	2013-12-04 00:47:04.000000000 -0500
 @@ -2,17 +2,48 @@
  <html>
  <head>
@@ -1120,9 +1119,9 @@ diff -Nru v3.2.1/public/422.html v4.0.2/public/422.html
 +  <p>If you are the application owner check the logs for more information.</p>
  </body>
  </html>
-diff -Nru v3.2.1/public/500.html v4.0.2/public/500.html
---- v3.2.1/public/500.html	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/public/500.html	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/public/500.html v4.0.2/public/500.html
+--- v3.2.1/public/500.html	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/public/500.html	2013-12-04 00:47:04.000000000 -0500
 @@ -2,17 +2,48 @@
  <html>
  <head>
@@ -1190,9 +1189,9 @@ diff -Nru v3.2.1/public/500.html v4.0.2/public/500.html
 +  <p>If you are the application owner check the logs for more information.</p>
  </body>
  </html>
-diff -Nru v3.2.1/public/index.html v4.0.2/public/index.html
---- v3.2.1/public/index.html	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/public/index.html	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/public/index.html v4.0.2/public/index.html
+--- v3.2.1/public/index.html	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/public/index.html	1969-12-31 19:00:00.000000000 -0500
 @@ -1,241 +0,0 @@
 -<!DOCTYPE html>
 -<html>
@@ -1435,9 +1434,9 @@ diff -Nru v3.2.1/public/index.html v4.0.2/public/index.html
 -    </div>
 -  </body>
 -</html>
-diff -Nru v3.2.1/public/robots.txt v4.0.2/public/robots.txt
---- v3.2.1/public/robots.txt	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/public/robots.txt	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/public/robots.txt v4.0.2/public/robots.txt
+--- v3.2.1/public/robots.txt	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/public/robots.txt	2013-12-04 00:47:04.000000000 -0500
 @@ -1,5 +1,5 @@
  # See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
  #
@@ -1445,9 +1444,9 @@ diff -Nru v3.2.1/public/robots.txt v4.0.2/public/robots.txt
 -# User-Agent: *
 +# User-agent: *
  # Disallow: /
-diff -Nru v3.2.1/script/rails v4.0.2/script/rails
---- v3.2.1/script/rails	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/script/rails	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/script/rails v4.0.2/script/rails
+--- v3.2.1/script/rails	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/script/rails	1969-12-31 19:00:00.000000000 -0500
 @@ -1,6 +0,0 @@
 -#!/usr/bin/env ruby
 -# This command will automatically be run when you run "rails" with Rails 3 gems installed from the root of your application.
@@ -1455,9 +1454,9 @@ diff -Nru v3.2.1/script/rails v4.0.2/script/rails
 -APP_PATH = File.expand_path('../../config/application',  __FILE__)
 -require File.expand_path('../../config/boot',  __FILE__)
 -require 'rails/commands'
-diff -Nru v3.2.1/test/performance/browsing_test.rb v4.0.2/test/performance/browsing_test.rb
---- v3.2.1/test/performance/browsing_test.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/test/performance/browsing_test.rb	1969-12-31 16:00:00.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/test/performance/browsing_test.rb v4.0.2/test/performance/browsing_test.rb
+--- v3.2.1/test/performance/browsing_test.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/test/performance/browsing_test.rb	1969-12-31 19:00:00.000000000 -0500
 @@ -1,12 +0,0 @@
 -require 'test_helper'
 -require 'rails/performance_test_help'
@@ -1471,9 +1470,9 @@ diff -Nru v3.2.1/test/performance/browsing_test.rb v4.0.2/test/performance/brows
 -    get '/'
 -  end
 -end
-diff -Nru v3.2.1/test/test_helper.rb v4.0.2/test/test_helper.rb
---- v3.2.1/test/test_helper.rb	2012-07-26 20:33:06.000000000 -0700
-+++ v4.0.2/test/test_helper.rb	2013-12-03 21:47:04.000000000 -0800
+diff -Nru -x '*.png' v3.2.1/test/test_helper.rb v4.0.2/test/test_helper.rb
+--- v3.2.1/test/test_helper.rb	2012-07-26 23:33:06.000000000 -0400
++++ v4.0.2/test/test_helper.rb	2013-12-04 00:47:04.000000000 -0500
 @@ -1,9 +1,11 @@
 -ENV["RAILS_ENV"] = "test"
 +ENV["RAILS_ENV"] ||= "test"

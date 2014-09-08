@@ -1,6 +1,6 @@
-diff -Nr -U 1000 v3.0.4/.gitignore v3.1.10/.gitignore
---- v3.0.4/.gitignore	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/.gitignore	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/.gitignore v3.1.10/.gitignore
+--- v3.0.4/.gitignore	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/.gitignore	2013-01-09 16:48:26.000000000 -0500
 @@ -1,4 +1,15 @@
 -.bundle
 -db/*.sqlite3
@@ -21,9 +21,9 @@ diff -Nr -U 1000 v3.0.4/.gitignore v3.1.10/.gitignore
 +# Ignore all logfiles and tempfiles.
 +/log/*.log
 +/tmp
-diff -Nr -U 1000 v3.0.4/Gemfile v3.1.10/Gemfile
---- v3.0.4/Gemfile	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/Gemfile	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/Gemfile v3.1.10/Gemfile
+--- v3.0.4/Gemfile	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/Gemfile	2013-01-09 16:48:26.000000000 -0500
 @@ -1,31 +1,40 @@
  source 'http://rubygems.org'
  
@@ -83,9 +83,9 @@ diff -Nr -U 1000 v3.0.4/Gemfile v3.1.10/Gemfile
 +  # Pretty printed test output
 +  gem 'turn', '~> 0.8.3', :require => false
 +end
-diff -Nr -U 1000 v3.0.4/README v3.1.10/README
---- v3.0.4/README	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/README	2013-01-09 22:48:25.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/README v3.1.10/README
+--- v3.0.4/README	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/README	2013-01-09 16:48:25.000000000 -0500
 @@ -1,256 +1,261 @@
  == Welcome to Rails
  
@@ -355,9 +355,9 @@ diff -Nr -U 1000 v3.0.4/README v3.1.10/README
    External libraries that the application depends on. Also includes the plugins
    subdirectory. If the app has frozen rails, those gems also go here, under
    vendor/rails/. This directory is in the load path.
-diff -Nr -U 1000 v3.0.4/Rakefile v3.1.10/Rakefile
---- v3.0.4/Rakefile	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/Rakefile	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/Rakefile v3.1.10/Rakefile
+--- v3.0.4/Rakefile	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/Rakefile	2013-01-09 16:48:26.000000000 -0500
 @@ -1,7 +1,7 @@
 +#!/usr/bin/env rake
  # Add your own tasks in files placed in lib/tasks ending in .rake,
@@ -367,10 +367,9 @@ diff -Nr -U 1000 v3.0.4/Rakefile v3.1.10/Rakefile
 -require 'rake'
  
  Railsdiff::Application.load_tasks
-Binary files v3.0.4/app/assets/images/rails.png and v3.1.10/app/assets/images/rails.png differ
-diff -Nr -U 1000 v3.0.4/app/assets/javascripts/application.js v3.1.10/app/assets/javascripts/application.js
---- v3.0.4/app/assets/javascripts/application.js	1970-01-01 01:00:00.000000000 +0100
-+++ v3.1.10/app/assets/javascripts/application.js	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/app/assets/javascripts/application.js v3.1.10/app/assets/javascripts/application.js
+--- v3.0.4/app/assets/javascripts/application.js	1969-12-31 19:00:00.000000000 -0500
++++ v3.1.10/app/assets/javascripts/application.js	2013-01-09 16:48:26.000000000 -0500
 @@ -0,0 +1,9 @@
 +// This is a manifest file that'll be compiled into including all the files listed below.
 +// Add new JavaScript/Coffee code in separate files in this directory and they'll automatically
@@ -381,9 +380,9 @@ diff -Nr -U 1000 v3.0.4/app/assets/javascripts/application.js v3.1.10/app/assets
 +//= require jquery
 +//= require jquery_ujs
 +//= require_tree .
-diff -Nr -U 1000 v3.0.4/app/assets/stylesheets/application.css v3.1.10/app/assets/stylesheets/application.css
---- v3.0.4/app/assets/stylesheets/application.css	1970-01-01 01:00:00.000000000 +0100
-+++ v3.1.10/app/assets/stylesheets/application.css	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/app/assets/stylesheets/application.css v3.1.10/app/assets/stylesheets/application.css
+--- v3.0.4/app/assets/stylesheets/application.css	1969-12-31 19:00:00.000000000 -0500
++++ v3.1.10/app/assets/stylesheets/application.css	2013-01-09 16:48:26.000000000 -0500
 @@ -0,0 +1,7 @@
 +/*
 + * This is a manifest file that'll automatically include all the stylesheets available in this directory
@@ -393,9 +392,9 @@ diff -Nr -U 1000 v3.0.4/app/assets/stylesheets/application.css v3.1.10/app/asset
 + *= require_tree . 
 +*/
 \ No newline at end of file
-diff -Nr -U 1000 v3.0.4/app/views/layouts/application.html.erb v3.1.10/app/views/layouts/application.html.erb
---- v3.0.4/app/views/layouts/application.html.erb	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/app/views/layouts/application.html.erb	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/app/views/layouts/application.html.erb v3.1.10/app/views/layouts/application.html.erb
+--- v3.0.4/app/views/layouts/application.html.erb	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/app/views/layouts/application.html.erb	2013-01-09 16:48:26.000000000 -0500
 @@ -1,14 +1,14 @@
  <!DOCTYPE html>
  <html>
@@ -414,9 +413,9 @@ diff -Nr -U 1000 v3.0.4/app/views/layouts/application.html.erb v3.1.10/app/views
  
  </body>
  </html>
-diff -Nr -U 1000 v3.0.4/config/application.rb v3.1.10/config/application.rb
---- v3.0.4/config/application.rb	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/config/application.rb	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/config/application.rb v3.1.10/config/application.rb
+--- v3.0.4/config/application.rb	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/config/application.rb	2013-01-09 16:48:26.000000000 -0500
 @@ -1,42 +1,48 @@
  require File.expand_path('../boot', __FILE__)
  
@@ -472,9 +471,9 @@ diff -Nr -U 1000 v3.0.4/config/application.rb v3.1.10/config/application.rb
 +    config.assets.version = '1.0'
    end
  end
-diff -Nr -U 1000 v3.0.4/config/database.yml v3.1.10/config/database.yml
---- v3.0.4/config/database.yml	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/config/database.yml	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/config/database.yml v3.1.10/config/database.yml
+--- v3.0.4/config/database.yml	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/config/database.yml	2013-01-09 16:48:26.000000000 -0500
 @@ -1,22 +1,25 @@
  # SQLite version 3.x
  #   gem install sqlite3
@@ -501,9 +500,9 @@ diff -Nr -U 1000 v3.0.4/config/database.yml v3.1.10/config/database.yml
    database: db/production.sqlite3
    pool: 5
    timeout: 5000
-diff -Nr -U 1000 v3.0.4/config/environments/development.rb v3.1.10/config/environments/development.rb
---- v3.0.4/config/environments/development.rb	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/config/environments/development.rb	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/config/environments/development.rb v3.1.10/config/environments/development.rb
+--- v3.0.4/config/environments/development.rb	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/config/environments/development.rb	2013-01-09 16:48:26.000000000 -0500
 @@ -1,26 +1,30 @@
  Railsdiff::Application.configure do
    # Settings specified here will take precedence over those in config/application.rb
@@ -538,9 +537,9 @@ diff -Nr -U 1000 v3.0.4/config/environments/development.rb v3.1.10/config/enviro
 +  # Expands the lines which load the assets
 +  config.assets.debug = true
 +end
-diff -Nr -U 1000 v3.0.4/config/environments/production.rb v3.1.10/config/environments/production.rb
---- v3.0.4/config/environments/production.rb	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/config/environments/production.rb	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/config/environments/production.rb v3.1.10/config/environments/production.rb
+--- v3.0.4/config/environments/production.rb	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/config/environments/production.rb	2013-01-09 16:48:26.000000000 -0500
 @@ -1,49 +1,60 @@
  Railsdiff::Application.configure do
    # Settings specified here will take precedence over those in config/application.rb
@@ -614,9 +613,9 @@ diff -Nr -U 1000 v3.0.4/config/environments/production.rb v3.1.10/config/environ
    # Send deprecation notices to registered listeners
    config.active_support.deprecation = :notify
  end
-diff -Nr -U 1000 v3.0.4/config/environments/test.rb v3.1.10/config/environments/test.rb
---- v3.0.4/config/environments/test.rb	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/config/environments/test.rb	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/config/environments/test.rb v3.1.10/config/environments/test.rb
+--- v3.0.4/config/environments/test.rb	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/config/environments/test.rb	2013-01-09 16:48:26.000000000 -0500
 @@ -1,35 +1,39 @@
  Railsdiff::Application.configure do
    # Settings specified here will take precedence over those in config/application.rb
@@ -658,9 +657,9 @@ diff -Nr -U 1000 v3.0.4/config/environments/test.rb v3.1.10/config/environments/
    # Print deprecation notices to the stderr
    config.active_support.deprecation = :stderr
  end
-diff -Nr -U 1000 v3.0.4/config/initializers/session_store.rb v3.1.10/config/initializers/session_store.rb
---- v3.0.4/config/initializers/session_store.rb	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/config/initializers/session_store.rb	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/config/initializers/session_store.rb v3.1.10/config/initializers/session_store.rb
+--- v3.0.4/config/initializers/session_store.rb	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/config/initializers/session_store.rb	2013-01-09 16:48:26.000000000 -0500
 @@ -1,8 +1,8 @@
  # Be sure to restart your server when you modify this file.
  
@@ -671,9 +670,9 @@ diff -Nr -U 1000 v3.0.4/config/initializers/session_store.rb v3.1.10/config/init
  # which shouldn't be used to store highly confidential information
  # (create the session table with "rails generate session_migration")
  # Railsdiff::Application.config.session_store :active_record_store
-diff -Nr -U 1000 v3.0.4/config/initializers/wrap_parameters.rb v3.1.10/config/initializers/wrap_parameters.rb
---- v3.0.4/config/initializers/wrap_parameters.rb	1970-01-01 01:00:00.000000000 +0100
-+++ v3.1.10/config/initializers/wrap_parameters.rb	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/config/initializers/wrap_parameters.rb v3.1.10/config/initializers/wrap_parameters.rb
+--- v3.0.4/config/initializers/wrap_parameters.rb	1969-12-31 19:00:00.000000000 -0500
++++ v3.1.10/config/initializers/wrap_parameters.rb	2013-01-09 16:48:26.000000000 -0500
 @@ -0,0 +1,14 @@
 +# Be sure to restart your server when you modify this file.
 +#
@@ -689,9 +688,9 @@ diff -Nr -U 1000 v3.0.4/config/initializers/wrap_parameters.rb v3.1.10/config/in
 +ActiveSupport.on_load(:active_record) do
 +  self.include_root_in_json = false
 +end
-diff -Nr -U 1000 v3.0.4/config/locales/en.yml v3.1.10/config/locales/en.yml
---- v3.0.4/config/locales/en.yml	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/config/locales/en.yml	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/config/locales/en.yml v3.1.10/config/locales/en.yml
+--- v3.0.4/config/locales/en.yml	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/config/locales/en.yml	2013-01-09 16:48:26.000000000 -0500
 @@ -1,5 +1,5 @@
  # Sample localization file for English. Add more files in this directory for other locales.
 -# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
@@ -699,9 +698,9 @@ diff -Nr -U 1000 v3.0.4/config/locales/en.yml v3.1.10/config/locales/en.yml
  
  en:
    hello: "Hello world"
-diff -Nr -U 1000 v3.0.4/config/routes.rb v3.1.10/config/routes.rb
---- v3.0.4/config/routes.rb	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/config/routes.rb	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/config/routes.rb v3.1.10/config/routes.rb
+--- v3.0.4/config/routes.rb	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/config/routes.rb	2013-01-09 16:48:26.000000000 -0500
 @@ -1,58 +1,58 @@
  Railsdiff::Application.routes.draw do
    # The priority is based upon order of creation:
@@ -762,9 +761,9 @@ diff -Nr -U 1000 v3.0.4/config/routes.rb v3.1.10/config/routes.rb
    # Note: This route will make all actions in every controller accessible via GET requests.
    # match ':controller(/:action(/:id(.:format)))'
  end
-diff -Nr -U 1000 v3.0.4/db/seeds.rb v3.1.10/db/seeds.rb
---- v3.0.4/db/seeds.rb	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/db/seeds.rb	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/db/seeds.rb v3.1.10/db/seeds.rb
+--- v3.0.4/db/seeds.rb	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/db/seeds.rb	2013-01-09 16:48:26.000000000 -0500
 @@ -1,7 +1,7 @@
  # This file should contain all the record creation needed to seed the database with its default values.
  # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
@@ -775,10 +774,9 @@ diff -Nr -U 1000 v3.0.4/db/seeds.rb v3.1.10/db/seeds.rb
 -#   Mayor.create(:name => 'Daley', :city => cities.first)
 +#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 +#   Mayor.create(name: 'Emanuel', city: cities.first)
-Binary files v3.0.4/public/images/rails.png and v3.1.10/public/images/rails.png differ
-diff -Nr -U 1000 v3.0.4/public/index.html v3.1.10/public/index.html
---- v3.0.4/public/index.html	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/public/index.html	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/public/index.html v3.1.10/public/index.html
+--- v3.0.4/public/index.html	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/public/index.html	2013-01-09 16:48:26.000000000 -0500
 @@ -1,239 +1,241 @@
  <!DOCTYPE html>
  <html>
@@ -1029,15 +1027,15 @@ diff -Nr -U 1000 v3.0.4/public/index.html v3.1.10/public/index.html
      </div>
    </body>
  </html>
-diff -Nr -U 1000 v3.0.4/public/javascripts/application.js v3.1.10/public/javascripts/application.js
---- v3.0.4/public/javascripts/application.js	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/public/javascripts/application.js	1970-01-01 01:00:00.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/public/javascripts/application.js v3.1.10/public/javascripts/application.js
+--- v3.0.4/public/javascripts/application.js	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/public/javascripts/application.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,2 +0,0 @@
 -// Place your application-specific JavaScript functions and classes here
 -// This file is automatically included by javascript_include_tag :defaults
-diff -Nr -U 1000 v3.0.4/public/javascripts/controls.js v3.1.10/public/javascripts/controls.js
---- v3.0.4/public/javascripts/controls.js	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/public/javascripts/controls.js	1970-01-01 01:00:00.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/public/javascripts/controls.js v3.1.10/public/javascripts/controls.js
+--- v3.0.4/public/javascripts/controls.js	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/public/javascripts/controls.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,965 +0,0 @@
 -// script.aculo.us controls.js v1.8.3, Thu Oct 08 11:23:33 +0200 2009
 -
@@ -2005,9 +2003,9 @@ diff -Nr -U 1000 v3.0.4/public/javascripts/controls.js v3.1.10/public/javascript
 -  }
 -});
 \ No newline at end of file
-diff -Nr -U 1000 v3.0.4/public/javascripts/dragdrop.js v3.1.10/public/javascripts/dragdrop.js
---- v3.0.4/public/javascripts/dragdrop.js	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/public/javascripts/dragdrop.js	1970-01-01 01:00:00.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/public/javascripts/dragdrop.js v3.1.10/public/javascripts/dragdrop.js
+--- v3.0.4/public/javascripts/dragdrop.js	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/public/javascripts/dragdrop.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,974 +0,0 @@
 -// script.aculo.us dragdrop.js v1.8.3, Thu Oct 08 11:23:33 +0200 2009
 -
@@ -2984,9 +2982,9 @@ diff -Nr -U 1000 v3.0.4/public/javascripts/dragdrop.js v3.1.10/public/javascript
 -  return element['offset' + ((type=='vertical' || type=='height') ? 'Height' : 'Width')];
 -};
 \ No newline at end of file
-diff -Nr -U 1000 v3.0.4/public/javascripts/effects.js v3.1.10/public/javascripts/effects.js
---- v3.0.4/public/javascripts/effects.js	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/public/javascripts/effects.js	1970-01-01 01:00:00.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/public/javascripts/effects.js v3.1.10/public/javascripts/effects.js
+--- v3.0.4/public/javascripts/effects.js	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/public/javascripts/effects.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,1123 +0,0 @@
 -// script.aculo.us effects.js v1.8.3, Thu Oct 08 11:23:33 +0200 2009
 -
@@ -4112,9 +4110,9 @@ diff -Nr -U 1000 v3.0.4/public/javascripts/effects.js v3.1.10/public/javascripts
 -
 -Element.addMethods(Effect.Methods);
 \ No newline at end of file
-diff -Nr -U 1000 v3.0.4/public/javascripts/prototype.js v3.1.10/public/javascripts/prototype.js
---- v3.0.4/public/javascripts/prototype.js	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/public/javascripts/prototype.js	1970-01-01 01:00:00.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/public/javascripts/prototype.js v3.1.10/public/javascripts/prototype.js
+--- v3.0.4/public/javascripts/prototype.js	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/public/javascripts/prototype.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,6001 +0,0 @@
 -/*  Prototype JavaScript framework, version 1.7_rc2
 - *  (c) 2005-2010 Sam Stephenson
@@ -10117,9 +10115,9 @@ diff -Nr -U 1000 v3.0.4/public/javascripts/prototype.js v3.1.10/public/javascrip
 -    }
 -  });
 -})();
-diff -Nr -U 1000 v3.0.4/public/javascripts/rails.js v3.1.10/public/javascripts/rails.js
---- v3.0.4/public/javascripts/rails.js	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/public/javascripts/rails.js	1970-01-01 01:00:00.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/public/javascripts/rails.js v3.1.10/public/javascripts/rails.js
+--- v3.0.4/public/javascripts/rails.js	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/public/javascripts/rails.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,191 +0,0 @@
 -(function() {
 -  // Technique from Juriy Zaytsev
@@ -10312,9 +10310,9 @@ diff -Nr -U 1000 v3.0.4/public/javascripts/rails.js v3.1.10/public/javascripts/r
 -    }
 -  });
 -})();
-diff -Nr -U 1000 v3.0.4/test/performance/browsing_test.rb v3.1.10/test/performance/browsing_test.rb
---- v3.0.4/test/performance/browsing_test.rb	2012-08-01 15:40:48.000000000 +0200
-+++ v3.1.10/test/performance/browsing_test.rb	2013-01-09 22:48:26.000000000 +0100
+diff -Nr -U 1000 -x '*.png' v3.0.4/test/performance/browsing_test.rb v3.1.10/test/performance/browsing_test.rb
+--- v3.0.4/test/performance/browsing_test.rb	2012-08-01 09:40:48.000000000 -0400
++++ v3.1.10/test/performance/browsing_test.rb	2013-01-09 16:48:26.000000000 -0500
 @@ -1,9 +1,12 @@
  require 'test_helper'
  require 'rails/performance_test_help'

@@ -4641,6 +4641,8 @@ http://railsdiff.org/diff/v3.1.7/v3.2.9/full/index.html
 http://railsdiff.org/diff/v3.1.7/v3.2.9/index.html
 http://railsdiff.org/diff/v3.1.7/v4.0.0/full/index.html
 http://railsdiff.org/diff/v3.1.7/v4.0.0/index.html
+http://railsdiff.org/diff/v3.1.7/v4.0.0.rc1/full/index.html
+http://railsdiff.org/diff/v3.1.7/v4.0.0.rc1/index.html
 http://railsdiff.org/diff/v3.1.7/v4.0.1/full/index.html
 http://railsdiff.org/diff/v3.1.7/v4.0.1/index.html
 http://railsdiff.org/diff/v3.1.7/v4.0.2/full/index.html
@@ -5143,6 +5145,8 @@ http://railsdiff.org/diff/v3.2.11/v3.2.19/full/index.html
 http://railsdiff.org/diff/v3.2.11/v3.2.19/index.html
 http://railsdiff.org/diff/v3.2.11/v4.0.0/full/index.html
 http://railsdiff.org/diff/v3.2.11/v4.0.0/index.html
+http://railsdiff.org/diff/v3.2.11/v4.0.0.beta1/full/index.html
+http://railsdiff.org/diff/v3.2.11/v4.0.0.beta1/index.html
 http://railsdiff.org/diff/v3.2.11/v4.0.1/full/index.html
 http://railsdiff.org/diff/v3.2.11/v4.0.1/index.html
 http://railsdiff.org/diff/v3.2.11/v4.0.2/full/index.html
@@ -5271,6 +5275,8 @@ http://railsdiff.org/diff/v3.2.13/v4.0.0/full/index.html
 http://railsdiff.org/diff/v3.2.13/v4.0.0/index.html
 http://railsdiff.org/diff/v3.2.13/v4.0.1/full/index.html
 http://railsdiff.org/diff/v3.2.13/v4.0.1/index.html
+http://railsdiff.org/diff/v3.2.13/v4.0.1.rc1/full/index.html
+http://railsdiff.org/diff/v3.2.13/v4.0.1.rc1/index.html
 http://railsdiff.org/diff/v3.2.13/v4.0.2/full/index.html
 http://railsdiff.org/diff/v3.2.13/v4.0.2/index.html
 http://railsdiff.org/diff/v3.2.13/v4.0.3/full/index.html
@@ -5825,6 +5831,8 @@ http://railsdiff.org/diff/v3.2.4/v4.0.0/full/index.html
 http://railsdiff.org/diff/v3.2.4/v4.0.0/index.html
 http://railsdiff.org/diff/v3.2.4/v4.0.1/full/index.html
 http://railsdiff.org/diff/v3.2.4/v4.0.1/index.html
+http://railsdiff.org/diff/v3.2.4/v4.0.1.rc3/full/index.html
+http://railsdiff.org/diff/v3.2.4/v4.0.1.rc3/index.html
 http://railsdiff.org/diff/v3.2.4/v4.0.2/full/index.html
 http://railsdiff.org/diff/v3.2.4/v4.0.2/index.html
 http://railsdiff.org/diff/v3.2.4/v4.0.3/full/index.html
@@ -6123,6 +6131,8 @@ http://railsdiff.org/diff/v3.2.8/v3.2.9/full/index.html
 http://railsdiff.org/diff/v3.2.8/v3.2.9/index.html
 http://railsdiff.org/diff/v3.2.8/v4.0.0/full/index.html
 http://railsdiff.org/diff/v3.2.8/v4.0.0/index.html
+http://railsdiff.org/diff/v3.2.8/v4.0.0.rc2/full/index.html
+http://railsdiff.org/diff/v3.2.8/v4.0.0.rc2/index.html
 http://railsdiff.org/diff/v3.2.8/v4.0.1/full/index.html
 http://railsdiff.org/diff/v3.2.8/v4.0.1/index.html
 http://railsdiff.org/diff/v3.2.8/v4.0.2/full/index.html

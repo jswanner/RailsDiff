@@ -1,4 +1,4 @@
-diff -Nru v3.0.3/.gitignore v3.1.12/.gitignore
+diff -Nru -x '*.png' v3.0.3/.gitignore v3.1.12/.gitignore
 --- v3.0.3/.gitignore	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/.gitignore	2013-03-18 13:30:24.000000000 -0400
 @@ -1,4 +1,15 @@
@@ -21,7 +21,7 @@ diff -Nru v3.0.3/.gitignore v3.1.12/.gitignore
 +# Ignore all logfiles and tempfiles.
 +/log/*.log
 +/tmp
-diff -Nru v3.0.3/Gemfile v3.1.12/Gemfile
+diff -Nru -x '*.png' v3.0.3/Gemfile v3.1.12/Gemfile
 --- v3.0.3/Gemfile	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/Gemfile	2013-03-18 13:30:24.000000000 -0400
 @@ -1,11 +1,29 @@
@@ -84,7 +84,7 @@ diff -Nru v3.0.3/Gemfile v3.1.12/Gemfile
 +  # Pretty printed test output
 +  gem 'turn', '~> 0.8.3', :require => false
 +end
-diff -Nru v3.0.3/README v3.1.12/README
+diff -Nru -x '*.png' v3.0.3/README v3.1.12/README
 --- v3.0.3/README	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/README	2013-03-18 13:30:24.000000000 -0400
 @@ -91,7 +91,7 @@
@@ -153,7 +153,7 @@ diff -Nru v3.0.3/README v3.1.12/README
    default HTML files. This should be set as the DOCUMENT_ROOT of your web
    server.
  
-diff -Nru v3.0.3/Rakefile v3.1.12/Rakefile
+diff -Nru -x '*.png' v3.0.3/Rakefile v3.1.12/Rakefile
 --- v3.0.3/Rakefile	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/Rakefile	2013-03-18 13:30:24.000000000 -0400
 @@ -1,7 +1,7 @@
@@ -165,8 +165,7 @@ diff -Nru v3.0.3/Rakefile v3.1.12/Rakefile
 -require 'rake'
  
  Railsdiff::Application.load_tasks
-Binary files v3.0.3/app/assets/images/rails.png and v3.1.12/app/assets/images/rails.png differ
-diff -Nru v3.0.3/app/assets/javascripts/application.js v3.1.12/app/assets/javascripts/application.js
+diff -Nru -x '*.png' v3.0.3/app/assets/javascripts/application.js v3.1.12/app/assets/javascripts/application.js
 --- v3.0.3/app/assets/javascripts/application.js	1969-12-31 19:00:00.000000000 -0500
 +++ v3.1.12/app/assets/javascripts/application.js	2013-03-18 13:30:24.000000000 -0400
 @@ -0,0 +1,9 @@
@@ -179,7 +178,7 @@ diff -Nru v3.0.3/app/assets/javascripts/application.js v3.1.12/app/assets/javasc
 +//= require jquery
 +//= require jquery_ujs
 +//= require_tree .
-diff -Nru v3.0.3/app/assets/stylesheets/application.css v3.1.12/app/assets/stylesheets/application.css
+diff -Nru -x '*.png' v3.0.3/app/assets/stylesheets/application.css v3.1.12/app/assets/stylesheets/application.css
 --- v3.0.3/app/assets/stylesheets/application.css	1969-12-31 19:00:00.000000000 -0500
 +++ v3.1.12/app/assets/stylesheets/application.css	2013-03-18 13:30:24.000000000 -0400
 @@ -0,0 +1,7 @@
@@ -191,7 +190,7 @@ diff -Nru v3.0.3/app/assets/stylesheets/application.css v3.1.12/app/assets/style
 + *= require_tree . 
 +*/
 \ No newline at end of file
-diff -Nru v3.0.3/app/views/layouts/application.html.erb v3.1.12/app/views/layouts/application.html.erb
+diff -Nru -x '*.png' v3.0.3/app/views/layouts/application.html.erb v3.1.12/app/views/layouts/application.html.erb
 --- v3.0.3/app/views/layouts/application.html.erb	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/app/views/layouts/application.html.erb	2013-03-18 13:30:24.000000000 -0400
 @@ -2,9 +2,9 @@
@@ -207,7 +206,7 @@ diff -Nru v3.0.3/app/views/layouts/application.html.erb v3.1.12/app/views/layout
  </head>
  <body>
  
-diff -Nru v3.0.3/config/application.rb v3.1.12/config/application.rb
+diff -Nru -x '*.png' v3.0.3/config/application.rb v3.1.12/config/application.rb
 --- v3.0.3/config/application.rb	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/config/application.rb	2013-03-18 13:30:24.000000000 -0400
 @@ -2,9 +2,12 @@
@@ -246,7 +245,7 @@ diff -Nru v3.0.3/config/application.rb v3.1.12/config/application.rb
 +    config.assets.version = '1.0'
    end
  end
-diff -Nru v3.0.3/config/boot.rb v3.1.12/config/boot.rb
+diff -Nru -x '*.png' v3.0.3/config/boot.rb v3.1.12/config/boot.rb
 --- v3.0.3/config/boot.rb	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/config/boot.rb	2013-03-18 13:30:24.000000000 -0400
 @@ -1,13 +1,6 @@
@@ -266,7 +265,7 @@ diff -Nru v3.0.3/config/boot.rb v3.1.12/config/boot.rb
 +ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 +
 +require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
-diff -Nru v3.0.3/config/database.yml v3.1.12/config/database.yml
+diff -Nru -x '*.png' v3.0.3/config/database.yml v3.1.12/config/database.yml
 --- v3.0.3/config/database.yml	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/config/database.yml	2013-03-18 13:30:24.000000000 -0400
 @@ -1,5 +1,8 @@
@@ -279,7 +278,7 @@ diff -Nru v3.0.3/config/database.yml v3.1.12/config/database.yml
  development:
    adapter: sqlite3
    database: db/development.sqlite3
-diff -Nru v3.0.3/config/environments/development.rb v3.1.12/config/environments/development.rb
+diff -Nru -x '*.png' v3.0.3/config/environments/development.rb v3.1.12/config/environments/development.rb
 --- v3.0.3/config/environments/development.rb	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/config/environments/development.rb	2013-03-18 13:30:24.000000000 -0400
 @@ -3,7 +3,7 @@
@@ -311,7 +310,7 @@ diff -Nru v3.0.3/config/environments/development.rb v3.1.12/config/environments/
 +  # Expands the lines which load the assets
 +  config.assets.debug = true
 +end
-diff -Nru v3.0.3/config/environments/production.rb v3.1.12/config/environments/production.rb
+diff -Nru -x '*.png' v3.0.3/config/environments/production.rb v3.1.12/config/environments/production.rb
 --- v3.0.3/config/environments/production.rb	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/config/environments/production.rb	2013-03-18 13:30:24.000000000 -0400
 @@ -1,7 +1,6 @@
@@ -374,7 +373,7 @@ diff -Nru v3.0.3/config/environments/production.rb v3.1.12/config/environments/p
    # Disable delivery errors, bad email addresses will be ignored
    # config.action_mailer.raise_delivery_errors = false
  
-diff -Nru v3.0.3/config/environments/test.rb v3.1.12/config/environments/test.rb
+diff -Nru -x '*.png' v3.0.3/config/environments/test.rb v3.1.12/config/environments/test.rb
 --- v3.0.3/config/environments/test.rb	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/config/environments/test.rb	2013-03-18 13:30:24.000000000 -0400
 @@ -7,7 +7,11 @@
@@ -390,7 +389,7 @@ diff -Nru v3.0.3/config/environments/test.rb v3.1.12/config/environments/test.rb
    config.whiny_nils = true
  
    # Show full error reports and disable caching
-diff -Nru v3.0.3/config/initializers/session_store.rb v3.1.12/config/initializers/session_store.rb
+diff -Nru -x '*.png' v3.0.3/config/initializers/session_store.rb v3.1.12/config/initializers/session_store.rb
 --- v3.0.3/config/initializers/session_store.rb	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/config/initializers/session_store.rb	2013-03-18 13:30:24.000000000 -0400
 @@ -1,6 +1,6 @@
@@ -401,7 +400,7 @@ diff -Nru v3.0.3/config/initializers/session_store.rb v3.1.12/config/initializer
  
  # Use the database for sessions instead of the cookie-based default,
  # which shouldn't be used to store highly confidential information
-diff -Nru v3.0.3/config/initializers/wrap_parameters.rb v3.1.12/config/initializers/wrap_parameters.rb
+diff -Nru -x '*.png' v3.0.3/config/initializers/wrap_parameters.rb v3.1.12/config/initializers/wrap_parameters.rb
 --- v3.0.3/config/initializers/wrap_parameters.rb	1969-12-31 19:00:00.000000000 -0500
 +++ v3.1.12/config/initializers/wrap_parameters.rb	2013-03-18 13:30:24.000000000 -0400
 @@ -0,0 +1,14 @@
@@ -419,7 +418,7 @@ diff -Nru v3.0.3/config/initializers/wrap_parameters.rb v3.1.12/config/initializ
 +ActiveSupport.on_load(:active_record) do
 +  self.include_root_in_json = false
 +end
-diff -Nru v3.0.3/config/locales/en.yml v3.1.12/config/locales/en.yml
+diff -Nru -x '*.png' v3.0.3/config/locales/en.yml v3.1.12/config/locales/en.yml
 --- v3.0.3/config/locales/en.yml	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/config/locales/en.yml	2013-03-18 13:30:24.000000000 -0400
 @@ -1,5 +1,5 @@
@@ -429,7 +428,7 @@ diff -Nru v3.0.3/config/locales/en.yml v3.1.12/config/locales/en.yml
  
  en:
    hello: "Hello world"
-diff -Nru v3.0.3/config/routes.rb v3.1.12/config/routes.rb
+diff -Nru -x '*.png' v3.0.3/config/routes.rb v3.1.12/config/routes.rb
 --- v3.0.3/config/routes.rb	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/config/routes.rb	2013-03-18 13:30:24.000000000 -0400
 @@ -48,7 +48,7 @@
@@ -441,7 +440,7 @@ diff -Nru v3.0.3/config/routes.rb v3.1.12/config/routes.rb
  
    # See how all your routes lay out with "rake routes"
  
-diff -Nru v3.0.3/db/seeds.rb v3.1.12/db/seeds.rb
+diff -Nru -x '*.png' v3.0.3/db/seeds.rb v3.1.12/db/seeds.rb
 --- v3.0.3/db/seeds.rb	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/db/seeds.rb	2013-03-18 13:30:24.000000000 -0400
 @@ -3,5 +3,5 @@
@@ -452,8 +451,7 @@ diff -Nru v3.0.3/db/seeds.rb v3.1.12/db/seeds.rb
 -#   Mayor.create(:name => 'Daley', :city => cities.first)
 +#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 +#   Mayor.create(name: 'Emanuel', city: cities.first)
-Binary files v3.0.3/public/images/rails.png and v3.1.12/public/images/rails.png differ
-diff -Nru v3.0.3/public/index.html v3.1.12/public/index.html
+diff -Nru -x '*.png' v3.0.3/public/index.html v3.1.12/public/index.html
 --- v3.0.3/public/index.html	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/public/index.html	2013-03-18 13:30:24.000000000 -0400
 @@ -52,7 +52,6 @@
@@ -514,13 +512,13 @@ diff -Nru v3.0.3/public/index.html v3.1.12/public/index.html
              </li>
            </ol>
          </div>
-diff -Nru v3.0.3/public/javascripts/application.js v3.1.12/public/javascripts/application.js
+diff -Nru -x '*.png' v3.0.3/public/javascripts/application.js v3.1.12/public/javascripts/application.js
 --- v3.0.3/public/javascripts/application.js	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/public/javascripts/application.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,2 +0,0 @@
 -// Place your application-specific JavaScript functions and classes here
 -// This file is automatically included by javascript_include_tag :defaults
-diff -Nru v3.0.3/public/javascripts/controls.js v3.1.12/public/javascripts/controls.js
+diff -Nru -x '*.png' v3.0.3/public/javascripts/controls.js v3.1.12/public/javascripts/controls.js
 --- v3.0.3/public/javascripts/controls.js	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/public/javascripts/controls.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,965 +0,0 @@
@@ -1490,7 +1488,7 @@ diff -Nru v3.0.3/public/javascripts/controls.js v3.1.12/public/javascripts/contr
 -  }
 -});
 \ No newline at end of file
-diff -Nru v3.0.3/public/javascripts/dragdrop.js v3.1.12/public/javascripts/dragdrop.js
+diff -Nru -x '*.png' v3.0.3/public/javascripts/dragdrop.js v3.1.12/public/javascripts/dragdrop.js
 --- v3.0.3/public/javascripts/dragdrop.js	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/public/javascripts/dragdrop.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,974 +0,0 @@
@@ -2469,7 +2467,7 @@ diff -Nru v3.0.3/public/javascripts/dragdrop.js v3.1.12/public/javascripts/dragd
 -  return element['offset' + ((type=='vertical' || type=='height') ? 'Height' : 'Width')];
 -};
 \ No newline at end of file
-diff -Nru v3.0.3/public/javascripts/effects.js v3.1.12/public/javascripts/effects.js
+diff -Nru -x '*.png' v3.0.3/public/javascripts/effects.js v3.1.12/public/javascripts/effects.js
 --- v3.0.3/public/javascripts/effects.js	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/public/javascripts/effects.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,1123 +0,0 @@
@@ -3597,7 +3595,7 @@ diff -Nru v3.0.3/public/javascripts/effects.js v3.1.12/public/javascripts/effect
 -
 -Element.addMethods(Effect.Methods);
 \ No newline at end of file
-diff -Nru v3.0.3/public/javascripts/prototype.js v3.1.12/public/javascripts/prototype.js
+diff -Nru -x '*.png' v3.0.3/public/javascripts/prototype.js v3.1.12/public/javascripts/prototype.js
 --- v3.0.3/public/javascripts/prototype.js	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/public/javascripts/prototype.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,6001 +0,0 @@
@@ -9602,7 +9600,7 @@ diff -Nru v3.0.3/public/javascripts/prototype.js v3.1.12/public/javascripts/prot
 -    }
 -  });
 -})();
-diff -Nru v3.0.3/public/javascripts/rails.js v3.1.12/public/javascripts/rails.js
+diff -Nru -x '*.png' v3.0.3/public/javascripts/rails.js v3.1.12/public/javascripts/rails.js
 --- v3.0.3/public/javascripts/rails.js	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/public/javascripts/rails.js	1969-12-31 19:00:00.000000000 -0500
 @@ -1,175 +0,0 @@
@@ -9781,7 +9779,7 @@ diff -Nru v3.0.3/public/javascripts/rails.js v3.1.12/public/javascripts/rails.js
 -    });
 -  });
 -})();
-diff -Nru v3.0.3/test/performance/browsing_test.rb v3.1.12/test/performance/browsing_test.rb
+diff -Nru -x '*.png' v3.0.3/test/performance/browsing_test.rb v3.1.12/test/performance/browsing_test.rb
 --- v3.0.3/test/performance/browsing_test.rb	2012-08-01 09:40:43.000000000 -0400
 +++ v3.1.12/test/performance/browsing_test.rb	2013-03-18 13:30:24.000000000 -0400
 @@ -1,8 +1,11 @@
