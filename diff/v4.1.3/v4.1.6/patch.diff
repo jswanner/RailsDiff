@@ -1,0 +1,35 @@
+diff -Nru -x '*.png' v4.1.3/Gemfile v4.1.6/Gemfile
+--- v4.1.3/Gemfile	2014-07-02 13:31:03.000000000 -0400
++++ v4.1.6/Gemfile	2014-09-11 14:00:08.000000000 -0400
+@@ -2,7 +2,7 @@
+ 
+ 
+ # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+-gem 'rails', '4.1.3'
++gem 'rails', '4.1.6'
+ # Use sqlite3 as the database for Active Record
+ gem 'sqlite3'
+ # Use SCSS for stylesheets
+diff -Nru -x '*.png' v4.1.3/config/environments/production.rb v4.1.6/config/environments/production.rb
+--- v4.1.3/config/environments/production.rb	2014-07-02 13:31:03.000000000 -0400
++++ v4.1.6/config/environments/production.rb	2014-09-11 14:00:08.000000000 -0400
+@@ -32,7 +32,7 @@
+   # Generate digests for assets URLs.
+   config.assets.digest = true
+ 
+-  # `config.assets.precompile` has moved to config/initializers/assets.rb
++  # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
+ 
+   # Specifies the header that your server uses for sending files.
+   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
+@@ -56,10 +56,6 @@
+   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+   # config.action_controller.asset_host = "http://assets.example.com"
+ 
+-  # Precompile additional assets.
+-  # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+-  # config.assets.precompile += %w( search.js )
+-
+   # Ignore bad email addresses and do not raise email delivery errors.
+   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+   # config.action_mailer.raise_delivery_errors = false
