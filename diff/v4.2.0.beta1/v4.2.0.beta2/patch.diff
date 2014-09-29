@@ -1,0 +1,129 @@
+diff -Nru -x '*.png' v4.2.0.beta1/Gemfile v4.2.0.beta2/Gemfile
+--- v4.2.0.beta1/Gemfile	2014-08-20 11:07:18.000000000 -0400
++++ v4.2.0.beta2/Gemfile	2014-09-29 13:48:45.000000000 -0400
+@@ -2,7 +2,7 @@
+ 
+ 
+ # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+-gem 'rails', '4.2.0.beta1'
++gem 'rails', '4.2.0.beta2'
+ # Use sqlite3 as the database for Active Record
+ gem 'sqlite3'
+ # Use SCSS for stylesheets
+@@ -14,8 +14,8 @@
+ # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+ # gem 'therubyracer', platforms: :ruby
+ 
+-# Use jquery as the JavaScript library
+-gem 'jquery-rails'
++# Use jQuery as the JavaScript library
++gem 'jquery-rails', '~> 4.0.0.beta2'
+ # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+ gem 'turbolinks'
+ # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+@@ -26,9 +26,6 @@
+ # Use ActiveModel has_secure_password
+ # gem 'bcrypt', '~> 3.1.7'
+ 
+-# Use Rails Html Sanitizer for HTML sanitization
+-gem 'rails-html-sanitizer', '~> 1.0'
+-
+ # Use Unicorn as the app server
+ # gem 'unicorn'
+ 
+@@ -39,8 +36,8 @@
+   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
+   gem 'byebug'
+ 
+-  # Access an IRB console on exceptions page and /console in development
+-  gem 'web-console', '~> 2.0.0.beta2'
++  # Access an IRB console on exception pages or by using <%= console %> in views
++  gem 'web-console', '~> 2.0.0.beta4'
+ 
+   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+   gem 'spring'
+diff -Nru -x '*.png' v4.2.0.beta1/config/application.rb v4.2.0.beta2/config/application.rb
+--- v4.2.0.beta1/config/application.rb	2014-08-20 11:07:18.000000000 -0400
++++ v4.2.0.beta2/config/application.rb	2014-09-29 13:48:45.000000000 -0400
+@@ -20,7 +20,7 @@
+     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+     # config.i18n.default_locale = :de
+ 
+-    # For not swallow errors in after_commit/after_rollback callbacks.
++    # Do not swallow errors in after_commit/after_rollback callbacks.
+     config.active_record.raise_in_transactional_callbacks = true
+   end
+ end
+diff -Nru -x '*.png' v4.2.0.beta1/config/environments/development.rb v4.2.0.beta2/config/environments/development.rb
+--- v4.2.0.beta1/config/environments/development.rb	2014-08-20 11:07:18.000000000 -0400
++++ v4.2.0.beta2/config/environments/development.rb	2014-09-29 13:48:45.000000000 -0400
+@@ -27,7 +27,7 @@
+   # number of complex assets.
+   config.assets.debug = true
+ 
+-  # Asset digests allow you to set far-future HTTP expiration dates on all assets, 
++  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+   # yet still be able to expire them through the digest params.
+   config.assets.digest = true
+ 
+diff -Nru -x '*.png' v4.2.0.beta1/config/environments/production.rb v4.2.0.beta2/config/environments/production.rb
+--- v4.2.0.beta1/config/environments/production.rb	2014-08-20 11:07:18.000000000 -0400
++++ v4.2.0.beta2/config/environments/production.rb	2014-09-29 13:48:45.000000000 -0400
+@@ -16,7 +16,8 @@
+ 
+   # Enable Rack::Cache to put a simple HTTP cache in front of your application
+   # Add `rack-cache` to your Gemfile before enabling this.
+-  # For large-scale production use, consider using a caching reverse proxy like NGINX, varnish or squid.
++  # For large-scale production use, consider using a caching reverse proxy like
++  # NGINX, varnish or squid.
+   # config.action_dispatch.rack_cache = true
+ 
+   # Disable Rails's static asset server (Apache or NGINX will already do this).
+@@ -29,21 +30,21 @@
+   # Do not fallback to assets pipeline if a precompiled asset is missed.
+   config.assets.compile = false
+ 
+-  # Asset digests allow you to set far-future HTTP expiration dates on all assets, 
++  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+   # yet still be able to expire them through the digest params.
+   config.assets.digest = true
+ 
+   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
+ 
+   # Specifies the header that your server uses for sending files.
+-  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
++  # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
+   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
+ 
+   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+   # config.force_ssl = true
+ 
+-  # Set to :info to decrease the log volume.
+-  config.log_level = :debug
++  # Decrease the log volume.
++  # config.log_level = :info
+ 
+   # Prepend all log lines with the following tags.
+   # config.log_tags = [ :subdomain, :uuid ]
+@@ -55,7 +56,7 @@
+   # config.cache_store = :mem_cache_store
+ 
+   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+-  # config.action_controller.asset_host = "http://assets.example.com"
++  # config.action_controller.asset_host = 'http://assets.example.com'
+ 
+   # Ignore bad email addresses and do not raise email delivery errors.
+   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+diff -Nru -x '*.png' v4.2.0.beta1/config/environments/test.rb v4.2.0.beta2/config/environments/test.rb
+--- v4.2.0.beta1/config/environments/test.rb	2014-08-20 11:07:18.000000000 -0400
++++ v4.2.0.beta2/config/environments/test.rb	2014-09-29 13:48:45.000000000 -0400
+@@ -31,6 +31,9 @@
+   # ActionMailer::Base.deliveries array.
+   config.action_mailer.delivery_method = :test
+ 
++  # Randomize the order test cases are executed
++  config.active_support.test_order = :random
++
+   # Print deprecation notices to the stderr.
+   config.active_support.deprecation = :stderr
+ 
