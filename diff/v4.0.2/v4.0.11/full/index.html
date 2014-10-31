@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v4.0.2 - v4.0.11 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet'>
+    <link href='/assets/app.css' rel='stylesheet'>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png'></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff'>
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+        <h2 id='Gemfile'>Gemfile</h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,45 +1,45 @@</span>
+         source &#39;https://rubygems.org&#39;
+         
+         # Bundle edge Rails instead: gem &#39;rails&#39;, github: &#39;rails/rails&#39;
+        <span class="gd">-gem &#39;rails&#39;, &#39;4.0.2&#39;</span>
+        <span class="gi">+gem &#39;rails&#39;, &#39;4.0.11&#39;</span>
+         
+         # Use sqlite3 as the database for Active Record
+         gem &#39;sqlite3&#39;
+         
+         # Use SCSS for stylesheets
+        <span class="gd">-gem &#39;sass-rails&#39;, &#39;~&gt; 4.0.0&#39;</span>
+        <span class="gi">+gem &#39;sass-rails&#39;, &#39;~&gt; 4.0.2&#39;</span>
+         
+         # Use Uglifier as compressor for JavaScript assets
+         gem &#39;uglifier&#39;, &#39;&gt;= 1.3.0&#39;
+         
+         # Use CoffeeScript for .js.coffee assets and views
+         gem &#39;coffee-rails&#39;, &#39;~&gt; 4.0.0&#39;
+         
+         # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+         # gem &#39;therubyracer&#39;, platforms: :ruby
+         
+         # Use jquery as the JavaScript library
+         gem &#39;jquery-rails&#39;
+         
+         # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+         gem &#39;turbolinks&#39;
+         
+         # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+         gem &#39;jbuilder&#39;, &#39;~&gt; 1.2&#39;
+         
+         group :doc do
+           # bundle exec rake doc:rails generates the API under doc/api.
+           gem &#39;sdoc&#39;, require: false
+         end
+         
+         # Use ActiveModel has_secure_password
+        <span class="gd">-# gem &#39;bcrypt-ruby&#39;, &#39;~&gt; 3.1.2&#39;</span>
+        <span class="gi">+# gem &#39;bcrypt&#39;, &#39;~&gt; 3.1.7&#39;</span>
+         
+         # Use unicorn as the app server
+         # gem &#39;unicorn&#39;
+         
+         # Use Capistrano for deployment
+         # gem &#39;capistrano&#39;, group: :development
+         
+         # Use debugger
+         # gem &#39;debugger&#39;, group: [:development, :test]
+        </pre></div>
+        <h2 id='bin-setup'>bin/setup</h2>
+        <div class="highlight"><pre><span class="gu">@@ -0,0 +1,29 @@</span>
+        <span class="gi">+#!/usr/bin/env ruby</span>
+        <span class="gi">+require &#39;pathname&#39;</span>
+        <span class="gi">+</span>
+        <span class="gi">+# path to your application root.</span>
+        <span class="gi">+APP_ROOT = Pathname.new File.expand_path(&#39;../../&#39;,  __FILE__)</span>
+        <span class="gi">+</span>
+        <span class="gi">+Dir.chdir APP_ROOT do</span>
+        <span class="gi">+  # This script is a starting point to setup your application.</span>
+        <span class="gi">+  # Add necessary setup steps to this file:</span>
+        <span class="gi">+</span>
+        <span class="gi">+  puts &quot;== Installing dependencies ==&quot;</span>
+        <span class="gi">+  system &quot;gem install bundler --conservative&quot;</span>
+        <span class="gi">+  system &quot;bundle check || bundle install&quot;</span>
+        <span class="gi">+</span>
+        <span class="gi">+  # puts &quot;\n== Copying sample files ==&quot;</span>
+        <span class="gi">+  # unless File.exist?(&quot;config/database.yml&quot;)</span>
+        <span class="gi">+  #   system &quot;cp config/database.yml.sample config/database.yml&quot;</span>
+        <span class="gi">+  # end</span>
+        <span class="gi">+</span>
+        <span class="gi">+  puts &quot;\n== Preparing database ==&quot;</span>
+        <span class="gi">+  system &quot;bin/rake db:setup&quot;</span>
+        <span class="gi">+</span>
+        <span class="gi">+  puts &quot;\n== Removing old logs and tempfiles ==&quot;</span>
+        <span class="gi">+  system &quot;rm -f log/*&quot;</span>
+        <span class="gi">+  system &quot;rm -rf tmp/cache&quot;</span>
+        <span class="gi">+</span>
+        <span class="gi">+  puts &quot;\n== Restarting application server ==&quot;</span>
+        <span class="gi">+  system &quot;touch tmp/restart.txt&quot;</span>
+        <span class="gi">+end</span>
+        </pre></div>
+        <h2 id='config-application-rb'>config/application.rb</h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,23 +1,23 @@</span>
+         require File.expand_path(&#39;../boot&#39;, __FILE__)
+         
+         require &#39;rails/all&#39;
+         
+         # Require the gems listed in Gemfile, including any gems
+         # you&#39;ve limited to :test, :development, or :production.
+        <span class="gd">-Bundler.require(:default, Rails.env)</span>
+        <span class="gi">+Bundler.require(*Rails.groups)</span>
+         
+         module Railsdiff
+           class Application &lt; Rails::Application
+             # Settings in config/environments/* take precedence over those specified here.
+             # Application configuration should go into files in config/initializers
+             # -- all .rb files in that directory are automatically loaded.
+         
+             # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+             # Run &quot;rake -D time&quot; for a list of tasks for finding time zone names. Default is UTC.
+             # config.time_zone = &#39;Central Time (US &amp; Canada)&#39;
+         
+             # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+             # config.i18n.load_path += Dir[Rails.root.join(&#39;my&#39;, &#39;locales&#39;, &#39;*.{rb,yml}&#39;).to_s]
+             # config.i18n.default_locale = :de
+           end
+         end
+        </pre></div>
+        <h2 id='config-boot-rb'>config/boot.rb</h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
+         # Set up gems listed in the Gemfile.
+         ENV[&#39;BUNDLE_GEMFILE&#39;] ||= File.expand_path(&#39;../../Gemfile&#39;, __FILE__)
+         
+        <span class="gd">-require &#39;bundler/setup&#39; if File.exists?(ENV[&#39;BUNDLE_GEMFILE&#39;])</span>
+        <span class="gi">+require &#39;bundler/setup&#39; if File.exist?(ENV[&#39;BUNDLE_GEMFILE&#39;])</span>
+        </pre></div>
+        <h2 id='config-environments-development-rb'>config/environments/development.rb</h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,29 +1,32 @@</span>
+         Railsdiff::Application.configure do
+           # Settings specified here will take precedence over those in config/application.rb.
+         
+           # In the development environment your application&#39;s code is reloaded on
+           # every request. This slows down response time but is perfect for development
+           # since you don&#39;t have to restart the web server when you make code changes.
+           config.cache_classes = false
+         
+           # Do not eager load code on boot.
+           config.eager_load = false
+         
+           # Show full error reports and disable caching.
+           config.consider_all_requests_local       = true
+           config.action_controller.perform_caching = false
+         
+           # Don&#39;t care if the mailer can&#39;t send.
+           config.action_mailer.raise_delivery_errors = false
+         
+           # Print deprecation notices to the Rails logger.
+           config.active_support.deprecation = :log
+         
+           # Raise an error on page load if there are pending migrations
+           config.active_record.migration_error = :page_load
+         
+           # Debug mode disables concatenation and preprocessing of assets.
+           # This option may cause significant delays in view rendering with a large
+           # number of complex assets.
+           config.assets.debug = true
+        <span class="gi">+</span>
+        <span class="gi">+  # Raises error for missing translations</span>
+        <span class="gi">+  # config.action_view.raise_on_missing_translations = true</span>
+         end
+        </pre></div>
+        <h2 id='config-environments-test-rb'>config/environments/test.rb</h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,36 +1,39 @@</span>
+         Railsdiff::Application.configure do
+           # Settings specified here will take precedence over those in config/application.rb.
+         
+           # The test environment is used exclusively to run your application&#39;s
+           # test suite. You never need to work with it otherwise. Remember that
+           # your test database is &quot;scratch space&quot; for the test suite and is wiped
+           # and recreated between test runs. Don&#39;t rely on the data there!
+           config.cache_classes = true
+         
+           # Do not eager load code on boot. This avoids loading your whole application
+           # just for the purpose of running a single test. If you are using a tool that
+           # preloads Rails for running tests, you may have to set it to true.
+           config.eager_load = false
+         
+           # Configure static asset server for tests with Cache-Control for performance.
+           config.serve_static_assets  = true
+           config.static_cache_control = &quot;public, max-age=3600&quot;
+         
+           # Show full error reports and disable caching.
+           config.consider_all_requests_local       = true
+           config.action_controller.perform_caching = false
+         
+           # Raise exceptions instead of rendering exception templates.
+           config.action_dispatch.show_exceptions = false
+         
+           # Disable request forgery protection in test environment.
+           config.action_controller.allow_forgery_protection = false
+         
+           # Tell Action Mailer not to deliver emails to the real world.
+           # The :test delivery method accumulates sent emails in the
+           # ActionMailer::Base.deliveries array.
+           config.action_mailer.delivery_method = :test
+         
+           # Print deprecation notices to the stderr.
+           config.active_support.deprecation = :stderr
+        <span class="gi">+</span>
+        <span class="gi">+  # Raises error for missing translations</span>
+        <span class="gi">+  # config.action_view.raise_on_missing_translations = true</span>
+         end
+        </pre></div>
+        <h2 id='public-robots-txt'>public/robots.txt</h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,5 +1,5 @@</span>
+        <span class="gd">-# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file</span>
+        <span class="gi">+# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file</span>
+         #
+         # To ban all spiders from the entire site uncomment the next two lines:
+         # User-agent: *
+         # Disallow: /
+        </pre></div>
+      </div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+    </a>
+    <script src='/assets/app.js'></script>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-7325596-4']);
+      _gaq.push(['_setSiteSpeedSampleRate', 100]);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

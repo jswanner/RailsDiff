@@ -1,6 +1,6 @@
 diff -Nru -x '*.png' v4.0.10/Gemfile v4.2.0.beta2/Gemfile
---- v4.0.10/Gemfile	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/Gemfile	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/Gemfile	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/Gemfile	2014-09-29 10:48:45.000000000 -0700
 @@ -1,45 +1,45 @@
  source 'https://rubygems.org'
  
@@ -69,8 +69,8 @@ diff -Nru -x '*.png' v4.0.10/Gemfile v4.2.0.beta2/Gemfile
 -# Use debugger
 -# gem 'debugger', group: [:development, :test]
 diff -Nru -x '*.png' v4.0.10/Rakefile v4.2.0.beta2/Rakefile
---- v4.0.10/Rakefile	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/Rakefile	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/Rakefile	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/Rakefile	2014-09-29 10:48:45.000000000 -0700
 @@ -3,4 +3,4 @@
  
  require File.expand_path('../config/application', __FILE__)
@@ -78,8 +78,8 @@ diff -Nru -x '*.png' v4.0.10/Rakefile v4.2.0.beta2/Rakefile
 -Railsdiff::Application.load_tasks
 +Rails.application.load_tasks
 diff -Nru -x '*.png' v4.0.10/app/assets/stylesheets/application.css v4.2.0.beta2/app/assets/stylesheets/application.css
---- v4.0.10/app/assets/stylesheets/application.css	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/app/assets/stylesheets/application.css	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/app/assets/stylesheets/application.css	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/app/assets/stylesheets/application.css	2014-09-29 10:48:45.000000000 -0700
 @@ -5,9 +5,11 @@
   * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
   * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
@@ -96,8 +96,8 @@ diff -Nru -x '*.png' v4.0.10/app/assets/stylesheets/application.css v4.2.0.beta2
 + *= require_self
   */
 diff -Nru -x '*.png' v4.0.10/app/views/layouts/application.html.erb v4.2.0.beta2/app/views/layouts/application.html.erb
---- v4.0.10/app/views/layouts/application.html.erb	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/app/views/layouts/application.html.erb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/app/views/layouts/application.html.erb	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/app/views/layouts/application.html.erb	2014-09-29 10:48:45.000000000 -0700
 @@ -2,8 +2,8 @@
  <html>
  <head>
@@ -110,8 +110,8 @@ diff -Nru -x '*.png' v4.0.10/app/views/layouts/application.html.erb v4.2.0.beta2
  </head>
  <body>
 diff -Nru -x '*.png' v4.0.10/bin/setup v4.2.0.beta2/bin/setup
---- v4.0.10/bin/setup	1969-12-31 19:00:00.000000000 -0500
-+++ v4.2.0.beta2/bin/setup	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/bin/setup	1969-12-31 16:00:00.000000000 -0800
++++ v4.2.0.beta2/bin/setup	2014-09-29 10:48:45.000000000 -0700
 @@ -0,0 +1,29 @@
 +#!/usr/bin/env ruby
 +require 'pathname'
@@ -143,8 +143,8 @@ diff -Nru -x '*.png' v4.0.10/bin/setup v4.2.0.beta2/bin/setup
 +  system "touch tmp/restart.txt"
 +end
 diff -Nru -x '*.png' v4.0.10/config/application.rb v4.2.0.beta2/config/application.rb
---- v4.0.10/config/application.rb	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/config/application.rb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/application.rb	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/config/application.rb	2014-09-29 10:48:45.000000000 -0700
 @@ -19,5 +19,8 @@
      # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
      # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
@@ -155,8 +155,8 @@ diff -Nru -x '*.png' v4.0.10/config/application.rb v4.2.0.beta2/config/applicati
    end
  end
 diff -Nru -x '*.png' v4.0.10/config/boot.rb v4.2.0.beta2/config/boot.rb
---- v4.0.10/config/boot.rb	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/config/boot.rb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/boot.rb	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/config/boot.rb	2014-09-29 10:48:45.000000000 -0700
 @@ -1,4 +1,3 @@
 -# Set up gems listed in the Gemfile.
  ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
@@ -164,8 +164,8 @@ diff -Nru -x '*.png' v4.0.10/config/boot.rb v4.2.0.beta2/config/boot.rb
 -require 'bundler/setup' if File.exist?(ENV['BUNDLE_GEMFILE'])
 +require 'bundler/setup' # Set up gems listed in the Gemfile.
 diff -Nru -x '*.png' v4.0.10/config/database.yml v4.2.0.beta2/config/database.yml
---- v4.0.10/config/database.yml	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/config/database.yml	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/database.yml	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/config/database.yml	2014-09-29 10:48:45.000000000 -0700
 @@ -3,23 +3,23 @@
  #
  #   Ensure the SQLite 3 gem is defined in your Gemfile
@@ -199,8 +199,8 @@ diff -Nru -x '*.png' v4.0.10/config/database.yml v4.2.0.beta2/config/database.ym
 -  pool: 5
 -  timeout: 5000
 diff -Nru -x '*.png' v4.0.10/config/environment.rb v4.2.0.beta2/config/environment.rb
---- v4.0.10/config/environment.rb	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/config/environment.rb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/environment.rb	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/config/environment.rb	2014-09-29 10:48:45.000000000 -0700
 @@ -2,4 +2,4 @@
  require File.expand_path('../application', __FILE__)
  
@@ -208,8 +208,8 @@ diff -Nru -x '*.png' v4.0.10/config/environment.rb v4.2.0.beta2/config/environme
 -Railsdiff::Application.initialize!
 +Rails.application.initialize!
 diff -Nru -x '*.png' v4.0.10/config/environments/development.rb v4.2.0.beta2/config/environments/development.rb
---- v4.0.10/config/environments/development.rb	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/config/environments/development.rb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/environments/development.rb	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/config/environments/development.rb	2014-09-29 10:48:45.000000000 -0700
 @@ -1,4 +1,4 @@
 -Railsdiff::Application.configure do
 +Rails.application.configure do
@@ -242,8 +242,8 @@ diff -Nru -x '*.png' v4.0.10/config/environments/development.rb v4.2.0.beta2/con
    # config.action_view.raise_on_missing_translations = true
  end
 diff -Nru -x '*.png' v4.0.10/config/environments/production.rb v4.2.0.beta2/config/environments/production.rb
---- v4.0.10/config/environments/production.rb	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/config/environments/production.rb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/environments/production.rb	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/config/environments/production.rb	2014-09-29 10:48:45.000000000 -0700
 @@ -1,11 +1,11 @@
 -Railsdiff::Application.configure do
 +Rails.application.configure do
@@ -334,8 +334,8 @@ diff -Nru -x '*.png' v4.0.10/config/environments/production.rb v4.2.0.beta2/conf
 +  config.active_record.dump_schema_after_migration = false
  end
 diff -Nru -x '*.png' v4.0.10/config/environments/test.rb v4.2.0.beta2/config/environments/test.rb
---- v4.0.10/config/environments/test.rb	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/config/environments/test.rb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/environments/test.rb	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/config/environments/test.rb	2014-09-29 10:48:45.000000000 -0700
 @@ -1,4 +1,4 @@
 -Railsdiff::Application.configure do
 +Rails.application.configure do
@@ -362,8 +362,8 @@ diff -Nru -x '*.png' v4.0.10/config/environments/test.rb v4.2.0.beta2/config/env
    config.active_support.deprecation = :stderr
  
 diff -Nru -x '*.png' v4.0.10/config/initializers/assets.rb v4.2.0.beta2/config/initializers/assets.rb
---- v4.0.10/config/initializers/assets.rb	1969-12-31 19:00:00.000000000 -0500
-+++ v4.2.0.beta2/config/initializers/assets.rb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/initializers/assets.rb	1969-12-31 16:00:00.000000000 -0800
++++ v4.2.0.beta2/config/initializers/assets.rb	2014-09-29 10:48:45.000000000 -0700
 @@ -0,0 +1,11 @@
 +# Be sure to restart your server when you modify this file.
 +
@@ -377,23 +377,23 @@ diff -Nru -x '*.png' v4.0.10/config/initializers/assets.rb v4.2.0.beta2/config/i
 +# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 +# Rails.application.config.assets.precompile += %w( search.js )
 diff -Nru -x '*.png' v4.0.10/config/initializers/cookies_serializer.rb v4.2.0.beta2/config/initializers/cookies_serializer.rb
---- v4.0.10/config/initializers/cookies_serializer.rb	1969-12-31 19:00:00.000000000 -0500
-+++ v4.2.0.beta2/config/initializers/cookies_serializer.rb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/initializers/cookies_serializer.rb	1969-12-31 16:00:00.000000000 -0800
++++ v4.2.0.beta2/config/initializers/cookies_serializer.rb	2014-09-29 10:48:45.000000000 -0700
 @@ -0,0 +1,3 @@
 +# Be sure to restart your server when you modify this file.
 +
 +Rails.application.config.action_dispatch.cookies_serializer = :json
 diff -Nru -x '*.png' v4.0.10/config/initializers/mime_types.rb v4.2.0.beta2/config/initializers/mime_types.rb
---- v4.0.10/config/initializers/mime_types.rb	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/config/initializers/mime_types.rb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/initializers/mime_types.rb	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/config/initializers/mime_types.rb	2014-09-29 10:48:45.000000000 -0700
 @@ -2,4 +2,3 @@
  
  # Add new mime types for use in respond_to blocks:
  # Mime::Type.register "text/richtext", :rtf
 -# Mime::Type.register_alias "text/html", :iphone
 diff -Nru -x '*.png' v4.0.10/config/initializers/secret_token.rb v4.2.0.beta2/config/initializers/secret_token.rb
---- v4.0.10/config/initializers/secret_token.rb	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/config/initializers/secret_token.rb	1969-12-31 19:00:00.000000000 -0500
+--- v4.0.10/config/initializers/secret_token.rb	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/config/initializers/secret_token.rb	1969-12-31 16:00:00.000000000 -0800
 @@ -1,12 +0,0 @@
 -# Be sure to restart your server when you modify this file.
 -
@@ -408,16 +408,16 @@ diff -Nru -x '*.png' v4.0.10/config/initializers/secret_token.rb v4.2.0.beta2/co
 -# if you're sharing your code publicly.
 -Railsdiff::Application.config.secret_key_base = 'your-secret-token'
 diff -Nru -x '*.png' v4.0.10/config/initializers/session_store.rb v4.2.0.beta2/config/initializers/session_store.rb
---- v4.0.10/config/initializers/session_store.rb	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/config/initializers/session_store.rb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/initializers/session_store.rb	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/config/initializers/session_store.rb	2014-09-29 10:48:45.000000000 -0700
 @@ -1,3 +1,3 @@
  # Be sure to restart your server when you modify this file.
  
 -Railsdiff::Application.config.session_store :cookie_store, key: '_railsdiff_session'
 +Rails.application.config.session_store :cookie_store, key: '_railsdiff_session'
 diff -Nru -x '*.png' v4.0.10/config/routes.rb v4.2.0.beta2/config/routes.rb
---- v4.0.10/config/routes.rb	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/config/routes.rb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/routes.rb	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/config/routes.rb	2014-09-29 10:48:45.000000000 -0700
 @@ -1,4 +1,4 @@
 -Railsdiff::Application.routes.draw do
 +Rails.application.routes.draw do
@@ -425,8 +425,8 @@ diff -Nru -x '*.png' v4.0.10/config/routes.rb v4.2.0.beta2/config/routes.rb
    # See how all your routes lay out with "rake routes".
  
 diff -Nru -x '*.png' v4.0.10/config/secrets.yml v4.2.0.beta2/config/secrets.yml
---- v4.0.10/config/secrets.yml	1969-12-31 19:00:00.000000000 -0500
-+++ v4.2.0.beta2/config/secrets.yml	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/config/secrets.yml	1969-12-31 16:00:00.000000000 -0800
++++ v4.2.0.beta2/config/secrets.yml	2014-09-29 10:48:45.000000000 -0700
 @@ -0,0 +1,22 @@
 +# Be sure to restart your server when you modify this file.
 +
@@ -451,8 +451,8 @@ diff -Nru -x '*.png' v4.0.10/config/secrets.yml v4.2.0.beta2/config/secrets.yml
 +production:
 +  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 diff -Nru -x '*.png' v4.0.10/public/404.html v4.2.0.beta2/public/404.html
---- v4.0.10/public/404.html	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/public/404.html	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/public/404.html	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/public/404.html	2014-09-29 10:48:45.000000000 -0700
 @@ -2,17 +2,23 @@
  <html>
  <head>
@@ -530,8 +530,8 @@ diff -Nru -x '*.png' v4.0.10/public/404.html v4.2.0.beta2/public/404.html
  </body>
  </html>
 diff -Nru -x '*.png' v4.0.10/public/422.html v4.2.0.beta2/public/422.html
---- v4.0.10/public/422.html	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/public/422.html	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/public/422.html	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/public/422.html	2014-09-29 10:48:45.000000000 -0700
 @@ -2,17 +2,23 @@
  <html>
  <head>
@@ -609,8 +609,8 @@ diff -Nru -x '*.png' v4.0.10/public/422.html v4.2.0.beta2/public/422.html
  </body>
  </html>
 diff -Nru -x '*.png' v4.0.10/public/500.html v4.2.0.beta2/public/500.html
---- v4.0.10/public/500.html	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/public/500.html	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/public/500.html	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/public/500.html	2014-09-29 10:48:45.000000000 -0700
 @@ -2,17 +2,23 @@
  <html>
  <head>
@@ -686,8 +686,8 @@ diff -Nru -x '*.png' v4.0.10/public/500.html v4.2.0.beta2/public/500.html
  </body>
  </html>
 diff -Nru -x '*.png' v4.0.10/test/test_helper.rb v4.2.0.beta2/test/test_helper.rb
---- v4.0.10/test/test_helper.rb	2014-09-11 14:00:03.000000000 -0400
-+++ v4.2.0.beta2/test/test_helper.rb	2014-09-29 13:48:45.000000000 -0400
+--- v4.0.10/test/test_helper.rb	2014-09-11 11:00:03.000000000 -0700
++++ v4.2.0.beta2/test/test_helper.rb	2014-09-29 10:48:45.000000000 -0700
 @@ -1,14 +1,9 @@
 -ENV["RAILS_ENV"] ||= "test"
 +ENV['RAILS_ENV'] ||= 'test'
