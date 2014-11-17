@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v3.2.4 - v3.2.21 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet'>
+    <link href='/assets/app.css' rel='stylesheet'>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png'></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff'>
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+        <h2>
+          <a href='full/#Gemfile'>Gemfile</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,6 +1,6 @@</span>
+         source &#39;https://rubygems.org&#39;
+         
+        <span class="gd">-gem &#39;rails&#39;, &#39;3.2.4&#39;</span>
+        <span class="gi">+gem &#39;rails&#39;, &#39;3.2.21&#39;</span>
+         
+         # Bundle edge Rails instead:
+         # gem &#39;rails&#39;, :git =&gt; &#39;git://github.com/rails/rails.git&#39;
+        <span class="gu">@@ -15,7 +15,7 @@</span>
+           gem &#39;coffee-rails&#39;, &#39;~&gt; 3.2.1&#39;
+         
+           # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+        <span class="gd">-  # gem &#39;therubyracer&#39;, :platform =&gt; :ruby</span>
+        <span class="gi">+  # gem &#39;therubyracer&#39;, :platforms =&gt; :ruby</span>
+         
+           gem &#39;uglifier&#39;, &#39;&gt;= 1.0.3&#39;
+         end
+        </pre></div>
+        <h2>
+          <a href='full/#README-rdoc'>README.rdoc</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -157,9 +157,9 @@</span>
+         
+           |-- app
+           |   |-- assets
+        <span class="gd">-  |       |-- images</span>
+        <span class="gd">-  |       |-- javascripts</span>
+        <span class="gd">-  |       `-- stylesheets</span>
+        <span class="gi">+  |   |   |-- images</span>
+        <span class="gi">+  |   |   |-- javascripts</span>
+        <span class="gi">+  |   |   `-- stylesheets</span>
+           |   |-- controllers
+           |   |-- helpers
+           |   |-- mailers
+        <span class="gu">@@ -173,6 +173,7 @@</span>
+           |-- db
+           |-- doc
+           |-- lib
+        <span class="gi">+  |   |-- assets</span>
+           |   `-- tasks
+           |-- log
+           |-- public
+        <span class="gu">@@ -184,13 +185,12 @@</span>
+           |   |-- performance
+           |   `-- unit
+           |-- tmp
+        <span class="gd">-  |   |-- cache</span>
+        <span class="gd">-  |   |-- pids</span>
+        <span class="gd">-  |   |-- sessions</span>
+        <span class="gd">-  |   `-- sockets</span>
+        <span class="gi">+  |   `-- cache</span>
+        <span class="gi">+  |       `-- assets</span>
+           `-- vendor
+               |-- assets
+        <span class="gd">-          `-- stylesheets</span>
+        <span class="gi">+      |   |-- javascripts</span>
+        <span class="gi">+      |   `-- stylesheets</span>
+               `-- plugins
+         
+         app
+        </pre></div>
+      </div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+    </a>
+    <script src='/assets/app.js'></script>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-7325596-4']);
+      _gaq.push(['_setSiteSpeedSampleRate', 100]);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
