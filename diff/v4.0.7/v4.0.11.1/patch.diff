@@ -1,0 +1,34 @@
+diff -Nru -x '*.png' v4.0.7/Gemfile v4.0.11.1/Gemfile
+--- v4.0.7/Gemfile	2014-07-02 10:30:57.000000000 -0700
++++ v4.0.11.1/Gemfile	2014-11-19 11:58:20.000000000 -0800
+@@ -1,7 +1,7 @@
+ source 'https://rubygems.org'
+ 
+ # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+-gem 'rails', '4.0.7'
++gem 'rails', '4.0.11.1'
+ 
+ # Use sqlite3 as the database for Active Record
+ gem 'sqlite3'
+diff -Nru -x '*.png' v4.0.7/config/environments/development.rb v4.0.11.1/config/environments/development.rb
+--- v4.0.7/config/environments/development.rb	2014-07-02 10:30:57.000000000 -0700
++++ v4.0.11.1/config/environments/development.rb	2014-11-19 11:58:20.000000000 -0800
+@@ -26,4 +26,7 @@
+   # This option may cause significant delays in view rendering with a large
+   # number of complex assets.
+   config.assets.debug = true
++
++  # Raises error for missing translations
++  # config.action_view.raise_on_missing_translations = true
+ end
+diff -Nru -x '*.png' v4.0.7/config/environments/test.rb v4.0.11.1/config/environments/test.rb
+--- v4.0.7/config/environments/test.rb	2014-07-02 10:30:57.000000000 -0700
++++ v4.0.11.1/config/environments/test.rb	2014-11-19 11:58:20.000000000 -0800
+@@ -33,4 +33,7 @@
+ 
+   # Print deprecation notices to the stderr.
+   config.active_support.deprecation = :stderr
++
++  # Raises error for missing translations
++  # config.action_view.raise_on_missing_translations = true
+ end

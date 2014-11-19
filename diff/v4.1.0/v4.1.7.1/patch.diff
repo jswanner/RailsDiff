@@ -1,0 +1,61 @@
+diff -Nru -x '*.png' v4.1.0/Gemfile v4.1.7.1/Gemfile
+--- v4.1.0/Gemfile	2014-04-08 12:48:18.000000000 -0700
++++ v4.1.7.1/Gemfile	2014-11-19 11:58:23.000000000 -0800
+@@ -2,7 +2,7 @@
+ 
+ 
+ # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+-gem 'rails', '4.1.0'
++gem 'rails', '4.1.7.1'
+ # Use sqlite3 as the database for Active Record
+ gem 'sqlite3'
+ # Use SCSS for stylesheets
+diff -Nru -x '*.png' v4.1.0/config/environments/production.rb v4.1.7.1/config/environments/production.rb
+--- v4.1.0/config/environments/production.rb	2014-04-08 12:48:18.000000000 -0700
++++ v4.1.7.1/config/environments/production.rb	2014-11-19 11:58:23.000000000 -0800
+@@ -32,8 +32,7 @@
+   # Generate digests for assets URLs.
+   config.assets.digest = true
+ 
+-  # Version of your assets, change this if you want to expire all your assets.
+-  config.assets.version = '1.0'
++  # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
+ 
+   # Specifies the header that your server uses for sending files.
+   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
+@@ -57,10 +56,6 @@
+   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+   # config.action_controller.asset_host = "http://assets.example.com"
+ 
+-  # Precompile additional assets.
+-  # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+-  # config.assets.precompile += %w( search.js )
+-
+   # Ignore bad email addresses and do not raise email delivery errors.
+   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+   # config.action_mailer.raise_delivery_errors = false
+diff -Nru -x '*.png' v4.1.0/config/initializers/assets.rb v4.1.7.1/config/initializers/assets.rb
+--- v4.1.0/config/initializers/assets.rb	1969-12-31 16:00:00.000000000 -0800
++++ v4.1.7.1/config/initializers/assets.rb	2014-11-19 11:58:23.000000000 -0800
+@@ -0,0 +1,8 @@
++# Be sure to restart your server when you modify this file.
++
++# Version of your assets, change this if you want to expire all your assets.
++Rails.application.config.assets.version = '1.0'
++
++# Precompile additional assets.
++# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
++# Rails.application.config.assets.precompile += %w( search.js )
+diff -Nru -x '*.png' v4.1.0/test/test_helper.rb v4.1.7.1/test/test_helper.rb
+--- v4.1.0/test/test_helper.rb	2014-04-08 12:48:18.000000000 -0700
++++ v4.1.7.1/test/test_helper.rb	2014-11-19 11:58:23.000000000 -0800
+@@ -4,9 +4,6 @@
+ 
+ class ActiveSupport::TestCase
+   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+-  #
+-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
+-  # -- they do not yet inherit this setting
+   fixtures :all
+ 
+   # Add more helper methods to be used by all tests here...
