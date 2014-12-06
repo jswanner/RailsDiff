@@ -1,0 +1,24 @@
+diff -Nru -x '*.png' v4.2.0.rc1/Gemfile v4.2.0.rc2/Gemfile
+--- v4.2.0.rc1/Gemfile	2014-11-28 23:40:41.000000000 -0500
++++ v4.2.0.rc2/Gemfile	2014-12-05 19:03:36.000000000 -0500
+@@ -2,7 +2,7 @@
+ 
+ 
+ # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+-gem 'rails', '4.2.0.rc1'
++gem 'rails', '4.2.0.rc2'
+ # Use sqlite3 as the database for Active Record
+ gem 'sqlite3'
+ # Use SCSS for stylesheets
+diff -Nru -x '*.png' v4.2.0.rc1/config/environments/test.rb v4.2.0.rc2/config/environments/test.rb
+--- v4.2.0.rc1/config/environments/test.rb	2014-11-28 23:40:41.000000000 -0500
++++ v4.2.0.rc2/config/environments/test.rb	2014-12-05 19:03:36.000000000 -0500
+@@ -31,7 +31,7 @@
+   # ActionMailer::Base.deliveries array.
+   config.action_mailer.delivery_method = :test
+ 
+-  # Randomize the order test cases are executed
++  # Randomize the order test cases are executed.
+   config.active_support.test_order = :random
+ 
+   # Print deprecation notices to the stderr.
