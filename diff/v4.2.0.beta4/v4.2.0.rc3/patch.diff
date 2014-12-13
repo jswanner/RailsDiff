@@ -1,0 +1,117 @@
+diff -Nru -x '*.png' v4.2.0.beta4/.gitignore v4.2.0.rc3/.gitignore
+--- v4.2.0.beta4/.gitignore	2014-10-31 03:45:58.000000000 -0400
++++ v4.2.0.rc3/.gitignore	2014-12-12 22:47:48.000000000 -0500
+@@ -12,5 +12,6 @@
+ /db/*.sqlite3-journal
+ 
+ # Ignore all logfiles and tempfiles.
+-/log/*.log
++/log/*
++!/log/.keep
+ /tmp
+diff -Nru -x '*.png' v4.2.0.beta4/Gemfile v4.2.0.rc3/Gemfile
+--- v4.2.0.beta4/Gemfile	2014-10-31 03:45:58.000000000 -0400
++++ v4.2.0.rc3/Gemfile	2014-12-12 22:47:48.000000000 -0500
+@@ -2,11 +2,11 @@
+ 
+ 
+ # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+-gem 'rails', '4.2.0.beta4'
++gem 'rails', '4.2.0.rc3'
+ # Use sqlite3 as the database for Active Record
+ gem 'sqlite3'
+ # Use SCSS for stylesheets
+-gem 'sass-rails', '~> 5.0.0.beta1'
++gem 'sass-rails', '~> 5.0'
+ # Use Uglifier as compressor for JavaScript assets
+ gem 'uglifier', '>= 1.3.0'
+ # Use CoffeeScript for .coffee assets and views
+@@ -14,8 +14,8 @@
+ # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+ # gem 'therubyracer', platforms: :ruby
+ 
+-# Use jQuery as the JavaScript library
+-gem 'jquery-rails', '~> 4.0.0.beta2'
++# Use jquery as the JavaScript library
++gem 'jquery-rails'
+ # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+ gem 'turbolinks'
+ # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+@@ -37,7 +37,7 @@
+   gem 'byebug'
+ 
+   # Access an IRB console on exception pages or by using <%= console %> in views
+-  gem 'web-console', '~> 2.0.0.beta4'
++  gem 'web-console', '~> 2.0'
+ 
+   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+   gem 'spring'
+diff -Nru -x '*.png' v4.2.0.beta4/app/assets/javascripts/application.js v4.2.0.rc3/app/assets/javascripts/application.js
+--- v4.2.0.beta4/app/assets/javascripts/application.js	2014-10-31 03:45:58.000000000 -0400
++++ v4.2.0.rc3/app/assets/javascripts/application.js	2014-12-12 22:47:48.000000000 -0500
+@@ -2,7 +2,7 @@
+ // listed below.
+ //
+ // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
++// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
+ //
+ // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+ // compiled file.
+diff -Nru -x '*.png' v4.2.0.beta4/app/assets/stylesheets/application.css v4.2.0.rc3/app/assets/stylesheets/application.css
+--- v4.2.0.beta4/app/assets/stylesheets/application.css	2014-10-31 03:45:58.000000000 -0400
++++ v4.2.0.rc3/app/assets/stylesheets/application.css	2014-12-12 22:47:48.000000000 -0500
+@@ -3,7 +3,7 @@
+  * listed below.
+  *
+  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
++ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+  *
+  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+  * compiled file so the styles you add here take precedence over styles defined in any styles
+diff -Nru -x '*.png' v4.2.0.beta4/bin/rails v4.2.0.rc3/bin/rails
+--- v4.2.0.beta4/bin/rails	2014-10-31 03:45:58.000000000 -0400
++++ v4.2.0.rc3/bin/rails	2014-12-12 22:47:48.000000000 -0500
+@@ -1,4 +1,4 @@
+ #!/usr/bin/env ruby
+-APP_PATH = File.expand_path('../../config/application',  __FILE__)
++APP_PATH = File.expand_path('../../config/application', __FILE__)
+ require_relative '../config/boot'
+ require 'rails/commands'
+diff -Nru -x '*.png' v4.2.0.beta4/config/environments/production.rb v4.2.0.rc3/config/environments/production.rb
+--- v4.2.0.beta4/config/environments/production.rb	2014-10-31 03:45:58.000000000 -0400
++++ v4.2.0.rc3/config/environments/production.rb	2014-12-12 22:47:48.000000000 -0500
+@@ -43,8 +43,9 @@
+   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+   # config.force_ssl = true
+ 
+-  # Decrease the log volume.
+-  # config.log_level = :info
++  # Use the lowest log level to ensure availability of diagnostic information
++  # when problems arise.
++  config.log_level = :debug
+ 
+   # Prepend all log lines with the following tags.
+   # config.log_tags = [ :subdomain, :uuid ]
+diff -Nru -x '*.png' v4.2.0.beta4/config/environments/test.rb v4.2.0.rc3/config/environments/test.rb
+--- v4.2.0.beta4/config/environments/test.rb	2014-10-31 03:45:58.000000000 -0400
++++ v4.2.0.rc3/config/environments/test.rb	2014-12-12 22:47:48.000000000 -0500
+@@ -31,7 +31,7 @@
+   # ActionMailer::Base.deliveries array.
+   config.action_mailer.delivery_method = :test
+ 
+-  # Randomize the order test cases are executed
++  # Randomize the order test cases are executed.
+   config.active_support.test_order = :random
+ 
+   # Print deprecation notices to the stderr.
+diff -Nru -x '*.png' v4.2.0.beta4/config.ru v4.2.0.rc3/config.ru
+--- v4.2.0.beta4/config.ru	2014-10-31 03:45:58.000000000 -0400
++++ v4.2.0.rc3/config.ru	2014-12-12 22:47:48.000000000 -0500
+@@ -1,4 +1,4 @@
+ # This file is used by Rack-based servers to start the application.
+ 
+-require ::File.expand_path('../config/environment',  __FILE__)
++require ::File.expand_path('../config/environment', __FILE__)
+ run Rails.application

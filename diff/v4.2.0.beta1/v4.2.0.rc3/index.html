@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v4.2.0.beta1 - v4.2.0.rc3 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet'>
+    <link href='/assets/app.css' rel='stylesheet'>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png'></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff'>
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+        <h2>
+          <a href='full/#-gitignore'>.gitignore</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -12,5 +12,6 @@</span>
+         /db/*.sqlite3-journal
+         
+         # Ignore all logfiles and tempfiles.
+        <span class="gd">-/log/*.log</span>
+        <span class="gi">+/log/*</span>
+        <span class="gi">+!/log/.keep</span>
+         /tmp
+        </pre></div>
+        <h2>
+          <a href='full/#Gemfile'>Gemfile</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -2,15 +2,15 @@</span>
+         
+         
+         # Bundle edge Rails instead: gem &#39;rails&#39;, github: &#39;rails/rails&#39;
+        <span class="gd">-gem &#39;rails&#39;, &#39;4.2.0.beta1&#39;</span>
+        <span class="gi">+gem &#39;rails&#39;, &#39;4.2.0.rc3&#39;</span>
+         # Use sqlite3 as the database for Active Record
+         gem &#39;sqlite3&#39;
+         # Use SCSS for stylesheets
+        <span class="gd">-gem &#39;sass-rails&#39;, &#39;~&gt; 5.0.0.beta1&#39;</span>
+        <span class="gi">+gem &#39;sass-rails&#39;, &#39;~&gt; 5.0&#39;</span>
+         # Use Uglifier as compressor for JavaScript assets
+         gem &#39;uglifier&#39;, &#39;&gt;= 1.3.0&#39;
+        <span class="gd">-# Use CoffeeScript for .js.coffee assets and views</span>
+        <span class="gd">-gem &#39;coffee-rails&#39;, &#39;~&gt; 4.0.0&#39;</span>
+        <span class="gi">+# Use CoffeeScript for .coffee assets and views</span>
+        <span class="gi">+gem &#39;coffee-rails&#39;, &#39;~&gt; 4.1.0&#39;</span>
+         # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+         # gem &#39;therubyracer&#39;, platforms: :ruby
+         
+        <span class="gu">@@ -26,9 +26,6 @@</span>
+         # Use ActiveModel has_secure_password
+         # gem &#39;bcrypt&#39;, &#39;~&gt; 3.1.7&#39;
+         
+        <span class="gd">-# Use Rails Html Sanitizer for HTML sanitization</span>
+        <span class="gd">-gem &#39;rails-html-sanitizer&#39;, &#39;~&gt; 1.0&#39;</span>
+        <span class="gd">-</span>
+         # Use Unicorn as the app server
+         # gem &#39;unicorn&#39;
+         
+        <span class="gu">@@ -36,11 +33,11 @@</span>
+         # gem &#39;capistrano-rails&#39;, group: :development
+         
+         group :development, :test do
+        <span class="gd">-  # Call &#39;debugger&#39; anywhere in the code to stop execution and get a debugger console</span>
+        <span class="gi">+  # Call &#39;byebug&#39; anywhere in the code to stop execution and get a debugger console</span>
+           gem &#39;byebug&#39;
+         
+        <span class="gd">-  # Access an IRB console on exceptions page and /console in development</span>
+        <span class="gd">-  gem &#39;web-console&#39;, &#39;~&gt; 2.0.0.beta2&#39;</span>
+        <span class="gi">+  # Access an IRB console on exception pages or by using &lt;%= console %&gt; in views</span>
+        <span class="gi">+  gem &#39;web-console&#39;, &#39;~&gt; 2.0&#39;</span>
+         
+           # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+           gem &#39;spring&#39;
+        </pre></div>
+        <h2>
+          <a href='full/#app-assets-javascripts-application-js'>app/assets/javascripts/application.js</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -2,7 +2,7 @@</span>
+         // listed below.
+         //
+         // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+        <span class="gd">-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.</span>
+        <span class="gi">+// or any plugin&#39;s vendor/assets/javascripts directory can be referenced here using a relative path.</span>
+         //
+         // It&#39;s not advisable to add code directly here, but if you do, it&#39;ll appear at the bottom of the
+         // compiled file.
+        </pre></div>
+        <h2>
+          <a href='full/#app-assets-stylesheets-application-css'>app/assets/stylesheets/application.css</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -3,7 +3,7 @@</span>
+          * listed below.
+          *
+          * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+        <span class="gd">- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.</span>
+        <span class="gi">+ * or any plugin&#39;s vendor/assets/stylesheets directory can be referenced here using a relative path.</span>
+          *
+          * You&#39;re free to add application-wide styles to this file and they&#39;ll appear at the bottom of the
+          * compiled file so the styles you add here take precedence over styles defined in any styles
+        </pre></div>
+        <h2>
+          <a href='full/#bin-rails'>bin/rails</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
+         #!/usr/bin/env ruby
+        <span class="gd">-APP_PATH = File.expand_path(&#39;../../config/application&#39;,  __FILE__)</span>
+        <span class="gi">+APP_PATH = File.expand_path(&#39;../../config/application&#39;, __FILE__)</span>
+         require_relative &#39;../config/boot&#39;
+         require &#39;rails/commands&#39;
+        </pre></div>
+        <h2>
+          <a href='full/#config-application-rb'>config/application.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -20,7 +20,7 @@</span>
+             # config.i18n.load_path += Dir[Rails.root.join(&#39;my&#39;, &#39;locales&#39;, &#39;*.{rb,yml}&#39;).to_s]
+             # config.i18n.default_locale = :de
+         
+        <span class="gd">-    # For not swallow errors in after_commit/after_rollback callbacks.</span>
+        <span class="gi">+    # Do not swallow errors in after_commit/after_rollback callbacks.</span>
+             config.active_record.raise_in_transactional_callbacks = true
+           end
+         end
+        </pre></div>
+        <h2>
+          <a href='full/#config-environments-development-rb'>config/environments/development.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -27,7 +27,7 @@</span>
+           # number of complex assets.
+           config.assets.debug = true
+         
+        <span class="gd">-  # Asset digests allow you to set far-future HTTP expiration dates on all assets, </span>
+        <span class="gi">+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,</span>
+           # yet still be able to expire them through the digest params.
+           config.assets.digest = true
+         
+        </pre></div>
+        <h2>
+          <a href='full/#config-environments-production-rb'>config/environments/production.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -16,7 +16,8 @@</span>
+         
+           # Enable Rack::Cache to put a simple HTTP cache in front of your application
+           # Add `rack-cache` to your Gemfile before enabling this.
+        <span class="gd">-  # For large-scale production use, consider using a caching reverse proxy like NGINX, varnish or squid.</span>
+        <span class="gi">+  # For large-scale production use, consider using a caching reverse proxy like</span>
+        <span class="gi">+  # NGINX, varnish or squid.</span>
+           # config.action_dispatch.rack_cache = true
+         
+           # Disable Rails&#39;s static asset server (Apache or NGINX will already do this).
+        <span class="gu">@@ -29,20 +30,21 @@</span>
+           # Do not fallback to assets pipeline if a precompiled asset is missed.
+           config.assets.compile = false
+         
+        <span class="gd">-  # Asset digests allow you to set far-future HTTP expiration dates on all assets, </span>
+        <span class="gi">+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,</span>
+           # yet still be able to expire them through the digest params.
+           config.assets.digest = true
+         
+           # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
+         
+           # Specifies the header that your server uses for sending files.
+        <span class="gd">-  # config.action_dispatch.x_sendfile_header = &quot;X-Sendfile&quot; # for Apache</span>
+        <span class="gi">+  # config.action_dispatch.x_sendfile_header = &#39;X-Sendfile&#39; # for Apache</span>
+           # config.action_dispatch.x_sendfile_header = &#39;X-Accel-Redirect&#39; # for NGINX
+         
+           # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+           # config.force_ssl = true
+         
+        <span class="gd">-  # Set to :info to decrease the log volume.</span>
+        <span class="gi">+  # Use the lowest log level to ensure availability of diagnostic information</span>
+        <span class="gi">+  # when problems arise.</span>
+           config.log_level = :debug
+         
+           # Prepend all log lines with the following tags.
+        <span class="gu">@@ -55,7 +57,7 @@</span>
+           # config.cache_store = :mem_cache_store
+         
+           # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+        <span class="gd">-  # config.action_controller.asset_host = &quot;http://assets.example.com&quot;</span>
+        <span class="gi">+  # config.action_controller.asset_host = &#39;http://assets.example.com&#39;</span>
+         
+           # Ignore bad email addresses and do not raise email delivery errors.
+           # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+        </pre></div>
+        <h2>
+          <a href='full/#config-environments-test-rb'>config/environments/test.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -31,6 +31,9 @@</span>
+           # ActionMailer::Base.deliveries array.
+           config.action_mailer.delivery_method = :test
+         
+        <span class="gi">+  # Randomize the order test cases are executed.</span>
+        <span class="gi">+  config.active_support.test_order = :random</span>
+        <span class="gi">+</span>
+           # Print deprecation notices to the stderr.
+           config.active_support.deprecation = :stderr
+         
+        </pre></div>
+        <h2>
+          <a href='full/#config-ru'>config.ru</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
+         # This file is used by Rack-based servers to start the application.
+         
+        <span class="gd">-require ::File.expand_path(&#39;../config/environment&#39;,  __FILE__)</span>
+        <span class="gi">+require ::File.expand_path(&#39;../config/environment&#39;, __FILE__)</span>
+         run Rails.application
+        </pre></div>
+      </div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+    </a>
+    <script src='/assets/app.js'></script>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-7325596-4']);
+      _gaq.push(['_setSiteSpeedSampleRate', 100]);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
