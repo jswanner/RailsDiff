@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v4.2.0.rc1 - v4.2.0 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet'>
+    <link href='/assets/app.css' rel='stylesheet'>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png'></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff'>
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+        <h2>
+          <a href='full/#Gemfile'>Gemfile</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -2,11 +2,11 @@</span>
+         
+         
+         # Bundle edge Rails instead: gem &#39;rails&#39;, github: &#39;rails/rails&#39;
+        <span class="gd">-gem &#39;rails&#39;, &#39;4.2.0.rc1&#39;</span>
+        <span class="gi">+gem &#39;rails&#39;, &#39;4.2.0&#39;</span>
+         # Use sqlite3 as the database for Active Record
+         gem &#39;sqlite3&#39;
+         # Use SCSS for stylesheets
+        <span class="gd">-gem &#39;sass-rails&#39;, &#39;~&gt; 4.0&#39;</span>
+        <span class="gi">+gem &#39;sass-rails&#39;, &#39;~&gt; 5.0&#39;</span>
+         # Use Uglifier as compressor for JavaScript assets
+         gem &#39;uglifier&#39;, &#39;&gt;= 1.3.0&#39;
+         # Use CoffeeScript for .coffee assets and views
+        </pre></div>
+        <h2>
+          <a href='full/#config-environments-production-rb'>config/environments/production.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -20,8 +20,9 @@</span>
+           # NGINX, varnish or squid.
+           # config.action_dispatch.rack_cache = true
+         
+        <span class="gd">-  # Disable Rails&#39;s static asset server (Apache or NGINX will already do this).</span>
+        <span class="gd">-  config.serve_static_assets = false</span>
+        <span class="gi">+  # Disable serving static files from the `/public` folder by default since</span>
+        <span class="gi">+  # Apache or NGINX already handles this.</span>
+        <span class="gi">+  config.serve_static_files = ENV[&#39;RAILS_SERVE_STATIC_FILES&#39;].present?</span>
+         
+           # Compress JavaScripts and CSS.
+           config.assets.js_compressor = :uglifier
+        </pre></div>
+        <h2>
+          <a href='full/#config-environments-test-rb'>config/environments/test.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -12,8 +12,8 @@</span>
+           # preloads Rails for running tests, you may have to set it to true.
+           config.eager_load = false
+         
+        <span class="gd">-  # Configure static asset server for tests with Cache-Control for performance.</span>
+        <span class="gd">-  config.serve_static_assets  = true</span>
+        <span class="gi">+  # Configure static file server for tests with Cache-Control for performance.</span>
+        <span class="gi">+  config.serve_static_files   = true</span>
+           config.static_cache_control = &#39;public, max-age=3600&#39;
+         
+           # Show full error reports and disable caching.
+        <span class="gu">@@ -31,7 +31,7 @@</span>
+           # ActionMailer::Base.deliveries array.
+           config.action_mailer.delivery_method = :test
+         
+        <span class="gd">-  # Randomize the order test cases are executed</span>
+        <span class="gi">+  # Randomize the order test cases are executed.</span>
+           config.active_support.test_order = :random
+         
+           # Print deprecation notices to the stderr.
+        </pre></div>
+      </div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+    </a>
+    <script src='/assets/app.js'></script>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-7325596-4']);
+      _gaq.push(['_setSiteSpeedSampleRate', 100]);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
