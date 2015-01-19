@@ -175,7 +175,7 @@ rule(/html\/.*\.html/) do |t|
   target = match['t']
   url = '/diff/%s/%s/' % [source, target]
 
-  content = template('templates/redirect.haml').render(nil, {url: url})
+  content = template('templates/redirect.haml').render(Object.new, {url: url})
   File.write t.name, content
 end
 
@@ -205,8 +205,8 @@ end
 def render file_name, template_name, locals = {}
   locals[:title] ||= nil
 
-  content = template('templates/layout.haml').render(nil, locals) do
-    template(template_name).render(nil, locals)
+  content = template('templates/layout.haml').render(Object.new, locals) do
+    template(template_name).render(Object.new, locals)
   end
   File.write file_name, content
 end
