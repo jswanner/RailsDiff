@@ -26,13 +26,6 @@ task 'generate' => 'update_rails_repo' do |t|
   Rake::Task["sitemap.txt"].invoke
 end
 
-desc 'Regenerate HTML files'
-task 'regenerate_html' do
-  Dir['html/*html'].each { |file| Rake::Task[file].invoke }
-  Rake::Task["index.html"].invoke
-  Rake::Task["404.html"].invoke
-end
-
 desc 'Generate index.html'
 file 'index.html' => ['templates/index.haml', 'templates/layout.haml'] do |t|
   puts 'Generating %s' % t.name

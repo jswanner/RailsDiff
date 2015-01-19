@@ -36,10 +36,3 @@ Or:
 touch template/index.haml # or a more meaningful change to the file
 rake index.html
 ```
-
-For convenience, if you want to conditionally regenerate all the HTML
-files, you can run:
-
-```sh
-rake regenerate_html
-```
