@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v4.1.4 - v4.1.9 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet'>
+    <link href='/assets/app.css' rel='stylesheet'>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png'></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff'>
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+        <h2 id='Gemfile'>Gemfile</h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,40 +1,40 @@</span>
+         source &#39;https://rubygems.org&#39;
+         
+         
+         # Bundle edge Rails instead: gem &#39;rails&#39;, github: &#39;rails/rails&#39;
+        <span class="gd">-gem &#39;rails&#39;, &#39;4.1.4&#39;</span>
+        <span class="gi">+gem &#39;rails&#39;, &#39;4.1.9&#39;</span>
+         # Use sqlite3 as the database for Active Record
+         gem &#39;sqlite3&#39;
+         # Use SCSS for stylesheets
+         gem &#39;sass-rails&#39;, &#39;~&gt; 4.0.3&#39;
+         # Use Uglifier as compressor for JavaScript assets
+         gem &#39;uglifier&#39;, &#39;&gt;= 1.3.0&#39;
+         # Use CoffeeScript for .js.coffee assets and views
+         gem &#39;coffee-rails&#39;, &#39;~&gt; 4.0.0&#39;
+         # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+         # gem &#39;therubyracer&#39;,  platforms: :ruby
+         
+         # Use jquery as the JavaScript library
+         gem &#39;jquery-rails&#39;
+         # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+         gem &#39;turbolinks&#39;
+         # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+         gem &#39;jbuilder&#39;, &#39;~&gt; 2.0&#39;
+         # bundle exec rake doc:rails generates the API under doc/api.
+         gem &#39;sdoc&#39;, &#39;~&gt; 0.4.0&#39;,          group: :doc
+         
+         # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+         gem &#39;spring&#39;,        group: :development
+         
+         # Use ActiveModel has_secure_password
+         # gem &#39;bcrypt&#39;, &#39;~&gt; 3.1.7&#39;
+         
+         # Use unicorn as the app server
+         # gem &#39;unicorn&#39;
+         
+         # Use Capistrano for deployment
+         # gem &#39;capistrano-rails&#39;, group: :development
+         
+         # Use debugger
+         # gem &#39;debugger&#39;, group: [:development, :test]
+         
+        </pre></div>
+        <h2 id='config-environments-production-rb'>config/environments/production.rb</h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,82 +1,78 @@</span>
+         Rails.application.configure do
+           # Settings specified here will take precedence over those in config/application.rb.
+         
+           # Code is not reloaded between requests.
+           config.cache_classes = true
+         
+           # Eager load code on boot. This eager loads most of Rails and
+           # your application in memory, allowing both threaded web servers
+           # and those relying on copy on write to perform better.
+           # Rake tasks automatically ignore this option for performance.
+           config.eager_load = true
+         
+           # Full error reports are disabled and caching is turned on.
+           config.consider_all_requests_local       = false
+           config.action_controller.perform_caching = true
+         
+           # Enable Rack::Cache to put a simple HTTP cache in front of your application
+           # Add `rack-cache` to your Gemfile before enabling this.
+           # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
+           # config.action_dispatch.rack_cache = true
+         
+           # Disable Rails&#39;s static asset server (Apache or nginx will already do this).
+           config.serve_static_assets = false
+         
+           # Compress JavaScripts and CSS.
+           config.assets.js_compressor = :uglifier
+           # config.assets.css_compressor = :sass
+         
+           # Do not fallback to assets pipeline if a precompiled asset is missed.
+           config.assets.compile = false
+         
+           # Generate digests for assets URLs.
+           config.assets.digest = true
+         
+        <span class="gd">-  # `config.assets.precompile` has moved to config/initializers/assets.rb</span>
+        <span class="gi">+  # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb</span>
+         
+           # Specifies the header that your server uses for sending files.
+           # config.action_dispatch.x_sendfile_header = &quot;X-Sendfile&quot; # for apache
+           # config.action_dispatch.x_sendfile_header = &#39;X-Accel-Redirect&#39; # for nginx
+         
+           # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+           # config.force_ssl = true
+         
+           # Set to :debug to see everything in the log.
+           config.log_level = :info
+         
+           # Prepend all log lines with the following tags.
+           # config.log_tags = [ :subdomain, :uuid ]
+         
+           # Use a different logger for distributed setups.
+           # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+         
+           # Use a different cache store in production.
+           # config.cache_store = :mem_cache_store
+         
+           # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+           # config.action_controller.asset_host = &quot;http://assets.example.com&quot;
+         
+        <span class="gd">-  # Precompile additional assets.</span>
+        <span class="gd">-  # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.</span>
+        <span class="gd">-  # config.assets.precompile += %w( search.js )</span>
+        <span class="gd">-</span>
+           # Ignore bad email addresses and do not raise email delivery errors.
+           # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+           # config.action_mailer.raise_delivery_errors = false
+         
+           # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
+           # the I18n.default_locale when a translation cannot be found).
+           config.i18n.fallbacks = true
+         
+           # Send deprecation notices to registered listeners.
+           config.active_support.deprecation = :notify
+         
+           # Disable automatic flushing of the log to improve performance.
+           # config.autoflush_log = false
+         
+           # Use default logging formatter so that PID and timestamp are not suppressed.
+           config.log_formatter = ::Logger::Formatter.new
+         
+           # Do not dump schema after migrations.
+           config.active_record.dump_schema_after_migration = false
+         end
+        </pre></div>
+      </div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+    </a>
+    <script src='/assets/app.js'></script>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-7325596-4']);
+      _gaq.push(['_setSiteSpeedSampleRate', 100]);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
