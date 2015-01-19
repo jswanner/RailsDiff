@@ -15,7 +15,8 @@ But, each generated file can be independently [re]generated:
 ```sh
 rake index.html
 rake 404.html
-rake html/v3.0.0-v4.0.0.beta1.html
+rake diff/v3.0.0/v4.0.0.beta1/index.html
+rake diff/v3.0.0/v4.0.0.beta1/full/index.html
 ```
 
 Thanks to Rake, these files will only be [re]generated if needed; and
