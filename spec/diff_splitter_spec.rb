@@ -33,10 +33,10 @@ END
     subject { diff_splitter.split }
 
     specify { should be_kind_of(Hash) }
-    specify { subject.keys.should =~ %w[Gemfile config/routes.rb] }
+    specify { expect(subject.keys).to eq %w[Gemfile config/routes.rb] }
 
     it 'starts each diff with @' do
-      subject.values.each { |diff| diff =~ /^@/ }
+      subject.values.each { |diff| expect(diff).to start_with /^@/ }
     end
   end
 end
