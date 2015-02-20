@@ -1,0 +1,12 @@
+diff -Nru -x '*.png' v4.2.0/Gemfile v4.2.1.rc1/Gemfile
+--- v4.2.0/Gemfile	2015-02-20 18:54:27.000000000 -0500
++++ v4.2.1.rc1/Gemfile	2015-02-20 18:51:13.000000000 -0500
+@@ -2,7 +2,7 @@
+ 
+ 
+ # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+-gem 'rails', '4.2.0'
++gem 'rails', '4.2.1.rc1'
+ # Use sqlite3 as the database for Active Record
+ gem 'sqlite3'
+ # Use SCSS for stylesheets

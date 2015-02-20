@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails v4.0.7 - v4.2.1.rc1 diff - RailsDiff</title>
+    <link href='/assets/pygment_trac.css' rel='stylesheet'>
+    <link href='/assets/app.css' rel='stylesheet'>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href='/'>RailsDiff</a>
+      </h1>
+      <form>
+        <label>
+          Source
+          <select name='source'></select>
+        </label>
+        <a class='switch' href='#'><img src='/assets/arrow_refresh.png'></a>
+        <label>
+          Target
+          <select name='target'></select>
+        </label>
+        <input type='submit' value='View Diff'>
+      </form>
+    </header>
+    <div class='content'>
+      <div class='diff'>
+        <h2>
+          <a href='full/#-gitignore'>.gitignore</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -12,5 +12,6 @@</span>
+         /db/*.sqlite3-journal
+         
+         # Ignore all logfiles and tempfiles.
+        <span class="gd">-/log/*.log</span>
+        <span class="gi">+/log/*</span>
+        <span class="gi">+!/log/.keep</span>
+         /tmp
+        </pre></div>
+        <h2>
+          <a href='full/#Gemfile'>Gemfile</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,45 +1,45 @@</span>
+         source &#39;https://rubygems.org&#39;
+         
+        <span class="gd">-# Bundle edge Rails instead: gem &#39;rails&#39;, github: &#39;rails/rails&#39;</span>
+        <span class="gd">-gem &#39;rails&#39;, &#39;4.0.7&#39;</span>
+         
+        <span class="gi">+# Bundle edge Rails instead: gem &#39;rails&#39;, github: &#39;rails/rails&#39;</span>
+        <span class="gi">+gem &#39;rails&#39;, &#39;4.2.1.rc1&#39;</span>
+         # Use sqlite3 as the database for Active Record
+         gem &#39;sqlite3&#39;
+        <span class="gd">-</span>
+         # Use SCSS for stylesheets
+        <span class="gd">-gem &#39;sass-rails&#39;, &#39;~&gt; 4.0.2&#39;</span>
+        <span class="gd">-</span>
+        <span class="gi">+gem &#39;sass-rails&#39;, &#39;~&gt; 5.0&#39;</span>
+         # Use Uglifier as compressor for JavaScript assets
+         gem &#39;uglifier&#39;, &#39;&gt;= 1.3.0&#39;
+        <span class="gd">-</span>
+        <span class="gd">-# Use CoffeeScript for .js.coffee assets and views</span>
+        <span class="gd">-gem &#39;coffee-rails&#39;, &#39;~&gt; 4.0.0&#39;</span>
+        <span class="gd">-</span>
+        <span class="gi">+# Use CoffeeScript for .coffee assets and views</span>
+        <span class="gi">+gem &#39;coffee-rails&#39;, &#39;~&gt; 4.1.0&#39;</span>
+         # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+         # gem &#39;therubyracer&#39;, platforms: :ruby
+         
+         # Use jquery as the JavaScript library
+         gem &#39;jquery-rails&#39;
+        <span class="gd">-</span>
+         # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+         gem &#39;turbolinks&#39;
+        <span class="gd">-</span>
+         # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+        <span class="gd">-gem &#39;jbuilder&#39;, &#39;~&gt; 1.2&#39;</span>
+        <span class="gd">-</span>
+        <span class="gd">-group :doc do</span>
+        <span class="gd">-  # bundle exec rake doc:rails generates the API under doc/api.</span>
+        <span class="gd">-  gem &#39;sdoc&#39;, require: false</span>
+        <span class="gd">-end</span>
+        <span class="gi">+gem &#39;jbuilder&#39;, &#39;~&gt; 2.0&#39;</span>
+        <span class="gi">+# bundle exec rake doc:rails generates the API under doc/api.</span>
+        <span class="gi">+gem &#39;sdoc&#39;, &#39;~&gt; 0.4.0&#39;, group: :doc</span>
+         
+         # Use ActiveModel has_secure_password
+         # gem &#39;bcrypt&#39;, &#39;~&gt; 3.1.7&#39;
+         
+        <span class="gd">-# Use unicorn as the app server</span>
+        <span class="gi">+# Use Unicorn as the app server</span>
+         # gem &#39;unicorn&#39;
+         
+         # Use Capistrano for deployment
+        <span class="gd">-# gem &#39;capistrano&#39;, group: :development</span>
+        <span class="gi">+# gem &#39;capistrano-rails&#39;, group: :development</span>
+        <span class="gi">+</span>
+        <span class="gi">+group :development, :test do</span>
+        <span class="gi">+  # Call &#39;byebug&#39; anywhere in the code to stop execution and get a debugger console</span>
+        <span class="gi">+  gem &#39;byebug&#39;</span>
+        <span class="gi">+</span>
+        <span class="gi">+  # Access an IRB console on exception pages or by using &lt;%= console %&gt; in views</span>
+        <span class="gi">+  gem &#39;web-console&#39;, &#39;~&gt; 2.0&#39;</span>
+        <span class="gi">+</span>
+        <span class="gi">+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring</span>
+        <span class="gi">+  gem &#39;spring&#39;</span>
+        <span class="gi">+end</span>
+         
+        <span class="gd">-# Use debugger</span>
+        <span class="gd">-# gem &#39;debugger&#39;, group: [:development, :test]</span>
+        </pre></div>
+        <h2>
+          <a href='full/#Rakefile'>Rakefile</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -3,4 +3,4 @@</span>
+         
+         require File.expand_path(&#39;../config/application&#39;, __FILE__)
+         
+        <span class="gd">-Railsdiff::Application.load_tasks</span>
+        <span class="gi">+Rails.application.load_tasks</span>
+        </pre></div>
+        <h2>
+          <a href='full/#app-assets-javascripts-application-js'>app/assets/javascripts/application.js</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -2,7 +2,7 @@</span>
+         // listed below.
+         //
+         // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+        <span class="gd">-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.</span>
+        <span class="gi">+// or any plugin&#39;s vendor/assets/javascripts directory can be referenced here using a relative path.</span>
+         //
+         // It&#39;s not advisable to add code directly here, but if you do, it&#39;ll appear at the bottom of the
+         // compiled file.
+        </pre></div>
+        <h2>
+          <a href='full/#app-assets-stylesheets-application-css'>app/assets/stylesheets/application.css</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -3,11 +3,13 @@</span>
+          * listed below.
+          *
+          * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+        <span class="gd">- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.</span>
+        <span class="gi">+ * or any plugin&#39;s vendor/assets/stylesheets directory can be referenced here using a relative path.</span>
+          *
+        <span class="gd">- * You&#39;re free to add application-wide styles to this file and they&#39;ll appear at the top of the</span>
+        <span class="gd">- * compiled file, but it&#39;s generally better to create a new file per style scope.</span>
+        <span class="gi">+ * You&#39;re free to add application-wide styles to this file and they&#39;ll appear at the bottom of the</span>
+        <span class="gi">+ * compiled file so the styles you add here take precedence over styles defined in any styles</span>
+        <span class="gi">+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new</span>
+        <span class="gi">+ * file per style scope.</span>
+          *
+        <span class="gd">- *= require_self</span>
+          *= require_tree .
+        <span class="gi">+ *= require_self</span>
+          */
+        </pre></div>
+        <h2>
+          <a href='full/#app-views-layouts-application-html-erb'>app/views/layouts/application.html.erb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -2,8 +2,8 @@</span>
+         &lt;html&gt;
+         &lt;head&gt;
+           &lt;title&gt;Railsdiff&lt;/title&gt;
+        <span class="gd">-  &lt;%= stylesheet_link_tag    &quot;application&quot;, media: &quot;all&quot;, &quot;data-turbolinks-track&quot; =&gt; true %&gt;</span>
+        <span class="gd">-  &lt;%= javascript_include_tag &quot;application&quot;, &quot;data-turbolinks-track&quot; =&gt; true %&gt;</span>
+        <span class="gi">+  &lt;%= stylesheet_link_tag    &#39;application&#39;, media: &#39;all&#39;, &#39;data-turbolinks-track&#39; =&gt; true %&gt;</span>
+        <span class="gi">+  &lt;%= javascript_include_tag &#39;application&#39;, &#39;data-turbolinks-track&#39; =&gt; true %&gt;</span>
+           &lt;%= csrf_meta_tags %&gt;
+         &lt;/head&gt;
+         &lt;body&gt;
+        </pre></div>
+        <h2>
+          <a href='full/#bin-rails'>bin/rails</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
+         #!/usr/bin/env ruby
+        <span class="gd">-APP_PATH = File.expand_path(&#39;../../config/application&#39;,  __FILE__)</span>
+        <span class="gi">+APP_PATH = File.expand_path(&#39;../../config/application&#39;, __FILE__)</span>
+         require_relative &#39;../config/boot&#39;
+         require &#39;rails/commands&#39;
+        </pre></div>
+        <h2>
+          <a href='full/#bin-setup'>bin/setup</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -0,0 +1,29 @@</span>
+        <span class="gi">+#!/usr/bin/env ruby</span>
+        <span class="gi">+require &#39;pathname&#39;</span>
+        <span class="gi">+</span>
+        <span class="gi">+# path to your application root.</span>
+        <span class="gi">+APP_ROOT = Pathname.new File.expand_path(&#39;../../&#39;,  __FILE__)</span>
+        <span class="gi">+</span>
+        <span class="gi">+Dir.chdir APP_ROOT do</span>
+        <span class="gi">+  # This script is a starting point to setup your application.</span>
+        <span class="gi">+  # Add necessary setup steps to this file:</span>
+        <span class="gi">+</span>
+        <span class="gi">+  puts &quot;== Installing dependencies ==&quot;</span>
+        <span class="gi">+  system &quot;gem install bundler --conservative&quot;</span>
+        <span class="gi">+  system &quot;bundle check || bundle install&quot;</span>
+        <span class="gi">+</span>
+        <span class="gi">+  # puts &quot;\n== Copying sample files ==&quot;</span>
+        <span class="gi">+  # unless File.exist?(&quot;config/database.yml&quot;)</span>
+        <span class="gi">+  #   system &quot;cp config/database.yml.sample config/database.yml&quot;</span>
+        <span class="gi">+  # end</span>
+        <span class="gi">+</span>
+        <span class="gi">+  puts &quot;\n== Preparing database ==&quot;</span>
+        <span class="gi">+  system &quot;bin/rake db:setup&quot;</span>
+        <span class="gi">+</span>
+        <span class="gi">+  puts &quot;\n== Removing old logs and tempfiles ==&quot;</span>
+        <span class="gi">+  system &quot;rm -f log/*&quot;</span>
+        <span class="gi">+  system &quot;rm -rf tmp/cache&quot;</span>
+        <span class="gi">+</span>
+        <span class="gi">+  puts &quot;\n== Restarting application server ==&quot;</span>
+        <span class="gi">+  system &quot;touch tmp/restart.txt&quot;</span>
+        <span class="gi">+end</span>
+        </pre></div>
+        <h2>
+          <a href='full/#config-application-rb'>config/application.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -19,5 +19,8 @@</span>
+             # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+             # config.i18n.load_path += Dir[Rails.root.join(&#39;my&#39;, &#39;locales&#39;, &#39;*.{rb,yml}&#39;).to_s]
+             # config.i18n.default_locale = :de
+        <span class="gi">+</span>
+        <span class="gi">+    # Do not swallow errors in after_commit/after_rollback callbacks.</span>
+        <span class="gi">+    config.active_record.raise_in_transactional_callbacks = true</span>
+           end
+         end
+        </pre></div>
+        <h2>
+          <a href='full/#config-boot-rb'>config/boot.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,4 +1,3 @@</span>
+        <span class="gd">-# Set up gems listed in the Gemfile.</span>
+         ENV[&#39;BUNDLE_GEMFILE&#39;] ||= File.expand_path(&#39;../../Gemfile&#39;, __FILE__)
+         
+        <span class="gd">-require &#39;bundler/setup&#39; if File.exist?(ENV[&#39;BUNDLE_GEMFILE&#39;])</span>
+        <span class="gi">+require &#39;bundler/setup&#39; # Set up gems listed in the Gemfile.</span>
+        </pre></div>
+        <h2>
+          <a href='full/#config-database-yml'>config/database.yml</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -3,23 +3,23 @@</span>
+         #
+         #   Ensure the SQLite 3 gem is defined in your Gemfile
+         #   gem &#39;sqlite3&#39;
+        <span class="gd">-development:</span>
+        <span class="gi">+#</span>
+        <span class="gi">+default: &amp;default</span>
+           adapter: sqlite3
+        <span class="gd">-  database: db/development.sqlite3</span>
+           pool: 5
+           timeout: 5000
+         
+        <span class="gi">+development:</span>
+        <span class="gi">+  &lt;&lt;: *default</span>
+        <span class="gi">+  database: db/development.sqlite3</span>
+        <span class="gi">+</span>
+         # Warning: The database defined as &quot;test&quot; will be erased and
+         # re-generated from your development database when you run &quot;rake&quot;.
+         # Do not set this db to the same as development or production.
+         test:
+        <span class="gd">-  adapter: sqlite3</span>
+        <span class="gi">+  &lt;&lt;: *default</span>
+           database: db/test.sqlite3
+        <span class="gd">-  pool: 5</span>
+        <span class="gd">-  timeout: 5000</span>
+         
+         production:
+        <span class="gd">-  adapter: sqlite3</span>
+        <span class="gi">+  &lt;&lt;: *default</span>
+           database: db/production.sqlite3
+        <span class="gd">-  pool: 5</span>
+        <span class="gd">-  timeout: 5000</span>
+        </pre></div>
+        <h2>
+          <a href='full/#config-environment-rb'>config/environment.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -2,4 +2,4 @@</span>
+         require File.expand_path(&#39;../application&#39;, __FILE__)
+         
+         # Initialize the Rails application.
+        <span class="gd">-Railsdiff::Application.initialize!</span>
+        <span class="gi">+Rails.application.initialize!</span>
+        </pre></div>
+        <h2>
+          <a href='full/#config-environments-development-rb'>config/environments/development.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
+        <span class="gd">-Railsdiff::Application.configure do</span>
+        <span class="gi">+Rails.application.configure do</span>
+           # Settings specified here will take precedence over those in config/application.rb.
+         
+           # In the development environment your application&#39;s code is reloaded on
+        <span class="gu">@@ -19,11 +19,23 @@</span>
+           # Print deprecation notices to the Rails logger.
+           config.active_support.deprecation = :log
+         
+        <span class="gd">-  # Raise an error on page load if there are pending migrations</span>
+        <span class="gi">+  # Raise an error on page load if there are pending migrations.</span>
+           config.active_record.migration_error = :page_load
+         
+           # Debug mode disables concatenation and preprocessing of assets.
+           # This option may cause significant delays in view rendering with a large
+           # number of complex assets.
+           config.assets.debug = true
+        <span class="gi">+</span>
+        <span class="gi">+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,</span>
+        <span class="gi">+  # yet still be able to expire them through the digest params.</span>
+        <span class="gi">+  config.assets.digest = true</span>
+        <span class="gi">+</span>
+        <span class="gi">+  # Adds additional error checking when serving assets at runtime.</span>
+        <span class="gi">+  # Checks for improperly declared sprockets dependencies.</span>
+        <span class="gi">+  # Raises helpful error messages.</span>
+        <span class="gi">+  config.assets.raise_runtime_errors = true</span>
+        <span class="gi">+</span>
+        <span class="gi">+  # Raises error for missing translations</span>
+        <span class="gi">+  # config.action_view.raise_on_missing_translations = true</span>
+         end
+        </pre></div>
+        <h2>
+          <a href='full/#config-environments-production-rb'>config/environments/production.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,11 +1,11 @@</span>
+        <span class="gd">-Railsdiff::Application.configure do</span>
+        <span class="gi">+Rails.application.configure do</span>
+           # Settings specified here will take precedence over those in config/application.rb.
+         
+           # Code is not reloaded between requests.
+           config.cache_classes = true
+         
+           # Eager load code on boot. This eager loads most of Rails and
+        <span class="gd">-  # your application in memory, allowing both thread web servers</span>
+        <span class="gi">+  # your application in memory, allowing both threaded web servers</span>
+           # and those relying on copy on write to perform better.
+           # Rake tasks automatically ignore this option for performance.
+           config.eager_load = true
+        <span class="gu">@@ -16,11 +16,13 @@</span>
+         
+           # Enable Rack::Cache to put a simple HTTP cache in front of your application
+           # Add `rack-cache` to your Gemfile before enabling this.
+        <span class="gd">-  # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.</span>
+        <span class="gi">+  # For large-scale production use, consider using a caching reverse proxy like</span>
+        <span class="gi">+  # NGINX, varnish or squid.</span>
+           # config.action_dispatch.rack_cache = true
+         
+        <span class="gd">-  # Disable Rails&#39;s static asset server (Apache or nginx will already do this).</span>
+        <span class="gd">-  config.serve_static_assets = false</span>
+        <span class="gi">+  # Disable serving static files from the `/public` folder by default since</span>
+        <span class="gi">+  # Apache or NGINX already handles this.</span>
+        <span class="gi">+  config.serve_static_files = ENV[&#39;RAILS_SERVE_STATIC_FILES&#39;].present?</span>
+         
+           # Compress JavaScripts and CSS.
+           config.assets.js_compressor = :uglifier
+        <span class="gu">@@ -29,21 +31,22 @@</span>
+           # Do not fallback to assets pipeline if a precompiled asset is missed.
+           config.assets.compile = false
+         
+        <span class="gd">-  # Generate digests for assets URLs.</span>
+        <span class="gi">+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,</span>
+        <span class="gi">+  # yet still be able to expire them through the digest params.</span>
+           config.assets.digest = true
+         
+        <span class="gd">-  # Version of your assets, change this if you want to expire all your assets.</span>
+        <span class="gd">-  config.assets.version = &#39;1.0&#39;</span>
+        <span class="gi">+  # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb</span>
+         
+           # Specifies the header that your server uses for sending files.
+        <span class="gd">-  # config.action_dispatch.x_sendfile_header = &quot;X-Sendfile&quot; # for apache</span>
+        <span class="gd">-  # config.action_dispatch.x_sendfile_header = &#39;X-Accel-Redirect&#39; # for nginx</span>
+        <span class="gi">+  # config.action_dispatch.x_sendfile_header = &#39;X-Sendfile&#39; # for Apache</span>
+        <span class="gi">+  # config.action_dispatch.x_sendfile_header = &#39;X-Accel-Redirect&#39; # for NGINX</span>
+         
+           # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+           # config.force_ssl = true
+         
+        <span class="gd">-  # Set to :debug to see everything in the log.</span>
+        <span class="gd">-  config.log_level = :info</span>
+        <span class="gi">+  # Use the lowest log level to ensure availability of diagnostic information</span>
+        <span class="gi">+  # when problems arise.</span>
+        <span class="gi">+  config.log_level = :debug</span>
+         
+           # Prepend all log lines with the following tags.
+           # config.log_tags = [ :subdomain, :uuid ]
+        <span class="gu">@@ -55,26 +58,22 @@</span>
+           # config.cache_store = :mem_cache_store
+         
+           # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+        <span class="gd">-  # config.action_controller.asset_host = &quot;http://assets.example.com&quot;</span>
+        <span class="gd">-</span>
+        <span class="gd">-  # Precompile additional assets.</span>
+        <span class="gd">-  # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.</span>
+        <span class="gd">-  # config.assets.precompile += %w( search.js )</span>
+        <span class="gi">+  # config.action_controller.asset_host = &#39;http://assets.example.com&#39;</span>
+         
+           # Ignore bad email addresses and do not raise email delivery errors.
+           # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+           # config.action_mailer.raise_delivery_errors = false
+         
+           # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
+        <span class="gd">-  # the I18n.default_locale when a translation can not be found).</span>
+        <span class="gi">+  # the I18n.default_locale when a translation cannot be found).</span>
+           config.i18n.fallbacks = true
+         
+           # Send deprecation notices to registered listeners.
+           config.active_support.deprecation = :notify
+         
+        <span class="gd">-  # Disable automatic flushing of the log to improve performance.</span>
+        <span class="gd">-  # config.autoflush_log = false</span>
+        <span class="gd">-</span>
+           # Use default logging formatter so that PID and timestamp are not suppressed.
+           config.log_formatter = ::Logger::Formatter.new
+        <span class="gi">+</span>
+        <span class="gi">+  # Do not dump schema after migrations.</span>
+        <span class="gi">+  config.active_record.dump_schema_after_migration = false</span>
+         end
+        </pre></div>
+        <h2>
+          <a href='full/#config-environments-test-rb'>config/environments/test.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
+        <span class="gd">-Railsdiff::Application.configure do</span>
+        <span class="gi">+Rails.application.configure do</span>
+           # Settings specified here will take precedence over those in config/application.rb.
+         
+           # The test environment is used exclusively to run your application&#39;s
+        <span class="gu">@@ -12,9 +12,9 @@</span>
+           # preloads Rails for running tests, you may have to set it to true.
+           config.eager_load = false
+         
+        <span class="gd">-  # Configure static asset server for tests with Cache-Control for performance.</span>
+        <span class="gd">-  config.serve_static_assets  = true</span>
+        <span class="gd">-  config.static_cache_control = &quot;public, max-age=3600&quot;</span>
+        <span class="gi">+  # Configure static file server for tests with Cache-Control for performance.</span>
+        <span class="gi">+  config.serve_static_files   = true</span>
+        <span class="gi">+  config.static_cache_control = &#39;public, max-age=3600&#39;</span>
+         
+           # Show full error reports and disable caching.
+           config.consider_all_requests_local       = true
+        <span class="gu">@@ -31,6 +31,12 @@</span>
+           # ActionMailer::Base.deliveries array.
+           config.action_mailer.delivery_method = :test
+         
+        <span class="gi">+  # Randomize the order test cases are executed.</span>
+        <span class="gi">+  config.active_support.test_order = :random</span>
+        <span class="gi">+</span>
+           # Print deprecation notices to the stderr.
+           config.active_support.deprecation = :stderr
+        <span class="gi">+</span>
+        <span class="gi">+  # Raises error for missing translations</span>
+        <span class="gi">+  # config.action_view.raise_on_missing_translations = true</span>
+         end
+        </pre></div>
+        <h2>
+          <a href='full/#config-initializers-assets-rb'>config/initializers/assets.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -0,0 +1,11 @@</span>
+        <span class="gi">+# Be sure to restart your server when you modify this file.</span>
+        <span class="gi">+</span>
+        <span class="gi">+# Version of your assets, change this if you want to expire all your assets.</span>
+        <span class="gi">+Rails.application.config.assets.version = &#39;1.0&#39;</span>
+        <span class="gi">+</span>
+        <span class="gi">+# Add additional assets to the asset load path</span>
+        <span class="gi">+# Rails.application.config.assets.paths &lt;&lt; Emoji.images_path</span>
+        <span class="gi">+</span>
+        <span class="gi">+# Precompile additional assets.</span>
+        <span class="gi">+# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.</span>
+        <span class="gi">+# Rails.application.config.assets.precompile += %w( search.js )</span>
+        </pre></div>
+        <h2>
+          <a href='full/#config-initializers-cookies_serializer-rb'>config/initializers/cookies_serializer.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -0,0 +1,3 @@</span>
+        <span class="gi">+# Be sure to restart your server when you modify this file.</span>
+        <span class="gi">+</span>
+        <span class="gi">+Rails.application.config.action_dispatch.cookies_serializer = :json</span>
+        </pre></div>
+        <h2>
+          <a href='full/#config-initializers-mime_types-rb'>config/initializers/mime_types.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -2,4 +2,3 @@</span>
+         
+         # Add new mime types for use in respond_to blocks:
+         # Mime::Type.register &quot;text/richtext&quot;, :rtf
+        <span class="gd">-# Mime::Type.register_alias &quot;text/html&quot;, :iphone</span>
+        </pre></div>
+        <h2>
+          <a href='full/#config-initializers-secret_token-rb'>config/initializers/secret_token.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,12 +0,0 @@</span>
+        <span class="gd">-# Be sure to restart your server when you modify this file.</span>
+        <span class="gd">-</span>
+        <span class="gd">-# Your secret key is used for verifying the integrity of signed cookies.</span>
+        <span class="gd">-# If you change this key, all old signed cookies will become invalid!</span>
+        <span class="gd">-</span>
+        <span class="gd">-# Make sure the secret is at least 30 characters and all random,</span>
+        <span class="gd">-# no regular words or you&#39;ll be exposed to dictionary attacks.</span>
+        <span class="gd">-# You can use `rake secret` to generate a secure secret key.</span>
+        <span class="gd">-</span>
+        <span class="gd">-# Make sure your secret_key_base is kept private</span>
+        <span class="gd">-# if you&#39;re sharing your code publicly.</span>
+        <span class="gd">-Railsdiff::Application.config.secret_key_base = &#39;your-secret-token&#39;</span>
+        </pre></div>
+        <h2>
+          <a href='full/#config-initializers-session_store-rb'>config/initializers/session_store.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,3 +1,3 @@</span>
+         # Be sure to restart your server when you modify this file.
+         
+        <span class="gd">-Railsdiff::Application.config.session_store :cookie_store, key: &#39;_railsdiff_session&#39;</span>
+        <span class="gi">+Rails.application.config.session_store :cookie_store, key: &#39;_railsdiff_session&#39;</span>
+        </pre></div>
+        <h2>
+          <a href='full/#config-routes-rb'>config/routes.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
+        <span class="gd">-Railsdiff::Application.routes.draw do</span>
+        <span class="gi">+Rails.application.routes.draw do</span>
+           # The priority is based upon order of creation: first created -&gt; highest priority.
+           # See how all your routes lay out with &quot;rake routes&quot;.
+         
+        </pre></div>
+        <h2>
+          <a href='full/#config-secrets-yml'>config/secrets.yml</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -0,0 +1,22 @@</span>
+        <span class="gi">+# Be sure to restart your server when you modify this file.</span>
+        <span class="gi">+</span>
+        <span class="gi">+# Your secret key is used for verifying the integrity of signed cookies.</span>
+        <span class="gi">+# If you change this key, all old signed cookies will become invalid!</span>
+        <span class="gi">+</span>
+        <span class="gi">+# Make sure the secret is at least 30 characters and all random,</span>
+        <span class="gi">+# no regular words or you&#39;ll be exposed to dictionary attacks.</span>
+        <span class="gi">+# You can use `rake secret` to generate a secure secret key.</span>
+        <span class="gi">+</span>
+        <span class="gi">+# Make sure the secrets in this file are kept private</span>
+        <span class="gi">+# if you&#39;re sharing your code publicly.</span>
+        <span class="gi">+</span>
+        <span class="gi">+development:</span>
+        <span class="gi">+  secret_key_base: your-secret-token</span>
+        <span class="gi">+</span>
+        <span class="gi">+test:</span>
+        <span class="gi">+  secret_key_base: your-secret-token</span>
+        <span class="gi">+</span>
+        <span class="gi">+# Do not keep production secrets in the repository,</span>
+        <span class="gi">+# instead read values from the environment.</span>
+        <span class="gi">+production:</span>
+        <span class="gi">+  secret_key_base: &lt;%= ENV[&quot;SECRET_KEY_BASE&quot;] %&gt;</span>
+        </pre></div>
+        <h2>
+          <a href='full/#config-ru'>config.ru</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,4 +1,4 @@</span>
+         # This file is used by Rack-based servers to start the application.
+         
+        <span class="gd">-require ::File.expand_path(&#39;../config/environment&#39;,  __FILE__)</span>
+        <span class="gi">+require ::File.expand_path(&#39;../config/environment&#39;, __FILE__)</span>
+         run Rails.application
+        </pre></div>
+        <h2>
+          <a href='full/#public-404-html'>public/404.html</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -2,17 +2,23 @@</span>
+         &lt;html&gt;
+         &lt;head&gt;
+           &lt;title&gt;The page you were looking for doesn&#39;t exist (404)&lt;/title&gt;
+        <span class="gi">+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;</span>
+           &lt;style&gt;
+           body {
+             background-color: #EFEFEF;
+             color: #2E2F30;
+             text-align: center;
+             font-family: arial, sans-serif;
+        <span class="gi">+    margin: 0;</span>
+           }
+         
+           div.dialog {
+        <span class="gd">-    width: 25em;</span>
+        <span class="gd">-    margin: 4em auto 0 auto;</span>
+        <span class="gi">+    width: 95%;</span>
+        <span class="gi">+    max-width: 33em;</span>
+        <span class="gi">+    margin: 4em auto 0;</span>
+        <span class="gi">+  }</span>
+        <span class="gi">+</span>
+        <span class="gi">+  div.dialog &gt; div {</span>
+             border: 1px solid #CCC;
+             border-right-color: #999;
+             border-left-color: #999;
+        <span class="gu">@@ -21,7 +27,8 @@</span>
+             border-top-left-radius: 9px;
+             border-top-right-radius: 9px;
+             background-color: white;
+        <span class="gd">-    padding: 7px 4em 0 4em;</span>
+        <span class="gi">+    padding: 7px 12% 0;</span>
+        <span class="gi">+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);</span>
+           }
+         
+           h1 {
+        <span class="gu">@@ -30,19 +37,19 @@</span>
+             line-height: 1.5em;
+           }
+         
+        <span class="gd">-  body &gt; p {</span>
+        <span class="gd">-    width: 33em;</span>
+        <span class="gd">-    margin: 0 auto 1em;</span>
+        <span class="gd">-    padding: 1em 0;</span>
+        <span class="gi">+  div.dialog &gt; p {</span>
+        <span class="gi">+    margin: 0 0 1em;</span>
+        <span class="gi">+    padding: 1em;</span>
+             background-color: #F7F7F7;
+             border: 1px solid #CCC;
+             border-right-color: #999;
+        <span class="gi">+    border-left-color: #999;</span>
+             border-bottom-color: #999;
+             border-bottom-left-radius: 4px;
+             border-bottom-right-radius: 4px;
+             border-top-color: #DADADA;
+             color: #666;
+        <span class="gd">-    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);</span>
+        <span class="gi">+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);</span>
+           }
+           &lt;/style&gt;
+         &lt;/head&gt;
+        <span class="gu">@@ -50,9 +57,11 @@</span>
+         &lt;body&gt;
+           &lt;!-- This file lives in public/404.html --&gt;
+           &lt;div class=&quot;dialog&quot;&gt;
+        <span class="gd">-    &lt;h1&gt;The page you were looking for doesn&#39;t exist.&lt;/h1&gt;</span>
+        <span class="gd">-    &lt;p&gt;You may have mistyped the address or the page may have moved.&lt;/p&gt;</span>
+        <span class="gi">+    &lt;div&gt;</span>
+        <span class="gi">+      &lt;h1&gt;The page you were looking for doesn&#39;t exist.&lt;/h1&gt;</span>
+        <span class="gi">+      &lt;p&gt;You may have mistyped the address or the page may have moved.&lt;/p&gt;</span>
+        <span class="gi">+    &lt;/div&gt;</span>
+        <span class="gi">+    &lt;p&gt;If you are the application owner check the logs for more information.&lt;/p&gt;</span>
+           &lt;/div&gt;
+        <span class="gd">-  &lt;p&gt;If you are the application owner check the logs for more information.&lt;/p&gt;</span>
+         &lt;/body&gt;
+         &lt;/html&gt;
+        </pre></div>
+        <h2>
+          <a href='full/#public-422-html'>public/422.html</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -2,17 +2,23 @@</span>
+         &lt;html&gt;
+         &lt;head&gt;
+           &lt;title&gt;The change you wanted was rejected (422)&lt;/title&gt;
+        <span class="gi">+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;</span>
+           &lt;style&gt;
+           body {
+             background-color: #EFEFEF;
+             color: #2E2F30;
+             text-align: center;
+             font-family: arial, sans-serif;
+        <span class="gi">+    margin: 0;</span>
+           }
+         
+           div.dialog {
+        <span class="gd">-    width: 25em;</span>
+        <span class="gd">-    margin: 4em auto 0 auto;</span>
+        <span class="gi">+    width: 95%;</span>
+        <span class="gi">+    max-width: 33em;</span>
+        <span class="gi">+    margin: 4em auto 0;</span>
+        <span class="gi">+  }</span>
+        <span class="gi">+</span>
+        <span class="gi">+  div.dialog &gt; div {</span>
+             border: 1px solid #CCC;
+             border-right-color: #999;
+             border-left-color: #999;
+        <span class="gu">@@ -21,7 +27,8 @@</span>
+             border-top-left-radius: 9px;
+             border-top-right-radius: 9px;
+             background-color: white;
+        <span class="gd">-    padding: 7px 4em 0 4em;</span>
+        <span class="gi">+    padding: 7px 12% 0;</span>
+        <span class="gi">+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);</span>
+           }
+         
+           h1 {
+        <span class="gu">@@ -30,19 +37,19 @@</span>
+             line-height: 1.5em;
+           }
+         
+        <span class="gd">-  body &gt; p {</span>
+        <span class="gd">-    width: 33em;</span>
+        <span class="gd">-    margin: 0 auto 1em;</span>
+        <span class="gd">-    padding: 1em 0;</span>
+        <span class="gi">+  div.dialog &gt; p {</span>
+        <span class="gi">+    margin: 0 0 1em;</span>
+        <span class="gi">+    padding: 1em;</span>
+             background-color: #F7F7F7;
+             border: 1px solid #CCC;
+             border-right-color: #999;
+        <span class="gi">+    border-left-color: #999;</span>
+             border-bottom-color: #999;
+             border-bottom-left-radius: 4px;
+             border-bottom-right-radius: 4px;
+             border-top-color: #DADADA;
+             color: #666;
+        <span class="gd">-    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);</span>
+        <span class="gi">+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);</span>
+           }
+           &lt;/style&gt;
+         &lt;/head&gt;
+        <span class="gu">@@ -50,9 +57,11 @@</span>
+         &lt;body&gt;
+           &lt;!-- This file lives in public/422.html --&gt;
+           &lt;div class=&quot;dialog&quot;&gt;
+        <span class="gd">-    &lt;h1&gt;The change you wanted was rejected.&lt;/h1&gt;</span>
+        <span class="gd">-    &lt;p&gt;Maybe you tried to change something you didn&#39;t have access to.&lt;/p&gt;</span>
+        <span class="gi">+    &lt;div&gt;</span>
+        <span class="gi">+      &lt;h1&gt;The change you wanted was rejected.&lt;/h1&gt;</span>
+        <span class="gi">+      &lt;p&gt;Maybe you tried to change something you didn&#39;t have access to.&lt;/p&gt;</span>
+        <span class="gi">+    &lt;/div&gt;</span>
+        <span class="gi">+    &lt;p&gt;If you are the application owner check the logs for more information.&lt;/p&gt;</span>
+           &lt;/div&gt;
+        <span class="gd">-  &lt;p&gt;If you are the application owner check the logs for more information.&lt;/p&gt;</span>
+         &lt;/body&gt;
+         &lt;/html&gt;
+        </pre></div>
+        <h2>
+          <a href='full/#public-500-html'>public/500.html</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -2,17 +2,23 @@</span>
+         &lt;html&gt;
+         &lt;head&gt;
+           &lt;title&gt;We&#39;re sorry, but something went wrong (500)&lt;/title&gt;
+        <span class="gi">+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;</span>
+           &lt;style&gt;
+           body {
+             background-color: #EFEFEF;
+             color: #2E2F30;
+             text-align: center;
+             font-family: arial, sans-serif;
+        <span class="gi">+    margin: 0;</span>
+           }
+         
+           div.dialog {
+        <span class="gd">-    width: 25em;</span>
+        <span class="gd">-    margin: 4em auto 0 auto;</span>
+        <span class="gi">+    width: 95%;</span>
+        <span class="gi">+    max-width: 33em;</span>
+        <span class="gi">+    margin: 4em auto 0;</span>
+        <span class="gi">+  }</span>
+        <span class="gi">+</span>
+        <span class="gi">+  div.dialog &gt; div {</span>
+             border: 1px solid #CCC;
+             border-right-color: #999;
+             border-left-color: #999;
+        <span class="gu">@@ -21,7 +27,8 @@</span>
+             border-top-left-radius: 9px;
+             border-top-right-radius: 9px;
+             background-color: white;
+        <span class="gd">-    padding: 7px 4em 0 4em;</span>
+        <span class="gi">+    padding: 7px 12% 0;</span>
+        <span class="gi">+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);</span>
+           }
+         
+           h1 {
+        <span class="gu">@@ -30,19 +37,19 @@</span>
+             line-height: 1.5em;
+           }
+         
+        <span class="gd">-  body &gt; p {</span>
+        <span class="gd">-    width: 33em;</span>
+        <span class="gd">-    margin: 0 auto 1em;</span>
+        <span class="gd">-    padding: 1em 0;</span>
+        <span class="gi">+  div.dialog &gt; p {</span>
+        <span class="gi">+    margin: 0 0 1em;</span>
+        <span class="gi">+    padding: 1em;</span>
+             background-color: #F7F7F7;
+             border: 1px solid #CCC;
+             border-right-color: #999;
+        <span class="gi">+    border-left-color: #999;</span>
+             border-bottom-color: #999;
+             border-bottom-left-radius: 4px;
+             border-bottom-right-radius: 4px;
+             border-top-color: #DADADA;
+             color: #666;
+        <span class="gd">-    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);</span>
+        <span class="gi">+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);</span>
+           }
+           &lt;/style&gt;
+         &lt;/head&gt;
+        <span class="gu">@@ -50,8 +57,10 @@</span>
+         &lt;body&gt;
+           &lt;!-- This file lives in public/500.html --&gt;
+           &lt;div class=&quot;dialog&quot;&gt;
+        <span class="gd">-    &lt;h1&gt;We&#39;re sorry, but something went wrong.&lt;/h1&gt;</span>
+        <span class="gi">+    &lt;div&gt;</span>
+        <span class="gi">+      &lt;h1&gt;We&#39;re sorry, but something went wrong.&lt;/h1&gt;</span>
+        <span class="gi">+    &lt;/div&gt;</span>
+        <span class="gi">+    &lt;p&gt;If you are the application owner check the logs for more information.&lt;/p&gt;</span>
+           &lt;/div&gt;
+        <span class="gd">-  &lt;p&gt;If you are the application owner check the logs for more information.&lt;/p&gt;</span>
+         &lt;/body&gt;
+         &lt;/html&gt;
+        </pre></div>
+        <h2>
+          <a href='full/#test-test_helper-rb'>test/test_helper.rb</a>
+        </h2>
+        <div class="highlight"><pre><span class="gu">@@ -1,14 +1,9 @@</span>
+        <span class="gd">-ENV[&quot;RAILS_ENV&quot;] ||= &quot;test&quot;</span>
+        <span class="gi">+ENV[&#39;RAILS_ENV&#39;] ||= &#39;test&#39;</span>
+         require File.expand_path(&#39;../../config/environment&#39;, __FILE__)
+         require &#39;rails/test_help&#39;
+         
+         class ActiveSupport::TestCase
+        <span class="gd">-  ActiveRecord::Migration.check_pending!</span>
+        <span class="gd">-</span>
+           # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+        <span class="gd">-  #</span>
+        <span class="gd">-  # Note: You&#39;ll currently still have to declare fixtures explicitly in integration tests</span>
+        <span class="gd">-  # -- they do not yet inherit this setting</span>
+           fixtures :all
+         
+           # Add more helper methods to be used by all tests here...
+        </pre></div>
+      </div>
+    </div>
+    <a href='https://github.com/jswanner/RailsDiff'>
+      <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+    </a>
+    <script src='/assets/app.js'></script>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-7325596-4']);
+      _gaq.push(['_setSiteSpeedSampleRate', 100]);
+      _gaq.push(['_trackPageview']);
+      
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'http://www.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
