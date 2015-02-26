@@ -1,5 +1,11 @@
 # RailsDiff
 
+**This repository is only here to serve as an archive for the original
+implementation of RailsDiff.**
+
+Please visit the [new repository for
+RailsDiff](https://github.com/railsdiff/railsdiff).
+
 ## Generating files
 
 This project makes extensive use of Rake. The default task generates all
